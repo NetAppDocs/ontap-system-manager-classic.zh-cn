@@ -1,0 +1,90 @@
+---
+permalink: online-help-96-97/concept_hardware_cache.html 
+sidebar: sidebar 
+keywords: hardware, cache, system, manager, manage, online, help, flash, 
+summary: 您可以使用 System Manager 管理硬件缓存模块。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理硬件缓存
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理硬件缓存模块。
+
+[NOTE]
+====
+Flash Cache 在 System Manager 中称为硬件缓存。
+
+====
+
+
+== 启用或禁用 Flash Cache 模块
+
+您可以使用 System Manager 为安装了 Flash Cache 模块的存储系统启用或禁用外部缓存功能。您可以根据存储系统的工作负载要求启用 Flash Cache 模块。
+
+.步骤
+. 单击 * 配置 * > * 硬件缓存 *
+. 如果要修改一个或多个模块，请根据需要移动滑块按钮以启用或禁用每个模块。
+
+
+
+
+== Flash Cache 模块的工作原理
+
+使用 Flash Cache 模块可提高存储系统的性能。使用 Flash Cache 模块的影响将显示在硬件缓存窗口中。
+
+您可以根据存储系统的工作负载要求配置 Flash Cache 模块和磁盘。通过确定 Flash Cache 模块和磁盘提供的读取工作负载（读取操作数），您可以分析存储系统的性能。
+
+在存储系统启动期间或在接管事件后将控制权交还给存储系统时， Flash Cache 模块不包含任何数据。因此，磁盘将为存储系统的所有数据读取请求提供服务。
+
+在处理数据读取请求时， Flash Cache 模块会慢慢填充数据。由于 Flash Cache 模块提供的数据读取请求比磁盘提供的数据读取请求速度更快，因此存储系统的性能会提高。
+
+Flash Cache 模块提供的数据读取请求将取代磁盘提供的数据读取请求，因此，存储系统的性能提高与替换的磁盘读取直接相关。要了解 Flash Cache 模块对存储系统性能的影响，您必须在 Flash Cache 模块包含数据时在硬件缓存窗口中查看读取工作负载图形。
+
+
+
+== 硬件缓存窗口
+
+您可以使用硬件缓存窗口为安装了 Flash Cache 模块的存储系统启用或禁用 Flash Cache 模块。您还可以查看读取工作负载统计信息。
+
+
+
+=== 模块信息
+
+* * 存储系统名称 *
++
+安装了 Flash Cache 模块的存储系统的名称将显示在图形下方。
+
+* * 启用 / 禁用切换按钮 *
++
+移动切换按钮以启用或禁用此模块。
+
+* * 大小 *
++
+模块的大小（以 GB 为单位）。如果有多个 Flash Cache 模块卡，则会显示所有卡的总缓存大小。
+
++
+[NOTE]
+====
+由于以下原因、显示的Flash Cache模块大小与实际大小不同：
+    - System Manager仅报告ONTAP提供的可用容量。
+    -总容量中有一部分是为存储元数据而预留的。
+
+====
+* * 型号名称 *
++
+模块的型号名称。
+
+* * 系统读取延迟 *
++
+显示平均读取延迟（以毫秒为单位）。
+
+
+
+
+
+=== 缓存读取工作负载
+
+通过显示一个图形来指示存储系统性能，该图形指定了磁盘和 Flash Cache 模块所提供的读取工作负载的速率。

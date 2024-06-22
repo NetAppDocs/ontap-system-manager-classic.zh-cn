@@ -1,0 +1,29 @@
+---
+section: peering
+title: 集群和 SVM 对等配置
+entries:
+- title: 概述
+  url: "/peering/index.html"
+- title: 集群对等的前提条件
+  url: "/peering/reference_prerequisites_for_cluster_peering.html"
+- title: 集群和 SVM 对等工作流
+  url: "/peering/concept_cluster_peering_workflow.html"
+  entries:
+  - title: 准备建立集群对等关系
+    url: "/peering/task_preparing_for_cluster_peering.html"
+  - title: 配置对等关系（从 ONTAP 9.3 开始）
+    url: "/peering/concept_creating_peer_relationships_93_later.html"
+    entries:
+    - title: 创建集群间 LIF （从 ONTAP 9.3 开始）
+      url: "/peering/task_creating_intercluster_lifs.html"
+    - title: 创建集群对等关系（从 ONTAP 9.3 开始）
+      url: "/peering/task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html"
+    - title: 创建 SVM 对等关系
+      url: "/peering/task_creating_svm_peers.html"
+  - title: 配置对等关系（ ONTAP 9.2 及更早版本）
+    url: "/peering/concept_creating_peer_relationship_between_clusters_92_earlier.html"
+    entries:
+    - title: 在所有节点上创建集群间接口（ ONTAP 9.2 或更早版本）
+      url: "/peering/task_creating_intercluster_interfaces_on_all_nodes.html"
+    - title: 创建集群对等关系（ ONTAP 9.2 或更早版本）
+      url: "/peering/task_creating_cluster_peer_relationships_92_earlier.html"

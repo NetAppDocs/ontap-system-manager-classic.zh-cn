@@ -1,0 +1,79 @@
+---
+permalink: online-help-96-97/index.html 
+sidebar: sidebar 
+keywords: system, manager, online, help, management, interface, understand, cluster 
+summary: System Manager 是一个图形管理界面，可用于从 Web 浏览器管理存储系统和存储对象（例如磁盘，卷和聚合）以及执行与存储系统相关的常见管理任务。作为集群管理员，您可以使用 System Manager 管理整个集群及其资源。 
+---
+= 使用 OnCommand ® System Manager 进行集群管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager是一个基于HTML5的图形管理界面、可用于从Web浏览器管理存储系统和存储对象(例如磁盘、卷和聚合)以及执行与存储系统相关的常见管理任务。System Manager作为Web服务随ONTAP软件提供、默认情况下处于启用状态、可使用浏览器进行访问。作为集群管理员，您可以使用 System Manager 管理整个集群及其资源。
+
+[NOTE]
+====
+System Manager 的名称已与先前版本不同。9.5 及更早版本命名为 OnCommand System Manager 。9.6 及更高版本现在称为 ONTAP 系统管理器。
+
+====
+System Manager 可用于执行许多常见任务，例如：
+
+* 创建集群，配置网络并设置集群的支持详细信息。
+* 配置和管理存储对象，例如磁盘，聚合，卷， qtree 和配额。
+* 配置 CIFS 和 NFS 等协议，并配置文件共享。
+* 配置 FC ， FCoE ， NVMe 和 iSCSI 等协议以进行块访问。
+* 创建和配置网络组件，例如子网，广播域，数据和管理接口以及接口组。
+* 设置和管理镜像和存储关系。
+* 执行集群管理，存储节点管理和 Storage Virtual Machine （ SVM ）管理操作。
+* 创建和配置 SVM ，管理与 SVM 关联的存储对象以及管理 SVM 服务。
+* 监控和管理集群中的 HA 配置。
+* 配置服务处理器以远程登录，管理，监控和管理节点，而不管节点的状态如何。
+
+
+
+
+== 信息板窗口图标
+
+查看存储系统的信息板时，您可能会看到以下图标：
+
+|===
+| 图标。 | Name | Description 
+
+
+ a| 
+image:../media/statuswarning.gif["System Manager 信息板中的警告图像"]
+ a| 
+警告
+ a| 
+存在一些小问题，但没有需要立即关注的问题。
+
+
+
+ a| 
+image:../media/statuserror.gif["System Manager 信息板中的错误图"]
+ a| 
+error
+ a| 
+可能最终导致停机从而需要关注的问题。
+
+
+
+ a| 
+image:../media/statuscritical.gif["System Manager 信息板中的严重图像"]
+ a| 
+严重
+ a| 
+存储系统未提供数据或无法联系。需要立即关注。
+
+
+
+ a| 
+image:../media/arrowright.gif["System Manager 信息板中的导航图"]
+ a| 
+链接箭头
+ a| 
+如果此信息显示在信息板窗格中的行项目旁边，则单击它会链接到另一个页面，您可以从中获取有关行项目的详细信息或对行项目进行更改。
+
+|===

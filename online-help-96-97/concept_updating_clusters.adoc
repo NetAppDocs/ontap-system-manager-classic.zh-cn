@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_updating_clusters.html 
+sidebar: sidebar 
+keywords: update, clusters, online, help, system, manager 
+summary: 您可以使用 System Manager 更新集群或高可用性（ HA ）对中的各个节点。您还可以更新 MetroCluster 配置中的集群。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本更新集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新集群或高可用性（ HA ）对中的各个节点。您还可以更新 MetroCluster 配置中的集群。

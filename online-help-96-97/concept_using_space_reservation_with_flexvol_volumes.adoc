@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/concept_using_space_reservation_with_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: space, reservation, flexvol, volume, online, help 
+summary: 使用空间预留，您可以配置 FlexVol 卷。精简配置提供的存储似乎比给定聚合实际可用的存储多，只要当前并未使用所有存储即可。 
+---
+= 在 System Manager - ONTAP 9.7 及更早版本中对 FlexVol 卷使用空间预留
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中，您可以使用空间预留来配置 FlexVol 卷。精简配置提供的存储似乎比给定聚合实际可用的存储多，只要当前并未使用所有存储即可。
+
+厚配置可从聚合中留出足够的存储空间，以确保可以随时写入卷中的任何块。
+
+聚合可以为多个 Storage Virtual Machine （ SVM ）包含的卷提供存储。如果您使用的是精简配置，并且需要在 SVM 之间保持严格的隔离（例如，如果在多租户环境中提供存储），则应使用完全分配的卷（厚配置）或确保聚合不会在租户之间共享。
+
+当空间预留设置为 `Default` 时， ONTAP 空间预留设置将应用于卷。
+
+* 相关信息 *
+
+http://www.netapp.com/us/media/tr-3563.pdf["NetApp 技术报告 3563 ：《 NetApp 精简配置通过按需分配提高存储利用率》"^]
+
+http://www.netapp.com/us/media/tr-3483.pdf["NetApp 技术报告 3483 ：《 NetApp SAN 或 IP SAN 企业环境中的精简配置》"^]

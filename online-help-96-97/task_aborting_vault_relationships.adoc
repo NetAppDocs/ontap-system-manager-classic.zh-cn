@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_aborting_vault_relationships.html 
+sidebar: sidebar 
+keywords: abort, snapshot, copy, transfer, online, help, system, manager 
+summary: 您可以使用 System Manager 中止或停止当前正在进行的数据传输。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本中止 Snapshot 副本传输
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中止或停止当前正在进行的数据传输。
+
+.步骤
+. 单击 * 保护 * > * 卷关系 * 。
+. 选择要停止数据传输的关系，然后单击 * 操作 * > * 中止 * 。
+. 选中 * 是，我要中止传输 * 复选框以确认操作。
+. *可选：*选中*保留所有部分传输的数据*复选框以保留已传输到目标卷的数据。
+. 单击 * 中止 * 。
+
+
+.结果
+传输状态将显示为 "`Aborting` " ，直到操作完成，并在操作完成后显示为 "`Idle` " 。
+
+* 相关信息 *
+
+xref:reference_protection_window.adoc[保护窗口]

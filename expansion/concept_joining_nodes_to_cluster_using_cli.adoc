@@ -1,0 +1,125 @@
+---
+permalink: expansion/concept_joining_nodes_to_cluster_using_cli.html 
+sidebar: sidebar 
+keywords: install, controller, module, cluster, setup, command, join nodes to the cluster using the cli 
+summary: 新安装的控制器模块准备就绪后，您可以使用 cluster setup 命令将每个控制器模块添加到集群中。 
+---
+= 使用命令行界面将节点加入集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+新安装的控制器模块准备就绪后、您可以使用将每个控制器模块添加到集群中 `cluster setup` 命令：
+
+.关于此任务
+* 您必须在两个节点上执行此操作步骤。
+* 您必须一次加入一个节点，而不能同时加入。
+
+
+.步骤
+. [[STEP1]]使用启动集群设置向导 `cluster setup` 命令。
++
+[listing]
+----
+::> cluster setup
+
+Welcome to the cluster setup wizard....
+
+Use your web browser to complete cluster setup by accessing
+https://10.63.11.29
+
+Otherwise, press Enter to complete cluster setup using the
+command line interface:
+----
++
+[NOTE]
+====
+有关使用基于 GUI 的集群设置向导的说明，请参见 xref:task_adding_nodes_to_cluster_using_system_manager.html[使用 System Manager 向集群添加节点]。
+
+====
+. 按 Enter 键以使用命令行界面完成此任务。当系统提示您创建新集群或加入现有集群时、输入 `join`。
++
+[listing]
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+join
+----
+. 当系统提示您输入现有集群接口配置时、按 `Enter` 接受。
++
+[listing]
+----
+Existing cluster interface configuration found:
+
+Port    MTU     IP              Netmask
+e1a     9000    169.254.87.75   255.255.0.0
+
+Do you want to use this configuration? {yes, no} [yes]:
+----
+. 按照提示加入现有集群。
++
+[listing]
+----
+Step 1 of 3: Join an Existing Cluster
+You can type "back", "exit", or "help" at any question.
+
+Enter the name of the cluster you would like to join [cluster1]: cluster1
+
+Joining cluster cluster1
+
+Starting cluster support services ..
+
+This node has joined the cluster cluster1.
+
+Step 2 of 3: Configure Storage Failover (SFO)
+You can type "back", "exit", or "help" at any question.
+
+SFO will be enabled when the partner joins the cluster.
+
+Step 3 of 3: Set Up the Node
+
+Cluster setup is now complete.
+----
++
+节点将自动重命名，以便与集群名称匹配。
+
+. [[Step5]]在集群上、使用验证节点是否属于集群 `cluster show` 命令：
++
+[listing]
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+cluster1-3            true    true
+3 entries were displayed.
+----
+. 重复 link:#step1["第 1 步"] 到 link:#step5["步骤5."] 新安装的第二个控制器模块。
++
+在第二个节点上，集群设置向导在以下方面有所不同：
+
++
+** 它默认加入现有集群，因为其配对集群已属于某个集群。
+** 它会自动在两个节点上启用存储故障转移。
+
+
+. 使用验证存储故障转移是否已启用且可以执行 `storage failover show` 命令：
++
+以下输出显示已在集群的所有节点上启用存储故障转移，并且可以执行此操作，包括新添加的节点：
+
++
+[listing]
+----
+cluster1::> storage failover show
+                              Takeover
+Node           Partner        Possible State
+-------------- -------------- -------- -------------------------------------
+cluster1-1     cluster1-2     true     Connected to cluster1-2
+cluster1-2     cluster1-1     true     Connected to cluster1-1
+cluster1-3     cluster1-4     true     Connected to cluster1-3
+cluster1-4     cluster1-3     true     Connected to cluster1-4
+4 entries were displayed.
+----
+

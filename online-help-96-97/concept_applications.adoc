@@ -1,0 +1,46 @@
+---
+permalink: online-help-96-97/concept_applications.html 
+sidebar: sidebar 
+keywords: application, predefined, template, system, manager, configuration, provision 
+summary: 您可以使用 System Manager 中的预定义应用程序模板基于现有应用程序模板创建新配置。然后，您可以在 ONTAP 中配置应用程序实例。 
+---
+= 使用System Manager - ONTAP 9.7及更早版本配置应用程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版中的预定义应用程序模板（在 ONTAP 9.7 及更早版本中提供），根据现有应用程序模板创建新配置。然后，您可以在 ONTAP 中配置应用程序实例。
+
+您可以通过单击 * 应用程序和层 * > * 应用程序 * 来配置应用程序。
+
+[NOTE]
+====
+如果有人在您查看应用程序列表时使用命令行界面或 REST API 添加新应用程序，则在滚动列表时将无法查看这些新应用程序。
+
+====
+可以在 System Manager 中配置以下应用程序：
+
+* 常规应用程序 *
+
+* NAS 容器（卷导出到 NFS 或 CIFS 客户端）
+* 常规 SAN 应用程序（导出到应用程序服务器的一组 LUN ）
+
+
+* 数据库 *
+
+* MongoDB （通过 SAN ）
+* Oracle （通过 NFS 或 SAN ）
+* Oracle （基于 NFS 或 SAN 的 Real Application Cluster ）
+* Microsoft SQL Server （通过 SAN 或 SMB ）
+
+
+* 虚拟基础架构 *
+
+* 虚拟服务器（使用 VMware ， Hyper-V 或 XEN ）
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"]

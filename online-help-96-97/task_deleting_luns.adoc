@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_deleting_luns.html 
+sidebar: sidebar 
+keywords: delete, lun, system, manager, online, help, aggregate 
+summary: 您可以使用 System Manager 删除 LUN 并将 LUN 使用的空间返回到其所在的聚合或卷。 
+---
+= 使用 System Manager 删除 LUN — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）删除 LUN 并将 LUN 使用的空间返回到其所在的聚合或卷。
+
+.开始之前
+* LUN 必须处于脱机状态。
+* 必须取消 LUN 与所有启动程序主机的映射。
+
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，选择要删除的一个或多个 LUN ，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_luns_window.adoc[LUN 窗口]

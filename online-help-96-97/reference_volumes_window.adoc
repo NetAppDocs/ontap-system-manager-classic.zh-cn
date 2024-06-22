@@ -1,0 +1,494 @@
+---
+permalink: online-help-96-97/reference_volumes_window.html 
+sidebar: sidebar 
+keywords: system, manager, volume, window, flexgroup, volume, online, help 
+summary: 您可以使用卷窗口管理 FlexVol 卷和 FlexGroup 卷。从 System Manager 9.6 开始，您还可以管理 FlexCache 卷。 
+---
+= System Manager 中的卷窗口— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版中的卷窗口（在 ONTAP 9.7 及更早版本中提供）来管理 FlexVol 卷和 FlexGroup 卷。从 System Manager 9.6 开始，您还可以管理 FlexCache 卷。
+
+您不能使用 System Manager 查看或管理为灾难恢复配置的 Storage Virtual Machine （ SVM ）中的卷。您必须改用命令行界面。
+
+[NOTE]
+====
+命令按钮和列列表会因所选卷的类型而异。您只能查看适用于选定卷的命令按钮和列。
+
+====
+
+
+== 选择字段
+
+* * 选择 SVM 下拉菜单 *
++
+用于选择要在列表中显示的所有 SVM 或特定 SVM 。
+
+
+
+
+
+== 命令按钮
+
+* * 创建 * 。
++
+提供了以下选项：
+
++
+** * FlexVol *
++
+打开创建卷对话框，在此可以添加 FlexVol 卷。
+
+** * FlexGroup *
++
+打开创建 FlexGroup 窗口，在此可以创建 FlexGroup 卷。
+
+** * FlexCache *
++
+打开创建 FlexCache 卷窗口，在此可以创建 FlexCache 卷。
+
+
+
+* * 编辑 * 。
++
+用于编辑选定卷的属性。
+
+* * 删除 *
++
+删除选定的一个或多个卷。
+
+* * 更多操作 *
++
+提供了以下选项：
+
++
+** * 将状态更改为 *
++
+将选定卷的状态更改为以下状态之一：
+
++
+*** 联机
+*** 脱机
+*** 限制
+
+
+** * 调整大小 *
++
+用于更改卷的大小。
+
++
+对于 FlexGroup 卷，您可以使用现有资源调整卷大小，也可以添加新资源以扩展卷。
+
++
+对于 FlexCache 卷，您还可以添加或删除聚合。
+
+** * 保护 *
++
+为选定源卷打开创建保护关系窗口。
+
+** * 管理快照 *
++
+提供 Snapshot 选项列表，其中包括以下选项：
+
++
+*** * 创建 * 。
++
+显示创建 Snapshot 对话框，在此可以为选定卷创建 Snapshot 副本。
+
+*** * 配置设置 *
++
+配置 Snapshot 设置。
+
+*** * 还原 *
++
+还原选定卷的 Snapshot 副本。
+
+
+
+** * 克隆 *
++
+提供克隆选项列表，其中包括以下选项：
+
++
+*** * 创建 * 。
++
+为选定卷创建克隆或从选定卷创建文件克隆。
+
+*** * 拆分 *
++
+从父卷拆分克隆。
+
+*** * 查看层次结构 *
++
+显示有关克隆层次结构的信息。
+
+
+
+** * 存储效率 * 。
++
+打开存储效率对话框，在此可以手动启动重复数据删除或中止正在运行的重复数据删除操作。只有在存储系统上启用了重复数据删除时，才会显示此按钮。
+
+** * 移动 *
++
+打开移动卷对话框，在此可以将卷从一个聚合或节点移动到同一 SVM 中的另一个聚合或节点。
+
+** * 存储服务质量 *
++
+打开服务质量详细信息对话框，在此可以将一个或多个卷分配给新的或现有的策略组。
+
+** * 更改分层策略 *
++
+用于更改选定卷的分层策略。
+
+** * 卷加密重新设置密钥 *
++
+更改卷的数据加密密钥。
+
++
+卷中的数据将使用自动生成的新密钥重新加密。重新设置密钥操作完成后，旧密钥将自动删除。
+
++
+从 System Manager 9.6 开始， FlexGroup DP 卷和 FlexCache 卷支持卷加密重新设置密钥。对于从 NAE 聚合继承加密的卷，已禁用重新设置密钥。
+
++
+[NOTE]
+====
+如果在对同一个卷执行重新设置密钥操作时启动卷移动操作，则重新设置密钥操作将中止。在 System Manager 9.5 及更早版本中，如果在对卷执行转换或重新设置密钥操作时尝试移动卷，则此操作将中止，而不会发出警告。从 System Manager 9.6 开始，如果您在转换或重新设置密钥操作期间尝试移动卷，则会显示一条消息，警告您如果继续操作，转换或重新设置密钥操作将中止。
+
+====
+** * 为 VMware 配置存储 *
++
+用于为 NFS 数据存储库创建卷并指定可访问 NFS 数据存储库的 ESX 服务器。
+
+
+
+* * 查看缺少的保护关系 *
++
+显示处于联机状态且不受保护的读 / 写卷，并显示具有保护关系但未初始化的卷。
+
+* * 重置筛选器 *
++
+用于重置为查看缺少的保护关系而设置的筛选器。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+* *image:../media/advanced_options.gif[""]*
++
+用于选择要在卷窗口的列表中显示的详细信息。
+
+
+
+
+
+== 卷列表
+
+* * 状态 *
++
+显示卷的状态。
+
+* * 名称 *
++
+显示卷的名称。
+
+* * 模式 *
++
+在 System Manager 9.5 中，此列显示卷的类型，例如 FlexVol 或 FlexGroup 。使用命令行界面创建的 FlexCache 卷显示为 FlexGroup 卷。
+
++
+在 System Manager 9.6 中，此列显示卷的类型： FlexVol ， FlexGroup 或 FlexCache 。
+
+* * SVM*
++
+显示包含卷的 SVM 。
+
+* * 聚合 *
++
+显示属于卷的聚合的名称。
+
+* * 精简配置 *
++
+显示是否为选定卷设置了空间保证。联机卷的有效值为 `Yes` 和 `No`。
+
+* * 根卷 *
++
+显示卷是否为根卷。
+
+* * 可用空间 *
++
+显示卷中的可用空间。
+
+* * 总空间 *
++
+显示卷中的总空间，包括为 Snapshot 副本预留的空间。
+
+* 已用 * % *
++
+显示卷中的已用空间量（以百分比表示）。
+
+* * 逻辑已用 %*
++
+显示卷中已用的逻辑空间量（以百分比表示），包括空间预留。
+
++
+[NOTE]
+====
+只有在使用命令行界面启用了逻辑空间报告后，才会显示此字段。
+
+====
+* * 逻辑空间报告 *
++
+显示是否已在卷上启用逻辑空间报告。
+
++
+[NOTE]
+====
+只有在使用命令行界面启用了逻辑空间报告后，才会显示此字段。
+
+====
+* * 逻辑空间强制实施 *
++
+显示是否对卷执行逻辑空间核算。
+
+* * 类型 *
++
+显示卷的类型： `rw` 对于读/写、 `ls` 对于负载共享、或 `dp` 数据保护。
+
+* * 保护关系 *
++
+显示卷是否已启动保护关系。
+
++
+如果此关系是在ONTAP系统和非ONTAP系统之间建立的、则此值将显示为 `No` 默认情况下。
+
+* * 存储效率 * 。
++
+显示选定卷是启用还是禁用了重复数据删除。
+
+* * 已加密 *
++
+显示卷是否已加密。
+
+* * QoS 策略组 *
++
+显示将卷分配到的存储 QoS 策略组的名称。默认情况下，此列处于隐藏状态。
+
+* * SnapLock 类型 *
++
+显示卷的 SnapLock 类型。
+
+* * 克隆 *
++
+显示卷是否为 FlexClone 卷。
+
+* * 卷是否正在移动 *
++
+显示卷是从一个聚合移动到另一个聚合还是从一个节点移动到另一个节点。
+
+* * 分层策略 *
++
+显示启用了 FabricPool 的聚合的分层策略。默认分层策略为 `snapshot-only` 。
+
+* * 应用程序 *
++
+显示分配给卷的应用程序的名称。
+
+
+
+
+
+== 概述区域
+
+您可以单击卷所在行左侧的加号（ + ）以查看有关该卷的详细信息的概述。
+
+* * 保护 *
++
+显示选定卷的卷窗口中的 * 数据保护 * 选项卡。
+
+* * 性能 *
++
+显示选定卷的卷窗口的 * 性能 * 选项卡。
+
+* * 显示更多详细信息 *
++
+显示选定卷的卷窗口。
+
+
+
+
+
+== 选定卷的卷窗口
+
+您可以通过以下任一方法显示此窗口：
+
+* 在卷窗口的卷列表中单击卷名称。
+* 在为选定卷显示的 * 概述 * 区域中单击 * 显示更多详细信息 * 。
+
+
+卷窗口将显示以下选项卡：
+
+* * 概述选项卡 *
++
+显示有关选定卷的常规信息，并以图形方式显示卷的空间分配，卷的保护状态以及卷的性能。概述选项卡显示有关卷加密的详细信息，例如加密状态和加密类型，转换状态或重新设置密钥状态，正在移动的卷的相关信息，例如卷移动的状态和阶段， 要将卷移动到的目标节点和聚合，卷移动完成的百分比，完成卷移动操作的估计时间以及卷移动操作的详细信息。此选项卡还会显示有关是否阻止卷执行输入 / 输出（ I/O ）操作以及阻止该操作的应用程序的信息。
+
++
+对于 FlexCache 卷，将显示有关 FlexCache 卷的初始卷的详细信息。
+
++
+性能数据的刷新间隔为 15 秒。
+
++
+此选项卡包含以下命令按钮：
+
++
+** * 转换 *
++
+打开转换对话框，在此可以手动触发转换。
+
++
+只有在卷移动操作处于 " `re复制` " 或 "`硬延迟` " 状态时，才会显示 * 转换 * 命令按钮。
+
+
+
+* * Snapshot 副本选项卡 *
++
+显示选定卷的 Snapshot 副本。此选项卡包含以下命令按钮：
+
++
+** * 创建 * 。
++
+打开创建 Snapshot 副本对话框，在此可以为选定卷创建 Snapshot 副本。
+
+** * 配置设置 *
++
+配置 Snapshot 设置。
+
+** 菜单：更多操作 [ 重命名 ]
++
+打开重命名 Snapshot 副本对话框，在此可以重命名选定的 Snapshot 副本。
+
+** 菜单：更多操作 [ 还原 ]
++
+还原 Snapshot 副本。
+
+** 菜单：更多操作 [ 延长到期期限 ]
++
+延长 Snapshot 副本的到期期限。
+
+** * 删除 *
++
+删除选定的 Snapshot 副本。
+
+** * 刷新 *
++
+更新窗口中的信息。
+
+
+
+* * 数据保护选项卡 *
++
+显示有关选定卷的数据保护信息。
+
++
+如果选择了源卷（读 / 写卷），则此选项卡将显示与目标卷（ DP 卷）相关的所有镜像关系，存储关系以及镜像和存储关系。如果选择目标卷，则此选项卡将显示与源卷的关系。
+
++
+如果本地集群的部分或全部集群对等关系处于不正常状态，则 " 数据保护 " 选项卡可能需要一段时间才能显示与运行正常的集群对等关系相关的保护关系。不会显示与运行状况不正常的集群对等关系相关的关系。
+
+* * 存储效率选项卡 *
++
+在以下窗格中显示信息：
+
++
+** 条形图
++
+以图形格式显示数据和 Snapshot 副本使用的卷空间。您可以查看有关应用存储效率节省设置前后所用空间的详细信息。
+
+** 详细信息
++
+显示有关重复数据删除属性的信息，包括卷上是否启用了重复数据删除，重复数据删除模式，重复数据删除状态，类型以及卷上是否启用了实时数据压缩或后台数据压缩。
+
+** 上次运行详细信息
++
+提供有关上次对卷运行重复数据删除操作的详细信息。此外，还会显示对卷上的数据应用数据压缩和重复数据删除操作所节省的空间。
+
+
+
+* * 性能选项卡 *
++
+显示有关选定卷的平均性能指标，读取性能指标和写入性能指标的信息，包括吞吐量， IOPS 和延迟。
+
++
+更改客户端时区或集群时区会影响性能指标图。您必须刷新浏览器才能查看更新后的图形。
+
+* * FlexCache 选项卡 *
++
+只有当您选择的卷是具有关联 FlexCache 卷的初始卷时，才会显示有关 FlexCache 卷的详细信息。否则，不会显示此选项卡。
+
+
+
+* 相关信息 *
+
+xref:task_creating_flexvol_volumes.adoc[创建 FlexVol 卷]
+
+xref:task_creating_flexclone_volumes.adoc[创建 FlexClone 卷]
+
+xref:task_creating_flexclone_files.adoc[创建 FlexClone 文件]
+
+xref:task_deleting_volumes.adoc[删除卷]
+
+xref:task_setting_snapshot_copy_reserve.adoc[设置 Snapshot 副本预留]
+
+xref:task_deleting_snapshot_copies.adoc[正在删除 Snapshot 副本]
+
+xref:task_creating_snapshot_copies_outside_defined_schedule.adoc[在定义的计划之外创建 Snapshot 副本]
+
+xref:task_editing_volume_properties.adoc[编辑卷属性]
+
+xref:task_changing_status_volume.adoc[更改卷的状态]
+
+xref:task_enabling_storage_efficiency_on_volume.adoc[在卷上启用存储效率]
+
+xref:task_changing_deduplication_schedule.adoc[更改重复数据删除计划]
+
+xref:task_running_deduplication_operations.adoc[运行重复数据删除操作]
+
+xref:task_splitting_flexclone_volume_from_its_parent_volume.adoc[将 FlexClone 卷与其父卷拆分]
+
+xref:task_resizing_volumes.adoc[调整卷大小]
+
+xref:task_restoring_volume_from_snapshot_copy.adoc[从 Snapshot 副本还原卷]
+
+xref:task_scheduling_automatic_creation_snapshot_copies.adoc[计划自动创建 Snapshot 副本]
+
+xref:task_renaming_snapshot_copies.adoc[重命名 Snapshot 副本]
+
+xref:task_hiding_snapshot_copy_directory.adoc[隐藏 Snapshot 副本目录]
+
+xref:task_viewing_flexclone_volumes_hierarchy.adoc[查看 FlexClone 卷层次结构]
+
+xref:task_creating_flexgroup_volumes.adoc[创建 FlexGroup 卷]
+
+xref:task_editing_flexgroup_volumes.adoc[编辑 FlexGroup 卷]
+
+xref:task_resizing_flexgroup_volumes.adoc[调整 FlexGroup 卷大小]
+
+xref:task_changing_status_flexgroup_volume.adoc[更改 FlexGroup 卷的状态]
+
+xref:task_deleting_flexgroup_volumes.adoc[删除 FlexGroup 卷]
+
+xref:task_viewing_flexgroup_volume_information.adoc[查看 FlexGroup 卷信息]
+
+xref:task_creating_flexcache_volumes.adoc[创建 FlexCache 卷]
+
+xref:task_editing_flexcache_volumes.adoc[编辑 FlexCache 卷]
+
+xref:task_resizing_flexcache_volumes.adoc[调整 FlexCache 卷大小]
+
+xref:task_deleting_flexcache_volumes.adoc[删除 FlexCache 卷]

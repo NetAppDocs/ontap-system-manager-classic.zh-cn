@@ -1,0 +1,57 @@
+---
+permalink: online-help-96-97/task_creating_portsets.html 
+sidebar: sidebar 
+keywords: system, manager, port, set, create, online, help, lun, delete, edit, manage 
+summary: 您可以使用 ONTAP System Manager classic 创建，删除和编辑端口集。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理端口集
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建，删除和编辑端口集。
+
+
+
+== 创建端口集
+
+您可以使用 ONTAP System Manager classic 创建端口集，以限制对 LUN 的访问。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * 端口集 * 选项卡中，单击 * 创建 * 。
+. 在 * 创建端口集 * 对话框中，选择协议类型。
+. 选择要与端口集关联的网络接口。
+. 单击 * 创建 * 。
+
+
+
+
+== 删除端口集
+
+您可以使用 System Manager 删除不再需要的端口集。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * 端口集 * 选项卡中，选择一个或多个端口集，然后单击 * 删除 * 。
+. 单击 * 删除 * 确认删除。
+
+
+
+
+== 编辑端口集
+
+您可以使用 System Manager 中的端口集选项卡编辑与端口集相关的设置。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * 端口集 * 选项卡中，选择要编辑的端口集，然后单击 * 编辑 * 。
+. 在 * 编辑端口集 * 对话框中，进行必要的更改。
+. 单击 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:task_configuring_iscsi_protocol_on_svms.adoc[在 SVM 上配置 iSCSI 协议]

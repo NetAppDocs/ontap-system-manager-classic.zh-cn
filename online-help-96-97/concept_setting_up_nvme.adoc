@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/concept_setting_up_nvme.html 
+sidebar: sidebar 
+keywords: NVMe, protocol, online, help, svm, system, manager, namespace, host, subsystem 
+summary: 您可以使用 System Manager 为 SVM 设置 NVMe 协议。在 SVM 上启用 NVMe 协议后，您可以配置一个或多个命名空间并将其分配给主机和子系统。 
+---
+= 使用 System Manager 设置 NVMe — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)为SVM设置NVMe协议。在 SVM 上启用 NVMe 协议后，您可以配置一个或多个命名空间并将其分配给主机和子系统。
+
+从 ONTAP 9.5 开始，必须为使用 NVMe 协议的 HA 对中的每个节点至少配置一个 NVMe LIF 。您还可以为每个节点最多定义两个 NVMe LIF 。您可以在使用 System Manager 创建或编辑 SVM 设置时配置 NVMe LIF 。
+
+下图显示了设置 NVMe 的工作流：
+
+image::../media/nvme_setup_workflow.gif[NVMe 设置工作流]

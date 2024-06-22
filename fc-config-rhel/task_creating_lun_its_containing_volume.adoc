@@ -1,0 +1,49 @@
+---
+permalink: fc-config-rhel/task_creating_lun_its_containing_volume.html 
+sidebar: sidebar 
+keywords: create, lun, wizard, igroup, map, create a lun 
+summary: 您可以使用创建 LUN 向导创建 LUN 。此向导还会创建 igroup 并将 LUN 映射到 igroup ，从而使指定主机能够访问此 LUN 。 
+---
+= 创建LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用创建 LUN 向导创建 LUN 。此向导还会创建 igroup 并将 LUN 映射到 igroup ，从而使指定主机能够访问此 LUN 。
+
+.开始之前
+* 必须有一个具有足够可用空间的聚合来容纳 LUN 。
+* 必须存在启用了 FC 协议并创建了相应逻辑接口（ LIF ）的 Storage Virtual Machine （ SVM ）。
+* 您必须已记录主机 FC 端口的全球通用端口名称（ WWPN ）。
+
+
+.关于此任务
+如果您的组织具有命名约定，则应根据您的约定为 LUN ，卷等使用名称。否则，您应接受默认名称。
+
+.步骤
+. 导航到 * LUN * 窗口。
+. 选择 * 创建。 *
+. 浏览并选择要在其中创建 LUN 的 SVM 。
++
+此时将显示创建 LUN 向导。
+
+. 在 * 常规属性 * 页面上，为 Linux 主机直接使用的 LUN 选择 LUN 类型 * Linux * 。
++
+保持未选中 * 精简配置 * 复选框。
+
++
+image::../media/lun_creation_thin_provisioned_linux_fc_rhel.gif[图中显示了未选中精简配置复选框的对话框。]
+
+. 在 * LUN Container* 页面上，选择现有的 FlexVol 卷。
++
+您必须确保卷中有足够的空间。如果现有卷没有足够的可用空间，您可以创建新卷。
+
+. 在 * 启动程序映射 * 页面上，选择 * 添加启动程序组 * ，在 * 常规 * 选项卡上输入所需信息，然后在 * 启动程序 * 选项卡上输入您记录的主机 FC 端口的所有 WWPN 。
+. 确认详细信息，然后选择 * 完成 * 以完成向导。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["系统管理"]

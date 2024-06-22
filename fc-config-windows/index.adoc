@@ -1,0 +1,47 @@
+---
+permalink: fc-config-windows/index.html 
+sidebar: sidebar 
+keywords: describe, fc, service, storage virtual machine, svm, provision, lun, hba, windows, host 
+summary: 您可以在 Storage Virtual Machine 上快速设置 FC 服务，配置 LUN 以及使用 Windows 主机计算机上的 FC HBA 使 LUN 可用。 
+---
+= 适用于 Windows 的 FC 配置概述
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在 Storage Virtual Machine （ SVM ）上快速设置 FC 服务，配置 LUN ，并使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本）在 Windows 主机计算机上使用 FC HBA 使 LUN 可用。
+
+如果出现以下情况，请使用此操作步骤在 SVM 上设置 FC 服务：
+
+* 您使用的是传统 FC HBA 和交换机。
+
+
+此操作步骤不包括以下情况：
+
+* 集群中的每个节点上至少有两个可用的 FC 目标端口。
+板载FC和UTA2 (也称为 `CNA`)端口以及某些适配器是可配置的。这些端口的配置会在 ONTAP 命令行界面中完成，此操作步骤不会对此进行介绍。
+* 您未配置 FC SAN 启动。
+* 您未将虚拟光纤通道（ VFC ）与 Hyper-V 或 ESX 子系统结合使用。
+
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+|===
+
+
+| 要执行以下任务，请执行以下操作 ... | 请参见 ... 
+
+
+| 重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本） | link:https://docs.netapp.com/us-en/ontap/task_san_provision_windows.html["为 Windows 服务器配置 SAN 存储"^] 
+
+
+| ONTAP 命令行界面（ CLI ） | link:https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html["使用 CLI 设置 LUN 的工作流"^] 
+|===
+.其他资源
+* https://docs.netapp.com/us-en/ontap-sanhost/index.html["NetApp 文档： Host Utilities"^]
+

@@ -1,0 +1,26 @@
+---
+permalink: nfs-config-esxi/task_configuring_esxi_host_best_practice_settings.html 
+sidebar: sidebar 
+keywords: ensure, esxi, practice, setting, correct, host, loss, nfs, connection, storage, configure, configure the esxi host best practice settings 
+summary: 您必须确保 ESXi 主机最佳实践设置正确，以便 ESXi 主机能够正确管理 NFS 连接或存储的丢失。 
+---
+= 配置 ESXi 主机最佳实践设置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确保 ESXi 主机最佳实践设置正确，以便 ESXi 主机能够正确管理 NFS 连接或存储的丢失。
+
+.步骤
+. 在 VMware vSphere Web Client * 主页 * 页面中，单击 * vCenter * > * 主机 * 。
+. 右键单击主机，然后选择 * 操作 * > * NetApp VSC* > * 设置建议值 * 。
+. 在 * NetApp 建议设置 * 对话框中，确保已选择所有选项，然后单击 * 确定 * 。
++
+MPIO 设置不适用于 NFS 。但是，如果您使用其他协议，则应确保已选择所有选项。
+
++
+vCenter Web Client 将显示任务进度。
+
+

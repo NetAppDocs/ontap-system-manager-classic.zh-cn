@@ -1,0 +1,44 @@
+---
+permalink: nfs-config/index.html 
+sidebar: sidebar 
+keywords: nfs, access, volume, exist, storage, virtual, machine, svm, system manager classic 
+summary: 您可以使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本）在新的或现有的 Storage Virtual Machine （ SVM ）上快速设置对新卷的 NFS 访问。 
+---
+= NFS 配置概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本）在新的或现有的 Storage Virtual Machine （ SVM ）上快速设置对新卷的 NFS 访问。
+
+如果要按以下方式配置对卷的访问，请使用此操作步骤：
+
+* NFS 访问将通过 NFSv3 进行，而不是通过 NFSv4 或 NFSv4.1 进行。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您的数据网络使用默认 IP 空间，默认广播域和默认故障转移组。
++
+如果您的数据网络正常运行，则使用这些默认对象可确保在链路出现故障时 LIF 能够正确地进行故障转移。如果您不使用默认对象，应参见 https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理文档"^] 有关如何配置 LIF 路径故障转移的信息。
+
+* UNIX 文件权限将用于保护新卷的安全。
+* LDAP （如果使用）由 Active Directory 提供。
+
+
+如果要了解有关ONTAP NFS协议功能范围的详细信息、请参见 link:https://docs.netapp.com/us-en/ontap/nfs-admin/index.html["NFS参考概述"^]。
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+|===
+
+
+| 要执行以下任务，请执行以下操作 ... | 请参见 ... 
+
+
+| 重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本） | link:https://docs.netapp.com/us-en/ontap/task_nas_provision_linux_nfs.html["使用 NFS 为 Linux 服务器配置 NAS 存储"^] 
+
+
+| ONTAP 命令行界面 | link:https://docs.netapp.com/us-en/ontap/nfs-config/index.html["使用命令行界面概述 NFS 配置"^] 
+|===

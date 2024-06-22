@@ -1,0 +1,96 @@
+---
+permalink: online-help-96-97/task_adding_licenses.html 
+sidebar: sidebar 
+keywords: system, manager, add, license, storage, software, online, help 
+summary: 如果您的存储系统软件是在出厂时安装的，则 System Manager 会自动将该软件添加到其许可证列表中。如果出厂时未安装该软件，或者您要添加其他软件许可证，则可以使用 System Manager 添加软件许可证。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本添加许可证
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果出厂时未安装 ONTAP System Manager 经典版软件（在 ONTAP 9.7 及更早版本中提供），或者您希望添加其他软件许可证，则可以使用 System Manager 经典版来添加软件许可证。
+
+如果您的存储系统软件是在出厂时安装的，则 System Manager 会自动将该软件添加到其许可证列表中。
+
+.开始之前
+必须提供特定 ONTAP 服务的软件许可证代码。
+
+.关于此任务
+* 从ONTAP 9.10.1开始、您可以使用System Manager安装NetApp许可证文件(NLF)、以便同时启用多个许可功能。使用 NetApp 许可证文件可以简化许可证安装，因为您不再需要添加单独的功能许可证密钥。您可以从 NetApp 支持站点下载 NetApp 许可证文件。
++
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["通过添加许可证密钥启用新功能"]
+
++
+有关管理许可证的信息、请参见 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理许可证概述（仅限集群管理员）"^]
+
+* 在 MetroCluster 配置中添加新许可证时，最好也在运行正常的站点集群上添加此许可证。
+* 您不能使用 System Manager 添加 Cloud Volumes ONTAP 许可证。
++
+Cloud Volumes ONTAP 许可证未列在许可证页面中。System Manager 不会就 Cloud Volumes ONTAP 许可证的授权风险状态发出任何警报。
+
+* 您只能上传基于容量的许可证。
++
+基于容量的许可证类型为 "`json` " 。
+
+
+
+.步骤
+. 单击 * 配置 * > * 集群 * > * 许可证 * 。
+. 单击 * 添加 * 。
+. 在 * 添加许可证 * 对话框中，执行相应步骤：
++
+|===
+| 如果您要 ... | 执行此操作 ... 
+
+
+ a| 
+为特定 ONTAP 服务添加许可证
+ a| 
+.. 输入软件许可证密钥。
++
+您可以通过输入以逗号分隔的软件许可证密钥来添加多个许可证。
+
+.. 单击 * 添加 * 。
+
+
+
+
+ a| 
+添加基于容量的许可证
+ a| 
+.. 单击浏览，然后选择基于容量的许可证文件。
+.. 单击 * 添加 * 。
+
+
+
+
+ a| 
+为特定 ONTAP 服务添加许可证并添加基于容量的许可证
+ a| 
+.. 输入软件许可证密钥。
++
+您可以通过输入以逗号分隔的软件许可证密钥来添加多个许可证。
+
+.. 单击浏览，然后选择基于容量的许可证文件。
+.. 单击 * 添加 * 。
+
+
+|===
++
+此时将添加新许可证。
+
++
+添加许可证状态对话框将显示已成功添加的许可证列表。此对话框还会显示未添加的许可证的许可证密钥以及未添加这些许可证的原因。
+
+. 单击 * 关闭 * 。
+
+
+.结果
+软件许可证将添加到存储系统中，并显示在许可证窗口的许可证列表中。
+
+* 相关信息 *
+
+xref:reference_licenses_window.adoc[许可证窗口]

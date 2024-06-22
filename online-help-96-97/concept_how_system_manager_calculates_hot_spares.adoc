@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/concept_how_system_manager_calculates_hot_spares.html 
+sidebar: sidebar 
+keywords: system, manager, hot, spares, disk, storage, raid, online, help 
+summary: 热备用磁盘是指已分配给存储系统但未被任何 RAID 组使用的磁盘。热备用磁盘不包含任何数据，当 RAID 组中发生磁盘故障时，这些热备用磁盘会分配给 RAID 组。System Manager 使用最大的磁盘作为热备用磁盘。 
+---
+= System Manager 如何使用热备件— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+热备用磁盘是指已分配给存储系统但未被任何 RAID 组使用的磁盘。热备用磁盘不包含任何数据，当 RAID 组中发生磁盘故障时，这些热备用磁盘会分配给 RAID 组。ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）使用最大的磁盘作为热备用磁盘。
+
+如果 RAID 组中的磁盘类型不同，则每个磁盘类型中大小最大的磁盘将保留为热备用磁盘。例如，如果 RAID 组中有 10 个 SATA 磁盘和 10 个 SAS 磁盘，则最大大小的 SATA 磁盘和最大大小的 SAS 磁盘将用作热备用磁盘。
+
+如果对最大大小的磁盘进行分区，则会为分区和未分区的 RAID 组单独提供热备用磁盘。如果最大大小的磁盘未分区，则会提供一个备用磁盘。
+
+如果磁盘组中存在根分区，则大小最大的未分区磁盘将保留为热备用磁盘。如果大小相同的未分区磁盘不可用，则备用根分区将保留为根分区组的热备用磁盘。
+
+一个备用磁盘可用作多个 RAID 组的热备用磁盘。System Manager将根据选项中设置的值计算热备用磁盘 `raid.min_spare_count` 在节点级别。例如、如果SSD RAID组中有10个SSD、则选择选项 `raid.min_spare_count` 设置为 `1` 在节点级别、System Manager保留1个SSD作为热备用磁盘、而使用其他9个SSD执行与SSD相关的操作。同样、如果HDD RAID组中有10个HDD、请选择选项 `raid.min_spare_count` 设置为 `2` 在节点级别、System Manager会保留2个HDD作为热备用磁盘、而使用其他8个HDD来执行与HDD相关的操作。
+
+在创建聚合，编辑聚合以及向聚合添加 HDD 或 SSD 时， System Manager 会对 RAID 组强制实施热备用规则。在创建存储池或向现有存储池添加磁盘时，也会使用热备用规则。
+
+System Manager 中的热备用规则存在例外情况：
+
+* 对于多磁盘托架中的 mSATA 或磁盘，热备用磁盘数是节点级别设置的值的两倍，并且此数量在任何时候都不得小于 2 。
+* 如果磁盘属于阵列 LUN 或虚拟存储设备，则不会使用热备用磁盘。
+

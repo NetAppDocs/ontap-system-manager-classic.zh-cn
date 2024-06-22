@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/task_deleting_flexgroup_volumes.html 
+sidebar: sidebar 
+keywords: delete, flexgroup, volumes, online, help, system, manager 
+summary: 您可以使用 System Manager 删除不再需要 FlexGroup 的 FlexGroup 卷。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本删除 FlexGroup 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当您不再需要 FlexGroup 卷时，可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）删除 FlexGroup 卷。
+
+.开始之前
+* 必须卸载 FlexGroup 卷的接合路径。
+* FlexGroup 卷必须处于脱机状态。
+
+
+.关于此任务
+System Manager 不支持对 FlexGroup 卷进行成分卷级别的管理。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要删除的 FlexGroup 卷，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 确定 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

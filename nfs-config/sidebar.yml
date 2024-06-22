@@ -1,0 +1,50 @@
+---
+section: nfs-config
+title: NFS配置
+entries:
+- title: 概述
+  url: "/nfs-config/index.html"
+- title: NFS 配置工作流
+  url: "/nfs-config/concept_cifs_nfs_configuration_workflow.html"
+  entries:
+  - title: 创建聚合
+    url: "/nfs-config/task_creating_aggregate.html"
+  - title: 确定在何处配置新卷
+    url: "/nfs-config/task_deciding_where_to_provision_new_volume.html"
+- title: 创建启用了 NFS 的新 SVM
+  url: "/nfs-config/task_creating_protocol_enabled_svm.html"
+  entries:
+  - title: 使用 NFS 卷和导出创建新的 SVM
+    url: "/nfs-config/task_creating_new_svm.html"
+  - title: 打开 SVM 根卷的导出策略（创建启用了 NFS 的新 SVM ）
+    url: "/nfs-config/task_opening_export_policy_svm_root_volume.html"
+  - title: 配置 LDAP （创建启用了 NFS 的新 SVM ）
+    url: "/nfs-config/task_configuring_ldap_new_svm.html"
+  - title: 从 UNIX 管理主机验证 NFS 访问
+    url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+  - title: 配置和验证 NFS 客户端访问（创建启用了 NFS 的新 SVM ）
+    url: "/nfs-config/task_configuring_verifying_client_access_new_svm.html"
+- title: 配置对现有 SVM 的 NFS 访问
+  url: "/nfs-config/task_configuring_access_to_existing_svm.html"
+  entries:
+  - title: 添加对现有 SVM 的 NFS 访问
+    url: "/nfs-config/concept_adding_nas_access_to_existing_svm.html"
+  - title: 打开 SVM 根卷的导出策略（配置对现有 SVM 的 NFS 访问）
+    url: "/nfs-config/task_opening_export_policy_svm_root_volume_existing_svm.html"
+  - title: 配置 LDAP （配置对现有 SVM 的 NFS 访问）
+    url: "/nfs-config/task_configuring_ldap_existing_svm.html"
+  - title: 从 UNIX 管理主机验证 NFS 访问
+    url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+  - title: 配置和验证 NFS 客户端访问（配置对现有 SVM 的 NFS 访问）
+    url: "/nfs-config/task_configuring_verifying_client_access_add_nfs_existing_svm.html"
+- title: 将 NFS 卷添加到启用了 NFS 的 SVM
+  url: "/nfs-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html"
+  entries:
+  - title: 创建并配置卷
+    url: "/nfs-config/task_creating_configuring_volume.html"
+  - title: 为卷创建导出策略
+    url: "/nfs-config/task_creating_export_policy_for_volume.html"
+  - title: 从 UNIX 管理主机验证 NFS 访问
+    url: "/nfs-config/task_verifying_nfs_access_from_unix_administration_host.html"
+  - title: 配置并验证 NFS 客户端访问（将 NFS 卷添加到启用了 NFS 的 SVM ）
+    url: "/nfs-config/task_configuring_verifying_client_access_add_vol_existing_nfs_svm.html"

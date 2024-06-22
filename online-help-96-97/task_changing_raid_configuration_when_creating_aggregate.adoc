@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_changing_raid_configuration_when_creating_aggregate.html 
+sidebar: sidebar 
+keywords: system, manager, raid, configuration, aggregate, online, help 
+summary: 创建聚合时，您可以使用 System Manager 修改聚合的 RAID 类型和 RAID 组大小选项的默认值。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建聚合时更改 RAID 配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+创建聚合时，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）修改聚合的 RAID 类型和 RAID 组大小选项的默认值。
+
+.关于此任务
+如果聚合磁盘的磁盘类型为 FSAS 或 MSATA ，并且磁盘大小等于或大于 10 TB ，则 RAID-TEC 是唯一可用的 RAID 类型。
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 在 * 存储层 * 窗口中，单击 * 添加聚合 * 。
+. 在 * 创建聚合 * 对话框中，执行以下步骤：
++
+.. 单击 * 更改 * 。
+.. 在 * 更改 RAID 配置 * 对话框中，指定 RAID 类型和 RAID 组大小。
++
+共享磁盘支持两种 RAID 类型： RAID DP 和 RAID-TEC 。
+
++
+对于 HDD ，建议的 RAID 组大小为 12 个磁盘到 20 个磁盘，对于 SSD ，建议的 RAID 组大小为 20 个磁盘到 28 个磁盘。
+
+.. 单击 * 保存 * 。
+
+
+

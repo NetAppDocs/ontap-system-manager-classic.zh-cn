@@ -1,0 +1,50 @@
+---
+permalink: volume-backup-snapvault/index.html 
+sidebar: sidebar 
+keywords: content, configure, snapvault, backup, relationship, volume, cluster, read-only, copies, copy, locate, destination, volume, restoring, restore, data, corrupt, lost, volume backup using snapvault overview 
+summary: 您可以在位于不同集群中的卷之间快速配置 SnapVault 备份关系。SnapVault 备份包含一组只读备份副本，这些副本位于一个目标卷上，您可以使用该卷在数据损坏或丢失时还原数据。 
+---
+= 使用 SnapVault 进行卷备份概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在位于不同集群中的卷之间快速配置 SnapVault 备份关系。SnapVault 备份包含一组只读备份副本，这些副本位于一个目标卷上，您可以使用该卷在数据损坏或丢失时还原数据。
+
+如果要按以下方式为卷创建 SnapVault 备份关系，请使用此操作步骤：
+
+* 您正在使用运行 ONTAP 9 的集群。
+* 您是集群管理员。
+* 您已配置集群对等关系和 SVM 对等关系。
++
+link:../peering/index.html["集群和 SVM 对等配置"]
+
+* 在将集群中的所有节点升级到同一版本的 ONTAP 9 之后，您必须已启用 SnapMirror 或 SnapVault 许可证。
+* 您希望使用默认保护策略和计划，而不是创建自定义策略。
+* 您不希望为单个文件或 LUN 还原备份数据。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您不想阅读大量概念背景信息。
+* 您希望使用 System Manager ，而不是 ONTAP 命令行界面或自动化脚本编写工具。
+* 您希望使用适用于 ONTAP 9.7 及更早版本的 System Manager 经典界面，而不是适用于 ONTAP 9.7 及更高版本的 ONTAP System Manager UI 。
+
+
+如果这些假设与您的情况不符，或者您需要更多概念背景信息，您应查看以下资源：
+
+link:http://www.netapp.com/us/media/tr-4183.pdf["NetApp 技术报告 4183 ：《 SnapVault 最佳实践》"^]
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+[cols="2"]
+|===
+| 要执行以下任务，请执行以下操作 ... | 查看此内容 ... 
+
+
+| 重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本） | link:https://docs.netapp.com/us-en/ontap/task_dp_configure_mirror.html["配置镜像和存储"^] 
+
+
+| ONTAP 命令行界面 | link:https://docs.netapp.com/us-en/ontap/data-protection/create-replication-relationship-task.html["创建复制关系"^] 
+|===

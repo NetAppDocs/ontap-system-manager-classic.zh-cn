@@ -1,0 +1,147 @@
+---
+permalink: online-help-96-97/concept_lun_multiprotocol_type_guidelines.html 
+sidebar: sidebar 
+keywords: guidelines, lun, multiprotocol, type, operating, system, host, layout, data, minimum, maximum, size, online, help 
+summary: LUN 多协议类型或操作系统类型指定访问 LUN 的主机的操作系统。它还会确定 LUN 上的数据布局以及 LUN 的最小和最大大小。 
+---
+= 在 System Manager 中使用 LUN 多协议类型的准则— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中， LUN 多协议类型或操作系统类型指定访问 LUN 的主机的操作系统。它还会确定 LUN 上的数据布局以及 LUN 的最小和最大大小。
+
+[NOTE]
+====
+并非所有 ONTAP 版本都支持所有 LUN 多协议类型。有关最新信息，请参见互操作性表工具。
+
+====
+下表介绍了 LUN 多协议类型值以及使用每种类型的准则：
+
+|===
+| LUN 多协议类型 | 何时使用 
+
+
+ a| 
+AIX
+ a| 
+主机操作系统为 AIX 时。
+
+
+
+ a| 
+HP-UX
+ a| 
+主机操作系统为 HP-UX 时。
+
+
+
+ a| 
+Hyper-V
+ a| 
+如果您使用的是 Windows Server 2008 或 Windows Server 2012 Hyper-V ，并且 LUN 包含虚拟硬盘（ VHD ）。如果您使用的是 hyper_v 作为 LUN 类型，则还应使用 hyper_v 作为 igroup 操作系统类型。
+
+[NOTE]
+====
+对于原始 LUN ，您可以使用 LUN 多协议类型使用的子操作系统类型。
+
+====
+
+
+ a| 
+Linux
+ a| 
+主机操作系统为 Linux 时。
+
+
+
+ a| 
+NetWare
+ a| 
+主机操作系统为 NetWare 时。
+
+
+
+ a| 
+OpenVMS
+ a| 
+主机操作系统为 OpenVMS 时。
+
+
+
+ a| 
+Solaris
+ a| 
+主机操作系统为 Solaris 且未使用 Solaris EFI 标签时。
+
+
+
+ a| 
+Solaris EFI
+ a| 
+如果使用的是 Solaris EFI 标签。
+
+[NOTE]
+====
+使用具有 Solaris EFI 标签的任何其他 LUN 多协议类型可能会导致 LUN 错位问题。
+
+====
+
+
+ a| 
+VMware
+ a| 
+如果使用的是 ESX Server ，并且 LUN 将配置有 VMFS 。
+
+[NOTE]
+====
+如果使用 RDM 配置 LUN ，则可以使用子操作系统作为 LUN 多协议类型。
+
+====
+
+
+ a| 
+Windows 2003 MBR
+ a| 
+如果主机操作系统是使用 MBR 分区方法的 Windows Server 2003 。
+
+
+
+ a| 
+Windows 2003 GPT
+ a| 
+如果要使用 GPT 分区方法，并且主机能够使用该方法。Windows Server 2003 Service Pack 1 及更高版本能够使用 GPT 分区方法，所有 64 位版本的 Windows 均支持此方法。
+
+
+
+ a| 
+Windows 2008 或更高版本
+ a| 
+如果主机操作系统是 Windows Server 2008 或更高版本，则支持 MBR 和 GPT 分区方法。
+
+
+
+ a| 
+Xen
+ a| 
+如果您使用的是 Xen ，并且 LUN 将配置有采用 Dom0 的 Linux LVM 。
+
+[NOTE]
+====
+对于原始 LUN ，您可以使用 LUN 多协议类型使用的子操作系统类型。
+
+====
+|===
+* 相关信息 *
+
+xref:task_creating_luns.adoc[正在创建 LUN]
+
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148981["《Solaris Host Utilities 6.1安装和设置指南》"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148983["《 Solaris Host Utilities 6.1 快速命令参考》"]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1148982["《 Solaris Host Utilities 6.1 发行说明》"]

@@ -1,0 +1,14 @@
+---
+permalink: expansion/task_completing_expansion.html 
+sidebar: sidebar 
+keywords: node, cluster, configuring, configure, autosupport, network, expansion, lun, path, complete, complete the expansion 
+summary: 两个节点加入集群后，您必须通过配置 AutoSupport 并完成 SP 网络来完成新添加节点的配置。 
+---
+= 完成扩展
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+两个节点加入集群后，您必须通过配置 AutoSupport 并完成 SP 网络来完成新添加节点的配置。然后，验证扩展后的集群并生成 AutoSupport 消息以完成扩展。如果集群使用 SAN ，则应更新 LUN 路径。

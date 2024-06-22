@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_resizing_flexcache_volumes.html 
+sidebar: sidebar 
+keywords: system, manager, flexcache, resize, volume, online, help 
+summary: 从 System Manager 9.6 开始，您可以通过调整现有资源的大小或添加新资源来调整 FlexCache 卷的大小。 
+---
+= 调整 FlexCache 卷大小
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以通过调整现有资源的大小或添加新资源来调整 FlexCache 卷的大小。
+
+.开始之前
+* 要调整 FlexCache 卷的大小，现有聚合必须具有足够的可用空间。
+* 要扩展 FlexCache 卷，要用于扩展的聚合必须具有足够的可用空间。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要调整大小的 FlexCache 卷，然后单击 * 更多操作 * > * 调整大小 * 。
+. 在 * 调整 FlexCache 卷大小 * 窗口中，指定要将 FlexCache 卷调整到的大小。
++
+默认情况下，现有聚合用于调整 FlexCache 卷的大小。从 System Manager 9.6 开始，卷允许的最大大小显示在大小字段旁边。
+
++
+[NOTE]
+====
+如果要通过添加新资源来扩展 FlexCache 卷，请单击 image:../media/advanced_options.gif[""] （高级选项）。请参见 link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html["为 FlexCache 卷指定高级选项"]。
+
+====
+. 单击 * 保存 * 以调整 FlexCache 卷的大小。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

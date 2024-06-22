@@ -1,0 +1,45 @@
+---
+permalink: expansion/task_generating_autosupport_message_about_completing_expansion.html 
+sidebar: sidebar 
+keywords: expand, cluster, autosupport, indicate, expansion, process, complete, message, communicate, internal, external, support, staff, complete, troubleshoot, generate, generate an autosupport, message about completing expansion 
+summary: 扩展集群后，您应发送 AutoSupport 消息以指示扩展过程已完成。 
+---
+= 生成有关完成扩展的 AutoSupport 消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+扩展集群后，您应发送 AutoSupport 消息以指示扩展过程已完成。此消息会告知内部和外部支持人员扩展已完成，并用作稍后可能需要进行的任何故障排除的时间戳。
+
+.开始之前
+必须设置 AutoSupport 。
+
+.步骤
+. 对于集群中的每个节点、使用发送一条AutoSupport消息 `system node autosupport invoke` 命令：
++
+您必须对集群中的每个节点（包括新添加的节点）执行一次问题描述消息。
+
++
+如果向双节点集群添加了两个节点，则必须发送四次消息。
+
++
+[listing]
+----
+cluster1::> system node autosupport invoke -node * -message "cluster expansion complete" -type all
+The AutoSupport was successfully invoked on node "cluster1-1". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+The AutoSupport was successfully invoked on node "cluster1-2". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+The AutoSupport was successfully invoked on node "cluster1-3". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+The AutoSupport was successfully invoked on node "cluster1-4". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+4 entries were acted on.
+----
+

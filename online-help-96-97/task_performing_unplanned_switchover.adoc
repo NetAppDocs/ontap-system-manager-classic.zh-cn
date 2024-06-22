@@ -1,0 +1,59 @@
+---
+permalink: online-help-96-97/task_performing_unplanned_switchover.html 
+sidebar: sidebar 
+keywords: perform, unplanned, switchover, system, manager, metrocluster, site, online, help 
+summary: 从 System Manager 9.6 开始，您可以对 MetroCluster 站点启动计划外切换。在发生中断事件或灾难事件后，此操作非常有用。 
+---
+= 执行计划外切换
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以对 MetroCluster 站点启动计划外切换。在发生中断事件或灾难事件后，此操作非常有用。
+
+.开始之前
+MetroCluster 正在正常运行；但是，本地集群（站点 A ）中的节点已启动，而远程集群（站点 B ）中的节点已关闭。
+
+.步骤
+. [[STEP1]]验证站点B是否实际关闭。
++
+连接错误可能会使站点 B 显示为已关闭。
+
++
+[NOTE]
+====
+在站点 B 启动的情况下启动切换过程可能会导致发生原因灾难性后果。
+
+====
+. 在 System Manager 中，使用集群管理员凭据登录到本地 MetroCluster 站点（站点 A ）。
+. 单击 * 配置 * > * MetroCluster *
++
+此时将显示 MetroCluster 切换 / 切回操作窗口。
+
+. 单击 * 下一步 * 。
++
+MetroCluster 切换 / 切回操作窗口将显示操作的状态， System Manager 将验证协商切换是否可行。
+
+. 验证过程完成后，单击 * 将站点 B 切换到站点 A* 以启动切换过程。
++
+此时将显示一条警告消息，警告您切换操作会将控制权从站点 B 切换到站点 A站点 B 的状态应为 "`unreachable` " ，所有站点 B 节点均以红色文本显示。
+
++
+[NOTE]
+====
+如步骤中所述 link:#step1["1."]，站点 B 必须实际关闭，而不仅仅是断开连接。此外，您还应注意，切换操作可能会丢失发生原因数据。
+
+====
+. 如果要继续，请确保选中此复选框，然后单击 * 是 * 。
++
+切换过程将开始。站点 A 和站点 B 的状态显示在其配置的图形表示上方。如果切换操作失败，则会显示一条错误消息。单击 * 关闭 * 。更正任何错误，然后从步骤重新开始 link:task_performing_negotiated_planned_switchover.html#step1["1."]
+
+. 对站点 B 执行所有必要的维护活动
+. 确保站点 B 已启动。
++
+此时将开始修复过程。当 System Manager 显示修复已完成时，站点 B 将正常运行，系统将为切回过程做好准备。窗口底部将显示 * 从站点 A 切回到站点 B* 按钮。
+
+. 继续执行 xref:task_performing_switchback.adoc[执行切回] 以启动切回操作。
+

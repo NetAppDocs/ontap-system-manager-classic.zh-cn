@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/concept_ipspaces.html 
+sidebar: sidebar 
+keywords: ipspace, edit,rename, system, manager, manage, online, help 
+summary: 您可以使用 System Manager 创建和管理 IP 空间。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理 IP 空间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建和管理 IP 空间。
+
+
+
+== 编辑 IP 空间
+
+您可以使用 System Manager 重命名现有 IP 空间。
+
+.关于此任务
+* 集群中的所有 IP 空间名称都必须是唯一的，并且不能包含系统保留的名称，例如本地或本地主机。
+* 无法修改系统定义的 " `Default` " IP 空间和 "`Cluster` " IP 空间。
+
+
+.步骤
+. 单击 * 网络 * > * IP 空间 * 。
+. 选择要修改的 IP 空间，然后单击 * 编辑 * 。
+. 在 * 编辑 IP 空间 * 对话框中，指定 IP 空间的新名称。
+. 单击 * 重命名 * 。
+
+
+
+
+== 删除 IP 空间
+
+您可以使用 System Manager 删除不再需要的 IP 空间。
+
+.开始之前
+要删除的 IP 空间不得与任何广播域，网络接口，对等关系或 Storage Virtual Machine （ SVM ）关联。
+
+.关于此任务
+无法删除系统定义的 " `Default` " IP 空间和 "`Cluster` " IP 空间。
+
+.步骤
+. 单击 * 网络 * > * IP 空间 * 。
+. 选择要删除的 IP 空间，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 是 * 。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"]

@@ -1,0 +1,97 @@
+---
+permalink: online-help-96-97/task_setting_up_branchcache.html 
+sidebar: sidebar 
+keywords: cifs, svm, system, manager, online, help, branchcache, set, up, modify, settings, delete 
+summary: 您可以使用 System Manager 在启用了 CIFS 的 Storage Virtual Machine （ SVM ）上配置 BranchCache ，以便在发出请求的客户端本地计算机上缓存内容。 
+---
+= 使用 System Manager 配置 BranchCache — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）在启用了 CIFS 的 Storage Virtual Machine （ SVM ）上配置 BranchCache ，以便在发出请求的客户端本地计算机上缓存内容。
+
+.开始之前
+* CIFS 必须获得许可，并且必须配置 CIFS 服务器。
+* 对于 BranchCache 版本 1 ，必须启用 SMB 2.1 或更高版本。
+* 对于 BranchCache 版本 2 ，必须启用 SMB 3.0 ，并且远程 Windows 客户端必须支持 BranchCache 2 。
+
+
+.关于此任务
+* 您可以在 SVM 上配置 BranchCache 。
+* 如果要为 CIFS 服务器上所有 SMB 共享中的所有内容提供缓存服务，则可以创建纯共享 BranchCache 配置。
+* 如果要为 CIFS 服务器上选定 SMB 共享中的内容提供缓存服务，则可以创建每个共享 BranchCache 配置。
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * BranchCache* 选项卡中，单击 * 设置 * 。
+. 在 * BranchCache 设置 * 对话框中，输入以下信息：
++
+.. 指定哈希存储的路径。
++
+路径可以是要存储哈希数据的现有目录。目标路径必须可读写。不允许使用只读路径，例如 Snapshot 目录。
+
+.. 指定哈希数据存储的最大大小（以 KB ， MB ， GB ， TB 或 PB 为单位）。
++
+如果哈希数据超过此值，则会删除较旧的哈希，以便为较新的哈希提供空间。哈希存储的默认大小为 1 GB 。
+
+.. 指定 BranchCache 配置的运行模式。
++
+默认操作模式设置为所有共享。
+
+.. 指定服务器密钥以防止客户端模拟 BranchCache 服务器。
++
+您可以将服务器密钥设置为特定值，以便在多个服务器为相同文件提供 BranchCache 数据时，客户端可以使用使用使用同一服务器密钥的任何服务器的哈希。如果服务器密钥包含任何空格，则必须将服务器密钥用引号引起来。
+
+.. 选择所需的 BranchCache 版本。
++
+默认情况下，系统会选择客户端支持的所有版本。
+
+
+
+. 单击 * 设置 * 。
+
+
+
+
+== 修改 BranchCache 设置
+
+您可以使用 System Manager 中的 CIFS 窗口修改为启用了 CIFS 的 Storage Virtual Machine （ SVM ）配置的 BranchCache 设置。您可以更改哈希存储路径，哈希存储大小，操作模式以及支持的 BranchCache 版本。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * BranchCache* 选项卡中，单击 * 编辑 * 。
+. 在 * 修改 BranchCache 设置 * 对话框中，修改所需信息：
++
+** 哈希存储路径
++
+如果修改哈希存储路径，则可以选择保留上一个哈希存储中缓存的哈希数据。
+
+** 哈希存储大小
+** 操作模式
+** BranchCache 版本
+
+
+. 单击 * 修改 * 。
+
+
+
+
+== 删除 BranchCache 配置
+
+如果您不再希望在为 BranchCache 配置的 Storage Virtual Machine （ SVM ）上提供缓存服务，则可以使用 System Manager 删除 BranchCache 配置。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * BranchCache* 选项卡中，单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
++
+您还可以从哈希存储中删除现有哈希。
+
+

@@ -1,0 +1,54 @@
+---
+permalink: expansion/task_installing_controllers.html 
+sidebar: sidebar 
+keywords: install, controller, exist, cluster, installation, setup, instruction, install the controllers 
+summary: 在安装要添加到现有集群的控制器时，必须按照相应安装和设置说明的前三个步骤进行操作。 
+---
+= 安装控制器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安装要添加到现有集群的控制器时，必须按照相应的 _Installation and Setup Instructions_中 的前三个步骤进行操作。
+
+[NOTE]
+.关于此任务
+====
+从 ONTAP 9.0 开始，新硬件默认启用 HA 模式。
+
+====
+.步骤
+. 获取计划添加到集群的控制器模块的 FAS 型号的 _Installation and Setup Instructions_。
++
+** 对于新控制器模块，包装盒中提供了相关文档。
+** 对于重新利用的控制器模块，您可以下载此文档。
+https://mysupport.netapp.com/site/docs-and-kb["NetApp 文档"]
+
+
+. 按照 _Prepare for installation_section 进行操作，但以下情况除外：
++
+** 您可以跳过有关下载软件或工作表的任何说明。
+** 您必须提供串行控制台连接，即使 _Installation and Setup Instructions_中 未提及此连接也是如此。
++
+您需要一个串行控制台，因为您必须使用 nodeshell 命令行界面配置节点管理 LIF 。
+
++
+如果 ONTAP 部分未提及串行控制台，您可以查看 7- 模式部分。
+
+
+
+. 按照 _Install hardware_ 部分进行操作。
+. 按照 _Cable storage_ 部分进行操作。
+. 跳过 _complete System Setup_ 部分的大部分内容，但以下情况除外：
++
+** 如果需要，您必须打开所有磁盘架的电源并检查 ID 。
+** 您必须为串行控制台布线，以便可以访问节点。
++
+如果 ONTAP 部分未提及串行控制台，您可以查看 7- 模式部分。
+
+
+
+. 跳过 _complete configuration_section 。
+

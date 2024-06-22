@@ -1,0 +1,42 @@
+---
+permalink: volume-move/concept_volume_move_workflow.html 
+sidebar: sidebar 
+keywords: move, moving, volume, method, operation, plan, timing, system, manager, ndmp, backup, configuration, volume move workflow 
+summary: 在移动卷之前，您应选择卷移动操作的方法并计划此操作的时间。您可以使用 System Manager 移动卷。移动后，您可能需要更新 NDMP 备份配置。 
+---
+= 卷移动工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在 ONTAP 9.7 或更早版本中使用 ONTAP System Manager _classic_ 界面移动卷。
+
+在移动卷之前，您应选择卷移动操作的方法并计划此操作的时间。移动后，您可能需要更新 NDMP 备份配置。
+
+image::../media/volume_move_workflow.jpg[卷移动工作流]
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+|===
+
+
+| 要完成此工作流，请使用 ... | 请参见 ... 
+
+
+ a| 
+重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本）
+ a| 
+https://docs.netapp.com/us-en/ontap/volumes/manage-volumes-task.html["管理卷"^]
+
+
+
+ a| 
+ONTAP 命令行界面
+ a| 
+https://docs.netapp.com/us-en/ontap/volumes/index.html["逻辑存储管理"^]
+
+|===

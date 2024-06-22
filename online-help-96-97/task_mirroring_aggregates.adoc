@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_mirroring_aggregates.html 
+sidebar: sidebar 
+keywords: mirror, aggregate, system, manager, data, lun, array, online, help 
+summary: 您可以使用 System Manager 通过在一个聚合中实时镜像数据来保护数据并提高故障恢复能力。镜像聚合可避免在连接到磁盘和阵列 LUN 时出现单点故障。 
+---
+= 使用 System Manager 镜像聚合— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）在一个聚合中实时镜像数据，以保护数据并提高故障恢复能力。镜像聚合可避免在连接到磁盘和阵列 LUN 时出现单点故障。
+
+.开始之前
+另一个池中必须有足够的可用磁盘来镜像聚合。
+
+.关于此任务
+如果缓存源为存储池，则无法镜像 Flash Pool 聚合。
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 选择要镜像的聚合，然后单击菜单：更多操作 [ 镜像 ] 。
++
+[NOTE]
+====
+启用了 FabricPool 的聚合不支持 SyncMirror 。
+
+====
+. 在 * 镜像此聚合 * 对话框中，单击 * 镜像 * 以启动镜像。
+

@@ -1,0 +1,16 @@
+---
+permalink: online-help-96-97/concept_setting_up_your_cluster_environment.html 
+sidebar: sidebar 
+keywords: set, up, cluster, environment, system, manager, cli, command, line, interface, cluster, ip, address 
+summary: 您可以使用 System Manager 或命令行界面（ CLI ）创建集群。要使用 System Manager 创建集群，您必须在集群网络中的任何节点上设置节点管理 IP 地址。如果您已使用命令行界面创建集群，则可以使用 System Manager 配置集群。 
+---
+= 设置集群环境
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 或命令行界面（ CLI ）创建集群。要使用 System Manager 创建集群，您必须在集群网络中的任何节点上设置节点管理 IP 地址。如果您已使用命令行界面创建集群，则可以使用 System Manager 配置集群。
+
+image::../media/guided_cluster_setup.gif[引导式集群设置]

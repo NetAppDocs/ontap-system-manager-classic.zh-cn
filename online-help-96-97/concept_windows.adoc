@@ -1,0 +1,18 @@
+---
+permalink: online-help-96-97/concept_windows.html 
+sidebar: sidebar 
+keywords: system, manager, windows, create, manager, user, account, online, help 
+summary: 您可以使用 System Manager 创建和管理 Windows 组和用户帐户。 
+---
+= Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 创建和管理 Windows 组和用户帐户。
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["SMB/CIFS 管理"]

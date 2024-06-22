@@ -1,0 +1,48 @@
+---
+permalink: iscsi-config-windows/index.html 
+sidebar: sidebar 
+keywords: iscsi, service, storage, virtual, machine, svm, provision, lun, isvsi, initiator, windows, host, computer 
+summary: 使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本），您可以在 Storage Virtual Machine （ SVM ）上快速设置 iSCSI 服务，配置 LUN 并在 Windows 主机计算机上使用 iSCSI 启动程序使 LUN 可用。 
+---
+= 适用于 Windows 的 iSCSI 配置概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本），您可以在 Storage Virtual Machine （ SVM ）上快速设置 iSCSI 服务，配置 LUN 并在 Windows 主机计算机上使用 iSCSI 启动程序使 LUN 可用。
+
+这些过程基于以下假设：
+
+* 您正在 Windows Server 2008 或 Windows Server 2012 上使用 Microsoft iSCSI 软件启动程序。
+* 您的网络使用 IPv4 地址。
+* 您希望使用以下任一方法为逻辑接口分配地址：
++
+** 自动，从您定义的子网
+** 手动，使用从现有子网中选择的地址
+** 手动，使用要添加到现有子网的地址
+
+
+* 您未配置 iSCSI SAN 启动。
+
+
+有关如何使用 ONTAP 配置特定主机的详细信息，请参见 https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 主机配置"]。
+
+有关 SAN 管理的其他详细信息，请参见 https://docs.netapp.com/us-en/ontap/san-admin/index.html["ONTAP 9 SAN 管理概述"]
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+|===
+
+
+| 要完成此任务，请使用 ... | 请参见 ... 
+
+
+| 重新设计的 System Manager （在 9.7 及更高版本中提供） | https://docs.netapp.com/us-en/ontap/task_san_provision_windows.html["为 Windows 服务器配置 SAN 存储"] 
+
+
+| ONTAP 命令行界面（ CLI ） | https://docs.netapp.com/us-en/ontap/san-admin/lun-setup-workflow-concept.html["使用 CLI 设置 LUN 的工作流"] 
+|===

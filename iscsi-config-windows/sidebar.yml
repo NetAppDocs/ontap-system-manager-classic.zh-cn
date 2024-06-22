@@ -1,0 +1,38 @@
+---
+section: iscsi-config-windows
+title: 适用于 Windows 的 iSCSI 配置
+entries:
+- title: 概述
+  url: "/iscsi-config-windows/index.html"
+- title: iSCSI 配置和配置工作流
+  url: "/iscsi-config-windows/concept_iscsi_configuration_workflow.html"
+  entries:
+  - title: 验证是否支持 iSCSI 配置。
+    url: "/iscsi-config-windows/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: 填写 iSCSI 配置工作表
+    url: "/iscsi-config-windows/reference_completing_iscsi_configuration_worksheet.html"
+  - title: 记录 iSCSI 启动程序节点名称
+    url: "/iscsi-config-windows/task_recording_iscsi_node_name.html"
+  - title: 安装 Windows Unified Host Utilities
+    url: "/iscsi-config-windows/task_installing_windows_unified_host_utilities.html"
+  - title: 创建聚合
+    url: "/iscsi-config-windows/task_creating_aggregate.html"
+  - title: 确定在何处配置卷
+    url: "/iscsi-config-windows/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: 验证 iSCSI 服务是否正在现有 SVM 上运行
+      url: "/iscsi-config-windows/task_verifying_iscsi_is_running_on_existing_vserver.html"
+    - title: 创建LUN
+      url: "/iscsi-config-windows/task_creating_lun_its_containing_volume.html"
+    - title: 在现有 SVM 上配置 iSCSI
+      url: "/iscsi-config-windows/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: 创建新的SVM
+      url: "/iscsi-config-windows/task_creating_svm.html"
+  - title: 启动与目标的 iSCSI 会话
+    url: "/iscsi-config-windows/task_starting_iscsi_sessions_with_target.html"
+  - title: 发现新磁盘
+    url: "/iscsi-config-windows/task_discovering_new_disks.html"
+  - title: 初始化并格式化 LUN
+    url: "/iscsi-config-windows/task_initializing_formatting_lun.html"
+  - title: 验证主机是否可以对 LUN 进行写入和读取
+    url: "/iscsi-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html"

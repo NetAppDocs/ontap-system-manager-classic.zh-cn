@@ -1,0 +1,82 @@
+---
+permalink: peering/task_creating_cluster_peer_relationships_92_earlier.html 
+sidebar: sidebar 
+keywords: create, cluster, peer, relationship, enter, predetermined, passphrase, ip, address, intercluster, lif, remote, successful, create a cluster peer relationship, ontap 9.2 or earlier 
+summary: 您可以在两个集群之间创建集群对等关系，方法是输入预先确定的密码短语和远程集群的集群间 LIF 的 IP 地址，然后验证是否已成功创建此关系。 
+---
+= 创建集群对等关系（ ONTAP 9.2 或更早版本）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP 9.2 或更早版本的 ONTAP 9 中使用 ONTAP System Manager _classic_ 界面，您可以通过输入预先确定的密码短语和远程集群的集群间 LIF 的 IP 地址在两个集群之间创建集群对等关系。 然后验证是否已成功创建此关系。
+
+.开始之前
+* 您必须知道要建立对等关系的集群的所有集群间 LIF 的 IP 地址。
+* 您必须知道要用于每个对等关系的密码短语。
+
+
+.关于此任务
+您必须在每个集群上执行此操作步骤。
+
+.步骤
+. 从源集群中，创建与目标集群的集群对等关系。
++
+.. 单击 * 配置 * 选项卡。
+.. 在 * 集群设置 * 窗格中，单击 * 集群对等方 * 。
+.. 单击 * 创建 * 。
++
+此时将显示 * 创建集群对等 * 对话框。
+
+.. 在 * 要建立对等关系的远程集群的详细信息 * 区域中，指定两个对等方用于确保经过身份验证的集群对等关系的密码短语。
+.. 输入目标集群的所有集群间 LIF 的 IP 地址（每个节点一个），以逗号分隔。
++
+image::../media/cluster_peer_create.gif[创建集群对等方对话框]
+
+.. 单击 * 创建 * 。
++
+身份验证状态为 "`pending` " ，因为仅配置了一个集群。
+
+
+
+. 切换到目标集群，然后与源集群创建集群对等关系：
++
+.. 单击 * 配置 * 选项卡。
+.. 在 * 集群设置 * 窗格中，单击 * 集群对等方 * 。
+.. 单击 * 创建 * 。
++
+此时将显示创建集群对等方对话框。
+
+.. 在 * 要建立对等关系的远程集群的详细信息 * 区域中，指定您在中指定的同一密码短语 <<step1d-passphrase-used,第 1 步>> 以及源集群的集群间 LIF 的 IP 地址，然后单击 * 创建 * 。
+
+
++
+image::../media/cluster_peer_create_2.gif[此图通过周围的文本进行了说明。]
+
+. 从目标集群的 * 集群对等方 * 窗口中，确认源集群为 "`Available` " 且身份验证状态为 "`OK` " 。
++
+image::../media/cluster_peers_status.gif[此图通过周围的文本进行了说明。]
+
++
+您可能需要单击 * 刷新 * 才能查看更新后的信息。
+
++
+这两个集群处于对等关系。
+
+. 切换到源集群，然后确认目标集群为 "`Available` " 且身份验证状态为 "`OK` " 。
++
+您可能需要单击 * 刷新 * 才能查看更新后的信息。
+
+
+
+
+
+== 下一步操作
+
+在源和目标 SVM 之间创建 SVM 对等关系，同时在源卷和目标卷之间创建数据保护关系。
+
+link:../volume-backup-snapvault/index.html["使用 SnapVault 进行卷备份"]
+
+link:../volume-disaster-recovery/index.html["卷灾难恢复准备"]

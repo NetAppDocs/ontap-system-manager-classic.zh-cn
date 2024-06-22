@@ -1,0 +1,36 @@
+---
+permalink: snmp-config/task_adding_snmp_traphost.html 
+sidebar: sidebar 
+keywords: system, manager, add, traphost, snmp, notification, trap, protocol, generate, cluster, data, host, add an snmp traphost 
+summary: '您可以在 ONTAP 9.7 或更早版本中使用 ONTAP 系统管理器 " 经典 " 界面添加陷阱主机（ SNMP 管理器），以便在集群中生成陷阱时接收 SNMP 通知（ SNMP 陷阱协议数据单元）。' 
+---
+= 添加 SNMP 陷阱主机：
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将ONTAP系统管理器_classic_界面与ONTAP 9.7或更早版本结合使用、以添加陷阱主机(SNMP管理器)、以便在集群中生成陷阱时接收SNMP通知(SNMP陷阱协议数据单元)。
+
+.开始之前
+如果您配置的 SNMP 陷阱主机具有 IPv6 地址，则必须在集群上启用 IPv6 。
+
+.关于此任务
+默认情况下， SNMP 和 SNMP 陷阱处于启用状态。有关 SNMP 支持的 NetApp 技术报告 TR-4220 列出了 SNMP 陷阱支持的所有默认事件。
+
+http://www.netapp.com/us/media/tr-4220.pdf["NetApp 技术报告 4220 ： Data ONTAP 中的 SNMP 支持"^]
+
+.步骤
+. 在 SNMP 窗口中，单击 * 编辑 * 以打开 * 编辑 SNMP 设置 * 对话框。
+. 在 * 陷阱主机 * 选项卡中，确认已选中 * 启用陷阱 * 复选框，然后单击 * 添加 * 。
+. 【第 3 步 - 输入 -traphost-ip]] 输入陷阱主机 IP 地址，然后在 * 陷阱主机 * 窗格中单击 * 确定 * 。
++
+SNMP 陷阱主机的 IP 地址可以是 IPv4 或 IPv6 。
+
++
+image::../media/snmp_add_traphost.gif[此图显示了编辑 SNMP 设置对话框,Traphosts tab,in which the traphost status "enabled" is checked and the example traphost IP address "192.0.2.0" is entered.]
+
+. 要添加另一个陷阱主机，请重复 <<step2-verify-enable-traps,步骤2.>> 和 <<step3-enter-traphost-ip,步骤3.>>。
+. 添加陷阱主机后，单击 * 编辑 SNMP 设置 * 对话框中的 * 确定 * 。
+

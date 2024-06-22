@@ -1,0 +1,53 @@
+---
+permalink: online-help-96-97/task_updating_cifs_group_policy_configuration.html 
+sidebar: sidebar 
+keywords: update, cifs, group, policy, configuration, online, help, enable, disable, modify, reload, set, up 
+summary: 通过命令行界面（ CLI ）更改策略配置后，您必须更新组策略。您可以使用 System Manager 中的 CIFS 窗口更新组策略。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本管理 CIFS 组策略配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版（在 ONTAP 9.7 及更早版本中提供）中的 CIFS 窗口更新和管理组策略。
+
+
+
+== 更新 CIFS 组策略配置
+
+通过命令行界面（ CLI ）更改策略配置后，您必须更新组策略。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 单击 * 域 * 选项卡。
+. 在 * 组策略 * 区域中，选择要更新的组策略配置，然后单击 * 更新 * 。
+
+
+
+
+== 启用或禁用 CIFS 组策略配置
+
+您可以在 System Manager 的 CIFS 窗口中启用或禁用 CIFS 组策略配置。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 单击 * 域 * 选项卡。
+. 在 * 组策略 * 区域中，选择要启用或禁用的组策略配置，然后根据需要单击 * 启用 * 或 * 禁用 * 。
+
+
+
+
+== 重新加载 CIFS 组策略
+
+如果 CIFS 组策略的状态发生更改，则必须重新加载该策略。您可以使用 System Manager 中的 CIFS 窗口重新加载组策略。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 单击 * 域 * 选项卡。
+. 在 * 组策略 * 区域中，选择要重新加载的组策略配置，然后单击 * 重新加载 * 。
+

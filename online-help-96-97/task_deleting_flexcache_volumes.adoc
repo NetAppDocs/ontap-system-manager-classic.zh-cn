@@ -1,0 +1,30 @@
+---
+permalink: online-help-96-97/task_deleting_flexcache_volumes.html 
+sidebar: sidebar 
+keywords: delete, flexcache, volume, system, manager, online, help 
+summary: 从 System Manager 9.6 开始，您可以删除不再需要的 FlexCache 卷。 
+---
+= 删除 FlexCache 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以删除不再需要的 FlexCache 卷。
+
+.开始之前
+* 必须卸载 FlexCache 卷的接合路径。
+* FlexCache 卷必须处于脱机状态。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要删除的 FlexCache 卷，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 确定 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

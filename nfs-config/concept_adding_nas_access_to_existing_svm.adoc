@@ -1,0 +1,75 @@
+---
+permalink: nfs-config/concept_adding_nas_access_to_existing_svm.html 
+sidebar: sidebar 
+keywords: nfs, access, exist, svm, creating, create, data, lif, configuring, configure, nis, provision, volume, export, policy, add, add nfs access to an existing svm 
+summary: 为现有 SVM 添加 NFS 访问涉及创建数据 LIF ，可选择配置 NIS ，配置卷，导出卷以及配置导出策略。 
+---
+= 添加对现有 SVM 的 NFS 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+为现有 SVM 添加 NFS 访问涉及创建数据 LIF ，可选择配置 NIS ，配置卷，导出卷以及配置导出策略。
+
+.开始之前
+* 您必须了解 SVM 将使用以下哪些网络组件：
++
+** 要创建数据逻辑接口（ LIF ）的节点以及该节点上的特定端口
+** 要从中配置数据 LIF IP 地址的子网，或者您也可以选择要分配给数据 LIF 的特定 IP 地址
+
+
+* 必须正确配置任何外部防火墙，才能访问网络服务。
+* SVM 上必须允许使用 NFS 协议。
+
+
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理文档"^]。
+
+.步骤
+. 导航到可配置 SVM 协议的区域：
++
+.. 选择要配置的 SVM 。
+.. 在 * 详细信息 * 窗格中，单击 * 协议 * 旁边的 * NFS * 。
++
+image::../media/svm_add_protocol_nfs_nfs.gif[此图通过周围的文本进行了说明。]
+
+
+
+. 在 * 配置 NFS 协议 * 对话框中，创建数据 LIF 。
++
+.. 从您指定的子网自动为 LIF 分配 IP 地址，或者手动输入地址。
+.. 单击 * 浏览 * 并选择要与 LIF 关联的节点和端口。
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nfs.gif[本图通过周围的文字进行了说明。]
+
+
+
+. 如果您的站点使用 NIS 进行名称服务或名称映射，请指定 NIS 服务器的域和 IP 地址，并选择要添加 NIS 名称服务源的数据库类型。
++
+image::../media/svm_setup_cifs_nfs_page_nis_area_nfs.gif[本图通过周围的文字进行了说明。]
+
++
+如果 NIS 服务不可用，请勿尝试对其进行配置。如果 NIS 服务配置不当，则可能会出现发生原因数据存储库访问问题。
+
+. 创建和导出卷以进行 NFS 访问：
++
+.. 对于 * 导出名称 * ，键入一个名称，该名称将同时为导出名称和卷名称的开头。
+.. 指定要包含文件的卷的大小。
++
+image::../media/svm_setup_cifs_nfs_page_nfs_export_nfs.gif[配置 NFS 导出的区域的屏幕截图]
+
++
+您无需为卷指定聚合，因为它会自动位于可用空间最多的聚合上。
+
+.. 在 * 权限 * 字段中，单击 * 更改 * ，然后指定一个导出规则，此规则可为 NFSv3 授予对 UNIX 管理主机的访问权限，包括超级用户访问权限。
++
+image::../media/export_rule_for_admin_manual_nfs_nfs.gif[此图通过周围的文本进行了说明。]
+
+
+
++
+您可以创建一个名为 Eng 的 10 GB 卷，并将其导出为 Eng ，然后添加一条规则，为 "`admin_host` " 客户端授予对导出的完全访问权限，包括超级用户访问权限。
+
+. 单击 * 提交并关闭 * ，然后单击 * 确定 * 。
+

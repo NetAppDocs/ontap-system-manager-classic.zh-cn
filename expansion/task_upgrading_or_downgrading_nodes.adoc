@@ -1,0 +1,42 @@
+---
+permalink: expansion/task_upgrading_or_downgrading_nodes.html 
+sidebar: sidebar 
+keywords: join, install, node, cluster, run, ontap, upgrade, downgrade 
+summary: 在将新安装的节点加入集群之前，您必须确保它们运行的 ONTAP 版本与集群运行的版本相同。如果节点运行的版本不同，则必须升级或降级节点以与集群匹配。 
+---
+= 升级或降级节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将新安装的节点加入集群之前，您必须确保它们运行的 ONTAP 版本与集群运行的版本相同。如果节点运行的版本不同，则必须升级或降级节点以与集群匹配。
+
+.步骤
+. 确定集群上安装的ONTAP版本： `cluster image show`
+. 查看节点上的当前 ONTAP 版本：
++
+.. 在第一个节点上、查看软件版本： `system node image show`
++
+[listing]
+----
+::*> system node image show
+                 Is      Is                                Install
+Node     Image   Default Current Version                   Date
+-------- ------- ------- ------- ------------------------- -------------------
+localhost
+         image1  false   false   9.3                    MM/DD/YYYY TIMESTAMP
+         image1  true    true    9.3                    MM/DD/YYYY TIMESTAMP
+2 entries were displayed.
+----
+.. 对第二个节点重复上述步骤。
+
+
+. 比较集群和节点上的 ONTAP 版本，然后执行以下操作之一：
++
+** 如果集群和节点上的 ONTAP 版本相同，则无需升级或降级。
+** 如果集群和节点上的 ONTAP 版本不同，则可以 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"] 在使用早期版本的节点上，也可以 link:https://docs.netapp.com/us-en/ontap/revert/index.html["还原 ONTAP"] 适用于安装了更高版本的节点。
+
+
+

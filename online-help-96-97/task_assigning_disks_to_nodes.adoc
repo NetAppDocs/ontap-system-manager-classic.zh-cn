@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_assigning_disks_to_nodes.html 
+sidebar: sidebar 
+keywords: system, manager, assign, disk, node, online, help 
+summary: 您可以使用 System Manager 将未分配磁盘的所有权分配给特定节点，以增加聚合或存储池的容量。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本将磁盘分配给节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）将未分配磁盘的所有权分配给特定节点，以增加聚合或存储池的容量。
+
+.关于此任务
+* 如果满足以下条件，则可以分配磁盘：
++
+** 选定磁盘的容器类型必须为 "`unassigned` " 。
+** 磁盘必须连接到 HA 对中的节点。
+** 这些磁盘必须对节点可见。
+
+
+* 对于 MetroCluster 配置，不能使用 System Manager 分配磁盘。
++
+您必须改用命令行界面。
+
+
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 磁盘 * 。
+. 在 * 磁盘 * 窗口中，选择 * 清单 * 选项卡。
+. 选择要分配的磁盘，然后单击 * 分配 * 。
+. 在 * 分配磁盘 * 对话框中，选择要将磁盘分配到的节点。
+. 单击 * 分配 * 。
+

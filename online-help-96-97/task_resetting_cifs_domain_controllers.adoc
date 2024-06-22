@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_resetting_cifs_domain_controllers.html 
+sidebar: sidebar 
+keywords: reset, cifs, domain, controller, system, manager, online, help 
+summary: 您可以使用 System Manager 重置与指定域的域控制器的 CIFS 连接。无法重置域控制器信息可能会导致发生原因 A 连接失败。 
+---
+= 使用 System Manager 重置 CIFS 域控制器 - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）重置与指定域的域控制器的 CIFS 连接。无法重置域控制器信息可能会导致发生原因 A 连接失败。
+
+.关于此任务
+在从首选域控制器列表中添加或删除某个域后，您必须更新存储系统的可用域控制器的发现信息。您可以通过命令行界面（ CLI ）在 ONTAP 中更新存储系统的可用域控制器发现信息。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 域 * 选项卡中，单击 * 重置 * 。
+
+
+* 相关信息 *
+
+xref:reference_cifs_window.adoc[CIFS窗口]

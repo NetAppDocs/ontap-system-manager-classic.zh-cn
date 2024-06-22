@@ -1,0 +1,32 @@
+---
+permalink: nfs-config-esxi/task_configuring_your_network_for_best_performance.html 
+sidebar: sidebar 
+keywords: ethernet, network, performance, configuration, value, configure, configure your network for best performance 
+summary: 以太网网络的性能差别很大。您可以通过选择特定的配置值来最大限度地提高网络性能。 
+---
+= 配置网络以获得最佳性能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+以太网网络的性能差别很大。您可以通过选择特定的配置值来最大限度地提高网络性能。
+
+.步骤
+. 将主机和存储端口连接到同一网络。
++
+最好连接到相同的交换机。
+
+. 选择可用的最高速度端口。
++
+最好使用 10 GbE 或更快的端口。至少需要 1 个 GbE 端口。
+
+. 如果需要并受网络支持，请启用巨型帧。
++
+对于 ESXi 主机和存储系统，巨型帧的 MTU 应为 9000 ，而对于大多数交换机，巨型帧的 MTU 应为 9216 。数据路径中的所有网络设备（包括 ESXi NIC ，存储 NIC 和交换机）都必须支持巨型帧，并且应针对其最大 MTU 值进行配置。
+
++
+有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/performance-admin/check-network-settings-data-switches-task.html["检查数据交换机上的网络设置"^] 以及交换机供应商文档。
+
+

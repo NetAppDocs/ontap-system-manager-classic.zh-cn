@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-esxi/task_testing_iscsi_paths.html 
+sidebar: sidebar 
+keywords: storage, failover, data, mobility, path, host, node, cluster, advertise, iscsi, ping, host, test, test iscsi paths from the host to the storage cluster 
+summary: 要确保成功执行存储故障转移和数据移动，您需要确保从主机到存储集群中每个节点有两条路径。由于 iSCSI 目标公布的路径数有限，因此您需要从主机对存储集群端口执行 ping 操作。 
+---
+= 测试从主机到存储集群的 iSCSI 路径
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要确保成功执行存储故障转移和数据移动，您需要确保从主机到存储集群中每个节点有两条路径。由于 iSCSI 目标公布的路径数有限，因此您需要从主机对存储集群端口执行 ping 操作。
+
+.开始之前
+您必须知道要用于 iSCSI 路径的所有逻辑接口（ LIF ）的 IP 地址或主机名。
+
+.关于此任务
+LUN 会映射到 igroup 中的一部分启动程序，以限制从主机到 LUN 的路径数。
+
+* 默认情况下，主机只能看到从主机到包含创建 LUN 的 Storage Virtual Machine （ SVM ）的节点的路径，以及该节点的 HA 配对节点的路径。
+* 您仍然必须创建并测试从主机到集群中每个节点的路径，但主机只能访问所属节点及其 HA 配对节点上的这些路径。
+* 您应使用默认的 LUN 映射行为。
++
+仅将其他 HA 对中的节点添加到 LUN 映射中，以便为将 LUN 移动到其他节点做好准备。
+
+
+
+.步骤
+. 在ESXi主机中、使用 `ping` 命令以验证第一个LIF的路径。
++
+。 `ping` 命令可从ESXi服务控制台访问。
+
+. 重复 `ping` 命令以验证与集群中每个节点上每个iSCSI LIF的连接。
+
+
+* 相关信息 *
+
+http://kb.vmware.com/kb/1003486["VMware 知识库文章 1003486 ：使用 ping 命令测试网络连接"]

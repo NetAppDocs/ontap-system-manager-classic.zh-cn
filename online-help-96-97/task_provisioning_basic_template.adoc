@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_provisioning_basic_template.html 
+sidebar: sidebar 
+keywords: sap, hana, provisioning, basic, template, online, help, system, manager 
+summary: 您可以使用 System Manager 快速为 SAP HANA 配置基本模板。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本配置基本模板
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）快速为 SAP HANA 配置基本模板。
+
+.关于此任务
+作为集群管理员，您可以通过配置基本模板来配置应用程序。此示例介绍如何配置 * SAP HANA Server* 。
+
+.步骤
+. 单击 * 应用程序和层 * > * 应用程序 *
+. 在 * 基本 * 选项卡中，选择 * SAP HANA Server* 模板。
+. 在 "* 数据库详细信息 "* 部分中，指定以下内容：
++
+** 数据库名称
+** 数据库大小
+** 日志大小
+** Tempdb 大小
+** 服务器核心数
+** 《 SPAN HA 控制器注意事项》
+
+
+. 单击 * 配置存储 *
+
+
+.结果
+已配置 SAP HANA Server 应用程序。
+
+* 相关信息 *
+
+link:reference_application_provisioning_settings.html["有关字段说明，请参见应用程序配置设置"]

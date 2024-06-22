@@ -1,0 +1,66 @@
+---
+permalink: nas-multiprotocol-config/task_configuring_verifying_client_access_new_svm.html 
+sidebar: sidebar 
+keywords: configure, client, access, unix, ntfs, file, modify, share, acl, add, export, rule, volume, configure and verify cifs and nfs client access 
+summary: 准备好后，您可以通过设置 UNIX 或 NTFS 文件权限，修改共享 ACL 以及添加导出规则来配置客户端访问。然后，您应测试受影响的用户或组是否可以访问此卷。 
+---
+= 配置并验证 CIFS 和 NFS 客户端访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备好后，您可以通过设置 UNIX 或 NTFS 文件权限，修改共享 ACL 以及添加导出规则来配置客户端访问。然后，您应测试受影响的用户或组是否可以访问此卷。
+
+.步骤
+. 确定要为哪些客户端和用户或组授予对共享的访问权限。
+. 使用与卷的安全模式对应的方法设置文件权限：
++
+|===
+| 如果卷的安全模式为 ... | 执行此操作 ... 
+
+
+ a| 
+NTFS
+ a| 
+.. 以具有足够管理权限的管理员身份登录到 Windows 客户端，以管理 NTFS 权限。
+.. 在 Windows 资源管理器中，右键单击驱动器，然后选择 * 属性 * 。
+.. 选择安全性选项卡，然后根据需要调整组和用户的安全设置。
+
+
+
+
+ a| 
+"unix"
+ a| 
+在 UNIX 管理主机上，使用 root 用户在卷上设置 UNIX 所有权和权限。
+
+|===
+. 在 System Manager 中，修改共享 ACL 以授予 Windows 用户或组对共享的访问权限。
++
+.. 导航到 * 共享 * 窗口。
+.. 选择共享，然后单击 * 编辑 * 。
+.. 选择 * 权限 * 选项卡，并为用户或组授予对共享的访问权限。
+
+
+. 在 System Manager 中，向导出策略添加允许 NFS 客户端访问共享的规则。
++
+.. 选择 Storage Virtual Machine （ SVM ），然后单击 * SVM 设置 * 。
+.. 在 * 策略 * 窗格中，单击 * 导出策略 * 。
+.. 选择应用于卷的导出策略。
+.. 在 * 导出规则 * 选项卡中，单击 * 添加 * 并指定一组客户端。
+.. 为 * 规则索引 * 选择 * 。 2 以使此规则在允许访问管理主机的规则之后执行。
+.. 选择 * CIFS* 和 * NFSv3* 。
+.. 指定所需的访问详细信息，然后单击 * 确定。 *
++
+您可以通过键入子网为客户端授予完全读/写访问权限 `10.1.1.0/24` 作为*Client Specific*，并选中除*Allow Superuser Access*外的所有访问复选框。
+
++
+image::../media/export_rule_for_clients_nfs_nas_mp.gif[上述文本对此屏幕截图进行了说明。]
+
+
+
+. 在 Windows 客户端上，以现在有权访问共享和文件的用户之一身份登录，并验证您是否可以访问共享并创建文件。
+. 在 UNIX 客户端上，以现在有权访问卷的用户之一身份登录，并验证您是否可以挂载卷并创建文件。
+

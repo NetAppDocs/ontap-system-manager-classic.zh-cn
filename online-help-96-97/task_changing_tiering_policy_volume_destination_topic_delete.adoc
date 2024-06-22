@@ -1,0 +1,21 @@
+---
+permalink: online-help-96-97/task_changing_tiering_policy_volume_destination_topic_delete.html 
+sidebar: sidebar 
+keywords: change, tiering, policy, system, manager, volume, online, help 
+summary: 您可以使用 System Manager 更改卷的默认分层策略，以控制在数据变为非活动状态时是否将卷的数据移动到云层。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本更改卷的分层策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更改卷的默认分层策略，以控制在数据变为非活动状态时是否将卷的数据移动到云层。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要更改分层策略的卷，然后单击 * 更多操作 * > * 更改分层策略 * 。
+. 从 * 分层策略 * 列表中选择所需的分层策略，然后单击 * 保存 * 。
+

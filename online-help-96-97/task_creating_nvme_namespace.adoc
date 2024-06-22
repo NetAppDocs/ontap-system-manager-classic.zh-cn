@@ -1,0 +1,51 @@
+---
+permalink: online-help-96-97/task_creating_nvme_namespace.html 
+sidebar: sidebar 
+keywords: system, manager, create, nvme, namespace, svm, logical, blocks, online, help 
+summary: 您可以使用 System Manager 创建一个或多个 NVMe 命名空间，并将每个命名空间连接到 Storage Virtual Machine （ SVM ）中的一个主机或一组主机。NVMe 命名空间是指可格式化为逻辑块的内存量。每个命名空间都可以映射到一个 NVMe 子系统。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建 NVMe 命名空间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建一个或多个 NVMe 命名空间，并将每个命名空间连接到 Storage Virtual Machine （ SVM ）中的一个或一组主机。NVMe 命名空间是指可格式化为逻辑块的内存量。每个命名空间都可以映射到一个 NVMe 子系统。
+
+.开始之前
+SVM 必须已配置 NVMe 协议。要映射命名空间，命名空间所属的节点必须至少存在一个采用数据协议 NVMe 的 LIF 。
+
+.步骤
+. 单击 * 存储 * > * NVMe* > * NVMe 命名空间 * 。
+. 选择要包含命名空间的 SVM 。
+. 确保为 HA 对的每个节点至少配置一个 NVMe LIF 。每个节点最多可以创建两个 NVMe LIF 。
+. 配置命名空间的大小（ 1 MB 到 16 TB 之间）。
+. 输入块大小。
++
+对于 System Manager 9.5 ，块大小默认为 4 KB ，不会显示此字段。
+
++
+对于 System Manager 9.6 ，您可以指定 4 KB 或 512 字节的块大小。
+
+. 选择现有卷或通过选择聚合创建新卷。
++
+单击 + 符号可在 SVM 中设置其他命名空间（最多 250 个）。
+
+. 选择要与此命名空间关联的 NVMe 子系统。
++
+您可以从以下选项中进行选择：
+
++
+** 无：未映射任何子系统。
+** 使用现有子系统：列出的子系统基于选定的 SVM 。
+** 创建新子系统：您可以选择创建新子系统并映射到所有新命名空间。
+
+
+. 选择主机操作系统。
+. 单击 * 提交 * 。
+
+
+* 相关信息 *
+
+xref:reference_nvme_namespaces_window.adoc[NVMe 命名空间窗口]

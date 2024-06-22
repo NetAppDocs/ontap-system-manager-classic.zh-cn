@@ -1,0 +1,81 @@
+---
+permalink: fc-config-rhel/task_record_wwpn_for_each_host_fc_port.html 
+sidebar: sidebar 
+keywords: worldwide, port, name, wwpn, require, zone, fc, switch, create, igroup, host, access, lun, record, record the wwpn for each host fc port 
+summary: 要对 FC 交换机进行分区并创建允许主机访问其 LUN 的 igroup ，需要使用全球通用端口名称（ WWPN ）。 
+---
+= 记录每个主机 FC 端口的 WWPN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要对 FC 交换机进行分区并创建允许主机访问其 LUN 的 igroup ，需要使用全球通用端口名称（ WWPN ）。
+
+.开始之前
+您必须已为主机中的 HBA 安装供应商的 HBA 实用程序，并且已验证 HBA 是否正在运行您的配置所支持的驱动程序，固件和 BIOS 版本。
+
+.关于此任务
+WWPN 用于所有配置。您无需记录全球通用节点名称（ WWNN ）。
+
+.步骤
+. 运行适用于您的 FC HBA 类型的 HBA 实用程序。
+. 选择HBA。
+. 记录每个端口的 WWPN 。
++
+以下示例显示了 Emulex HBA Manager ，以前称为 OneCommand Manager 。
+
++
+image::../media/emulex_hba_fc_fc_rhel.gif[图中显示了 OneCommand Manager 中显示的双端口 HBA 以及每个端口的 WWPN 值。]
+
++
+QLogic QConvergeConsole 等其他实用程序可提供等效信息。
+
+. 对主机中的每个 FC HBA 重复上述步骤。
++
+在Linux中、您还可以通过运行来获取WWPN `sanlun` 实用程序。
+
++
+以下示例显示了中的输出 `sanlun` 命令：
+
++
+[listing]
+----
+# sanlun fcp show adapter -v
+
+adapter name:      host0
+**WWPN:              10000000c9813a14**
+WWNN:              20000000c9813a14
+driver name:       lpfc
+model:             LPe12002-M8
+model description: Emulex LPe12002-M8 8Gb 2-port PCIe Fibre Channel Adapter
+serial number:     VM84364896
+hardware version:  31004549
+driver version:    8.3.7.34.3p; HBAAPI(I) v2.3.b, 07-12-10
+firmware version:  2.01A12 (U3D2.01A12)
+Number of ports:   1
+port type:         Fabric
+port state:        Operational
+supported speed:   2 GBit/sec, 4 GBit/sec, 8 GBit/sec
+negotiated speed:  8 GBit/sec
+OS device name:    /sys/class/scsi_host/host0
+
+adapter name:      host5
+**WWPN:              10000000c9813a15**
+WWNN:              20000000c9813a15
+driver name:       lpfc
+model:             LPe12002-M8
+model description: Emulex LPe12002-M8 8Gb 2-port PCIe Fibre Channel Adapter
+serial number:     VM84364896
+hardware version:  31004549
+driver version:    8.3.7.34.3p; HBAAPI(I) v2.3.b, 07-12-10
+firmware version:  2.01A12 (U3D2.01A12)
+Number of ports:   1
+port type:         Fabric
+port state:        Operational
+supported speed:   2 GBit/sec, 4 GBit/sec, 8 GBit/sec
+negotiated speed:  8 GBit/sec
+OS device name:    /sys/class/scsi_host/host5
+----
+

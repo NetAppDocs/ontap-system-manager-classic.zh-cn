@@ -1,0 +1,715 @@
+---
+permalink: online-help-96-97/reference_application_specific_lun_settings.html 
+sidebar: sidebar 
+keywords: system, manager, oracle, sql, lun, application, specific, online, help 
+summary: 在 AFF 集群上创建 FC SAN 优化的 LUN 时， System Manager 支持 Oracle ， SQL 和其他应用程序类型。LUN 大小等 LUN 设置由特定于应用程序类型的规则决定。对于 SQL 和 Oracle ，系统会自动创建 LUN 设置。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本进行应用程序专用的 LUN 设置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 AFF 集群上创建 FC SAN 优化的 LUN 时， ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）支持 Oracle ， SQL 和其他应用程序类型。LUN 大小等 LUN 设置由特定于应用程序类型的规则决定。对于 SQL 和 Oracle ，系统会自动创建 LUN 设置。
+
+如果集群包含两个或更多节点， System Manager 将仅使用 API 选择的前两个节点来创建 LUN 。已在这两个节点中的每个节点上创建数据聚合。创建的每个卷的大小等于聚合的可用容量。这些卷会进行精简配置，并在 LUN 上禁用空间预留。
+
+默认情况下，存储效率策略处于启用状态，并且计划设置为 " `daily` " ，服务质量（ QoS ）设置为 "`best_effort` " 。默认情况下，集群上会启用访问时间（ atime ）更新。但是， System Manager 会在创建卷时禁用访问时间更新，因此，每次读取或写入文件时，不会更新目录中的访问时间字段。
+
+[NOTE]
+====
+启用访问时间更新会导致集群提供数据的功能性能下降。
+
+====
+
+
+== SQL 的 LUN 设置
+
+默认情况下， LUN 和卷会配置给一个 SQL Server 实例，该实例具有 2 个数据库，每个数据库 1 TB ，并具有 24 个物理核心。系统会根据 SQL 服务器的特定规则为 LUN 和卷配置空间。对 HA 对中的 LUN 执行负载平衡。您可以修改数据库的数量。对于每个数据库，系统会创建八个数据 LUN 和一个日志 LUN 。为每个 SQL 实例创建一个临时 LUN 。
+
+下表提供了有关如何为 SQL 的默认值配置空间的信息：
+
+|===
+| Node | 聚合 | LUN类型 | Volume name | LUN名称 | LUN 大小公式 | LUN 大小（ GB ） 
+
+
+ a| 
+节点 1
+ a| 
+node1_aggr1
+ a| 
+数据
+ a| 
+db01_data01
+ a| 
+db01_data01
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data02
+ a| 
+db01_data02
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data03
+ a| 
+db01_data03
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data04
+ a| 
+db01_data04
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data01
+ a| 
+db02_data01
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data02
+ a| 
+db02_data02
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data03
+ a| 
+db02_data03
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data04
+ a| 
+db02_data04
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+db01_log
+ a| 
+db01_log
+ a| 
+数据库大小 ÷ 20
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+临时
+ a| 
+SQL_temp
+ a| 
+SQL_temp
+ a| 
+数据库大小÷3
+ a| 
+330
+
+
+
+ a| 
+节点 2.
+ a| 
+node2_aggr1
+ a| 
+数据
+ a| 
+db01_data05
+ a| 
+db01_data05
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data06
+ a| 
+db01_data06
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data07
+ a| 
+db01_data07
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db01_data08
+ a| 
+db01_data08
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data05
+ a| 
+db02_data05
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data06
+ a| 
+db02_data06
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data07
+ a| 
+db02_data07
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+db02_data08
+ a| 
+db02_data08
+ a| 
+数据库大小 ÷ 8.
+ a| 
+125.
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+db02_log
+ a| 
+db02_log
+ a| 
+数据库大小 ÷ 20
+ a| 
+50
+
+|===
+
+
+== Oracle 的 LUN 设置
+
+默认情况下， LUN 和卷配置为一个 2 TB 的数据库。系统会根据 Oracle 的特定规则为 LUN 和卷配置空间。默认情况下，不会选择 Oracle Real Application Clusters （ RAC ）。
+
+下表提供了有关如何为 Oracle 的默认值配置空间的信息：
+
+|===
+| Node | 聚合 | LUN类型 | Volume name | LUN名称 | LUN 大小公式 | LUN 大小（ GB ） 
+
+
+ a| 
+节点 1
+ a| 
+node1_aggr1
+ a| 
+数据
+ a| 
+ora_vol01
+ a| 
+ora_l之data01
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol02
+ a| 
+ora_l之data02
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol03
+ a| 
+ora_l之data03
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol04
+ a| 
+ora_l之data04
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+ora_vol05
+ a| 
+ora_llog1
+ a| 
+数据库大小÷40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+二进制文件
+ a| 
+ora_vol06
+ a| 
+ora_orabin1
+ a| 
+数据库大小÷40
+ a| 
+50
+
+
+
+ a| 
+节点 2.
+ a| 
+node2_aggr1
+ a| 
+数据
+ a| 
+ora_vol07
+ a| 
+ora_l之data05
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol08
+ a| 
+ora_l之data06
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol09
+ a| 
+ora_l之data07
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol10
+ a| 
+ora_l之data08
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+ora_vol11
+ a| 
+ora_llog2
+ a| 
+数据库大小÷40
+ a| 
+50
+
+|===
+对于 Oracle RAC ，会为网格文件配置 LUN 。Oracle RAC 仅支持两个 RAC 节点。
+
+下表提供了有关如何为 Oracle RAC 的默认值配置空间的信息：
+
+|===
+| Node | 聚合 | LUN类型 | Volume name | LUN名称 | LUN 大小公式 | LUN 大小（ GB ） 
+
+
+ a| 
+节点 1
+ a| 
+node1_aggr1
+ a| 
+数据
+ a| 
+ora_vol01
+ a| 
+ora_l之data01
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol02
+ a| 
+ora_l之data02
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol03
+ a| 
+ora_l之data03
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol04
+ a| 
+ora_l之data04
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+ora_vol05
+ a| 
+ora_llog1
+ a| 
+数据库大小÷40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+二进制文件
+ a| 
+ora_vol06
+ a| 
+ora_orabin1
+ a| 
+数据库大小÷40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+网格
+ a| 
+ora_vol07
+ a| 
+ora_lunggrid1.
+ a| 
+10 GB
+ a| 
+10
+
+
+
+ a| 
+节点 2.
+ a| 
+node2_aggr1
+ a| 
+数据
+ a| 
+ora_vol08
+ a| 
+ora_l之data05
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol09
+ a| 
+ora_l之data06
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol10
+ a| 
+ora_l之data07
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+数据
+ a| 
+ora_vol11
+ a| 
+ora_l之data08
+ a| 
+数据库大小 ÷ 8.
+ a| 
+250
+
+
+
+ a| 
+ a| 
+ a| 
+日志
+ a| 
+ora_vol12
+ a| 
+ora_llog2
+ a| 
+数据库大小÷40
+ a| 
+50
+
+
+
+ a| 
+ a| 
+ a| 
+二进制文件
+ a| 
+ora_vol13
+ a| 
+ora_orabin2
+ a| 
+数据库大小÷40
+ a| 
+50
+
+|===
+
+
+== 其他应用程序类型的 LUN 设置
+
+每个 LUN 都配置在一个卷中。空间会根据指定大小在 LUN 中配置。在所有 LUN 的节点之间执行负载平衡。

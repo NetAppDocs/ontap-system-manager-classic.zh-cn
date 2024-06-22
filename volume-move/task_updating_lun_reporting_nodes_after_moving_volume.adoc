@@ -1,0 +1,40 @@
+---
+permalink: volume-move/task_updating_lun_reporting_nodes_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, move, lun, ha, pair, remote, node, lun, map, slm, reporting-node, partner, lun reporting nodes 
+summary: 如果移动的卷包含 LUN ，而该卷现在位于其他 HA 对上，则应从选择性 LUN 映射（ SLM ）报告节点列表中删除所有远程节点。然后， LUN 映射仅包含所有者节点及其 HA 配对节点，从而确保仅使用优化的 LUN 路径。 
+---
+= 移动卷后更新 LUN 报告节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果移动的卷包含 LUN ，而该卷现在位于其他 HA 对上，则应从选择性 LUN 映射（ SLM ）报告节点列表中删除所有远程节点。然后， LUN 映射仅包含所有者节点及其 HA 配对节点，从而确保仅使用优化的 LUN 路径。
+
+.关于此任务
+只有在将卷从其 HA 对移动到其他 HA 对时，才需要使用此操作步骤。如果卷位于同一 HA 对的不同节点上，则可以跳过此操作步骤。
+
+.步骤
+. 使用从报告节点列表中删除所有远程节点 `lun mapping remove-reporting-nodes` 命令 `-remote-nodes` 参数。
++
+[listing]
+----
+cluster1::> lun mapping remove-reporting-nodes -vserver SVM1 -volume vol1 -igroup ig1 -remote-nodes true
+----
+. 使用验证LUN映射是否仅包含所有者节点及其配对节点 `lun mapping show` 命令 `-fields reporting-nodes` 参数。
++
+[listing]
+----
+cluster1::> lun mapping show -vserver SVM1 -volume vol1 -fields reporting-nodes
+vserver  path        igroup   reporting-nodes
+-------- ----------- -------- ---------------------------------------------
+SVM1     /vol/vol1   ig1      cluster1-3,cluster1-4
+----
+. 删除主机操作系统的陈旧设备条目。
+. 从主机重新扫描以刷新主机的可用路径。
++
+有关重新扫描主机的具体步骤，请参见主机文档。
+
+

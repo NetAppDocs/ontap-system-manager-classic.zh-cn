@@ -1,0 +1,115 @@
+---
+permalink: online-help-96-97/task_creating_svms.html 
+sidebar: sidebar 
+keywords: create, svm, system, manager, cluster, online, help 
+summary: 您可以使用 System Manager 创建完全配置的 Storage Virtual Machine （ SVM ），以便可以立即提供数据。一个集群可以具有一个或多个 SVM 。 
+---
+= 使用 System Manager 创建 SVM - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)创建可立即提供数据的完全配置的Storage Virtual Machine (SVM)。一个集群可以具有一个或多个 SVM 。
+
+.开始之前
+* 集群必须至少有一个处于联机状态的非根聚合。
+* 聚合必须具有足够的空间来容纳 SVM 根卷。
+* 您必须已通过配置和启用 NTP 来同步整个集群的时间，以防止 CIFS 创建和身份验证失败。
+* 要在 SVM 上配置的协议必须获得许可。
+* 要使安全 DDNS 正常运行，您必须已配置 CIFS 协议。
+
+
+.关于此任务
+* 创建 SVM 时，您可以执行以下任务：
++
+** 创建并完全配置 SVM 。
+** 配置 SVM 上允许的卷类型。
+** 创建 SVM 并为其配置最低网络配置。
+** 将管理任务委派给 SVM 管理员。
+
+
+* 要为SVM命名、您可以使用字母数字字符和以下特殊字符："`.`" (period), "`-`"(连字符)和"`_`"(下划线)。
++
+SVM 名称应以字母或 "` _` " （下划线）开头，并且不能超过 47 个字符。
+
++
+[NOTE]
+====
+您应使用唯一的完全限定域名（ FQDN ）作为 SVM 名称，例如 vs0.example.com 。
+
+====
+* 您只能在具有相同语言设置的卷之间建立 SnapMirror 关系。
++
+SVM 的语言决定了用于显示 SVM 中所有 NAS 卷的文件名和数据的字符集。
+
+* 不能使用 SnapLock 聚合作为 SVM 的根聚合。
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 单击 * 创建 * 。
+. 在 * Storage Virtual Machine （ SVM ）设置 * 窗口中，指定以下详细信息：
++
+** SVM name
+** 分配给 SVM 的 IP 空间
+** 允许的卷类型
+** 允许的协议
+** SVM 语言
+** 根卷的安全模式
+** 根聚合
++
+任何SVM的默认语言设置均为C.UTF-8。
+
++
+默认情况下，系统会选择可用空间最大的聚合作为 SVM 根卷的容器。根据所选协议，将选择默认安全模式和根聚合。
+
++
+如果选择CIFS协议或CIFS协议与其他协议的组合、则安全模式将设置为NTFS。如果选择 NFS ， iSCSI ， NVMe 或 FC/FCoE 或这些协议的组合，则安全模式将设置为 UNIX 。
+
++
+[NOTE]
+====
+NVMe 不允许组合协议。
+
+====
+
+
++
+在MetroCluster 配置中、仅显示集群中包含的聚合。
+
+. 指定 DNS 域名和名称服务器 IP 地址以配置 DNS 服务。
++
+系统将从现有 SVM 配置中选择默认值。
+
+. *可选：*在配置数据LIF以使用协议访问数据时、请指定目标别名、子网以及每个节点的LIF数。
++
+您可以选中 * 查看或修改 LIF 配置（高级设置） * 复选框以修改 LIF 中的端口集数量。
+
++
+您可以通过从详细信息区域的节点列表中选择节点来编辑特定节点中端口集的详细信息。
+
+. *可选：*通过提供SVM凭据为SVM管理员启用主机端应用程序、例如SnapDrive 和SnapManager。
+. *可选：*对于NVMe以外的协议、请单击*为SVM管理创建新的LIF *、然后为新的管理LIF指定端口集和IP地址、无论是否使用子网。
++
+默认情况下，对于 CIFS 和 NFS 协议，数据 LIF 具有管理访问权限。只有在需要时，才必须创建新的管理 LIF 。对于 iSCSI 和 FC ，需要使用 SVM 管理 LIF ，因为数据协议和管理协议不能共享同一个 LIF 。
+
+. *可选：*对于NVMe协议、从ONTAP 9.5开始、在SVM设置向导的第二页上为每个节点至少配置一个LIF：*配置NVMe协议。*
++
+必须为 HA 对中的每个节点至少配置一个 LIF 。您还可以为每个节点指定两个 LIF 。单击设置图标可在一个或两个 LIF 配置之间切换。
+
+. 单击 * 提交并继续 * 。
++
+此时将使用指定的配置创建 SVM 。
+
+
+
+.结果
+您创建的 SVM 将自动启动。根卷名称会自动生成为 `SVM name_root`。默认情况下、 `vsadmin` 此时将创建用户帐户、并且该帐户处于锁定状态。
+
+
+
+== 下一步操作
+
+要允许数据访问，必须在 SVM 上至少配置一个协议。

@@ -1,0 +1,21 @@
+---
+permalink: online-help-96-97/task_viewing_cifs_domain_information.html 
+sidebar: sidebar 
+keywords: system, manager, view, cifs, domain, information, online, help 
+summary: 您可以使用 System Manager 查看有关连接到存储系统的域控制器和服务器的信息。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本查看 CIFS 域信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）查看有关连接到存储系统的域控制器和服务器的信息。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 单击 * 域 * 选项卡。
+. 查看有关已连接的域控制器和服务器的信息。
+

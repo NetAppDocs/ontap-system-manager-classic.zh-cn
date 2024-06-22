@@ -1,0 +1,49 @@
+---
+permalink: volume-disaster-prep/task_setting_up_destination_svm_for_data_access.html 
+sidebar: sidebar 
+keywords: minimize, data, access, disruption, activating, activate, destination, volume, configuration, cifs, policies, policy, nas, environment, initiator, group, svm, set up the destination svm for data access 
+summary: 激活目标卷时，您可以通过在包含目标卷的 SVM 上设置 NAS 环境所需的配置（例如 LIF ， CIFS 共享和导出策略）以及 SAN 环境的 LIF 和启动程序组来最大限度地减少数据访问中断。 
+---
+= 设置目标 SVM 以进行数据访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+激活目标卷时，您可以通过在包含目标卷的 SVM 上设置 NAS 环境所需的配置（例如 LIF ， CIFS 共享和导出策略）以及 SAN 环境的 LIF 和启动程序组来最大限度地减少数据访问中断。
+
+.关于此任务
+您必须在 * 目标 * 集群上对包含目标卷的 SVM 执行此任务。
+
+
+
+== 操作步骤
+
+* NAS 环境：
++
+.. 创建 NAS LIF 。
+.. 使用源上使用的相同共享名称创建 CIFS 共享。
+.. 创建适当的 NFS 导出策略。
+.. 创建适当的配额规则。
+
+
+* SAN环境：
++
+.. 创建 SAN LIF 。
+.. *可选：*配置端口集。
+.. 配置启动程序组。
+.. 对于 FC ，对 FC 交换机进行分区，以使 SAN 客户端能够访问 LIF 。
+
+
+
+
+
+
+== 下一步操作
+
+如果对包含源卷的 SVM 进行了任何更改，则必须在包含目标卷的 SVM 上手动复制这些更改。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

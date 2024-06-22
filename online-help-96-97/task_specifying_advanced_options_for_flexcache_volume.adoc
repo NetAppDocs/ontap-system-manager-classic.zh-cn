@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html 
+sidebar: sidebar 
+keywords: flexcache, volume, online, help, advanced, options, specify 
+summary: 从 System Manager 9.6 开始，编辑 FlexCache 卷时，您可以指定要与 FlexCache 卷关联的高级选项。 
+---
+= 为 FlexCache 卷指定高级选项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，编辑 FlexCache 卷时，您可以指定要与 FlexCache 卷关联的高级选项。
+
+.步骤
+. *可选：*在*编辑FlexCache 卷*窗口中、单击 image:../media/advanced_options.gif[""] 以指定高级选项。
++
+此时将显示高级选项窗口。它包含一些部分（左列中的标题），您可以在其中指定各种选项。
+
+. *可选：*在*常规详细信息*部分中、您可以编辑卷的权限。
+. 在 * 聚合 * 部分中，您可以启用 * 选择聚合 * 切换按钮以覆盖最佳实践默认值，并从聚合列表中选择相应项。
+. 在 * 存储效率 * 部分中，您可以在卷上启用数据压缩和重复数据删除。
++
+默认情况下， FlexCache 卷不会启用重复数据删除。如果指定的卷大小超过运行重复数据删除所需的限制， System Manager 将使用默认的重复数据删除计划。
+
+. 单击 * 应用 * 以更新更改。
+

@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_specifying_advanced_options_for_flexgroup_volume.html 
+sidebar: sidebar 
+keywords: flexclone, volume, specify, advanced, create, options, online, help 
+summary: 创建 FlexGroup 卷时，您可以指定要与 FlexGroup 卷关联的选项。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本为 FlexGroup 卷指定高级选项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+创建 FlexGroup 卷时，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）指定要与 FlexGroup 卷关联的选项。
+
+.步骤
+. *可选：*在*创建FlexGroup *窗口中、单击 image:../media/advanced_options.gif[""] 以指定高级选项。
++
+此时将显示高级选项窗口。它包含一些部分（左列中的标题），您可以在其中指定各种选项。
+
+. 在 * 常规详细信息 * 部分中，选择空间预留和安全模式，然后为卷设置 UNIX 权限。
++
+您应注意以下限制：
+
++
+** 空间预留选项不适用于 FabricPool 聚合。
+** 启用精简配置后，只有在将数据写入卷时，才会从聚合中为卷分配空间。
+** 对于纯闪存优化存储系统，默认情况下会启用精简配置，而对于其他存储系统，则默认情况下会启用厚配置。
+
+
+. 在 * 聚合 * 部分中，您可以启用 * 选择聚合 * 按钮以覆盖最佳实践默认值，并从 FabricPool 聚合列表中选择相应项。
+. 在 * 优化空间 * 部分中，您可以在卷上启用重复数据删除。
++
+System Manager 会使用默认的重复数据删除计划。如果指定的卷大小超过运行重复数据删除所需的限制，则会创建该卷，而不会启用重复数据删除。
+
++
+适用于具有全闪存优化特性、实时数据压缩和的系统 `auto` 默认情况下、重复数据删除计划处于启用状态。
+
+. 在 * 服务质量 * 部分中，指定策略组以控制 FlexGroup 卷的输入 / 输出（ I/O ）性能。
+. 单击 * 应用 * 以更新更改。
+

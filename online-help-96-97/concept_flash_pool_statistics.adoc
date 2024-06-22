@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/concept_flash_pool_statistics.html 
+sidebar: sidebar 
+keywords: flash, pool, statistics, system, manager, ssd, tier, read, write, workload, aggregate, online, help 
+summary: 您可以使用 System Manager 查看选定 Flash Pool 聚合的实时 SSD 层读取和写入工作负载。 
+---
+= 使用 System Manger 查看 Flash Pool 统计信息— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）查看选定 Flash Pool 聚合的实时 SSD 层读取和写入工作负载。
+
+
+
+== Flash Pool 聚合统计信息窗口
+
+您可以查看选定 Flash Pool 聚合的实时 SSD 层读取和写入工作负载。
+
+此页面不适用于包含具有全闪存优化特性的节点的集群。
+
+* * 显示 Flash Pool 聚合的统计信息 *
++
+从 Flash Pool 聚合列表中，您可以选择要查看其统计信息的 Flash Pool 聚合。
+
+
+
+
+
+=== SSD 缓存读取工作负载
+
+与 SSD 层执行的读取操作相比，显示发送到 Flash Pool 聚合的总读取请求的图形视图。
+
+
+
+=== SSD 缓存写入工作负载
+
+与 SSD 层执行的写入操作相比，显示发送到 Flash Pool 聚合的总写入请求的图形视图。

@@ -1,0 +1,134 @@
+---
+permalink: nas-multiprotocol-config/task_creating_new_svm.html 
+sidebar: sidebar 
+keywords: wizard, create, creating, storage, virtual, machine, svm, domain, name, system, dns, creating, data, logical, interface, lif, cifs, server, nfs, create a basic svm 
+summary: 您可以使用一个向导来指导您完成以下过程：创建新的 Storage Virtual Machine （ SVM ），配置域名系统（ DNS ），创建数据逻辑接口（ LIF ），配置 CIFS 服务器，启用 NFS 以及配置 NIS （可选）。 
+---
+= 创建基本 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用一个向导来指导您完成以下过程：创建新的 Storage Virtual Machine （ SVM ），配置域名系统（ DNS ），创建数据逻辑接口（ LIF ），配置 CIFS 服务器，启用 NFS 以及配置 NIS （可选）。
+
+.开始之前
+* 您必须配置网络，并且必须将相关物理端口连接到网络。
+* 您必须了解 SVM 将使用以下哪些网络组件：
++
+** 要创建数据逻辑接口（ LIF ）的节点以及该节点上的特定端口
+** 要从中配置数据 LIF IP 地址的子网，或者您也可以选择要分配给数据 LIF 的特定 IP 地址
+** 此 SVM 将加入的 Active Directory （ AD ）域，以及向其中添加 SVM 所需的凭据
+** NIS 信息，如果您的站点使用 NIS 进行名称服务或名称映射
+
+
+* 子网必须可路由到网络信息服务（ NIS ），轻型目录访问协议（ LDAP ）， Active Directory （ AD ）和 DNS 等服务所需的所有外部服务器。
+* 必须正确配置任何外部防火墙，才能访问网络服务。
+* AD 域控制器，客户端和 SVM 上的时间必须在五分钟内彼此同步。
+
+
+.关于此任务
+在创建用于多协议访问的 SVM 时，不应使用 Storage Virtual Machine （ SVM ）设置窗口的配置部分，该窗口会创建两个卷，而不是一个具有多协议访问的卷。您可以稍后在工作流中配置卷。
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 单击 * 创建。 *
+. 在 * Storage Virtual Machine （ SVM ） Setup* 对话框中，创建 SVM ：
++
+.. 指定 SVM 的唯一名称。
++
+此名称必须是完全限定域名（ FQDN ），或者遵循其他约定，以确保名称在集群中是唯一的。
+
+.. 选择您拥有许可证且最终将在 SVM 上使用的所有协议，即使您不想立即配置所有协议也是如此。
+.. 保留默认语言设置 C.UTF-8 。
++
+[NOTE]
+====
+如果您支持在 NFS 和 SMB/CIFS 客户端中显示国际字符，请考虑使用 * UTF8MB4* 语言代码，该代码从 ONTAP 9.5 开始提供。
+
+====
+.. *可选*：确保将安全模式设置为您的首选项。
++
+默认情况下，选择 CIFS 协议会将安全模式设置为 NTFS 。
+
+.. *可选*：选择要包含SVM根卷的根聚合。
++
+为根卷选择的聚合不会确定数据卷的位置。数据卷的聚合将在后续步骤中单独选择。
+
++
+image::../media/svm_setup_details_page_ntfs_selected_nas_mp.gif[本图通过周围的文字进行了说明。]
+
+.. *可选*：在* DNS配置*区域中、确保默认DNS搜索域和名称服务器是要用于此SVM的域和名称服务器。
++
+image::../media/svm_setup_details_dns_nas_mp.gif[本图通过周围的文字进行了说明。]
+
+.. 单击 * 提交并继续 * 。
+
+
++
+此时将创建 SVM ，但尚未配置协议。
+
+. 在 * 配置 CIFS/NFS 协议 * 页面的 * 数据 LIF 配置 * 部分中，指定客户端用于访问数据的 LIF 的详细信息：
++
+.. 从您指定的子网自动为 LIF 分配 IP 地址，或者手动输入地址。
+.. 单击 * 浏览 * 并选择要与 LIF 关联的节点和端口。
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_nas_mp.gif[本图通过周围的文字进行了说明。]
+
+
+
+. 在 * CIFS 服务器配置 * 部分中，定义 CIFS 服务器并将其配置为访问 AD 域：
++
+.. 为 CIFS 服务器指定在 AD 域中唯一的名称。
+.. 指定 CIFS 服务器可以加入的 AD 域的 FQDN 。
+.. 如果要关联 AD 域中的组织单位（ OU ），而不是 CN=Computers ，请输入 OU 。
+.. 指定具有足够权限将 CIFS 服务器添加到 OU 的管理帐户的名称和密码。
+.. 如果要避免对此 SVM 上的所有共享进行未经授权的访问，请选择使用 SMB 3.0 加密数据的选项。
+
+
++
+image::../media/svm_setup_cifs_nfs_page_cifs_ad_nas_mp.gif[本图通过周围的文字进行了说明。]
+
+. 跳过 * 为 CIFS 存储配置卷 * 区域，因为它仅为 CIFS 访问配置卷，而不是为多协议访问配置卷。
+. 如果折叠了 * NIS 配置 * 区域，请将其展开。
+. 如果您的站点使用 NIS 进行名称服务或名称映射，请指定 NIS 服务器的域和 IP 地址。
++
+image::../media/svm_setup_cifs_nfs_page_nis_area_nas_mp.gif[本图通过周围的文字进行了说明。]
+
+. 跳过 * 为 NFS 存储配置卷 * 区域，因为它仅为 NFS 访问配置卷，而不是为多协议访问配置卷。
+. 单击 * 提交并继续 * 。
++
+此时将创建以下对象：
+
++
+** 以 SVM 命名的数据 LIF ，后缀为 "` cifs_nfs_lif1` "
+** 属于 AD 域的 CIFS 服务器
+** NFS 服务器
+
+
+. 对于显示的所有其他协议配置页面，请单击 * 跳过 * 并稍后配置协议。
+. 显示 * SVM 管理 * 页面时，配置或推迟为此 SVM 配置单独的管理员：
++
+** 单击 * 跳过 * ，然后根据需要稍后配置管理员。
+** 输入请求的信息，然后单击 * 提交并继续 * 。
+
+
+. 查看 * 摘要 * 页面，记下稍后可能需要的任何信息，然后单击 * 确定 * 。
++
+DNS 管理员需要知道 CIFS 服务器名称和数据 LIF 的 IP 地址。Windows 客户端需要知道 CIFS 服务器的名称。NFS 客户端需要知道数据 LIF 的 IP 地址。
+
+
+
+.结果
+此时将创建一个新的 SVM ，其中包含一个 CIFS 服务器和一个可通过相同数据 LIF 访问的 NFS 服务器。
+
+
+
+== 下一步操作
+
+现在，您必须打开 SVM 根卷的导出策略。
+
+* 相关信息 *
+
+xref:task_opening_export_policy_svm_root_volume.adoc[打开 SVM 根卷的导出策略（创建启用了 NFS 的新 SVM ）]

@@ -1,0 +1,51 @@
+---
+permalink: online-help-96-97/concept_guidelines_working_with_volumes_that_contain_luns.html 
+sidebar: sidebar 
+keywords: guidelines, flexvol, volume, lun, change, default, settings, snapshot, copy, simplify, administration 
+summary: 使用包含 LUN 的 FlexVol 卷时，必须更改 Snapshot 副本的默认设置。您还可以优化 LUN 布局以简化管理。 
+---
+= 在 System Manager 中使用包含 LUN 的 FlexVol 卷的准则— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中，如果使用包含 LUN 的 FlexVol 卷，则必须更改 Snapshot 副本的默认设置。您还可以优化 LUN 布局以简化管理。
+
+许多可选功能都需要 Snapshot 副本，例如 SnapMirror ， SyncMirror ，转储和还原以及 ndmpcopy 。
+
+创建卷时， ONTAP 会自动执行以下操作：
+
+* 为 Snapshot 副本预留 5% 的空间
+* 计划 Snapshot 副本
+
+
+由于在 ONTAP 中创建 Snapshot 副本的内部计划机制无法确保 LUN 中的数据处于一致状态，因此您应通过执行以下任务来更改这些 Snapshot 副本设置：
+
+* 关闭自动 Snapshot 副本计划。
+* 删除所有现有 Snapshot 副本。
+* 将为 Snapshot 副本预留的空间百分比设置为零。
+
+
+创建包含 LUN 的卷时，应遵循以下准则：
+
+* 请勿在系统的根卷中创建任何 LUN 。
++
+ONTAP 使用此卷管理存储系统。默认根卷为 /vol/vol0 。
+
+* 您应使用 SAN 卷来包含 LUN 。
+* 您应确保包含 LUN 的卷中不存在任何其他文件或目录。
++
+如果无法做到这一点，并且您要将 LUN 和文件存储在同一个卷中，则应使用单独的 qtree 来包含这些 LUN 。
+
+* 如果多个主机共享同一个卷，则应在该卷上创建一个 qtree ，以存储同一主机的所有 LUN 。
++
+这是一种简化 LUN 管理和跟踪的最佳实践。
+
+* 为了简化管理，您应对 LUN 和卷使用反映其所有权或使用方式的命名约定。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

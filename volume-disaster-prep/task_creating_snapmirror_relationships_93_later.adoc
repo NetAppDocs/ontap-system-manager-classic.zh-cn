@@ -1,0 +1,70 @@
+---
+permalink: volume-disaster-prep/task_creating_snapmirror_relationships_93_later.html 
+sidebar: sidebar 
+keywords: create, snapmirror, relationship, source, volume, cluster, destination, peer, data, recovery, disaster, create the snapmirror relationship, Beginning with ontap 9.3 
+summary: 您必须在一个集群上的源卷与对等集群上的目标卷之间创建 SnapMirror 关系，以便复制数据以进行灾难恢复。 
+---
+= 创建 SnapMirror 关系（从 ONTAP 9.3 开始）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在一个集群上的源卷与对等集群上的目标卷之间创建 SnapMirror 关系，以便复制数据以进行灾难恢复。
+
+.开始之前
+* 目标聚合必须具有可用空间。
+* 必须对这两个集群进行适当的配置和设置，以满足您的环境对用户访问，身份验证和客户端访问的要求。
+
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 选择要为其创建镜像关系的卷，然后单击 * 操作 * > * 保护 * 。
+. 在 * 关系类型 * 部分中，从 * 关系类型 * 下拉列表中选择 * 镜像 * 。
+. 在 * 卷：保护卷 * 页面中，提供以下信息：
++
+.. 选择 * 镜像 * 作为关系类型。
+.. 选择目标集群，目标 SVM 以及目标卷名称的后缀。
++
+目标 SVM 下仅列出对等 SVM 和允许的 SVM 。
+
+.. 单击 image:../media/advanced_options_icon_disaster.gif["高级选项图标"]。
+.. 在*高级选项*对话框中，确认 `MirrorAllSnapshots` 设置为保护策略。
++
+`DPDefault` 和 `MirrorLatest` 是可用于SnapMirror关系的其他默认保护策略。
+
+.. 选择保护计划。
++
+默认情况下、 `hourly` 已选择计划。
+
+.. 验证是否已选择 * 是 * 来初始化 SnapVault 关系。
++
+默认情况下，所有数据保护关系都会初始化。初始化 SnapMirror 关系可确保目标卷具有开始保护源卷的基线。
+
+.. 单击 * 应用 * 以保存更改。
++
+image::../media/snapmirror_advanced_options_93.gif[高级选项窗口]
+
+
+
+. 单击 * 保存 * 以创建 SnapMirror 关系。
+. 验证SnapMirror关系的关系状态是否在中 `Snapmirrored` 状态。
++
+.. 导航到 * 卷 * 窗口，然后选择为其创建 SnapMirror 关系的卷。
+.. 双击卷以查看卷详细信息，然后单击 * 保护 * 以查看卷的数据保护状态。
+
+
++
+image::../media/snapmirror_9_3.gif[SnapMirror状态屏幕截图]
+
+
+
+
+
+== 下一步操作
+
+您必须记下源卷的设置，例如精简配置，重复数据删除，数据压缩和自动增长。中断 SnapMirror 关系时，您可以使用此信息来验证目标卷设置。

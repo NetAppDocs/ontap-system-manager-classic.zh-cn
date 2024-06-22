@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_taking_luns_offline.html 
+sidebar: sidebar 
+keywords: take, lun, offline, online, help, management, system, manager 
+summary: 您可以使用 System Manager 中的 LUN 管理选项卡使选定 LUN 脱机并使其无法用于块协议访问。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本使 LUN 脱机
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版（在 ONTAP 9.7 及更早版本中提供）中的 * LUN 管理 * 选项卡使选定的 LUN 脱机并使其无法用于块协议访问。
+
+.开始之前
+访问 LUN 的任何主机应用程序都必须暂停或同步。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，选择一个或多个要脱机的 LUN 。
+. 单击 * 状态 * > * 脱机 * 。
+
+
+* 相关信息 *
+
+xref:reference_luns_window.adoc[LUN 窗口]

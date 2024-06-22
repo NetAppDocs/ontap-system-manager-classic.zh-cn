@@ -1,0 +1,143 @@
+---
+permalink: online-help-96-97/concept_configuration_update.html 
+sidebar: sidebar 
+keywords: configuration, update, system, manager, administration, detail, storage, virtual, machine, svm, online, help, window, tab, node, command, button 
+summary: 您可以使用 System Manager 配置 Storage Virtual Machine （ SVM ）的管理详细信息。 
+---
+= 使用 System Manager 更新配置— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)配置Storage Virtual Machine (SVM)的管理详细信息。
+
+
+
+== 配置 SVM 的管理详细信息
+
+您可以使用 System Manager 快速配置存储虚拟机（ SVM ）的管理详细信息。您可以选择将 SVM 的管理委派给 SVM 管理员。
+
+.关于此任务
+作为 SVM 管理员，您不能使用 System Manager 管理委派的 SVM 。您只能使用命令行界面（ CLI ）来管理 SVMsonly 。
+
+.步骤
+. 单击 * 配置 * > * 集群 * > * 配置更新 * 。
+. 在 * SVM* 选项卡中，选择节点，然后单击 * 配置管理详细信息 * 。
+. 在*Administrator Details*部分中，为设置密码 `vsadmin` 用户帐户
+. 如果要使用专用 LIF 进行 SVM 管理，请选择 * 为 SVM 管理创建 LIF * ，然后指定网络详细信息。
++
+SAN 协议需要一个专用的 SVM 管理 LIF ，其中数据和管理协议不能共享同一个 LIF 。只能在数据端口上创建 SVM 管理 LIF 。
+
+. 指定网络详细信息：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+使用子网指定 IP 地址
+ a| 
+.. 选择 * 使用子网 * 。
+.. 在添加详细信息对话框中，选择必须从中分配 IP 地址的子网。
++
+对于集群间 LIF ，仅显示与选定 IP 空间关联的子网。
+
+.. 如果要为接口分配特定 IP 地址，请选择 * 使用特定 IP 地址 * ，然后键入 IP 地址。
++
+如果您指定的 IP 地址尚未位于子网范围内，则会将该 IP 地址添加到子网中。
+
+.. 单击 * 确定 * 。
+
+
+
+
+ a| 
+手动指定 IP 地址，而不使用子网
+ a| 
+.. 选择 * 不使用子网 * 。
+.. 在添加详细信息对话框中，执行以下步骤：
++
+... 指定 IP 地址和网络掩码或前缀。
+... 可选：指定网关。
++
+目标字段将根据 IP 地址系列使用默认值进行填充。
+
+... 如果不需要默认值，请指定新的目标值。
+如果路由不存在，则会根据网关和目标自动创建新路由。
+
+
+.. 单击 * 确定 * 。
+
+
+|===
+. 指定用于创建数据 LIF 的端口：
++
+.. 单击 * 浏览 * 。
+.. 在 * 选择网络端口或适配器 * 对话框中，选择一个端口，然后单击 * 确定 * 。
+
+
+
+
+
+
+== 配置更新窗口
+
+您可以使用配置更新窗口更新集群， Storage Virtual Machine （ SVM ）和节点的配置详细信息。
+
+
+
+=== 选项卡
+
+* * 节点 * ：
++
+用于配置节点的详细信息。
+
+* * SVM*
++
+用于配置 SVM 的详细信息。
+
+
+
+
+
+=== 节点选项卡
+
+
+
+=== 命令按钮
+
+* * 编辑节点名称 *
++
+打开编辑节点名称对话框，在此可以修改节点的名称。
+
+* * 创建节点管理 LIF*
++
+打开创建节点管理 LIF 对话框，在此可以创建用于管理特定节点的节点管理 LIF 。
+
+* * 编辑 AutoSupport *
++
+打开编辑 AutoSupport 设置对话框，在此可以指定发送电子邮件通知的电子邮件地址，并添加主机名的多个电子邮件地址。
+
+
+
+
+
+=== SVM 选项卡
+
+
+
+=== 命令按钮
+
+* * 配置管理详细信息 *
++
+打开配置管理详细信息对话框，在此可以配置 SVM 的管理详细信息。
+
+
+
+* 相关信息 *
+
+xref:task_creating_cluster.adoc[创建集群]
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[在禁用 IP 地址范围时设置网络]

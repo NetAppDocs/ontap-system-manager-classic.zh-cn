@@ -1,0 +1,45 @@
+---
+permalink: online-help-96-97/reference_managing_svms.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, svm, administrator, system, manager, online, help 
+summary: 根据集群管理员分配的功能， Storage Virtual Machine （ SVM ）管理员可以管理 SVM 及其资源，例如卷，协议和服务。SVM 管理员不能创建，修改或删除 SVM 。 
+---
+= 使用 System Manager 管理 SVM — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manger classic （适用于 ONTAP 9.7 及更早版本）中， Storage Virtual Machine （ SVM ）管理员可以根据集群管理员分配的功能管理 SVM 及其资源，例如卷，协议和服务。SVM 管理员不能创建，修改或删除 SVM 。
+
+[NOTE]
+====
+SVM 管理员无法登录到 System Manager 。
+
+====
+SVM 管理员可能具有以下全部或部分管理功能：
+
+* 数据访问协议配置
++
+SVM 管理员可以配置数据访问协议，例如 NFS ， CIFS ， iSCSI 和光纤通道（ FC ）协议（包括以太网光纤通道或 FCoE ）。
+
+* 服务配置
++
+SVM 管理员可以配置 LDAP ， NIS 和 DNS 等服务。
+
+* 存储管理
++
+SVM 管理员可以管理卷，配额， qtree 和文件。
+
+* SAN 环境中的 LUN 管理
+* 管理卷的 Snapshot 副本
+* 监控 SVM
++
+SVM 管理员可以监控作业，网络连接，网络接口和 SVM 运行状况。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

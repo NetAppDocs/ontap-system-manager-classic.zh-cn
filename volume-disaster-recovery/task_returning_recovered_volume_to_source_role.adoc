@@ -1,0 +1,65 @@
+---
+permalink: volume-disaster-recovery/task_returning_recovered_volume_to_source_role.html 
+sidebar: sidebar 
+keywords: resynchronize, resynchronizing, data, destination, volume, source, activate, snapmirror, relationship, reactivate, reactivate the source volume 
+summary: 在将数据从目标卷重新同步到源卷之后，您必须通过中断 SnapMirror 关系来激活源卷。然后，您应重新同步目标卷以保护重新激活的源卷。 
+---
+= 重新激活源卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将数据从目标卷重新同步到源卷之后，您必须通过中断 SnapMirror 关系来激活源卷。然后，您应重新同步目标卷以保护重新激活的源卷。
+
+.关于此任务
+中断和反向重新同步操作均从 * 源 * 集群执行。
+
+下图显示了中断 SnapMirror 关系时源卷和目标卷为读 / 写卷。执行反向重新同步操作后，数据将从活动源卷复制到只读目标卷。
+
+image::../media/reactivatng_source.gif[图中显示了 SnapMirror 中断和重新同步操作]
+
+.步骤
+. 根据您运行的 System Manager 版本，执行以下步骤之一：
++
+** ONTAP 9.4 或更早版本：单击 * 保护 * > * 关系 * 。
+** 从 ONTAP 9.5 开始：单击 * 保护 * > * 卷关系 * 。
+
+
+. 选择源卷和目标卷之间的 SnapMirror 关系。
+. 单击 * 操作 * > * 暂停 * 。
+. 选中确认复选框，然后单击 * 暂停 * 。
+. 单击 * 操作 * > * 中断 * 。
+. 选中确认复选框，然后单击 * 中断 * 。
++
+image::../media/snapmirror_return_break.gif[显示中断对话框的屏幕截图。]
+
+. 单击 * 操作 * > * 反向重新同步 * 。
+. 选中确认复选框，然后单击 * 反向重新同步 * 。
++
+image::../media/snapmirror_return_reverse_resync.gif[显示反向重新同步对话框的屏幕截图。]
+
++
+从ONTAP 9.3开始、此关系的SnapMirror策略将设置为 `MirrorAllSnapshots` 并将SnapMirror计划设置为 `None`。
+
++
+如果您运行的是ONTAP 9.2或更早版本、则此关系的SnapMirror策略将设置为 `DPDefault` 并将SnapMirror计划设置为 `None`。
+
+. 导航到卷页面中的源卷、然后验证您创建的SnapMirror关系是否已列出且关系状态为 `Snapmirrored`。
+. 在目标集群上，指定与新 SnapMirror 关系的原始 SnapMirror 关系的保护配置匹配的 SnapMirror 策略和计划：
++
+.. 根据您运行的 System Manager 版本，执行以下步骤之一：
++
+*** ONTAP 9.4 或更早版本：单击 * 保护 * > * 关系 * 。
+*** 从 ONTAP 9.5 开始：单击 * 保护 * > * 卷关系 * 。
+
+
+.. 在重新激活的源卷和目标卷之间选择 SnapMirror 关系，然后单击 * 编辑 * 。
+.. 选择 SnapMirror 策略和计划，然后单击 * 确定 * 。
+
+
+
+
+.结果
+源卷具有读 / 写访问权限，并受目标卷保护。

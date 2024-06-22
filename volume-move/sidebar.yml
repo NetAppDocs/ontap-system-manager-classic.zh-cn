@@ -1,0 +1,19 @@
+---
+section: volume-move
+title: 卷移动管理
+entries:
+- title: 概述
+  url: "/volume-move/index.html"
+- title: 卷移动工作流
+  url: "/volume-move/concept_volume_move_workflow.html"
+  entries:
+  - title: 规划卷移动的方法和时间
+    url: "/volume-move/task_planning_method_timing_volume_move.html"
+  - title: 使用 System Manager 移动卷
+    url: "/volume-move/task_moving_volume_using_system_manager.html"
+  - title: 移动卷后验证 LUN 报告节点
+    url: "/volume-move/task_verifying_lun_reporting_nodes_after_moving_volume.html"
+  - title: 移动卷后更新 LUN 报告节点
+    url: "/volume-move/task_updating_lun_reporting_nodes_after_moving_volume.html"
+  - title: 移动卷后更新 NDMP 备份
+    url: "/volume-move/task_updating_ndmp_backup_after_moving_volume.html"

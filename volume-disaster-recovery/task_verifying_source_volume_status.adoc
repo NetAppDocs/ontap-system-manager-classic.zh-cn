@@ -1,0 +1,34 @@
+---
+permalink: volume-disaster-recovery/task_verifying_source_volume_status.html 
+sidebar: sidebar 
+keywords: source, volume, unavailable, verify, offline, identify, destination, volume, activate, providing, provide, data, access, verify the status of the source volume 
+summary: 如果源卷不可用，您必须验证源卷是否已脱机，然后确定必须激活以提供数据访问的目标卷。 
+---
+= 验证源卷的状态
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果源卷不可用，您必须验证源卷是否已脱机，然后确定必须激活以提供数据访问的目标卷。
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 导航到 * 卷 * 窗口。
+. 选择源卷，然后验证源卷是否已脱机。
+. 确定 SnapMirror 关系中的目标卷。
++
+** 从 ONTAP 9.3 开始：双击源卷以查看详细信息，然后单击 * 保护 * 以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
++
+image::../media/snapmirror_destination_93.gif[SnapMirror 目标 9e.]
+
+** ONTAP 9.2 或更早版本：单击卷页面底部的 * 数据保护 * 选项卡，以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
++
+image::../media/volume_status_2.gif[图中显示了目标卷]
+
+
+
+

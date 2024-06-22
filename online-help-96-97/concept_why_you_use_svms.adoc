@@ -1,0 +1,42 @@
+---
+permalink: online-help-96-97/concept_why_you_use_svms.html 
+sidebar: sidebar 
+keywords: svm, data, access, nondisruptive, operation, scalability, security, online, help 
+summary: SVM 可为客户端提供数据访问，而与物理存储或控制器无关，这一点与任何存储系统类似。SVM 可提供无中断运行，可扩展性，安全性和统一存储等优势。 
+---
+= 关于使用 System Manager 的 SVM — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将SVM与ONTAP System Manager classic (在ONTAP 9.7及更早版本中提供)结合使用、以便为客户端提供数据访问、而不受物理存储或控制器的限制、这一点与任何存储系统类似。SVM 可提供无中断运行，可扩展性，安全性和统一存储等优势。
+
+SVM 具有以下优势：
+
+* 多租户
++
+SVM 是安全多租户的基本单元，可对存储基础架构进行分区，使其显示为多个独立的存储系统。这些分区将数据和管理隔离开来。
+
+* 无中断运行
++
+SVM 可以根据需要持续无中断地运行。SVM 可帮助集群在软件和硬件升级，添加和删除节点以及执行所有管理操作期间持续运行。
+
+* 可扩展性
++
+SVM 可满足按需数据吞吐量和其他存储要求。
+
+* 安全性
++
+每个 SVM 都显示为一个独立的服务器，这样可以使多个 SVM 在一个集群中共存，同时确保它们之间没有数据流动。
+
+* 统一存储
++
+SVM 可以通过多个数据访问协议同时提供数据。SVM 可通过 CIFS 和 NFS 等 NAS 协议提供文件级数据访问，并通过 iSCSI ， FC/FCoE 和 NVMe 等 SAN 协议提供块级数据访问。SVM 可以同时单独为 SAN 和 NAS 客户端提供数据。
+
+* 委派管理
++
+SVM 管理员拥有由集群管理员分配的权限。
+
+

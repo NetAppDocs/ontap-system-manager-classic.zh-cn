@@ -1,0 +1,41 @@
+---
+permalink: volume-disaster-recovery/index.html 
+sidebar: sidebar 
+keywords: content, destination, activate, volume, disaster, reactivate, source, ontap, volume disaster recovery overview 
+summary: 您可以在发生灾难后快速激活目标卷，然后使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本）在 ONTAP 中重新激活源卷。 
+---
+= 卷灾难恢复概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在发生灾难后快速激活目标卷，然后使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本）在 ONTAP 中重新激活源卷。
+
+如果要按以下方式执行卷级灾难恢复，请使用此操作步骤：
+
+* 您正在使用运行 ONTAP 9 的集群。
+* 您是集群管理员。
+* 您已在下面配置 SnapMirror 关系 xref:../volume-disaster-prep/index.html[卷灾难恢复准备]
+* 源集群的集群管理员已声明，由于病毒感染等事件导致数据损坏或数据意外删除，源卷中的数据不可用。
+* 您希望使用 System Manager ，而不是 ONTAP 命令行界面或自动化脚本编写工具。
+* 您希望使用适用于 ONTAP 9.7 及更早版本的 System Manager 经典界面，而不是适用于 ONTAP 9.7 及更高版本的 ONTAP System Manager UI 。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您不想阅读大量概念背景信息。
+
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+[cols="2"]
+|===
+| 要执行以下任务，请执行以下操作 ... | 查看此内容 ... 
+
+
+| 重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本） | link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html["从 SnapMirror 目标提供数据"^] 
+
+
+| ONTAP 命令行界面 | link:https://docs.netapp.com/us-en/ontap/data-protection/make-destination-volume-writeable-task.html["激活目标卷"^] 
+|===

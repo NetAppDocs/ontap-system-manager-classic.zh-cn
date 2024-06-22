@@ -1,0 +1,55 @@
+---
+permalink: fc-config-windows/task_installing_windows_unified_host_utilities.html 
+sidebar: sidebar 
+keywords: windows, unified, host, utilities, installation, program, set, registry, hba, parameter, netapp, ontap, e-series, platform, install windows unified host utilities 
+summary: Windows Unified Host Utilities 包含一个安装程序，用于设置所需的 Windows 注册表和 HBA 参数，以便 Windows 主机正确处理 NetApp ONTAP 和 E 系列平台的存储系统行为。 
+---
+= 安装 Windows Unified Host Utilities
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows Unified Host Utilities 包含一个安装程序，用于设置所需的 Windows 注册表和 HBA 参数，以便 Windows 主机正确处理 NetApp ONTAP 和 E 系列平台的存储系统行为。
+
+.开始之前
+您必须已完成以下任务：
+
+* 在互操作性表中检查支持的配置
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* 已通过互操作性表确定任何所需的 Windows 修补程序
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* 添加 FCP 许可证并启动目标服务
+* 验证布线
++
+有关布线和配置的详细信息，请参见 NetApp 支持站点上适用于您的 ONTAP 版本的 _SAN 配置_ 或适用于您的 E 系列存储系统的 _Hardware Cabling_。
+
+
+
+.关于此任务
+您必须指定在安装 Windows Unified Host Utilities 软件包时是否包括多路径支持。如果从 Windows 主机或虚拟机到存储系统的路径不止一条，请选择 MPIO 。只有在使用存储系统的单一路径时，才选择 no MPIO 。
+
+[NOTE]
+====
+MPIO 选项不适用于 Windows XP 和 Windows Vista 系统；这些子操作系统不支持多路径 I/O 。
+
+====
+对于 Hyper-V 子系统，如果选择多路径支持，则原始（直通）磁盘不会显示在子操作系统中。您可以使用原始磁盘，也可以使用 MPIO ，但不能在子操作系统中同时使用这两者。
+
+有关详细的安装信息，请参见 link:https://docs.netapp.com/us-en/ontap-sanhost/hu_wuhu_71.html#installing-the-host-utilities["Windows 统一主机安装"]。
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
+.步骤
+. 从 NetApp 支持站点下载相应版本的 Windows Unified Host Utilities。
++
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
+. 运行可执行文件并按照屏幕上的说明进行操作。
+. 出现提示时重新启动 Windows 主机。
+

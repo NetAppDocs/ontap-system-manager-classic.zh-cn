@@ -1,0 +1,70 @@
+---
+permalink: expansion/task_configuring_service_processor_network_cli.html 
+sidebar: sidebar 
+keywords: expand, cluster, configure, service, processor, sp, network, node, manual, network, configuration, automatic, configure the service processor network 
+summary: 扩展集群后，必须在新节点上配置服务处理器网络。 
+---
+= 配置服务处理器网络
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+扩展集群后，您必须在新节点上配置服务处理器（ Service Processor ， SP ）网络。如果 SP 使用手动网络配置，则必须在新节点上为 SP 配置 IP 地址。如果 SP 使用自动网络配置，则必须确定选定的 IP 地址。
+
+.步骤
+. 如果集群SP使用手动网络配置、请使用在两个节点上为SP网络配置IP地址 `system service-processor network modify` 命令：
++
+以下命令用于在 cluster1-3 和 cluster1-4 节点中配置 SP 网络：
+
++
+[listing]
+----
+cluster1::> system service-processor network modify -node cluster1-3 -address-family IPv4 -enable true -ip-address 192.168.123.98-netmask 255.255.255.0 -gateway 192.168.123.1
+cluster1::> system service-processor network modify -node cluster1-4 -address-family IPv4 -enable true -ip-address 192.168.123.99 -netmask 255.255.255.0 -gateway 192.168.123.1
+----
+. 使用验证是否已在两个新节点上正确配置SP网络 `system service-processor network show` 命令。
++
+状态应为 `succeeded`。在所有情况下都需要进行验证。即使 SP 网络已自动配置，您也应验证是否已成功配置，并且必须确定已分配哪些 IP 地址。
+
++
+以下输出指示 cluster1-3 和 cluster1-4 节点均已成功设置 SP 网络：
+
++
+[listing]
+----
+cluster1::> system service-processor network show -node cluster1-3
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-3    online         IPv4      up          192.168.123.98
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+
+cluster1::> system service-processor network show -node cluster1-4
+                             Address
+Node          Status         Family    Link State  IP Address
+------------- -------------- --------- ----------- ------------------------
+cluster1-4    online         IPv4      up          192.168.123.99
+
+                                 DHCP: none
+                          MAC Address: 00:a0:98:43:a1:1e
+                      Network Gateway: 10.60.172.1
+             Network Mask (IPv4 only): 255.255.255.0
+            Prefix Length (IPv6 only): -
+                      IPv6 RA Enabled: -
+                          Subnet Name: -
+              SP Network Setup Status: succeeded
+                                     ...
+----
+. 如果您的站点通常具有 SP 网络的 DNS 条目，请验证是否已为新节点创建 DNS 条目。
+

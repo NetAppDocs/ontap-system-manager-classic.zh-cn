@@ -1,0 +1,33 @@
+---
+permalink: iscsi-config-esxi/task_configuring_your_network_for_best_performance.html 
+sidebar: sidebar 
+keywords: ethernet, network, performance, iscsi, configuration, value, configure, configure your network for best performance 
+summary: 以太网网络的性能差别很大。您可以通过选择特定的配置值来最大限度地提高用于 iSCSI 的网络的性能。 
+---
+= 配置网络以获得最佳性能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+以太网网络的性能差别很大。您可以通过选择特定的配置值来最大限度地提高用于 iSCSI 的网络的性能。
+
+.步骤
+. 将主机和存储端口连接到同一网络。
++
+最好连接到相同的交换机。切勿使用路由。
+
+. 选择可用的最高速度端口，并将其专用于 iSCSI 。
++
+最好使用 10 GbE 端口。至少需要 1 个 GbE 端口。
+
+. 对所有端口禁用以太网流量控制。
++
+您应看到 link:https://docs.netapp.com/us-en/ontap/networking/index.html["ONTAP 9网络管理"] 用于使用 CLI 配置以太网端口流量控制。
+
+. 启用巨型帧（ MTU 通常为 9000 ）。
++
+数据路径中的所有设备，包括启动程序，目标和交换机，都必须支持巨型帧。否则，启用巨型帧实际上会显著降低网络性能。
+
+

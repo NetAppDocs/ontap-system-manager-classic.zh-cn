@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/reference_effective_data_ontap_disk_types.html 
+sidebar: sidebar 
+keywords: ontap, disk, type, online, help 
+summary: 从 Data ONTAP 8.1 开始，某些 ONTAP 磁盘类型在创建和添加到聚合以及管理备用磁盘时被视为等效类型。ONTAP 会为每种磁盘类型分配一个有效的磁盘类型。您可以混用具有相同有效磁盘类型的 HDD 。 
+---
+= 使用有效的 ONTAP 磁盘类型将 HDD 与系统管理器混合使用 - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 Data ONTAP 8.1 开始，某些 ONTAP 磁盘类型在创建和添加到聚合以及管理备用磁盘时被视为等效类型。ONTAP 会为每种磁盘类型分配一个有效的磁盘类型。您可以使用 ONTAP System Manager classic （ 9.7 及更早版本中提供）混合具有相同有效磁盘类型的 HDD 。
+
+当 `raid.disktype.enable` 选项设置为 `off`，则可以在同一聚合中混用某些类型的HDD。当 `raid.disktype.enable` 选项设置为 `on`，则有效磁盘类型与ONTAP磁盘类型相同。只能使用一种磁盘类型创建聚合。的默认值 `raid.disktype.enable` 选项为 `off`。
+
+从Data ONTAP 8.2开始、是选项 `raid.mix.hdd.disktype.capacity` 必须设置为 `on` 混合BSAS、FSAS和ATA类型的磁盘。选项 `raid.mix.hdd.disktype.performance` 必须设置为 `on` 混合FCAL和SAS类型的磁盘。
+
+下表显示了磁盘类型如何映射到有效磁盘类型：
+
+|===
+| ONTAP磁盘类型 | 有效磁盘类型 
+
+
+ a| 
+FCAL
+ a| 
+（ SAS ）。
+
+
+
+ a| 
+（ SAS ）。
+ a| 
+（ SAS ）。
+
+
+
+ a| 
+ATA
+ a| 
+FSAS
+
+
+
+ a| 
+BSAS
+ a| 
+FSAS
+
+
+
+ a| 
+FCAL 和 SAS
+ a| 
+（ SAS ）。
+
+
+
+ a| 
+mSATA
+ a| 
+mSATA
+
+
+
+ a| 
+FSAS
+ a| 
+FSAS
+
+|===

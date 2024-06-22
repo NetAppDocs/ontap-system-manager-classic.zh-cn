@@ -1,0 +1,29 @@
+---
+permalink: fc-config-esxi/task_installing_virtual_storage_console_for_vmware_vsphere.html 
+sidebar: sidebar 
+keywords: virutal, storage, console, vsc, vmware, vsphere, automate, configuration, provision, task, require, netapp, fc, storage, esxi, host, plug-in, vcenter, server, install virtual storage console 
+summary: 适用于 VMware vSphere 的 Virtual Storage Console 可自动执行将 NetApp FC 存储与 ESXi 主机结合使用所需的许多配置和配置任务。Virtual Storage Console 是 vCenter Server 的一个插件。 
+---
+= 安装 Virtual Storage Console
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+适用于 VMware vSphere 的 Virtual Storage Console 可自动执行将 NetApp FC 存储与 ESXi 主机结合使用所需的许多配置和配置任务。Virtual Storage Console 是 vCenter Server 的一个插件。
+
+.开始之前
+您必须具有用于管理 ESXi 主机的 vCenter Server 的管理员凭据。
+
+.关于此任务
+* Virtual Storage Console 作为虚拟设备安装，其中包括 Virtual Storage Console ， vStorage APIs for Storage Awareness （ VASA ） Provider 和 Storage Replication Adapter （ SRA ） for VMware vSphere 功能。
+
+
+.步骤
+. 下载您的配置支持的 Virtual Storage Console 版本，如互操作性表工具中所示。
++
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
+. 部署虚拟设备并按照 _Deployment and Setup Guide_ 中的步骤进行配置。
+

@@ -1,0 +1,46 @@
+---
+permalink: online-help-96-97/task_changing_raid_group_when_adding_capacity_disks.html 
+sidebar: sidebar 
+keywords: change, raid, group, add, capacity, disk, online, help, hdd 
+summary: 向聚合添加容量磁盘（ HDD ）时，您可以使用 System Manager 更改要添加磁盘的 RAID 组。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本添加容量磁盘时更改 RAID 组
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+向聚合添加容量磁盘（ HDD ）时，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）更改要添加磁盘的 RAID 组。
+
+.关于此任务
+* 如果RAID类型为RAID-DP、并且您要添加10 TB或以上大小的FSAS或MSATA磁盘、则只能将其添加到 `Specific RAID group`，而不是 `New RAID group` 或 `All RAID groups`。
++
+在将磁盘大小缩减为现有聚合大小后，系统会添加这些磁盘。
+
+* 如果RAID组为RAID-TEC、并且您要添加10 TB或以上大小的FSAS或MSATA磁盘、则可以将其添加到 `All RAID groups`， `New RAID group`，和 `Specific RAID group`。
++
+在将磁盘大小缩减为现有聚合大小后，系统会添加这些磁盘。
+
+
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 在 * 存储层 * 窗口中，选择要添加容量磁盘的聚合，然后单击菜单：更多操作 [ 添加容量 ] 。
+. 在 * 添加容量 * 对话框中，执行以下步骤：
++
+.. 单击 * 更改 * 。
+.. 在 * 更改 RAID 配置 * 对话框中，指定要添加容量磁盘的 RAID 组。
++
+您可以更改默认值 `All RAID groups` 至任一 `Specific RAID group` 或 `New RAID group`。
+
+.. 单击 * 保存 * 。
+
+
+

@@ -1,0 +1,40 @@
+---
+permalink: iscsi-config-rhel/task_installing_linux_unified_host_utilities_optimizing_i_o_performance.html 
+sidebar: sidebar 
+keywords: linux, unified, host, utilities, sanlun, utility, netapp, lun, report, tool, display, information, storage, cluster, node, enable, netapp, install linux unified host utilities and optimizing i/o performance 
+summary: Linux Unified Host Utilities 软件包括 sanlun 实用程序，这是一个 NetApp LUN 报告工具，可用于显示有关存储集群节点的信息。 
+---
+= 安装 Linux Unified Host Utilities 并优化 I/O 性能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux Unified Host Utilities软件包括 `sanlun` 实用程序、一种NetApp LUN报告工具、可用于显示有关存储集群节点的信息。您还必须在 Linux 主机上启用正确的服务器配置文件，以优化 NetApp 存储性能。
+
+.开始之前
+您必须已使用互操作性表确定您的配置支持的 Linux Unified Host Utilities 版本。您还必须具有 `tuned` 软件包、它是Linux操作系统分发版的一部分、包含 `tuned-adm` 命令、用于在主机上设置服务器配置文件。
+
+.步骤
+. 从 NetApp 支持站点下载支持的 Linux Unified Host Utilities 版本。
++
+http://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 下载：软件"]
+
+. 按照安装文档中的说明安装 Linux Unified Host Utilities 软件。
+. 如果 `tuned` 软件包未安装、请输入以下命令：
++
+`yum install tuned`
+
+. 对于物理主机、请确保已设置 `enterprise-storage` 配置文件：
++
+`tuned-adm profile enterprise-storage`
+
+. 对于虚拟主机、请确保已设置 `virtual-guest` 配置文件：
++
+`tuned-adm profile virtual-guest`
+
+
+
+* 相关信息 *
+https://docs.netapp.com/us-en/ontap-sanhost/hu_luhu_71.html["安装 Linux Unified Host Utilities 7.1"]

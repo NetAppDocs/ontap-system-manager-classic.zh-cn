@@ -1,0 +1,16 @@
+---
+permalink: nfs-config-esxi/task_nfs_client_configuration_for_esxi_workflow.html 
+sidebar: sidebar 
+keywords: nfs, client, configuration, esxi, workflow, nfs client configuration for esxi workflow 
+summary: 使用 NFS 为 ESXi 主机提供存储时，您可以使用在上配置卷，然后从 ESXi 主机连接到 NFS 导出。 
+---
+= 适用于 ESXi 的 NFS 客户端配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 NFS 为 ESXi 主机提供存储时，您可以使用在上配置卷，然后从 ESXi 主机连接到 NFS 导出。
+
+image::../media/nfs_client_configuration_with_vaai_workflow.gif[使用适用于 ESX 的 VAAI 的 NFS 客户端配置]

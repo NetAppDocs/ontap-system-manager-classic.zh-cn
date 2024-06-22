@@ -1,0 +1,43 @@
+---
+permalink: iscsi-config-windows/task_deciding_where_to_provision_volume.html 
+sidebar: sidebar 
+keywords: provision, volume, lun, add, exist, storage, virtual, machine, svm, create, configure, iscsi, exist, decide where to provision the volume 
+summary: 在配置卷以包含 LUN 之前，您需要确定是将卷添加到现有 Storage Virtual Machine 还是为卷创建新的 SVM 。您可能还需要在现有 SVM 上配置 iSCSI 。 
+---
+= 确定在何处配置卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在配置卷以包含 LUN 之前，您需要确定是将卷添加到现有 Storage Virtual Machine （ SVM ）还是为卷创建新的 SVM 。您可能还需要在现有 SVM 上配置 iSCSI 。
+
+.关于此任务
+如果现有 SVM 已配置所需协议，并且具有可从主机访问的 LIF ，则使用现有 SVM 会更方便。
+
+您可以创建一个新的 SVM ，以便将数据或管理与存储集群的其他用户分开。使用单独的 SVM 来分隔不同的协议并无优势。
+
+
+
+== 操作步骤
+
+* 如果要在已配置 iSCSI 的 SVM 上配置卷，则必须验证 iSCSI 服务是否正在运行，然后在 SVM 上创建 LUN 。
++
+link:task_verifying_iscsi_is_running_on_existing_vserver.html["验证 iSCSI 服务是否正在现有 SVM 上运行"]
+
++
+link:task_creating_lun_its_containing_volume.html["正在创建LUN"]
+
+* 如果要在已启用但未配置 iSCSI 的现有 SVM 上配置卷，请在现有 SVM 上配置 iSCSI 。
++
+link:task_configuring_iscsi_fc_creating_lun_on_existing_svm.html["在现有 SVM 上配置 iSCSI"]
+
++
+如果在配置其他协议时未按照此操作步骤创建 SVM ，则会出现这种情况。
+
+* 如果要在新的 SVM 上配置卷，请创建 SVM 。
++
+link:task_creating_svm.html["创建新的 SVM"]
+
+

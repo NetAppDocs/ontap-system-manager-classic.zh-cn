@@ -1,0 +1,116 @@
+---
+permalink: online-help-96-97/concept_unix.html 
+sidebar: sidebar 
+keywords: system, manager, unix, svm, online, help, command, button, group, tab, storage, virtual, machine 
+summary: 您可以使用 System Manager 维护每个 Storage Virtual Machine （ SVM ）的本地 UNIX 用户和组列表。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本的本地 UNIX 用户和组
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）为每个 Storage Virtual Machine （ SVM ）维护一个本地 UNIX 用户和组列表。
+
+
+
+== UNIX窗口
+
+您可以使用 UNIX 窗口维护每个 Storage Virtual Machine （ SVM ）的本地 UNIX 用户和组列表。您可以使用本地 UNIX 用户和组进行身份验证和名称映射。
+
+
+
+=== 组选项卡
+
+您可以使用组选项卡添加，编辑或删除 SVM 的本地 UNIX 组。
+
+
+
+== 命令按钮
+
+* * 添加组 *
++
+打开添加组对话框，在此可以创建 SVM 的本地 UNIX 组。本地 UNIX 组用于本地 UNIX 用户。
+
+* * 编辑 * 。
++
+打开编辑组对话框，在此可以编辑组 ID 。
+
+* * 删除 *
++
+删除选定组。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 组列表
+
+* * 组名称 *
++
+显示组的名称。
+
+* * 组 ID*
++
+显示组的 ID 。
+
+
+
+
+
+=== 用户选项卡
+
+您可以使用 * 用户 * 选项卡添加，编辑和删除 SVM 的本地 UNIX 用户。
+
+
+
+=== 命令按钮
+
+* * 添加用户 *
++
+打开添加用户对话框，在此可以创建 SVM 的本地 UNIX 用户。
+
+* * 编辑 * 。
++
+打开编辑用户对话框，在此可以编辑用户 ID ，用户所属的 UNIX 组以及用户全名。
+
+* * 删除 *
++
+删除选定用户。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 用户列表
+
+* * 用户名 *
++
+显示用户的名称。
+
+* * 用户 ID*
++
+显示用户的 ID 。
+
+* * 全名 *
++
+显示用户的全名。
+
+* * 主组 ID*
++
+显示用户所属组的 ID 。
+
+* * 主组名称 *
++
+显示用户所属组的名称。
+
+

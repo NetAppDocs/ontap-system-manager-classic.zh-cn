@@ -1,0 +1,16 @@
+---
+permalink: iscsi-config-esxi/concept_iscsi_configuration_provisioning_workflow.html 
+sidebar: sidebar 
+keywords: storage, esx, iscsi, provision, volume, lun, virtual, machine, svm, vmware, host, configuration, workflow, esxi 
+summary: 使用 iSCSI 使存储可供 ESXi 主机使用时，您可以使用适用于 VMware vSphere 的 Virtual Storage Console 在 Storage Virtual Machine 上配置卷和 LUN ，然后从主机连接到 LUN 。 
+---
+= iSCSI 配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 iSCSI 使存储可供 ESXi 主机使用时，您可以使用适用于 VMware vSphere 的 Virtual Storage Console 在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。
+
+image::../media/iscsi_esx_workflow.gif[此图是 iSCSI 工作流的流程图。工作流中的步骤与主题匹配。]

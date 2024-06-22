@@ -1,0 +1,75 @@
+---
+permalink: online-help-96-97/concept_nis_services.html 
+sidebar: sidebar 
+keywords: online, help, system, manager, nis, services, add, edit, manage, network, information, service, domain, svm, modify, command 
+summary: 您可以使用 System Manager 添加，编辑和管理网络信息服务（ Network Information Service ， NIS ）域。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理 NIS 服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）添加，编辑和管理网络信息服务（ NIS ）域。
+
+
+
+== 添加 NIS 域
+
+您可以使用 NIS 集中维护主机信息。您可以使用 System Manager 添加存储系统的 NIS 域名。在任何给定时间，一个 Storage Virtual Machine （ SVM ）上只能有一个 NIS 域处于活动状态。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * NIS * 。
+. 单击 * 创建 * 。
+. 键入 NIS 域名，然后添加一个或多个 NIS 服务器。
+. 单击 * 创建 * 。
+
+
+
+
+== 编辑 NIS 域
+
+您可以使用 System Manager 根据 Storage Virtual Machine （ SVM ）身份验证和授权的要求修改 NIS 域。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * NIS * 。
+. 选择 NIS 域，然后单击 * 编辑 * 。
+. 进行所需的更改，然后单击 * 编辑 * 。
+
+
+
+
+== NIS窗口
+
+通过 NIS 窗口，您可以查看存储系统的当前 NIS 设置。
+
+
+
+=== 命令按钮
+
+* * 创建 * 。
++
+打开创建 NIS 域对话框，在此可以创建 NIS 域。
+
+* * 编辑 * 。
++
+打开编辑 NIS 域对话框，在此可以添加，删除或修改 NIS 服务器。
+
+* * 删除 *
++
+删除选定的 NIS 域。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/nfs-config/index.html["NFS配置"^]

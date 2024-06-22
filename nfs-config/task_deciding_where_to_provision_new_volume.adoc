@@ -1,0 +1,38 @@
+---
+permalink: nfs-config/task_deciding_where_to_provision_new_volume.html 
+sidebar: sidebar 
+keywords: create, nfs, volume, exist, storage, virtual, machine, svm, configuration, workflow, decide where to provision the new volume 
+summary: 在创建新 NFS 卷之前，您必须确定是否将其放置在现有 Storage Virtual Machine （ SVM ）中，如果是，还必须确定 SVM 所需的配置。此决定将决定您的工作流。 
+---
+= 确定在何处配置新卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在创建新 NFS 卷之前，您必须确定是否将其放置在现有 Storage Virtual Machine （ SVM ）中，如果是，还必须确定 SVM 所需的配置。此决定将决定您的工作流。
+
+
+
+== 操作步骤
+
+* 如果要在新的 SVM 上配置卷，请创建一个启用了 NFS 的新 SVM 。
++
+link:task_creating_protocol_enabled_svm.html["创建启用了 NFS 的新 SVM"]
+
++
+如果现有 SVM 未启用 NFS ，则必须选择此选项。
+
+* 如果要在已启用但未配置 NFS 的现有 SVM 上配置卷，请在现有 SVM 上配置 NFS 访问。
++
+link:task_configuring_access_to_existing_svm.html["在现有 SVM 上配置 NFS 访问"]
+
++
+如果在配置其他协议时未按照此操作步骤创建 SVM ，则会出现这种情况。
+
+* 如果要在已完全配置为可进行 NFS 访问的现有 SVM 上配置卷，请将 NFS 卷添加到启用了 NFS 的 SVM 中。
++
+link:concept_adding_protocol_volume_to_protocol_enabled_svm.html["将 NFS 卷添加到启用了 NFS 的 SVM"]
+
+

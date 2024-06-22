@@ -1,0 +1,22 @@
+---
+permalink: online-help-96-97/concept_using_space_reservation_for_luns.html 
+sidebar: sidebar 
+keywords: understand, space, reservation, lun, volume, guarantee, online, help 
+summary: 了解空间预留设置（与卷保证结合使用）如何影响为 LUN 预留空间的方式，有助于您了解禁用空间预留的后果，以及为什么某些 LUN 和卷设置组合不起作用。 
+---
+= 了解 System Manager - ONTAP 9.7 及更早版本中 LUN 的空间预留
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解 ONTAP System Manager 经典版（适用于 ONTAP 9.7 及更早版本）中的空间预留设置（与卷保证相结合）如何影响为 LUN 预留空间的方式，有助于您了解禁用空间预留的后果。此外，它还有助于您了解 LUN 和卷设置的某些组合为何不有用。
+
+如果 LUN 启用了空间预留（预留了空间的 LUN ），并且其所在卷具有卷保证，则会在创建时从卷中为 LUN 预留可用空间；此预留空间的大小由 LUN 大小决定。卷中的其他存储对象（其他 LUN ，文件， Snapshot 副本等）无法使用此空间。
+
+如果 LUN 禁用了空间预留（非空间预留 LUN ），则在创建 LUN 时不会为该 LUN 预留任何空间。只要有足够的可用空间，就会根据需要从卷中为 LUN 分配任何写入操作所需的存储。
+
+如果在无保证的卷中创建了空间预留 LUN ，则该 LUN 的行为与非空间预留 LUN 相同。这是因为无保证的卷没有可分配给 LUN 的空间；由于无保证，卷本身只能在写入时分配空间。因此，建议不要在无保证的卷中创建预留了空间的 LUN ；采用这种配置组合可能会提供写入保证，而这实际上是不可能的。
+
+当空间预留设置为 `Default` 时， ONTAP 空间预留设置将应用于 LUN 。如果创建了新卷，则 ONTAP 空间预留设置也适用于容器卷。

@@ -1,0 +1,39 @@
+---
+permalink: volume-disaster-recovery/task_updating_source_volume.html 
+sidebar: sidebar 
+keywords: resynchronize, resynchronizing, source, volume, update, activate, update the source volume 
+summary: 重新同步源卷后，您可能需要确保在激活源卷之前更新源卷上的所有最新更改。 
+---
+= 更新源卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+重新同步源卷后，您可能需要确保在激活源卷之前更新源卷上的所有最新更改。
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 根据您运行的 System Manager 版本，执行以下步骤之一：
++
+** ONTAP 9.4 或更早版本：单击 * 保护 * > * 关系 * 。
+** 从 ONTAP 9.5 开始：单击 * 保护 * > * 卷关系 * 。
+
+
+. 选择源卷和目标卷之间的 SnapMirror 关系，然后单击 * 操作 * > * 更新 * 。
+. 从源卷和目标卷之间的最新通用 Snapshot 副本执行增量传输。
++
+** 从 ONTAP 9.3 开始：选择 * 按策略 * 选项。
+** ONTAP 9.2 或更早版本：选择 * 按需 * 选项。
+
+
+. *可选：*选择*将传输带宽限制为*以限制用于传输的网络带宽、然后指定最大传输速度。
+. 单击 * 更新 * 。
+. 验证传输状态是否为 `Idle` 上次传输类型为 `Update` 在*Details*选项卡中。
++
+image::../media/snapmirror_update_verify.gif[SnapMirror 关系详细信息]
+
+

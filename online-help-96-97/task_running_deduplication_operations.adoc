@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_running_deduplication_operations.html 
+sidebar: sidebar 
+keywords: run, deduplication, operation, system, manager, online, help, flexvol, volume 
+summary: 您可以使用 System Manager 在创建 FlexVol 卷后立即运行重复数据删除，或者计划在指定时间运行重复数据删除。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本运行重复数据删除操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)在创建FlexVol 卷后立即运行重复数据删除、或者计划在指定时间运行重复数据删除。
+
+.开始之前
+* 必须在卷上启用重复数据删除。
+* 卷必须联机并已挂载。
+
+
+.关于此任务
+重复数据删除是一个后台进程，它会在操作期间占用系统资源；因此，它可能会影响正在进行的其他操作。您必须先取消重复数据删除，然后才能执行任何其他操作。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要为其运行重复数据删除的卷。
+. 单击 * 更多操作 * > * 存储效率 * 。
+. 如果您是首次在卷上运行重复数据删除，请在 * 存储效率 * 对话框中选择 * 扫描整个卷 * 来对整个卷数据运行重复数据删除。
+. 单击 * 开始 * 。
+. 在 * 卷 * 窗口的 * 存储效率 * 选项卡中查看上次运行重复数据删除操作的详细信息。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

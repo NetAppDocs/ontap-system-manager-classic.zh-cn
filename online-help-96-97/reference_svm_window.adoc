@@ -1,0 +1,219 @@
+---
+permalink: online-help-96-97/reference_svm_window.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, window, svm, online, help, command, button, peer 
+summary: 您可以使用 Storage Virtual Machine 窗口管理 Storage Virtual Machine （ SVM ）并显示其相关信息。 
+---
+= System Manager 中的 Storage Virtual Machine 窗口— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP 系统管理器经典版中的 Storage Virtual Machine 窗口（在 ONTAP 9.7 及更早版本中提供）来管理 Storage Virtual Machine （ SVM ）并显示其相关信息。
+
+您不能使用 System Manager 管理（创建，删除，启动或停止）为灾难恢复（ DR ）配置的 SVM 。此外，您也不能在应用程序界面中查看与为灾难恢复配置的 SVM 关联的存储对象。
+
+
+
+== 命令按钮
+
+* * 创建 * 。
++
+打开 Storage Virtual Machine （ SVM ）设置向导，在此可以创建新的 SVM 。
+
+* * 编辑 * 。
++
+打开编辑 Storage Virtual Machine 对话框，在此可以修改选定 SVM 的属性，例如名称服务开关，名称映射开关和聚合列表。
+
+* * 删除 *
++
+删除选定 SVM 。
+
+* * 启动 *
++
+启动选定的 SVM 。
+
+* * 停止 *
++
+停止选定 SVM 。
+
+* * SVM 设置 *
++
+管理选定 SVM 的存储，策略和配置。
+
+* * 保护操作 *
++
+提供了以下选项：
+
++
+** * 初始化 *
++
+用于初始化 SVM 关系以执行从源 SVM 到目标 SVM 的基线传输。
+
+** * 更新 *
++
+用于将数据从源 SVM 更新到目标 SVM 。
+
+** * 激活目标 SVM*
++
+用于激活目标 SVM 。
+
+** * 从源 SVM* 重新同步
++
+用于对已断开的关系启动重新同步。
+
+** * 从目标 SVM 重新同步（反向重新同步） *
++
+用于重新同步从目标 SVM 到源 SVM 的关系。
+
+** * 重新激活源 SVM*
++
+用于重新激活源 SVM 。
+
+
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+* * 跟踪文件访问 *
++
+用于跟踪指定用户名在选定 SVM 上的文件或共享的可访问性。
+
+
+
+
+
+== SVM 列表
+
+SVM 列表显示每个 SVM 的名称及其支持的协议。
+
+使用 System Manager 只能查看数据 SVM 。
+
+* * 名称 *
++
+显示SVM的名称。
+
+* * 状态 *
++
+显示 SVM 状态，例如正在运行，正在启动，已停止或正在停止。
+
+* * 子类型 *
++
+显示 SVM 的子类型，可以是以下类型之一：
+
++
+** default
++
+指定 SVM 是提供数据的 SVM 。
+
+** dp-destination
++
+指定为 SVM 配置灾难恢复。
+
+** sync-source
++
+指定 SVM 位于 MetroCluster 配置的主站点中。
+
+** sync-destination
++
+指定 SVM 位于 MetroCluster 配置中运行正常的站点中。
+
+
+
+* * 允许的协议 *
++
+显示每个 SVM 上支持的协议，例如 CIFS 和 NFS 。
+
+* * IP 空间 *
++
+显示关联 SVM 的 IP 空间。
+
+* * 卷类型 *
++
+显示每个 SVM 上允许的卷类型，例如 FlexVol 卷。
+
+* * 受保护 *
++
+显示 SVM 是否受保护。
+
+* * 配置状态 *
++
+显示 SVM 的配置状态是锁定还是未锁定。
+
+
+
+
+
+== 详细信息区域
+
+SVM 列表下方的区域显示有关选定 SVM 的详细信息，例如允许的卷类型，语言和 Snapshot 策略。
+
+您还可以配置此 SVM 上允许的协议。如果在创建 SVM 时未配置协议，则可以单击协议链接来配置协议。
+
+您不能使用 System Manager 为配置用于灾难恢复的 SVM 配置协议。
+
+[NOTE]
+====
+如果已为 SVM 启动 FCP 服务，则单击 FC/FCoE 链接将打开网络接口窗口。
+
+====
+颜色表示协议配置的状态：
+
+|===
+| Status | Description 
+
+
+ a| 
+绿色
+ a| 
+LIF 已存在，并且已配置协议。您可以单击此链接以查看配置详细信息。
+
+[NOTE]
+====
+配置可能已部分完成。但是，服务正在运行。您可以从网络接口窗口创建 LIF 并完成配置。
+
+====
+
+
+ a| 
+黄色
+ a| 
+指示以下项之一：
+
+* LIF 已存在。服务已创建，但未运行。
+* LIF 已存在。未创建服务。
+* 服务已创建。LIF 不存在。
+
+
+
+
+ a| 
+灰色
+ a| 
+未配置此协议。您可以单击协议链接来配置协议。
+
+
+
+ a| 
+灰色边框
+ a| 
+协议许可证已过期或缺失。您可以单击协议链接以在许可证页面中添加许可证。
+
+|===
+您还可以添加管理界面并查看详细信息，例如保护关系，保护策略， NIS 域等。
+
+此外， " 详细信息 " 区域还包含一个链接，用于查看 SVM 的公有 SSL 证书。单击此链接时，您可以执行以下任务：
+
+* 查看证书详细信息，序列号，开始日期和到期日期。
+* 将证书复制到剪贴板。
+* 通过电子邮件发送证书详细信息。
+
+
+
+
+== 对等 Storage Virtual Machine 区域
+
+显示与选定 SVM 建立对等关系的 SVM 的列表，以及正在使用对等关系的应用程序的详细信息。

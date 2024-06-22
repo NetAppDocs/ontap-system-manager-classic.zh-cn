@@ -1,0 +1,46 @@
+---
+permalink: iscsi-config-windows/task_discovering_new_disks.html 
+sidebar: sidebar 
+keywords: lun, storage, virtual, machine, svm, disk, windows, host, system, manual, rescan, discover, new disks 
+summary: Storage Virtual Machine （ SVM ）上的 LUN 在 Windows 主机中显示为磁盘。主机不会自动发现您添加到系统中的 LUN 的任何新磁盘。您必须手动重新扫描磁盘才能发现它们。 
+---
+= 发现新磁盘
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Storage Virtual Machine （ SVM ）上的 LUN 在 Windows 主机中显示为磁盘。主机不会自动发现您添加到系统中的 LUN 的任何新磁盘。您必须手动重新扫描磁盘才能发现它们。
+
+.步骤
+. 打开 Windows 计算机管理实用程序：
++
+|===
+| 如果您使用的是 ... | 导航到 
+
+
+ a| 
+Windows Server 2012
+ a| 
+* 工具 * > * 计算机管理 *
+
+
+
+ a| 
+Windows Server 2008
+ a| 
+* 开始 * > * 管理工具 * > * 计算机管理 *
+
+
+
+ a| 
+Windows Server 2016
+ a| 
+* 开始 * * > 管理工具 * * > 计算机管理 *
+
+|===
+. 在导航树中展开 * 存储 * 节点。
+. 单击 * 磁盘管理 * 。
+. 单击 * 操作 * > * 重新扫描磁盘 * 。
+

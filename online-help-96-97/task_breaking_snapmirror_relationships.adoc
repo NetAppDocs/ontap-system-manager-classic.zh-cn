@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_breaking_snapmirror_relationships.html 
+sidebar: sidebar 
+keywords: snapmirror, break, relationship, dp, rw, online, help 
+summary: 如果 SnapMirror 源不可用，并且您希望客户端应用程序能够从镜像目标访问数据，则必须中断 SnapMirror 关系。 
+---
+= 使用 System Manager 中断 SnapMirror 关系— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中断 SnapMirror 关系。如果 SnapMirror 源不可用，并且您希望客户端应用程序能够从镜像目标访问数据，则必须中断 SnapMirror 关系。断开 SnapMirror 关系后，目标卷类型将从 " 数据保护 " （ DP ）更改为 " 读 / 写 " （ RW ）。
+
+.开始之前
+* SnapMirror 目标必须处于静默状态或闲置状态。
+* 目标卷必须挂载到目标 Storage Virtual Machine （ SVM ）命名空间上。
+
+
+.关于此任务
+* 在修复或替换源卷，更新源卷以及重新建立系统的原始配置时，您可以使用目标卷提供数据。
+* 您可以中断 ONTAP 系统和 SolidFire 存储系统之间的 SnapMirror 关系。
+* 如果您要中断 FlexGroup 卷关系，则必须刷新此页面才能查看此关系的更新状态。
+
+
+.步骤
+. 单击 * 保护 * > * 卷关系 * 。
+. 选择要中断的镜像关系。
+. 单击 * 操作 * > * 中断 * 。
+. 选中确认复选框，然后单击 * 中断 * 。
+
+
+.结果
+数据保护 SnapMirror 关系已断开。目标卷类型从只读数据保护（ DP ）更改为读 / 写（ RW ）。系统会存储数据保护镜像关系的基本 Snapshot 副本，以供日后使用。
+
+* 相关信息 *
+
+xref:reference_protection_window.adoc[保护窗口]

@@ -1,0 +1,92 @@
+---
+permalink: expansion/task_verifying_planned_configuration.html 
+sidebar: sidebar 
+keywords: expand, cluster, ensure, follow, plan, configuration, support, require, license, exist, ontap, verify, verify the planned configuration 
+summary: 在扩展集群之前，您必须确保满足以下条件：支持规划的配置，已存在所需的许可证，站点已准备就绪，集群交换机支持扩展，现有节点正在使用相同版本的 ONTAP 9 。 
+---
+= 验证计划的配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在扩展集群之前，您必须确保满足以下条件：支持规划的配置，已存在所需的许可证，站点已准备就绪，集群交换机支持扩展，现有节点正在使用相同版本的 ONTAP 9 。
+
+.开始之前
+您必须具有两组凭据—以管理员身份登录到集群所需的用户名和密码，以及登录到 NetApp 支持站点所需的用户名和密码。
+
+.步骤
+. 验证计划的配置：
++
+.. 验证新控制器的平台是否可以与集群的现有控制器混合使用。
+.. 验证扩展后的集群是否未超过平台的系统限制。
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+.. 如果您的集群配置了 SAN ，请验证扩展后的集群是否未超过 FC ， FCoE 和 iSCSI 的配置限制。
++
+https://docs.netapp.com/us-en/ontap/san-config/index.html["SAN配置"^]
+
+
+
++
+如果不满足这些要求，则无法继续进行扩展。
+
+. 确保许可证涵盖新节点：
++
+.. 在现有集群上、使用查看许可证 `system license show` 命令：
++
+[listing]
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+.. 查看输出以确定节点锁定许可证(通过类型标识) `license`)。
+.. 确保附加节点附带的许可证与集群的现有节点锁定许可证一致。
++
+http://mysupport.netapp.com/licenses["NetApp 软件许可证搜索"^]
+
+
+
++
+如果您没有其他节点所需的许可证，则必须先购买其他许可证，然后才能继续操作。
+
+. 验证站点是否已为所有新设备做好准备。
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
++
+如果站点尚未准备就绪，则必须先准备站点，然后再继续扩展。
+
+. 验证现有交换机是否支持其他控制器。
++
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
++
+如果集群无交换机或现有交换机不支持其他节点，则必须获取集群交换机，您可以稍后在扩展过程中安装这些交换机。
+
+. 使用验证现有集群中的所有节点是否都运行相同版本的ONTAP 9—包括相同的次要版本和修补程序(如果适用) `cluster image show` 命令：
++
+[listing]
+----
+cluster1::> cluster image show
+                 Current                 Installation
+Node             Version                 Date
+---------------- ----------------------- ------------
+cluster1-1       8.3RC1                  12/15/2014 17:37:26
+cluster1-2       8.3RC1                  12/15/2014 17:37:42
+2 entries were displayed.
+----
++
+您应记下 ONTAP 软件的版本，以供稍后在此工作流中参考。
+
+

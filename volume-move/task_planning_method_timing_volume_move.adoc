@@ -1,0 +1,67 @@
+---
+permalink: volume-move/task_planning_method_timing_volume_move.html 
+sidebar: sidebar 
+keywords: system, manager, volume, manual, cutover, lun, report, node, advance, procedure, command-line, interface, cli, plan, plan the method and timing of a volume move 
+summary: '您可以在 ONTAP 9.7 或更早版本中使用 ONTAP 系统管理器的 " 经典 " 界面移动卷并确定是否需要手动转换。如果需要更新 LUN 报告节点，则必须遵循命令行界面（ CLI ）中的高级操作步骤。您也可以选择规划卷移动的时间。' 
+---
+= 规划卷移动的方法和时间
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在 ONTAP 9.7 或更早版本中使用 ONTAP System Manager _classic_ 界面移动卷并确定是否要手动转换。如果需要更新 LUN 报告节点，则必须遵循命令行界面（ CLI ）中的高级操作步骤。您也可以选择规划卷移动的时间。
+
+.关于此任务
+可以在镜像卷时移动 SnapMirror 或 SnapVault 关系的源卷。在卷移动作业的转换阶段， SnapMirror 服务会短暂暂停。
+
+也可以移动目标卷。在迭代阶段， SnapMirror 或 SnapVault 更新和卷移动操作会同时运行。在评估转换阶段是否可以进行转换时，转换与 SnapMirror 或 SnapVault 更新之间的优先级将根据先到先得的原则来确定。在第一个操作完成之前，其他操作将被阻止。
+
+.步骤
+. 确定是否需要手动转换。
++
+_Cutover_ 是指移动操作完成且 ONTAP 开始从新聚合上的卷提供数据的时刻。转换可以自动进行，也可以手动触发转换。
+
++
+如果贵公司的标准实践要求您控制存储系统何时发生更改，则可以在维护时段手动执行移动操作的最终转换。
+
++
+转换不需要中断，但您可以使用维护窗口来控制何时发生转换。
+
++
+[NOTE]
+====
+无论您选择自动转换还是手动转换，卷移动操作都不会造成中断。
+
+====
+. 如果卷包含 LUN ，而集群包含四个或更多节点，则在卷移至其他 HA 对时，请使用命令行界面更新 LUN 报告节点。
++
+如果卷不包含 LUN 或集群仅包含两个节点，则可以跳过此步骤。
+
+. *可选：*根据以下注意事项规划时间：
++
+** 卷移动操作所需时间可能比预期要长，因为移动操作可以在后台无中断地进行，从而保持客户端访问和整体系统性能。
++
+例如， ONTAP 会限制可用于卷移动操作的资源。
+
+** 如果您希望移动操作尽快完成，则必须选择一个集群活动较少的时间，尤其是以下活动：
++
+*** 卷上的 I/O 操作
+*** 使用后台资源的作业，例如控制器 CPU 利用率低于 50% 时
+*** 使用集群互连的作业
+
+
+** 如果卷受到以下操作的影响，则无法启动移动：卷脱机，限制或销毁； SnapMirror 重新同步，中断， 或还原；以及 Snapshot 还原。
++
+您必须等待其中任何特定操作完成，然后才能开始移动。
+
+** 在执行卷移动操作时，无法执行 MetroCluster 切回，尽管可能会发生切换。
+** 如果正在对属于已切换站点的卷执行卷移动操作，则会阻止 MetroCluster 切回。如果正在对运行正常的站点的本地卷执行卷移动操作，则不会阻止切回。
+** 在执行卷移动操作时，可能会发生强制 MetroCluster 切换。
+
+
+
+
+.相关信息
+link:task_verifying_lun_reporting_nodes_after_moving_volume.html["移动卷后验证 LUN 报告节点"]

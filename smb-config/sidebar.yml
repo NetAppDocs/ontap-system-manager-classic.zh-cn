@@ -1,0 +1,46 @@
+---
+section: smb-config
+title: SMB/CIFS 配置
+entries:
+- title: 概述
+  url: "/smb-config/index.html"
+- title: SMB/CIFS 配置工作流
+  url: "/smb-config/concept_cifs_nfs_configuration_workflow.html"
+  entries:
+  - title: 创建聚合
+    url: "/smb-config/task_creating_aggregate.html"
+  - title: 确定在何处配置新卷
+    url: "/smb-config/task_deciding_where_to_provision_new_volume.html"
+- title: 创建启用了CIFS的新SVM
+  url: "/smb-config/task_creating_protocol_enabled_svm.html"
+  entries:
+  - title: 使用 CIFS 卷和共享创建新的 SVM
+    url: "/smb-config/task_creating_new_svm.html"
+  - title: 在 DNS 服务器上映射 SMB 服务器
+    url: "/smb-config/task_mapping_smb_server_dns_server.html"
+  - title: 验证 SMB 客户端访问
+    url: "/smb-config/task_verifying_smb_client_access.html"
+  - title: 配置并验证 CIFS 客户端访问
+    url: "/smb-config/task_configuring_verifying_client_access.html"
+- title: 配置对现有 SVM 的 SMB/CIFS 访问
+  url: "/smb-config/task_configuring_access_to_existing_svm.html"
+  entries:
+  - title: 添加对现有SVM的CIFS访问
+    url: "/smb-config/concept_adding_nas_access_to_existing_svm.html"
+  - title: 在 DNS 服务器上映射 SMB 服务器
+    url: "/smb-config/task_mapping_smb_server_dns_server.html"
+  - title: 验证 SMB 客户端访问
+    url: "/smb-config/task_verifying_smb_client_access.html"
+  - title: 配置并验证 CIFS 客户端访问
+    url: "/smb-config/task_configuring_verifying_client_access.html"
+- title: 将 CIFS 卷添加到启用了 CIFS 的 SVM
+  url: "/smb-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html"
+  entries:
+  - title: 创建并配置卷
+    url: "/smb-config/task_creating_configuring_volume.html"
+  - title: 创建共享并设置其权限
+    url: "/smb-config/task_creating_share_setting_its_permissions.html"
+  - title: 验证 SMB 客户端访问
+    url: "/smb-config/task_verifying_smb_client_access.html"
+  - title: 配置并验证 CIFS 客户端访问
+    url: "/smb-config/task_configuring_verifying_client_access.html"

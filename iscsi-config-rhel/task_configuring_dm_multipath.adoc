@@ -1,0 +1,85 @@
+---
+permalink: iscsi-config-rhel/task_configuring_dm_multipath.html 
+sidebar: sidebar 
+keywords: dm-multipath, manage, path, linux, host, storage, cluster, configuring, configure, lun, scsi, device, component, fail, cluster, configure, configure dm-multipath 
+summary: DM-Multipath 可管理 Linux 主机和存储集群之间的多个路径。如果在 LUN 上配置 DM-Multipath （在 Linux 主机上将其显示为 SCSI 设备），则 Linux 主机可以在路径或组件出现故障时访问存储集群上的 LUN 。 
+---
+= 配置 DM-Multipath
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DM-Multipath 可管理 Linux 主机和存储集群之间的多个路径。如果在 LUN 上配置 DM-Multipath （在 Linux 主机上将其显示为 SCSI 设备），则 Linux 主机可以在路径或组件出现故障时访问存储集群上的 LUN 。
+
+.开始之前
+您必须已通过互操作性表工具确定所需的 DM-Multipath 版本。
+
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+[NOTE]
+====
+建议的方法是，在每个网络结构或以太网中为每个节点配置两个路径。这样，在节点不切换到其配对节点的情况下，路径就会发生故障。在基于 Windows 的操作系统中，不建议对物理端口使用链路聚合（ LAG ）。
+
+====
+.步骤
+. 编辑 `/etc/multipath.conf` 文件、如下所示：
++
+.. 确定是否存在要排除的非 NetApp SCSI 设备（黑名单）。
++
+这些设备在您输入时不会显示 `sanlun lun show` 命令：
+
++
+*** 如果要排除非NetApp SCSI设备、请在的黑名单部分中输入这些设备的全球通用标识符(WWID) `multipath.conf` 文件
++
+要显示非NetApp SCSI设备的WWID、请在要排除的设备上输入以下命令、其中 `SCSI_device_name` 是您指定的设备： `/lib/udev/scsi_id -gud /dev/SCSI_device_name`
+
++
+例如、if `/dev/sda` 是要排除的非NetApp SCSI设备、应输入以下内容：
+
++
+`/lib/udev/scsi_id -gud /dev/sda`
+
++
+此时将显示设备的WWID、您可以将其复制并粘贴到中 `multipath.conf` 文件
+
++
+在以下示例中、显示的黑名单部分 `multipath.conf` file、具有WWID的非NetApp SCSI设备 `3600508e000000000753250f933cc4606` 不包括：
+
++
+[listing]
+----
+blacklist {
+            **wwid       3600508e000000000753250f933cc4606**
+            devnode    "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+            devnode    "^hd[a-z]"
+            devnode     "^cciss.*"
+}
+----
+*** 如果没有要排除的设备、请从中删除_WWID_行 `multipath.conf` 文件
+
+
+.. 在启动加载程序的内核行末尾附加以下字符串、以启用NetApp建议的DM-Multipath设置： `rdloaddriver=scsi_dh_alua`
+
+
+. 启动DM-Multipath守护进程：
++
+`/etc/init.d/multipathd start`
+
+. 将多路径服务添加到启动序列中、以便多路径守护进程在系统启动期间始终启动：
++
+`chkconfig multipathd on`
+
+. 重新启动 Linux 主机。
+. 验证是否已 `rdloaddriver` 运行时、输出中会显示设置 `cat /proc/cmdline`。
++
+。 `rdloaddriver` 设置显示为传递给内核的几个引导选项之一：
+
++
+[listing]
+----
+# cat /proc/cmdline
+ro root=/dev/mapper/vg_ibmx3650210104-lv_root rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD rd_LVM_LV=vg_ibmx3650210104/lv_root SYSFONT=latarcyrheb-sun16 rd_LVM_LV=vg_ibmx3650210104/lv_swap crashkernel=129M@0M  KEYBOARDTYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet **rdloaddriver=scsi_dh_alua**
+----
+

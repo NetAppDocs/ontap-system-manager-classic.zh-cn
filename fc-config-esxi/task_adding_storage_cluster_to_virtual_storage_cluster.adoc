@@ -1,0 +1,27 @@
+---
+permalink: fc-config-esxi/task_adding_storage_cluster_to_virtual_storage_cluster.html 
+sidebar: sidebar 
+keywords: provision, datastore, esxi, host, datacenter, cluster, storage, virtual, machine, svm, add the storage cluster or svm to vsc 
+summary: 在为数据中心中的 ESXi 主机配置第一个数据存储库之前，必须先将集群或特定 Storage Virtual Machine （ SVM ）添加到适用于 VMware vSphere 的 Virtual Storage Console 中。通过添加集群，您可以在集群中的任何 SVM 上配置存储。 
+---
+= 将存储集群或 SVM 添加到适用于 VMware vSphere 的 VSC 中
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为数据中心中的 ESXi 主机配置第一个数据存储库之前，必须先将集群或特定 Storage Virtual Machine （ SVM ）添加到适用于 VMware vSphere 的 Virtual Storage Console 中。通过添加集群，您可以在集群中的任何 SVM 上配置存储。
+
+.开始之前
+您必须具有要添加的存储集群或 SVM 的管理员凭据。
+
+.关于此任务
+根据您的配置，可能已自动发现集群，也可能已添加集群。
+
+.步骤
+. 登录到 vSphere Web Client 。
+. 选择 * 虚拟存储控制台 * 。
+. 选择 * 存储系统 * ，然后单击 * 添加 * 图标。
+. 在 * 添加存储系统 * 对话框中，输入存储集群或 SVM 的主机名和管理员凭据，然后单击 * 确定 * 。
+

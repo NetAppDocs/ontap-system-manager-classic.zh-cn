@@ -1,0 +1,28 @@
+---
+permalink: volume-disaster-recovery/concept_volume_disaster_recovery_workflow.html 
+sidebar: sidebar 
+keywords: volume, disaster recovery, workflow, activating, activate, destination, configuring, configure, access, reactivate, reactivating, original, source, volume disaster recovery workflow 
+summary: 卷灾难恢复工作流包括激活目标卷，配置目标卷以进行数据访问以及重新激活原始源卷。 
+---
+= 卷灾难恢复工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+卷灾难恢复工作流包括激活目标卷，配置目标卷以进行数据访问以及重新激活原始源卷。
+
+image::../media/snapmirror_failover_resync_workflow_eg.gif[此图是 SnapMirror 集群间故障转移和重新同步工作流的流程图。工作流中的步骤与主题匹配。]
+
+追加信息可帮助您管理卷级灾难恢复关系，并提供其他灾难恢复方法来保护数据资源的可用性。
+
+* xref:../volume-backup-snapvault/index.html[使用 SnapVault 进行卷备份]
++
+介绍如何在位于不同 ONTAP 集群中的卷之间快速配置备份存储关系。
+
+* xref:../volume-restore-snapvault/index.html[使用 SnapVault 进行卷还原管理]
++
+介绍如何在 ONTAP 中从备份存储快速还原卷。
+
+

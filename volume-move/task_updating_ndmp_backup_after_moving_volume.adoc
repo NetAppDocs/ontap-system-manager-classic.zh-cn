@@ -1,0 +1,30 @@
+---
+permalink: volume-move/task_updating_ndmp_backup_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, move, tape, ndmp, configuration, moving, baseline, migrate, backup, lif, contain, update ndmp backup after moving a volume 
+summary: 如果移动的卷之前已在特定配置中使用 NDMP 备份到磁带，则在移动此卷后，您可以执行以下操作之一以确保此卷继续成功备份： 创建基线或将备份 LIF 迁移到包含所移动卷的节点。 
+---
+= 移动卷后更新 NDMP 备份
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果移动的卷之前已在特定配置中使用 NDMP 备份到磁带，则在移动此卷后，您可以执行以下操作之一以确保此卷继续成功备份： 创建基线或将备份 LIF 迁移到包含所移动卷的节点。
+
+.关于此任务
+* 只有当备份应用程序不支持集群感知型备份（操作步骤）扩展且备份过程使用节点范围的 NDMP 时，才需要此 NDMP 。
++
+如果备份应用程序支持 CAB ，并且已将其配置为使用 SVM 范围的 NDMP 模式，则可以跳过此操作步骤。
+
+* 您只能执行其中一项操作，而不能同时执行这两项操作。
+
+
+
+
+== 操作步骤
+
+* 在备份应用程序中，创建新的基线。
+* 确定为备份过程配置的 LIF ，然后将此 LIF 迁移到卷现在所在的节点。
+

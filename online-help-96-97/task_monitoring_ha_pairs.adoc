@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_monitoring_ha_pairs.html 
+sidebar: sidebar 
+keywords: system, manager, ha, availability, monitor, ha, pair 
+summary: 您可以使用 System Manager 监控集群中所有高可用性（ HA ）对的节点状态和互连状态。您还可以验证是否已启用或已发生接管或交还，并查看当前无法执行接管或交还的原因。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本监控 HA 对
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）监控集群中所有高可用性（ HA ）对的节点状态和互连状态。您还可以验证是否已启用或已发生接管或交还，并查看当前无法执行接管或交还的原因。
+
+.步骤
+. 单击 * 配置 * > * 集群 * > * 高可用性 * 。
+. 在 * 高可用性 * 窗口中，单击 HA 对图像以查看详细信息，例如集群 HA 状态，节点状态，互连状态以及每个节点的硬件型号。
++
+如果某个节点的集群管理 LIF 或数据 LIF 不在其主节点中，则会显示一条警告消息，指出该节点的某些 LIF 不在主节点中。
+
+
+
+* 相关信息 *
+
+xref:reference_high_availability.adoc[高可用性窗口]

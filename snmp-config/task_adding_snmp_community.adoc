@@ -1,0 +1,32 @@
+---
+permalink: snmp-config/task_adding_snmp_community.html 
+sidebar: sidebar 
+keywords: system, manager, add, community, administrative, storage, virtual, machine, svm, cluster, snmpv1, snmpv2c, protocol, add an anmp community 
+summary: '您可以在 ONTAP 9.7 或更早版本中使用 ONTAP 系统管理器的 " 经典 " 界面向运行 SNMPv1 或 SNMPv2c 的集群的管理 Storage Virtual Machine （ SVM ）添加社区。System Manager 使用 SNMP 协议 SNMPv1 和 SNMPv2c 以及 SNMP 社区来发现存储系统。' 
+---
+= 添加 SNMP 社区
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将 ONTAP System Manager _classic_ 界面与 ONTAP 9.7 或更早版本结合使用，将社区添加到运行 SNMPv1 或 SNMPv2c 的集群的管理 Storage Virtual Machine （ SVM ）中。System Manager 使用 SNMP 协议 SNMPv1 和 SNMPv2c 以及 SNMP 社区来发现存储系统。
+
+.关于此任务
+此操作步骤用于向集群的管理 SVM 添加 SNMP 社区。中介绍了用于向数据 SVM 添加 SNMP 社区的操作步骤 https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"]。
+
+在新安装的 ONTAP 中， SNMPv1 和 SNMPv2c 默认处于禁用状态。创建 SNMP 社区时， SNMPv1 和 SNMPv2c 将处于启用状态。
+
+.步骤
+. 在 SNMP 窗口中，单击 * 编辑 * 以打开 * 编辑 SNMP 设置 * 对话框。
+. 在 * 常规 * 选项卡中，指定 ONTAP 系统的联系人和位置。
+. 单击 * 添加 * ，输入社区名称，然后单击 * 社区名称 * 窗格中的 * 确定 * 。
++
+您可以添加多个社区名称。团体名称最多可以包含32个字符、并且不能包含以下特殊字符： `, / : " ' |`
+
++
+image::../media/snmp_cfg_comm_step3.gif[此图显示了编辑 SNMP 设置对话框,General tab,in which the example community name "comty1" is entered.]
+
+. 添加完社区名称后，单击 * 编辑 SNMP 设置 * 对话框中的 * 确定 * 。
+

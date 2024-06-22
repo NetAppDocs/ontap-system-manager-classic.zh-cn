@@ -1,0 +1,46 @@
+---
+permalink: volume-disaster-recovery/task_breaking_snapmirror_relationship.html 
+sidebar: sidebar 
+keywords: quiesce, break, snapmirror, relationship, activate, destination, volume, snapmirror, quiescing, transfer, disable, break the snapmirror relationship 
+summary: 要激活目标卷，必须暂停并中断 SnapMirror 关系。暂停后，未来的 SnapMirror 数据传输将被禁用。 
+---
+= 断开 SnapMirror 关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要激活目标卷，必须暂停并中断 SnapMirror 关系。暂停后，未来的 SnapMirror 数据传输将被禁用。
+
+.开始之前
+目标卷必须挂载到目标 SVM 命名空间上。
+
+.关于此任务
+您必须从 * 目标 * 集群执行此任务。
+
+.步骤
+. 根据您运行的 System Manager 版本，执行以下步骤之一：
++
+** ONTAP 9.4 或更早版本：单击 * 保护 * > * 关系 * 。
+** 从 ONTAP 9.5 开始：单击 * 保护 * > * 卷关系 * 。
+
+
+. 选择源卷和目标卷之间的 SnapMirror 关系。
+. 单击 * 操作 * > * 暂停 * 以禁用未来的数据传输。
+. 选中确认复选框，然后单击 * 暂停 * 。
++
+暂停操作可能需要一段时间；只有在传输状态显示为后、才能对SnapMirror关系执行任何其他操作 `Quiesced`。
+
+. 单击 * 操作 * > * 中断 * 。
+. 选中确认复选框，然后单击 * 中断 * 。
++
+image::../media/break.gif[SnapMirror 中断屏幕]
+
++
+SnapMirror关系处于中 `Broken Off` 状态。
+
++
+image::../media/break_verify.gif[SnapMirror 关系处于已断开状态]
+
+

@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_setting_up_cluster_by_using_oncommand_system_manager.html 
+sidebar: sidebar 
+keywords: set, up, cluster, ontap, system, manager, online, help, management, network 
+summary: 从 ONTAP 9.1 开始，您可以使用 ONTAP 系统管理器设置集群，方法是创建集群，设置节点管理网络和集群管理网络，然后设置事件通知。 
+---
+= 使用 ONTAP System Manager - ONTAP 9.7 及更早版本设置集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）来设置集群，方法是创建集群，设置节点管理网络和集群管理网络，然后设置事件通知。
+
+.开始之前
+* 您必须已至少为一个节点配置节点管理 IP 地址。
+* 节点必须处于默认 HA 模式。
+* 节点必须运行 ONTAP 9.1 或更高版本。
+* 节点的版本必须相同。
+* 所有节点都必须运行状况良好，并且必须为节点设置布线。
+* 您的集群配置必须已建立布线和连接。
+* 您必须具有足够的集群管理，节点管理，服务处理器 IP 地址以及网关和网络掩码详细信息。
+* 如果某个端口上存在集群接口，则该端口必须位于集群 IP 空间中。
+
+
+.关于此任务
+要创建集群，您必须通过控制台登录，并在集群网络中的任何节点上配置节点管理 IP 地址。在节点上配置节点管理 IP 地址后，您可以使用 ONTAP 系统管理器添加其他节点并创建集群。
+
+ONTAP 软件的 MetroCluster 配置不支持集群设置操作。
+
+您可以使用模板文件或在集群设置向导中手动输入值来设置集群。
+
+image::../media/cluster_setup_workflow.gif[集群设置工作流]

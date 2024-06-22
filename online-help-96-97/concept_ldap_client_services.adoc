@@ -1,0 +1,151 @@
+---
+permalink: online-help-96-97/concept_ldap_client_services.html 
+sidebar: sidebar 
+keywords: ldap, client, service, system, manager, add, edit, delete, client, configuration, online, help, cluster, level, storage, virtual, machine, 
+summary: 您可以使用 System Manager 添加，编辑和删除 LDAP 客户端配置。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本配置 LDAP 客户端服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）添加，编辑和删除 LDAP 客户端配置。
+
+
+
+== 添加 LDAP 客户端配置
+
+如果要使用 LDAP 服务，您可以使用 System Manager 在集群级别或 Storage Virtual Machine （ SVM ）级别添加 LDAP 客户端配置。要使用 LDAP 服务，必须先设置 LDAP 客户端。
+
+.关于此任务
+在 SVM 级别，您只能为选定 SVM 添加 LDAP 客户端。
+
+.步骤
+. 使用以下方法之一添加 LDAP 客户端配置：
++
+** 集群级别：单击 *image:../media/advanced_options.gif[""]* > * LDAP * 。
+** SVM 级别：单击 * SVM* > * SVM 设置 * > * LDAP 客户端 * 。
+
+
+. 单击 * 添加 * 。
+. 键入 LDAP 客户端的名称。
+. 添加 Active Directory 域或 LDAP 服务器。
+. 单击 image:../media/advanced_options.gif[""] （高级选项），选择 * 架构 * ，然后单击 * 应用 * 。
+. 指定 * 基本 DN* 和 * TCP 端口 * 。
+. 单击 * 绑定 * ，然后指定身份验证详细信息。
+. 单击 * 保存并关闭 * 。
+. 验证是否显示您添加的 LDAP 客户端。
+
+
+
+
+== 删除 LDAP 客户端配置
+
+您可以使用 System Manager 在集群级别或 Storage Virtual Machine （ SVM ）级别删除 LDAP 客户端配置。
+
+.关于此任务
+在 SVM 级别，只能删除选定 SVM 的 LDAP 客户端。
+
+.步骤
+. 要删除 LDAP 客户端配置，请执行以下操作：
++
+** 集群级别：单击 *image:../media/advanced_options.gif[""]* > * LDAP * 。
+** SVM 级别：单击 * SVM* > * SVM 设置 * > * LDAP 客户端 * 。
+
+
+. 选择要删除的 LDAP 客户端，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+. 验证已删除的 LDAP 客户端是否不再显示。
+
+
+
+
+== 编辑 LDAP 客户端配置
+
+您可以使用 System Manager 在集群级别或 Storage Virtual Machine （ SVM ）级别编辑 LDAP 客户端配置。
+
+.关于此任务
+在 SVM 级别，您只能为选定 SVM 编辑 LDAP 客户端。
+
+.步骤
+. 要编辑 LDAP 客户端配置，请执行以下操作：
++
+** 集群级别：单击 *image:../media/advanced_options.gif[""]* > * LDAP * 。
+** SVM 级别：单击 * SVM* > * SVM 设置 * > * LDAP 客户端 * 。
+
+
+. 选择要修改的 LDAP 客户端，然后单击 * 编辑 * 。
+. 在 * 编辑 LDAP 客户端 * 对话框中，根据需要编辑 LDAP 客户端配置。
+. 单击 * 保存并关闭 * 。
+. 验证是否已显示您对 LDAP 客户端配置所做的更改。
+
+
+
+
+== LDAP 客户端窗口
+
+您可以使用 LDAP 客户端窗口创建 LDAP 客户端，以便在 Storage Virtual Machine （ SVM ）级别进行用户身份验证，文件访问授权，用户搜索以及在 NFS 和 CIFS 之间映射服务。
+
+
+
+=== 命令按钮
+
+* * 添加 * 。
++
+打开创建 LDAP 客户端对话框，在此可以创建和配置 LDAP 客户端。
+
+* * 编辑 * 。
++
+打开编辑 LDAP 客户端对话框，在此可以编辑 LDAP 客户端配置。您还可以编辑活动 LDAP 客户端。
+
+* * 删除 *
++
+打开删除 LDAP 客户端对话框，在此可以删除 LDAP 客户端配置。您也可以删除活动的 LDAP 客户端。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== LDAP 客户端列表
+
+以表格形式显示有关 LDAP 客户端的详细信息。
+
+* * LDAP 客户端配置 *
++
+显示您指定的 LDAP 客户端配置的名称。
+
+* * Storage Virtual Machine*
++
+显示每个 LDAP 客户端配置的 SVM 的名称。
+
+* * 架构 *
++
+显示每个 LDAP 客户端的模式。
+
+* * 最小绑定级别 *
++
+显示每个 LDAP 客户端的最小绑定级别。
+
+* * Active Directory 域 *
++
+显示每个 LDAP 客户端配置的 Active Directory 域。
+
+* *LDAP服务器*
++
+显示每个 LDAP 客户端配置的 LDAP 服务器。
+
+* * 首选 Active Directory 服务器 *
++
+显示每个 LDAP 客户端配置的首选 Active Directory 服务器。
+
+
+
+* 相关信息 *
+
+xref:concept_ldap.adoc[LDAP]

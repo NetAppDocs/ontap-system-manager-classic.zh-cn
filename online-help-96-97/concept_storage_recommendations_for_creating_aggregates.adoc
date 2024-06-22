@@ -1,0 +1,42 @@
+---
+permalink: online-help-96-97/concept_storage_recommendations_for_creating_aggregates.html 
+sidebar: sidebar 
+keywords: storage, recommendations, create, aggregate, system, manager, online, help 
+summary: 从 System Manager 9.4 开始，您可以根据存储建议创建聚合。但是，您必须确定您的环境是否支持根据存储建议创建聚合。如果您的环境不支持根据存储建议创建聚合，则必须确定 RAID 策略和磁盘配置，然后手动创建聚合。 
+---
+= 使用 System Manager 创建聚合的存储建议— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.4 开始，您可以根据存储建议创建聚合。但是，您必须确定您的环境是否支持根据存储建议创建聚合。如果您的环境不支持根据存储建议创建聚合，则必须确定 RAID 策略和磁盘配置，然后手动创建聚合。
+
+System Manager 将分析集群中的可用备用磁盘，并生成有关应如何根据最佳实践使用这些备用磁盘创建聚合的建议。System Manager 将显示建议聚合的摘要，包括其名称和可用大小。
+
+在许多情况下，此存储建议最适合您的环境。但是，如果集群运行的是 ONTAP 9.3 或更早版本，或者您的环境包含以下配置，则必须手动创建聚合：
+
+* 使用第三方阵列 LUN 的聚合
+* 使用 Cloud Volumes ONTAP 或 ONTAP Select 的虚拟磁盘
+* MetroCluster 配置
+* SyncMirror 功能
+* MSATA 磁盘
+* Flash Pool 聚合
+* 节点连接了多种磁盘类型或大小
+
+
+此外，如果您的环境中存在以下任一磁盘状况，则必须先更正磁盘状况，然后再使用存储建议创建聚合：
+
+* 缺少磁盘
+* 备用磁盘数波动
+* 未分配的磁盘
+* 未置零备件（适用于 9.6 之前的 ONTAP 版本）
+* 正在进行维护测试的磁盘
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["磁盘和聚合管理"]
+
+xref:task_zeroing_disks.adoc[将备用磁盘置零]

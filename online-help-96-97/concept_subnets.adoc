@@ -1,0 +1,64 @@
+---
+permalink: online-help-96-97/concept_subnets.html 
+sidebar: sidebar 
+keywords: system, manager, manage, subnet, online, help, edit, settings, modify, delete, ip, address 
+summary: 您可以使用 System Manager 管理子网。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理子网
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理子网。
+
+
+
+== 编辑子网设置
+
+[role="lead"]
+您可以使用 System Manager 修改子网属性，例如子网的名称，子网地址， IP 地址范围和网关地址。
+
+.关于此任务
+* 您不能使用 System Manager 编辑集群 IP 空间中的子网。
++
+您必须改用命令行界面（ CLI ）。
+
+* 修改网关地址不会更新路由。
++
+您必须使用命令行界面更新路由。
+
+
+
+.步骤
+. 单击 * 网络 * > * 子网 * 。
+. 选择要修改的子网，然后单击 * 编辑 * 。
++
+即使子网中的 LIF 仍在使用中，您也可以修改该子网。
+
+. 在 * 编辑子网 * 对话框中，根据需要修改子网属性。
+. 单击 * 保存并关闭 * 。
+
+
+
+
+== 删除子网
+
+如果您不再需要子网，并且希望重新分配分配分配给该子网的 IP 地址，则可以使用 System Manager 删除该子网。
+
+.开始之前
+要删除的子网不能包含使用子网中 IP 地址的任何 LIF 。
+
+.关于此任务
+您不能使用 System Manager 删除集群 IP 空间中的子网。您必须改用命令行界面（ CLI ）。
+
+.步骤
+. 单击 * 网络 * > * 子网 * 。
+. 选择要删除的子网，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_network_window.adoc[网络窗口]

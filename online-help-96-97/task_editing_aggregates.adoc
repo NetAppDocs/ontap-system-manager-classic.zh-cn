@@ -1,0 +1,52 @@
+---
+permalink: online-help-96-97/task_editing_aggregates.html 
+sidebar: sidebar 
+keywords: online, help, edit, aggregates, raid, type, group, size, online, help 
+summary: 您可以使用 System Manager 根据需要更改现有聚合的聚合名称， RAID 类型和 RAID 组大小。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑聚合
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）根据需要更改现有聚合的聚合名称， RAID 类型和 RAID 组大小。
+
+.开始之前
+要将聚合的 RAID 类型从 RAID4 修改为 RAID-DP ，聚合必须包含足够多的兼容备用磁盘，但热备用磁盘除外。
+
+.关于此任务
+* 您不能更改支持阵列 LUN 的 ONTAP 系统的 RAID 组。
++
+RAID0 是唯一可用的选项。
+
+* 您不能更改已分区磁盘的 RAID 类型。
++
+RAID-DP 是唯一可用于已分区磁盘的选项。
+
+* 您不能重命名 SnapLock 合规性聚合。
+* 如果聚合包含具有存储池的 SSD ，则只能修改聚合的名称。
+* 如果三重奇偶校验磁盘大小为 10 TB ，而其他磁盘的大小小于 10 TB ，则可以选择 RAID-DP 或 RAID-TEC 作为 RAID 类型。
+* 如果三重奇偶校验磁盘大小为 10 TB ，并且即使其他一个磁盘的大小超过 10 TB ， RAID-TEC 也是 RAID 类型的唯一可用选项。
+
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 选择要编辑的聚合，然后单击 * 编辑 * 。
+. 在 * 编辑聚合 * 对话框中，根据需要修改聚合名称， RAID 类型和 RAID 组大小。
+. 单击 * 保存 * 。
+
+
+* 相关信息 *
+
+xref:reference_aggregates_window.adoc[聚合窗口]
+
+xref:concept_what_compatible_spare_disks_are.adoc[什么是兼容备用磁盘]
+
+xref:reference_storage_tiers_window.adoc[存储层窗口]

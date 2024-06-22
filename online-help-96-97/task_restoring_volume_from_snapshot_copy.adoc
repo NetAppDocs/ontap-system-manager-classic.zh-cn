@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_restoring_volume_from_snapshot_copy.html 
+sidebar: sidebar 
+keywords: restore, volume, snapshot, copy, system, manager, online, help 
+summary: 您可以使用 System Manager 将卷还原到先前创建的 Snapshot 副本中记录的状态，以检索丢失的信息。从 Snapshot 副本还原卷时，还原操作会覆盖现有卷配置。创建 Snapshot 副本后对卷中数据所做的任何更改都将丢失。 
+---
+= 使用 System Manager （ ONTAP 9.7 及更早版本）从 Snapshot 副本还原卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）将卷还原到先前创建的 Snapshot 副本中记录的状态，以检索丢失的信息。从 Snapshot 副本还原卷时，还原操作会覆盖现有卷配置。创建 Snapshot 副本后对卷中数据所做的任何更改都将丢失。
+
+.开始之前
+* 您的系统上必须安装 SnapRestore 许可证。
+* 如果要还原的 FlexVol 卷包含 LUN ，则必须卸载或取消映射此 LUN 。
+* 必须为已还原的卷提供足够的可用空间。
+* 必须通知访问卷的用户您要还原卷，并且选定 Snapshot 副本中的数据将替换卷中的当前数据。
+
+
+.关于此任务
+* 如果您还原的卷包含指向其他卷的接合点，则不会还原这些接合点上挂载的卷。
+* 您不能还原 SnapLock 合规性卷的 Snapshot 副本。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要从 Snapshot 副本还原的卷。
+. 单击 * 更多操作 * > * 管理快照 * > * 还原 * 。
+. 选择相应的 Snapshot 副本，然后单击 * 还原 * 。
+. 选中确认复选框，然后单击 * 还原 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

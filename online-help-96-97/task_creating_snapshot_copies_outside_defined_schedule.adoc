@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_creating_snapshot_copies_outside_defined_schedule.html 
+sidebar: sidebar 
+keywords: create, snapshot, copy, outside, defined, schedule, online, help, system, manager 
+summary: 您可以使用 System Manager 在定义的计划之外创建卷的 Snapshot 副本，以捕获文件系统在特定时间点的状态。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本在定义的计划外创建 Snapshot 副本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）在定义的计划之外创建卷的 Snapshot 副本，以捕获文件系统在特定时间点的状态。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从卷列表中选择卷。
+. 单击 * 更多操作 * > * 管理快照 * > * 创建 * 。
+. 在 * 创建 Snapshot 副本 * 对话框中，如果要更改默认名称，请为 Snapshot 副本指定一个新名称。
++
+有效字符包括 ASCII 字符，数字，连字符（ - ），下划线（ _ ），句点（ . ）和加号（ + ）。
+
++
+Snapshot 副本的默认名称由卷名称和时间戳组成。
+
+. 单击 * 创建 * 。
+. 验证您创建的 Snapshot 副本是否包含在 * Snapshot 副本 * 选项卡的 Snapshot 副本列表中。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

@@ -1,0 +1,58 @@
+---
+permalink: online-help-96-97/task_creating_cluster.html 
+sidebar: sidebar 
+keywords: data, center, create, cluster, online, help, system, manager 
+summary: 您可以使用 ONTAP 系统管理器在数据中心中创建和设置集群。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）在数据中心中创建和设置集群。
+
+.关于此任务
+如果集群支持 ONTAP 9.1 或更高版本，则只能添加运行 ONTAP 9.1 或更高版本的存储系统。
+
+.步骤
+. 打开Web浏览器、然后输入已配置的节点管理IP地址： `+https://node-management-IP+`
++
+** 如果您已设置集群的凭据，则会显示登录页面。
++
+您必须输入凭据才能登录。
+
+** 如果尚未设置集群的凭据，则会显示引导式设置窗口。
++
+单击 * 引导式设置 * 图标以设置集群。
+
+
+
+. 在 * 集群 * 页面中，输入集群的名称。
++
+[NOTE]
+====
+如果未发现所有节点，请单击 * 刷新 * 。
+
+====
++
+该集群网络中的节点将显示在节点字段中。
+
+. *可选：*如果需要、请更新*节点*字段中的节点名称。
+. 输入集群的密码。
+. *可选：*输入功能许可证密钥。
+. 单击 * 提交 * 。
+
+
+
+
+== 下一步操作
+
+在网络页面中输入网络详细信息以继续进行集群设置。
+
+* 相关信息 *
+
+xref:reference_licenses_window.adoc[许可证窗口]
+
+xref:reference_configuration_updates_window.adoc[配置更新窗口]

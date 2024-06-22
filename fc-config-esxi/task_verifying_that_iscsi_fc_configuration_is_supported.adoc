@@ -1,0 +1,46 @@
+---
+permalink: fc-config-esxi/task_verifying_that_iscsi_fc_configuration_is_supported.html 
+sidebar: sidebar 
+keywords: reliable, operation, verify, entire, fc, configuration, support, verify that the fc configuration is supported 
+summary: 为了确保操作可靠，您必须验证是否支持整个 FC 配置。 
+---
+= 验证是否支持 FC 配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+为了确保操作可靠，您必须验证是否支持整个 FC 配置。
+
+.步骤
+. 转至互操作性表以验证您是否具有受支持的以下组件组合：
++
+** ONTAP 软件
+** 主机计算机 CPU 架构（适用于标准机架服务器）
+** 特定处理器刀片式服务器型号（适用于刀片式服务器）
+** FC 主机总线适配器（ HBA ）型号以及驱动程序，固件和 BIOS 版本
+** 存储协议（ FC ）
+** ESXi 操作系统版本
+** 子操作系统类型和版本
+** 适用于 VMware vSphere 的 Virtual Storage Console （ VSC ）软件
+** 用于运行 VSC 的 Windows Server 版本
+
+
+. 单击选定配置的配置名称。
++
+该配置的详细信息将显示在配置详细信息窗口中。
+
+. 查看以下选项卡中的信息：
++
+** 注释：
++
+列出特定于您的配置的重要警报和信息。
+
+** 策略和准则
++
+为所有 SAN 配置提供了一般准则。
+
+
+
+

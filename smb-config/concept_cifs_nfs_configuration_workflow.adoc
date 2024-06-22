@@ -1,0 +1,16 @@
+---
+permalink: smb-config/concept_cifs_nfs_configuration_workflow.html 
+sidebar: sidebar 
+keywords: configure, configuring, smb, cifs, creating, create, aggregate, workflow, goal-creating, cifs-enabled, svm, smb/cifs configuration workflow 
+summary: 配置 SMB/CIFS 需要选择创建聚合，然后选择特定于您的目标的工作流—创建启用了 CIFS 的新 SVM ，配置对现有 SVM 的 CIFS 访问，或者只需将 CIFS 卷添加到已完全配置 CIFS 访问的现有 SVM 即可。 
+---
+= SMB/CIFS 配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 SMB/CIFS 需要选择创建聚合，然后选择特定于您的目标的工作流—创建启用了 CIFS 的新 SVM ，配置对现有 SVM 的 CIFS 访问，或者只需将 CIFS 卷添加到已完全配置为可进行 CIFS 访问的现有 SVM 。
+
+image::../media/cifs_config.gif[概述了在 ONTAP 中设置 CIFS 所涉及的步骤。]

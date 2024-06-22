@@ -1,0 +1,146 @@
+---
+permalink: online-help-96-97/task_setting_up_network.html 
+sidebar: sidebar 
+keywords: set, up, network, cluster, node, service, processor, dns, ntp, online, help 
+summary: 通过设置网络，您可以管理集群，节点和服务处理器。您还可以使用网络窗口设置 DNS 和 NTP 详细信息。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本设置网络
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）通过设置网络来管理集群，节点和服务处理器。您还可以使用网络窗口设置 DNS 和 NTP 详细信息。
+
+.开始之前
+您必须已设置集群。
+
+.关于此任务
+* 创建集群时，仅会列出已启动且正在运行的节点。
++
+您可以为这些节点创建 LIF 。
+
+* 您可以禁用 IP 地址范围，并为集群管理，节点管理和服务处理器管理网络输入单独的 IP 地址。
+
+
+
+
+== 启用 IP 地址范围后设置网络
+
+您可以通过启用 IP 地址范围来设置网络。通过 IP 地址范围，您可以输入位于相同网络掩码范围或不同网络掩码范围的 IP 地址。
+
+.步骤
+. 在 * IP 地址范围 * 字段中输入 IP 地址范围，然后单击 * 应用 * 。
++
+|===
+| 选项 | Description 
+
+
+ a| 
+您的 IP 地址范围位于同一网络掩码中
+ a| 
+输入 IP 地址范围，然后单击 * 应用 * 。
+
+IP 地址会依次应用于集群管理，节点管理和服务处理器管理网络。
+
+
+
+ a| 
+您的 IP 地址范围位于不同的网络掩码中
+ a| 
+在单独的行中输入每个 IP 地址范围，然后单击 * 应用 * 。
+
+应用于集群管理的第一个 IP 地址以及其他 IP 地址将按顺序应用于节点管理和服务处理器管理网络。
+
+|===
++
+[NOTE]
+====
+输入用于集群管理，节点管理和服务处理器管理的 IP 地址范围后，您不能手动修改这些字段中的 IP 地址值。您必须确保所有 IP 地址均为 IPv4 地址。
+
+====
+. 输入网络掩码和网关详细信息。
+. 在 * 端口 * 字段中选择用于集群管理的端口。
+. 如果节点管理中的 * 端口 * 字段未填充 * e0M* ，请输入端口详细信息。
++
+[NOTE]
+====
+默认情况下，端口字段显示 e0M 。
+
+====
+. 对于服务处理器管理，如果要覆盖默认值，请确保已输入必需的网关详细信息。
+. 如果已启用 * DNS 详细信息 * 字段，请输入 DNS 服务器详细信息。
+. 如果启用了*NTP详细信息*字段，请输入NTP服务器详细信息。
++
+[NOTE]
+====
+可以选择提供备用 NTP 服务器详细信息。
+
+====
+. 单击 * 提交 * 。
+
+
+
+
+=== 下一步操作
+
+在支持页面中输入事件通知以继续进行集群设置。
+
+
+
+== 在禁用 IP 地址范围时设置网络
+
+您可以通过禁用 IP 地址范围并为集群管理，节点管理和服务提供商网络输入各个 IP 地址来设置网络。
+
+.关于此任务
+在网络页面中，如果禁用了 * IP 地址范围 * ，请为集群管理，节点管理和服务处理器网络输入各个 IP 地址。
+
+.步骤
+. 在 * 集群管理 IP 地址 * 字段中输入集群管理 IP 地址。
+. 输入用于集群管理的网络掩码详细信息。
+. *可选：*输入用于集群管理的网关详细信息。
+. 在 * 端口 * 字段中选择用于集群管理的端口。
+. 如果要提供网络掩码和网关详细信息来管理节点，请清除 * 保留集群管理 * 的网络掩码和网关配置复选框，然后输入网络掩码和网关详细信息。
+. 在 * 节点管理 * 字段中输入节点管理 IP 地址。
+. 如果节点管理中的 * 端口 * 字段未填充 * e0M* ，请输入端口详细信息。
++
+[NOTE]
+====
+默认情况下，端口字段显示 e0M 。
+
+====
+. 输入服务处理器管理网络掩码和网关详细信息。
+. 在 * 服务处理器管理 * 字段中输入服务处理器 IP 管理地址。
+. 如果已启用 * DNS 详细信息 * 字段，请输入 DNS 服务器详细信息。
+. 如果启用了*NTP详细信息*字段，请输入NTP服务器详细信息。
++
+[NOTE]
+====
+可以选择提供备用 NTP 服务器详细信息。
+
+====
+. 单击 * 提交 * 。
+
+
+
+
+=== 下一步操作
+
+在支持页面中输入事件通知以继续进行集群设置。
+
+* 相关信息 *
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/What_is_a_Service_Processor_and_how_do_I_use_it%3F["什么是服务处理器？如何使用？"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_configure_and_troubleshoot_NTP_on_clustered_Data_ONTAP_8.2_and_later_using_CLI["如何使用命令行界面在集群模式 Data ONTAP 8.2 及更高版本上配置 NTP 并对其进行故障排除"]
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+
+xref:reference_network_window.adoc[网络窗口]
+
+xref:reference_configuration_updates_window.adoc[配置更新窗口]
+
+xref:reference_date_time_window.adoc[日期和时间窗口]
+
+xref:reference_service_processors_window.adoc[服务处理器窗口]

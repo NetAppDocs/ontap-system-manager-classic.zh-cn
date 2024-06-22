@@ -1,0 +1,109 @@
+---
+permalink: online-help-96-97/concept_ldap.html 
+sidebar: sidebar 
+keywords: ldap, system, manager, configure, server, online, help, user, information 
+summary: 您可以使用 System Manager 配置集中维护用户信息的 LDAP 服务器。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本配置 LDAP 服务器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (在ONTAP 9.7及更早版本中提供)来配置一个集中维护用户信息的LDAP服务器。
+
+
+
+== 查看 LDAP 客户端配置
+
+您可以使用 System Manager 查看为集群中的 Storage Virtual Machine （ SVM ）配置的 LDAP 客户端。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在*Setup*窗格中，单击*LDAP*。
++
+LDAP 客户端列表将显示在 LDAP 窗口中。
+
+
+
+
+
+== 使用 LDAP 服务
+
+通过 LDAP 服务器，您可以集中维护用户信息。如果您将用户数据库存储在环境中的 LDAP 服务器上，则可以将 Storage Virtual Machine （ SVM ）配置为在现有 LDAP 数据库中查找用户信息。
+
+.关于此任务
+ONTAP 支持使用 LDAP 在 NFS 和 CIFS 之间进行用户身份验证，文件访问授权以及用户查找和映射服务。
+
+
+
+== LDAP 窗口
+
+您可以使用 LDAP 窗口查看用于用户身份验证，文件访问授权和用户搜索的 LDAP 客户端，以及在集群级别映射 NFS 和 CIFS 之间的服务。
+
+
+
+=== 命令按钮
+
+* * 添加 * 。
++
+打开创建 LDAP 客户端对话框，在此可以创建和配置 LDAP 客户端。
+
+* * 编辑 * 。
++
+打开编辑 LDAP 客户端对话框，在此可以编辑 LDAP 客户端配置。您还可以编辑活动 LDAP 客户端。
+
+* * 删除 *
++
+打开删除 LDAP 客户端对话框，在此可以删除 LDAP 客户端配置。您也可以删除活动的 LDAP 客户端。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== LDAP 客户端列表
+
+以表格形式显示有关 LDAP 客户端的详细信息。
+
+* * LDAP 客户端配置 *
++
+显示您指定的 LDAP 客户端配置的名称。
+
+* * Storage Virtual Machine*
++
+显示每个 LDAP 客户端配置的 Storage Virtual Machine （ SVM ）的名称。
+
+* * 架构 *
++
+显示每个 LDAP 客户端的模式。
+
+* * 最小绑定级别 *
++
+显示每个 LDAP 客户端的最小绑定级别。
+
+* * Active Directory 域 *
++
+显示每个 LDAP 客户端配置的 Active Directory 域。
+
+* *LDAP服务器*
++
+显示每个 LDAP 客户端配置的 LDAP 服务器。
+
+* * 首选 Active Directory 服务器 *
++
+显示每个 LDAP 客户端配置的首选 Active Directory 服务器。
+
+
+
+* 相关信息 *
+
+xref:task_adding_ldap_client_configuration.adoc[添加 LDAP 客户端配置]
+
+xref:task_deleting_ldap_client_configuration.adoc[删除 LDAP 客户端配置]
+
+xref:task_editing_ldap_client_configuration.adoc[编辑 LDAP 客户端配置]

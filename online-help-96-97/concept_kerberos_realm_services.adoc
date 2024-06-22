@@ -1,0 +1,168 @@
+---
+permalink: online-help-96-97/concept_kerberos_realm_services.html 
+sidebar: sidebar 
+keywords: online, help, kerberos, realm, service, system, manager, svm, edit, security, strong, nfs, authentication, microsoft, ntlm, ntlm v2, client 
+summary: 您可以使用 System Manager 创建和管理 Kerberos 域服务。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本管理 Kerberos 域服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建和管理 Kerberos 域服务。
+
+
+
+== 创建 Kerberos 域配置
+
+如果要使用 Kerberos 身份验证进行客户端访问，则必须将 Storage Virtual Machine （ SVM ）配置为使用现有 Kerberos 域。您可以使用 System Manager 创建 Kerberos 域配置，从而使 SVM 能够对 NFS 使用 Kerberos 安全服务。
+
+.开始之前
+* 如果使用 CIFS 共享，则必须安装 CIFS 许可证；如果使用 LDAP 服务器，则必须安装 NFS 许可证。
+* 必须具有 DES MD5 加密功能的 Active Directory （ Windows 2003 或 Windows 2008 ）。
+* 您必须已通过配置 NTP 在集群中设置时区并同步时间。
++
+这样可以防止身份验证错误，并确保日志文件中的时间戳在整个集群中保持一致。
+
+
+
+.关于此任务
+创建 Kerberos 域时，必须在创建 Kerberos 域向导中设置以下属性：
+
+* Kerberos 域
+* KDC IP 地址和端口号
++
+默认端口号为 88. 。
+
+* Kerberos 密钥分发中心（ KDC ）供应商
+* 如果 KDC 供应商不是 Microsoft ，则为管理服务器 IP 地址
+* 密码服务器 IP 地址
+* 如果 KDC 供应商是 Microsoft ，则为 Active Directory 服务器名称和 IP 地址
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * Kerberos 域 * 。
+. 在 * Kerberos 域 * 窗口中，单击 * 创建 * 。
+. 根据向导的提示键入或选择信息。
+. 确认详细信息，然后单击 * 完成 * 完成向导。
+
+
+
+
+== 编辑 Kerberos 域配置
+
+您可以使用 System Manager 在 Storage Virtual Machine （ SVM ）级别编辑 Kerberos 域配置。
+
+.关于此任务
+您可以使用 Kerberos 域编辑向导修改以下属性：
+
+* KDC IP 地址和端口号
+* 如果 KDC 供应商不是 Microsoft ，则为管理服务器的 IP 地址
+* 密码服务器的 IP 地址
+* 如果 KDC 供应商是 Microsoft ，则为 Active Directory 服务器名称和 IP 地址
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * Kerberos 域 * 。
+. 在 * Kerberos 域 * 窗口中，选择要修改的 Kerberos 域配置，然后单击 * 编辑 * 。
+. 根据向导的提示键入或选择信息。
+. 确认详细信息，然后单击 * 完成 * 完成向导。
+
+
+
+
+== 删除 Kerberos 域配置
+
+您可以使用 System Manager 删除 Kerberos 域配置。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * Kerberos 域 * 。
+. 在 * Kerberos 域 * 窗口中，选择要删除的一个或多个 Kerberos 域配置，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+
+
+== 将 Kerberos 与 NFS 结合使用可增强安全性
+
+您可以使用 Kerberos 在 SVM 和 NFS 客户端之间提供强身份验证，以提供安全的 NFS 通信。使用 Kerberos 配置 NFS 可提高 NFS 客户端与存储系统通信的完整性和安全性。
+
+
+
+== CIFS 的 Kerberos 身份验证
+
+通过 Kerberos 身份验证，在连接到 CIFS 服务器时，客户端将协商可能的最高安全级别。但是，如果客户端无法使用 Kerberos 身份验证，则会使用 Microsoft NTLM 或 NTLM V2 向 CIFS 服务器进行身份验证。
+
+
+
+== Kerberos 域窗口
+
+您可以使用 Kerberos 域窗口在 Storage Virtual Machine （ SVM ）和 NFS 客户端之间提供身份验证，以确保安全的 NFS 通信。
+
+
+
+=== 命令按钮
+
+* * 创建 * 。
++
+打开 Kerberos 域创建向导，在此可以配置 Kerberos 域以检索用户信息。
+
+* * 编辑 * 。
++
+打开 Kerberos 域编辑向导，在此可以根据 SVM 身份验证和授权的要求编辑 Kerberos 域配置。
+
+* * 删除 *
++
+打开删除 Kerberos 域对话框，在此可以删除 Kerberos 域配置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== Kerberos 域列表
+
+以表格形式提供有关 Kerberos 域的详细信息。
+
+* * 域 *
++
+指定 Kerberos 域的名称。
+
+* * KDC 供应商 *
++
+指定 Kerberos 分发中心（ KDC ）供应商的名称。
+
+* * KDC IP 地址 *
++
+指定配置使用的 KDC IP 地址。
+
+
+
+
+
+=== 详细信息区域
+
+详细信息区域显示选定 Kerberos 域配置的 KDC IP 地址和端口号， KDC 供应商，管理服务器 IP 地址和端口号， Active Directory 服务器和服务器 IP 地址等信息。
+
+* 相关信息 *
+
+xref:task_setting_time_zone_for_cluster.adoc[设置集群的时区]
+
+link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["NetApp 技术报告 4067 ：《 NetApp ONTAP 中的 NFS 》"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19384-tr-4616.pdf["NetApp 技术报告 4616 ：《采用 Microsoft Active Directory 的 ONTAP 中的 NFS Kerberos 》"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 技术报告 4835 ：《如何在 ONTAP 中配置 LDAP 》"^]
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html["NFS 管理"^]

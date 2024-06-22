@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_obtaining_ontap_software_images.html 
+sidebar: sidebar 
+keywords: online, help, obtain, ontap, software, image, netapp, support, site, online, help 
+summary: 对于 ONTAP 9.4 及更高版本，您可以将 ONTAP 软件映像从 NetApp 支持站点复制到本地文件夹。对于从 ONTAP 9.3 或更早版本升级的系统，您必须将 ONTAP 软件映像复制到网络上的 HTTP 服务器或 FTP 服务器。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本获取 ONTAP 软件映像
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）获取 ONTAP 软件映像。对于 ONTAP 9.4 及更高版本，您可以将 ONTAP 软件映像从 NetApp 支持站点复制到本地文件夹。对于从 ONTAP 9.3 或更早版本升级的系统，您必须将 ONTAP 软件映像复制到网络上的 HTTP 服务器或 FTP 服务器。
+
+.关于此任务
+要将集群升级到 ONTAP 的目标版本，您需要访问软件映像。您可以从 NetApp 支持站点获取适用于您的平台型号的软件映像，固件版本信息和最新固件。您应注意以下重要信息：
+
+* 软件映像特定于平台型号。
++
+您必须为集群获取正确的映像。
+
+* 软件映像包括在发布给定版本的 ONTAP 时可用的最新版本系统固件。
+* 如果要将使用 NetApp 卷加密的系统升级到 ONTAP 9.5 或更高版本，则必须下载适用于非受限国家或地区的 ONTAP 软件映像，其中包括 NetApp 卷加密。
++
+如果使用适用于受限国家或地区的 ONTAP 软件映像升级采用 NetApp 卷加密的系统，则系统将崩溃，您将无法访问卷。
+
+* 如果要从 ONTAP 9.3 升级到 9.7 ，则必须复制 ONTAP 9.5 和 9.7 的软件映像。
+
+
+.步骤
+. 在 NetApp 支持站点的 *软件下载* 区域中找到目标 ONTAP 软件。
+. 复制软件映像。
++
+** 对于ONTAP 9.3或更早版本、请复制软件映像(例如、 `93_q_image.tgz`)从NetApp 支持站点 到HTTP服务器或FTP服务器上要提供映像的目录
+** 对于ONTAP 9.4或更高版本、请复制软件映像(例如、 `97_q_image.tgz`)从NetApp 支持站点 到HTTP服务器或FTP服务器上用于提供映像的目录或本地文件夹。
+
+
+

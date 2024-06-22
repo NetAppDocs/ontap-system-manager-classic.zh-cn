@@ -1,0 +1,56 @@
+---
+permalink: peering/task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html 
+sidebar: sidebar 
+keywords: create, cluster, peer, relationship, cluster, system-generated, passphrase, ip, address, intercluster, lif, remote, create a cluster peer relationship, Beginning with ontap 9.3 
+summary: 您可以通过提供系统生成的密码短语以及远程集群的集群间 LIF 的 IP 地址，在两个集群之间创建集群对等关系。 
+---
+= 创建集群对等关系（从 ONTAP 9.3 开始）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.3 开始，直到 ONTAP 9.7 为止，您可以使用 ONTAP System Manager _classic_ 界面在两个集群之间创建集群对等关系，方法是提供系统生成的密码短语以及远程集群的集群间 LIF 的 IP 地址。
+
+.关于此任务
+从 ONTAP 9.6 开始，默认情况下，所有新创建的集群对等关系都会启用集群对等加密。升级到 ONTAP 9.6 之前创建的对等关系必须手动启用集群对等加密。集群对等加密不适用于运行 ONTAP 9.5 或更早版本的集群。因此，对等关系中的两个集群都必须运行 ONTAP 9.6 才能启用集群对等加密。
+
+集群对等加密使用传输安全层（ TLS ）来保护 SnapMirror 和 FlexCache 等 ONTAP 功能的跨集群对等通信。
+
+.步骤
+. 在 * 目标集群集群间 LIF IP 地址 * 字段中，输入远程集群的集群间 LIF 的 IP 地址。
+. 【第 2 步 - 密码短语】从远程集群生成密码短语。
++
+.. 指定远程集群的管理地址。
+.. 单击 * 管理 URL* 在远程集群上启动 ONTAP 系统管理器。
+.. 登录到远程集群。
+.. 在 * 集群对等方 * 窗口中，单击 * 生成对等密码短语 * 。
+.. 选择 IP 空间，密码短语的有效性以及 SVM 权限。
++
+您可以允许所有 SVM 或选定 SVM 建立对等关系。生成 SVM 对等请求时，允许的 SVM 会自动与源 SVM 建立对等关系，而无需接受来自远程 SVM 的对等关系。
+
+.. 单击 * 生成 * 。
++
+此时将显示密码短语信息。
+
++
+image::../media/generate_passphrase.gif[此图通过周围的文本进行了说明。]
+
+.. 单击 * 复制密码短语详细信息 * 或 * 电子邮件密码短语详细信息 * 。
+.. 单击 * 完成 * 。
+
+
+. 在源集群中，输入在中获取的生成密码短语 <<step2-passphrase,步骤2.>>。
+. 单击 * 启动集群对等 * 。
++
+已成功创建集群对等关系。
+
+. 单击 * 继续 * 。
+
+
+
+
+== 下一步操作
+
+您应在 SVM 对等窗口中指定 SVM 详细信息，以继续执行对等过程。

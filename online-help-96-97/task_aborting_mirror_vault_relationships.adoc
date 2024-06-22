@@ -1,0 +1,25 @@
+---
+permalink: online-help-96-97/task_aborting_mirror_vault_relationships.html 
+sidebar: sidebar 
+keywords: abort, mirror, vault, relationship, online, help, data, transfer 
+summary: 如果要停止数据传输，可以中止卷复制操作。您可以中止计划的更新，手动更新或初始数据传输。 
+---
+= 中止与 System Manager 的镜像和存储关系— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要停止数据传输，您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中止卷复制操作。您可以中止计划的更新，手动更新或初始数据传输。
+
+.步骤
+. 单击 * 保护 * > * 卷关系 * 。
+. 选择要停止数据传输的镜像和存储关系，然后单击 * 操作 * > * 中止 * 。
+. 选中 * 是，我要中止传输 * 复选框以确认操作。
+. *可选：*选中*保留所有部分传输的数据*复选框以保留已传输到目标卷的数据。
+. 单击 * 中止 * 。
+
+
+.结果
+传输状态将显示为 "`Aborting` " ，直到操作完成，并在操作完成后显示为 "`Idle` " 。

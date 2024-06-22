@@ -1,0 +1,28 @@
+---
+permalink: volume-restore-snapvault/task_identifying_snapvault_backup_destination_volume.html 
+sidebar: sidebar 
+keywords: identify, snapvault, backup, destination, volume, restore, data, source, corrupt, identify the snapvault backup destination volume 
+summary: 您必须确定在源卷中的数据损坏或丢失时要从中还原数据的 SnapVault 备份目标卷。 
+---
+= 确定 SnapVault 备份目标卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确定在源卷中的数据损坏或丢失时要从中还原数据的 SnapVault 备份目标卷。
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 输入URL `+https://IP-address-of-cluster-management-LIF+` 并使用您的集群管理员凭据登录到System Manager。
+. 导航到 * 卷 * 窗口。
+. 确定 SnapVault 关系中的目标卷以及包含此卷的 SVM 的名称：
++
+** ONTAP 9.3 或更高版本：双击卷以查看详细信息，然后单击 * 保护 * 。
+** ONTAP 9.2 或更早版本：单击卷窗口底部的 * 数据保护 * 选项卡。
+
+
+

@@ -1,0 +1,48 @@
+---
+permalink: online-help-96-97/concept_date_time.html 
+sidebar: sidebar 
+keywords: date, time, settings, cluster, system, manager, online, help 
+summary: 您可以使用 System Manager 管理集群的日期和时间设置。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理集群的日期和时间设置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理集群的日期和时间设置。
+
+
+
+== 日期和时间窗口
+
+通过日期和时间窗口，您可以查看存储系统的当前日期和时间设置，并在需要时修改这些设置。
+
+
+
+=== 命令按钮
+
+* * 编辑 * 。
++
+打开编辑日期和时间对话框，在此可以编辑时间服务器。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 详细信息区域
+
+详细信息区域显示有关存储系统的日期，时间，时区， NTP 服务和时间服务器的信息。
+
+* 相关信息 *
+
+xref:task_setting_time_zone_for_cluster.adoc[设置集群的时区]
+
+xref:task_setting_up_network_when_ip_address_range_is_disabled.adoc[在禁用 IP 地址范围时设置网络]
+
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["系统管理"]

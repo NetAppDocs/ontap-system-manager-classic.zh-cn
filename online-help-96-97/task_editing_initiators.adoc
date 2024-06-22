@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_editing_initiators.html 
+sidebar: sidebar 
+keywords: edit, initiator, online, help, group, dialog, system, manager 
+summary: 您可以使用 System Manager 中的编辑启动程序组对话框更改启动程序组中现有启动程序的名称。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑启动程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）中的 * 编辑启动程序组 * 对话框更改启动程序组中现有启动程序的名称。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * 启动程序组 * 选项卡中，选择启动程序所属的启动程序组，然后单击 * 编辑 * 。
+. 在 * 编辑启动程序组 * 对话框中，单击 * 启动程序 * 。
+. 选择要编辑的启动程序，然后单击 * 编辑 * 。
+. 更改名称并单击 * 确定 * 。
+. 单击 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:reference_luns_window.adoc[LUN 窗口]

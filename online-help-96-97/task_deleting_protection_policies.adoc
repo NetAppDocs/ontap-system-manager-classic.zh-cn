@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_deleting_protection_policies.html 
+sidebar: sidebar 
+keywords: delete, protection, policies, online, help, system, manager 
+summary: 如果您不想再使用某个保护策略，可以使用 System Manager 删除该策略。 
+---
+= 正在删除保护策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您不想再使用某个保护策略，可以使用 System Manager 删除该策略。
+
+.关于此任务
+不会显示集群级别的镜像策略或存储策略。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 Storage Virtual Machine （ SVM ），然后单击 * SVM 设置 * 。
+. 在 * 保护策略 * 窗口中，选择要删除的策略，然后单击 * 删除 * 。
+. 在 * 删除策略 * 对话框中，单击 * 删除 * 。
+

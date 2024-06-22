@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_setting_up_support_page.html 
+sidebar: sidebar 
+keywords: set, up, support, page, cluster, setup, online, help 
+summary: 设置支持页面将完成集群设置，其中包括设置事件通知，对于单节点集群，还包括配置系统备份。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本设置支持页面
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）设置支持页面。设置支持页面将完成集群设置，其中包括设置事件通知，对于单节点集群，还包括配置系统备份。
+
+.开始之前
+您必须已设置集群和网络。
+
+.步骤
+. 使用邮件主机， SNMP 陷阱主机或系统日志服务器设置事件通知。
++
+[NOTE]
+====
+您必须至少设置一个事件通知系统。
+
+====
+. 如果您使用的是单节点集群，请在 FTP 服务器或 HTTP 服务器上配置系统备份。
++
+[NOTE]
+====
+系统备份仅适用于单节点集群。
+
+====
+. 单击 * 提交并继续 * 。
+
+
+
+
+== 下一步操作
+
+查看存储建议并创建 SVM 以继续进行集群设置。

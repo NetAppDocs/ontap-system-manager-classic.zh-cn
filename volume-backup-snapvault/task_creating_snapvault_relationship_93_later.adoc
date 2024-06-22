@@ -1,0 +1,67 @@
+---
+permalink: volume-backup-snapvault/task_creating_snapvault_relationship_93_later.html 
+sidebar: sidebar 
+keywords: create, snapvault, relationship, source, volume, cluster, destination, peer, backup, create a snapvault relationship, Beginning with ontap 9.3 
+summary: 您必须在一个集群上的源卷与对等集群上的目标卷之间创建 SnapVault 关系，才能创建 SnapVault 备份。 
+---
+= 创建 SnapVault 关系（从 ONTAP 9.3 开始）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在一个集群上的源卷与对等集群上的目标卷之间创建 SnapVault 关系，才能创建 SnapVault 备份。
+
+.开始之前
+* 您必须具有目标集群的集群管理员用户名和密码。
+* 目标聚合必须具有可用空间。
+
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 选择要备份的卷，然后单击 * 操作 * > * 保护 * 。
++
+您还可以选择多个源卷，然后创建与单个目标卷的 SnapVault 关系。
+
+. 在 * 卷：保护卷 * 页面中，提供以下信息：
++
+.. 从 * 关系类型 * 下拉列表中选择 * 存储 * 。
+.. 选择目标集群，目标 SVM 以及目标卷的后缀。
++
+目标 SVM 下仅列出对等 SVM 和允许的 SVM 。
+
++
+此时将自动创建目标卷。目标卷的名称是附加后缀的源卷名称。
+
+.. 单击 image:../media/advanced_options_icon_backup.gif[""]。
+.. 在*高级选项*对话框中，验证*保护策略*是否设置为 `XDPDefault`。
+.. 选择 * 保护计划 * 。
++
+默认情况下、 `daily` 已选择计划。
+
+.. 验证是否已选择 * 是 * 来初始化 SnapVault 关系。
++
+默认情况下，所有数据保护关系都会初始化。
+
+.. 单击 * 应用 * 以保存更改。
++
+image::../media/snapvault_advanced_options.gif[SnapVault 高级选项]
+
+
+
+. 在 * 卷：保护卷 * 页面中，单击 * 验证 * 以验证卷是否具有匹配的 SnapMirror 标签。
+. 单击 * 保存 * 以创建 SnapVault 关系。
+. 验证SnapVault关系的状态是否在中 `Snapmirrored` 状态。
++
+.. 导航到 * 卷 * 窗口，然后选择已备份的卷。
+.. 展开卷并单击 * 保护 * 以查看卷的数据保护状态。
+
+
++
+image::../media/snapvault_9_3.gif[SnapVault 9 3.]
+
+

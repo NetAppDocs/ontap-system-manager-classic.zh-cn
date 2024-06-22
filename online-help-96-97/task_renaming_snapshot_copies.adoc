@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_renaming_snapshot_copies.html 
+sidebar: sidebar 
+keywords: rename, snapshot, copy, system, manager, online, help 
+summary: 您可以使用 System Manager 重命名 Snapshot 副本，以帮助您组织和管理 Snapshot 副本。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本重命名 Snapshot 副本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）重命名 Snapshot 副本，以帮助您组织和管理 Snapshot 副本。
+
+.关于此任务
+您不能重命名 SnapVault 关系中 SnapLock DP 卷的 Snapshot 副本（已提交到 WORM 状态）。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 单击所需的卷。
+. 单击 * 显示更多详细信息 * 链接可查看有关卷的更多信息。
+. 单击 * Snapshot 副本 * 选项卡。
++
+此时将显示选定卷的可用 Snapshot 副本列表。
+
+. 选择要重命名的 Snapshot 副本，然后单击 * 更多操作 * > * 重命名 * 。
+. 指定新名称，然后单击 * 重命名 * 。
++
+有效字符包括 ASCII 字符，数字，连字符（ - ），下划线（ _ ），句点（ . ）和加号（ + ）。
+
+. 在 * 卷 * 窗口的 * Snapshot 副本 * 选项卡中验证 Snapshot 副本名称。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

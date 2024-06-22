@@ -1,0 +1,49 @@
+---
+permalink: online-help-96-97/task_deleting_volumes.html 
+sidebar: sidebar 
+keywords: online, help, delete, volumes, system, manager, flexvol, volume 
+summary: 如果您不再需要某个卷包含的数据，或者已将某个卷包含的数据复制到其他位置，则可以使用 System Manager 删除 FlexVol 该卷。删除卷时，卷中的所有数据都将被销毁，并且您无法恢复这些数据。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本删除卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您不再需要某个卷包含的数据，或者已将某个卷包含的数据复制到其他位置，则可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）删除 FlexVol 该卷。删除卷时，卷中的所有数据都将被销毁，并且您无法恢复这些数据。
+
+.开始之前
+删除 FlexVol 卷之前，必须满足以下条件：
+
+* 卷必须已卸载，并且必须处于脱机状态。
+* 如果克隆了 FlexVol 卷，则 FlexClone 卷必须从父卷拆分或销毁。
+* 如果卷处于一个或多个 SnapMirror 关系中，则必须删除 SnapMirror 关系。
+
+
+.关于此任务
+删除 FlexVol 卷时，应注意以下限制：
+
+* 您可以删除完整的 SnapLock 企业卷或 SnapLock 企业卷中的文件；但是，您不能仅删除 SnapLock 企业卷中文件中的数据。
+* 如果将数据提交到 SnapLock Compliance 卷，则无法删除该卷。
+* 如果 FlexVol 同时包含 qtree 和卷，则 qtree 将显示为目录。删除卷时，请务必小心，不要意外删除 qtree 。
+* 如果您已将 FlexCache 卷与原始卷关联，则必须先删除这些 FlexCache 卷，然后才能删除原始卷。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中，选择要删除的卷所在的 Storage Virtual Machine （ SVM ）。
+. 选择要删除的卷。
++
+[NOTE]
+====
+确认已选择要删除的正确卷。删除卷时，卷中的所有数据都将被销毁，并且您无法恢复这些数据。
+
+====
+. 单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

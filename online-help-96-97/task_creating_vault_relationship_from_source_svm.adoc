@@ -1,0 +1,100 @@
+---
+permalink: online-help-96-97/task_creating_vault_relationship_from_source_svm.html 
+sidebar: sidebar 
+keywords: system, manager, online, help, vault, policy, relationship, create, source 
+summary: 您可以使用 System Manager 从源 Storage Virtual Machine （ SVM ）创建存储关系，并为存储关系分配存储策略以创建备份存储。如果系统上发生数据丢失或损坏，可以从备份存储目标还原备份的数据。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本从源 SVM 创建存储关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）从源 Storage Virtual Machine （ SVM ）创建存储关系，并为存储关系分配存储策略以创建备份存储。如果系统上发生数据丢失或损坏，可以从备份存储目标还原备份的数据。
+
+.开始之前
+* 源集群和目标集群都必须启用 SnapVault 许可证或 SnapMirror 许可证。
++
+[NOTE]
+====
+** 对于某些平台，如果目标集群具有 SnapVault 许可证或 SnapMirror 许可证，并且启用了数据保护优化 \ （ DPO\ ）许可证，则源集群不必启用 SnapVault 许可证或 SnapMirror 许可证。
+** 在目标集群上启用DPO许可证后、必须刷新源集群的浏览器以启用 `Protect` 选项
+
+
+====
+* 源集群和目标集群以及源 SVM 和目标 SVM 之间的对等关系必须运行正常。
+* 目标聚合必须具有可用空间。
+* 源聚合和目标聚合必须是 64 位聚合。
+* 必须存在存储（ XDP ）策略。
++
+如果存储策略不存在，则必须创建存储策略或接受自动分配的默认存储策略（名为 XDPDefault ）。
+
+* FlexVol 卷必须处于联机状态且类型为读 / 写。
+* SnapLock 聚合类型必须相同。
+* 一次选择最多可以保护 25 个卷。
+* 如果要从运行 ONTAP 9.2 或更早版本的集群连接到启用了安全断言标记语言（ SAML ）身份验证的远程集群，则必须在远程集群上启用基于密码的身份验证。
+
+
+.关于此任务
+* System Manager 不支持级联关系。
++
+例如，关系中的目标卷不能是另一关系中的源卷。
+
+* 您只能在非 SnapLock （主）卷和 SnapLock 目标（二级）卷之间创建锁定存储关系。
+* 如果在源卷上启用了加密，而目标集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则默认情况下，目标卷上会禁用加密。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要为其创建存储关系的卷，然后单击 * 更多操作 * > * 保护 * 。
++
+只有读 / 写卷才具有 * 保护 * 选项。
+
+. 选择 * 复制 * 类型：
++
+|===
+| 如果选择的复制类型为 ... | 执行此操作 ... 
+
+
+ a| 
+异步
+ a| 
+.. * 可选： * 如果您不知道复制类型和关系类型，请单击 * 帮助我选择 * ，指定值，然后单击 * 应用 * 。
+.. 选择关系类型。
++
+关系类型可以是镜像，存储或镜像和存储。
+
+.. 选择集群和 SVM 。
++
+如果选定集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则仅会列出对等 SVM 。如果选定集群运行的是 ONTAP 9.3 或更高版本，则会列出对等 SVM 和允许的 SVM 。
+
+.. 根据需要修改卷名称后缀。
+
+
+
+
+ a| 
+同步
+ a| 
+.. * 可选： * 如果您不知道复制类型和关系类型，请单击 * 帮助我选择 * ，指定值，然后单击 * 应用 * 。
+.. 选择同步策略。
++
+同步策略可以是 StrictSync 或 Sync 。
+
+.. 选择集群和 SVM 。
++
+如果选定集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则仅会列出对等 SVM 。如果选定集群运行的是 ONTAP 9.3 或更高版本，则会列出对等 SVM 和允许的 SVM 。
+
+.. 根据需要修改卷名称后缀。
+
+
+|===
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* ，更新保护策略和保护计划，在目标卷上启用 SnapLock 属性，选择启用了 FabricPool 的聚合，然后初始化保护关系。
+. 单击 * 保存 * 。
+
+
+* 相关信息 *
+
+xref:reference_protection_window.adoc[保护窗口]

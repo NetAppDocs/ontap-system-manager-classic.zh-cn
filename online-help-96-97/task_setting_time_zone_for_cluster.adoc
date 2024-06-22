@@ -1,0 +1,37 @@
+---
+permalink: online-help-96-97/task_setting_time_zone_for_cluster.html 
+sidebar: sidebar 
+keywords: system, manager, set, up, time, zone, cluster, modify, server, ntp 
+summary: 您可以使用 System Manager 中的编辑日期和时间对话框手动设置或修改集群的时区。您还可以向集群添加时间服务器。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本设置集群的时区
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）中的编辑日期和时间对话框手动设置或修改集群的时区。您还可以向集群添加时间服务器。
+
+.关于此任务
+集群上始终启用网络时间协议（ NTP ）。您可以禁用NTP、但不建议这样做。
+
+您可以在站点上添加 NTP 服务器的 IP 地址。此服务器用于在集群中同步时间。
+
+您可以为时间服务器指定 IPv4 地址或 IPv6 地址。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 面板中，单击 * 日期和时间 * 。
+. 单击 * 编辑 * 。
+. 在 * 编辑日期和时间 * 对话框中，选择时区。
+. 指定时间服务器的 IP 地址，然后单击 * 添加 * 。
+. 单击 * 确定 * 。
+. 在 * 日期和时间 * 窗口中验证对时间设置所做的更改。
+
+
+* 相关信息 *
+
+xref:reference_date_time_window.adoc[日期和时间窗口]
+
+xref:task_creating_kerberos_realm_configurations.adoc[创建 Kerberos 域配置]

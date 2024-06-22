@@ -1,0 +1,25 @@
+---
+permalink: nfs-config-esxi/task_mounting_datastores_on_hosts.html 
+sidebar: sidebar 
+keywords: mount, datastore, host, access, storage, provision, automatic, add, vmware, environment, mount datastores on hosts 
+summary: 挂载数据存储库可使主机能够访问存储。配置数据存储库后，这些数据存储库将自动挂载到主机或集群中。将主机添加到 VMware 环境后，您可能需要在主机上挂载数据存储库。 
+---
+= 在主机上挂载数据存储库
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+挂载数据存储库可使主机能够访问存储。配置数据存储库后，这些数据存储库将自动挂载到主机或集群中。将主机添加到 VMware 环境后，您可能需要在主机上挂载数据存储库。
+
+.步骤
+. 在 vSphere Web Client * 主页 * 页面中，单击 * 主机和集群 * ：
+. 在导航窗格中，展开包含主机的数据中心：
+. 右键单击主机，然后选择 * NetApp VSC* > * 挂载数据存储库 * 。
+. 选择要挂载的数据存储库，然后单击 * 确定 * 。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/vapp-96/topic/com.netapp.doc.vsc-iag/home.html["适用于 VMware vSphere 的 Virtual Storage Console ， VASA Provider 和 Storage Replication Adapter 管理 9.6 版"]

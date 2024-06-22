@@ -1,0 +1,114 @@
+---
+permalink: online-help-96-97/task_updating_cluster_nondisruptively.html 
+sidebar: sidebar 
+keywords: nondisruptive, upgrades, NDU, cluster, system, manager, online, help 
+summary: 您可以使用 System Manager 将运行 ONTAP 8.3.1 或更高版本的集群或高可用性对中的单个节点更新为特定版本的 ONTAP 软件，而不会中断对客户端数据的访问。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本无中断地更新集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）将运行 ONTAP 8.3.1 或更高版本的高可用性（ HA ）对中的集群或单个节点更新为特定版本的 ONTAP 软件，而不会中断客户端数据访问。
+
+.开始之前
+* 所有节点都必须位于 HA 对中。
+* 所有节点都必须运行状况良好。
+* 您必须已将软件映像从 NetApp 支持站点复制到网络上的 HTTP 服务器或 FTP 服务器，以便节点可以访问此映像。
++
+link:task_obtaining_ontap_software_images.html["获取 ONTAP 软件映像"]
+
+
+
+.关于此任务
+* 如果在更新托管集群管理 LIF 的节点时尝试从 System Manager 执行其他任务，则可能会显示错误消息。
++
+您必须等待更新完成，然后才能执行任何操作。
+
+* 对于节点数少于八个的集群，将执行滚动更新；对于节点数超过八个的集群，将执行批量更新。
++
+在滚动更新中，集群中的节点一次更新一个。在批量更新中，多个节点会并行更新。
+
+* 您可以无中断地将 ONTAP 软件从一个长期服务（ Long-Term Service ， LTS ）版本更新到下一个 LTS 版本（ LTS+1 ）。
++
+例如，如果 ONTAP 9.1 和 ONTAP 9.3 是 LTS 版本，则可以无中断地将集群从 ONTAP 9.1 更新到 ONTAP 9.3 。
+
+* 从 System Manager 9.6 开始，如果在 System Manager 9.5 中配置了 NVMe 协议，并且您从 System Manager 9.5 升级到 System Manager 9.6 ，则您将不再有 90 天的宽限期来在没有许可证的情况下使用 NVMe 协议。如果在从 ONTAP 9.5 升级到 9.6 时宽限期有效，则此宽限期必须替换为有效的 NVMeoF 许可证，以便您可以继续使用 NVMe 功能。
++
+此功能在 MetroCluster 配置中不可用。
+
+* 如果未在 System Manager 9.5 中配置 NVMe 协议，而您从 System Manager 9.5 更新到 System Manager 9.6 ，则不会提供宽限期，您必须安装 NVMe 许可证才能使用 NVMe 协议。
++
+此功能在 MetroCluster 配置中不可用。
+
+* 从 ONTAP 9.5 开始，必须为使用 NVMe 协议的 HA 对中的每个节点至少配置一个 NVMe LIF 。此外，您还可以为每个节点最多创建两个 NVMe LIF 。升级到 ONTAP 9.5 时，您必须确保使用 NVMe 协议为 HA 对中的每个节点至少定义一个 NVMe LIF 。
+
+
+.步骤
+. 单击 * 配置 * > * 集群 * > * 更新 * 。
+. 在 * 更新 * 选项卡中，添加新映像或选择可用映像。
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+从本地客户端添加新软件映像
+ a| 
+.. 单击 * 从本地客户端添加 * 。
+.. 搜索软件映像，然后单击 * 打开 * 。
+
+
+
+
+ a| 
+从 NetApp 支持站点添加新的软件映像
+ a| 
+.. 单击 * 从服务器添加 * 。
+.. 在添加新软件映像对话框中，输入用于保存从 NetApp 支持站点下载的映像的 HTTP 服务器或 FTP 服务器的 URL。
++
+对于匿名 FTP ，必须在中指定 URL `+ftp://anonymous@ftpserver+` 格式。
+
+.. 单击 * 添加 * 。
+
+
+
+
+ a| 
+选择一个可用映像
+ a| 
+从列出的映像中选择一个。
+
+|===
+. 单击 * 验证 * 以运行更新前验证检查，以验证集群是否已做好更新准备。
++
+验证操作将检查集群组件，以验证更新是否可以无中断地完成，然后显示任何错误或警告。此外，它还会显示在更新软件之前必须执行的任何必要补救措施。
+
++
+[NOTE]
+====
+在继续更新之前，您必须针对这些错误执行所有必要的补救措施。尽管您可以忽略警告的补救措施，但最佳做法是在继续更新之前执行所有补救措施。
+
+====
+. 单击 * 下一步 * 。
+. 单击 * 更新 * 。
++
+此时将再次执行验证。
+
++
+** 验证完成后，一个表将显示任何错误和警告，以及继续操作前需要采取的任何补救措施。
+** 如果验证完成后出现警告，您可以选择 * 继续出现警告的更新 * 复选框，然后单击 * 继续 * 。
+验证完成且更新正在进行中时，更新可能会因错误而暂停。您可以单击错误消息以查看详细信息，然后执行补救措施，然后再恢复更新。
+
+
++
+更新成功完成后，节点将重新启动，您将重定向到 System Manager 登录页面。如果节点重新启动需要很长时间，则必须刷新浏览器。
+
+. 登录到 System Manager 并单击 * 配置 * > * 集群 * > * 更新 * > * 更新历史记录 * ，然后查看详细信息，以验证集群是否已成功更新到选定版本。
+
+
+* 相关信息 *
+
+xref:concept_how_you_update_cluster_nondisruptively.adoc[如何无中断更新集群]

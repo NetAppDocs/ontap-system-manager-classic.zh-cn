@@ -1,0 +1,52 @@
+---
+permalink: online-help-96-97/task_deleting_svms.html 
+sidebar: sidebar 
+keywords: system, manager, delete, svm, online, help, storage, virtual, machine 
+summary: 您可以使用 System Manager 从存储系统配置中删除不再需要的 Storage Virtual Machine （ SVM ）。 
+---
+= 使用 System Manager 删除 SVM - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）从存储系统配置中删除不再需要的 Storage Virtual Machine （ SVM ）。
+
+.开始之前
+您必须已完成以下任务：
+
+. 已禁用所有卷的 Snapshot 副本，数据保护（ DP ）镜像和负载共享（ LS ）镜像
++
+[NOTE]
+====
+必须使用命令行界面（ CLI ）禁用 LS 镜像。
+
+====
+. 如果要删除 SVM ，请手动删除属于 SVM 的所有 igroup
+. 已删除所有端口集
+. 已删除 SVM 中的所有卷，包括根卷
+. 取消映射 LUN ，使其脱机并将其删除
+. 如果要删除 SVM ，请删除 CIFS 服务器
+. 已删除与 SVM 关联的所有自定义用户帐户和角色
+. 已使用命令行界面删除与 SVM 关联的任何 NVMe 子系统。
+. 已停止 SVM
+
+
+.关于此任务
+删除 SVM 时，也会删除与 SVM 关联的以下对象：
+
+* LIF ， LIF 故障转移组和 LIF 路由组
+* 导出策略
+* 效率策略
+
+
+如果删除配置为使用 Kerberos 的 SVM ，或者修改 SVM 以使用其他服务主体名称（ Service Principal Name ， SPN ），则不会自动从 Kerberos 域中删除或禁用 SVM 的原始服务主体。您必须手动删除或禁用主体。要删除或禁用此主体，您必须具有 Kerberos 域管理员的用户名和密码。
+
+如果要在删除第一个 SVM 之前将数据从 SVM 移动到另一个 SVM ，则可以使用 SnapMirror 技术执行此操作。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择要删除的SVM，然后单击*Delete*。
+. 选中确认复选框，然后单击 * 删除 * 。
+

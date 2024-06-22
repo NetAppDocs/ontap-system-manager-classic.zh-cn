@@ -1,0 +1,60 @@
+---
+permalink: online-help-96-97/task_configuring_fc_fcoe_protocol_on_svms.html 
+sidebar: sidebar 
+keywords: online, help, configure, fc, protocol, fcoe, svm, online, help, system, manager 
+summary: 您可以在 Storage Virtual Machine （ SVM ）上为 SAN 主机配置 FC 协议和 FCoE 协议。LIF 在最合适的适配器上创建，并分配给端口集，以确保数据路径冗余。根据您的要求，您可以使用 System Manager 配置 FC 协议或 FCoE 协议，也可以同时配置这两种协议。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本在 SVM 上配置 FC 协议和 FCoE 协议
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)在Storage Virtual Machine (SVM)上为SAN主机配置FC协议和FCoE协议。LIF 在最合适的适配器上创建，并分配给端口集，以确保数据路径冗余。根据您的要求，您可以使用 System Manager 配置 FC 协议或 FCoE 协议，也可以同时配置这两种协议。
+
+.开始之前
+* 必须在集群上启用 FCP 许可证。
+* 集群中的所有节点都必须运行状况良好。
+* 每个节点必须为每个协议（ FC 和 FCoE ）至少配置两个正确配置的端口。
+
+
+.关于此任务
+* 您可以在创建 SVM 时配置 FC 协议和 FCoE 协议，也可以稍后配置这些协议。
++
+如果 SVM 上不允许使用这些协议，则可以使用编辑 Storage Virtual Machine 窗口为 SVM 启用这些协议。
+
+* 自动创建卷时不考虑 SnapLock 聚合。
+
+
+.步骤
+. 如果在创建 SVM 时未配置协议，请单击 * 存储 * > * SVM* 选项卡。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击 * FC/FCoE* 。
+. 在 * 数据接口配置 * 部分中，选择相应的选项为 FC 协议和 FCoE 协议配置数据 LIF 。
+. 指定每个协议的每个节点的数据 LIF 数量。
++
+每个节点的 LIF 最小数量为 1 。最大数量是中所有端口的最小数量 `up` 跨节点的状态。如果最大值是一个奇数，则会将先前的偶数视为最大值。您可以选择最小值和最大值范围内的任意偶数。
+
++
+一个四节点集群中有node1、node2和node3、每个端口都有六个 `up` 状态和node4、其中有七个端口 `up` 状态。集群的有效最大值为 6 。
+
++
+如果要分配给节点的 LIF 数量超过两个，则必须为每个 LIF 至少分配一个端口集。
+
+. 如果要验证或修改自动生成的 LIF 配置，请选择 * 查看或编辑接口关联 * 。
++
+您只能修改 LIF 名称和主端口。您必须确保未指定重复条目。
+
+. *可选：*通过提供LUN大小、LUN的操作系统类型以及主机启动程序详细信息、在配置协议时为FC存储或FCoE存储配置LUN。
+. 单击 * 提交并继续 * 。
+
+
+.结果
+数据 LIF 和端口集是使用指定配置创建的。LIF 会相应地分布在各个端口集之间。如果至少为一个协议成功创建了所有 LIF ，则会启动 FCP 服务。
+
+如果 LIF 创建失败，您可以从 FC/FCoE 窗口创建 LIF 并启动 FCP 服务。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

@@ -1,0 +1,35 @@
+---
+permalink: online-help-96-97/task_viewing_flexgroup_volume_information.html 
+sidebar: sidebar 
+keywords: flexgroup, volume, graphical, online, help, system, manager 
+summary: 您可以使用 System Manager 查看有关 FlexGroup 卷的信息。您可以通过图形方式查看 FlexGroup 卷的已分配空间，保护状态和性能。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本查看 FlexGroup 卷信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）查看有关 FlexGroup 卷的信息。您可以通过图形方式查看 FlexGroup 卷的已分配空间，保护状态和性能。
+
+.关于此任务
+此外，您还可以查看 FlexGroup 卷可用的 Snapshot 副本， FlexGroup 卷的数据保护关系，以及基于延迟， IOPS 和吞吐量的 FlexGroup 卷的平均性能指标，读取性能指标和写入性能指标。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从显示的 FlexGroup 卷列表中，选择要查看其信息的 FlexGroup 卷。
++
+此时将显示有关 FlexGroup 卷的信息，分配给 FlexGroup 卷的空间， FlexGroup 卷的保护状态以及有关 FlexGroup 卷的性能信息。
+
+. 单击 * 显示更多详细信息 * 链接可查看有关 FlexGroup 卷的更多信息。
+. 单击 * Snapshot 副本 * 选项卡以查看 FlexGroup 卷的 Snapshot 副本。
+. 单击 * 数据保护 * 选项卡以查看 FlexGroup 卷的数据保护关系。
+. 单击 * 存储效率 * 选项卡以查看存储效率设置。
+. 单击 * 性能 * 选项卡可根据延迟， IOPS 和吞吐量查看 FlexGroup 卷的平均性能指标，读取性能指标和写入性能指标。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

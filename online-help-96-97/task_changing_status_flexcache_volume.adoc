@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_changing_status_flexcache_volume.html 
+sidebar: sidebar 
+keywords: flexcache, volume, change, status,online, help 
+summary: 从 System Manager 9.6 开始，如果要使 FlexCache 卷脱机，使 FlexCache 卷重新联机或限制对 FlexCache 卷的访问，您可以更改该卷的状态。 
+---
+= 更改 FlexCache 卷的状态
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，如果要使 FlexCache 卷脱机，使 FlexCache 卷重新联机或限制对 FlexCache 卷的访问，您可以更改该卷的状态。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要修改其状态的 FlexCache 卷。
+. 单击 * 更多操作 * > * 将状态更改为 * ，然后选择所需状态以更新 FlexCache 卷状态。
++
+[NOTE]
+====
+要使 FlexCache 卷脱机并将状态更改为 " 受限 " ，必须先卸载此卷。
+
+====
+

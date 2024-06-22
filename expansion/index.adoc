@@ -1,0 +1,48 @@
+---
+permalink: expansion/index.html 
+sidebar: sidebar 
+keywords: nondisruptive, expand, exist, cluster, ha, pair, expansion, overview 
+summary: 您可以通过添加 HA 对来快速无中断地扩展现有集群。集群越大，集群中的性能和存储容量就越大。 
+---
+= 集群扩展概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过添加 HA 对来快速无中断地扩展现有集群。集群越大，集群中的性能和存储容量就越大。
+
+只有在满足以下条件时，才应使用此操作步骤：
+
+* 现有集群满足以下要求：
++
+** 它正在运行 ONTAP 9 。
+** 它至少包含两个节点。
++
+虽然此操作步骤中的示例使用双节点集群，但也使用具有两个以上节点的适用场景集群。
+
++
+如果要将节点添加到单节点集群，则必须遵循其他操作步骤。
+
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-controller-add/home.html["添加另一个控制器以创建 HA 对"]
+
+** 它不使用 IPv6 寻址或存储加密。
+** 它不是 MetroCluster 配置。
+
+
+* 您计划添加的控制器模块满足以下要求：
++
+** 如果它们不是新的，则表示它们已擦除干净，不再属于集群，并已准备好添加到新集群中。
+** 它们支持 ONTAP 9 。
+** 它们运行的是 ONTAP 9 版本系列的某个版本。
+
+
+* 在使用 System Manager 完成 ONTAP 配置任务时，您希望使用适用于 ONTAP 9.7 及更早版本的 _Classic_ System Manager UI ，而不是适用于 ONTAP 9.7 及更高版本的 ONTAP System Manager UI 。
++
+https://docs.netapp.com/us-en/ontap/["ONTAP System Manager 文档"]
+
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您不想阅读大量概念背景信息。
+

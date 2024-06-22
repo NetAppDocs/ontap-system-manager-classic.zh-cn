@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_viewing_flexclone_volumes_hierarchy.html 
+sidebar: sidebar 
+keywords: flexclone, volume, system, manager, parent, volume, online, help 
+summary: 您可以使用 System Manager 查看 FlexClone 卷及其父卷的层次结构。 
+---
+= 查看 FlexClone 卷层次结构— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）查看 FlexClone 卷及其父卷的层次结构。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从卷列表中选择所需的卷。
+. 单击 * 更多操作 * > * 克隆 * > * 查看层次结构 * 。
+
+
+.结果
+此时将显示至少包含一个子 FlexClone 卷的卷。FlexClone 卷将显示为其各自父卷的子卷。
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

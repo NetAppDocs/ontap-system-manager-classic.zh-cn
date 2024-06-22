@@ -1,0 +1,51 @@
+---
+permalink: volume-backup-snapvault/task_monitoring_snapvault_relationship.html 
+sidebar: sidebar 
+keywords: periodically, monitor, status, snapvault, relationship, ensure, data, back, up, volume, schedule, monitor the snapvault relationship 
+summary: 您应定期监控 SnapVault 关系的状态，以确保按照指定计划在目标卷上备份数据。 
+---
+= 监控 SnapVault 关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应定期监控 SnapVault 关系的状态，以确保按照指定计划在目标卷上备份数据。
+
+.关于此任务
+您必须从 * 目标 * 集群执行此任务。
+
+.步骤
+. 根据您运行的 System Manager 版本，执行以下步骤之一：
++
+** ONTAP 9.4 或更早版本：单击 * 保护 * > * 关系 * 。
+** 从 ONTAP 9.5 开始：单击 * 保护 * > * 卷关系 * 。
+
+
+. 在源卷和目标卷之间选择 SnapVault 关系，然后在 * 详细信息 * 底部选项卡中验证状态。
++
+此时将显示 SnapVault 关系的运行状况，任何传输错误以及滞后时间：
+
++
+** 必须显示运行状况良好字段 `Yes`。
++
+对于大多数数据传输故障、将显示字段 `No`。但是、在某些故障情况下、此字段仍会显示 `Yes`。您必须在详细信息部分中检查传输错误，以确保未发生数据传输故障。
+
+** 必须显示关系状态字段 `Snapmirrored`。
+** 滞后时间不得超过传输计划间隔。
++
+例如，如果传输计划为每日，则滞后时间不得超过一天。
+
++
+您应对 SnapVault 关系中的任何问题进行故障排除。SnapMirror 关系的故障排除过程也适用于 SnapVault 关系。
+
++
+http://www.netapp.com/us/media/tr-4015.pdf["NetApp 技术报告 4015 ：《 ONTAP 9.1 和 9.2 的 SnapMirror 配置和最佳实践》"^]
+
++
+image::../media/monitor_sv.gif[监控 SV]
+
+
+
+

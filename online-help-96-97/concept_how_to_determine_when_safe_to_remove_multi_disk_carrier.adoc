@@ -1,0 +1,33 @@
+---
+permalink: online-help-96-97/concept_how_to_determine_when_safe_to_remove_multi_disk_carrier.html 
+sidebar: sidebar 
+keywords: remove, multidisk, carrier, system, manager, storage, disruption, raid 
+summary: 如果在不安全的情况下删除多磁盘托架，可能会导致一个或多个 RAID 组降级，甚至可能导致存储中断。使用 System Manager ，您可以确定何时可以安全删除多磁盘托架。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本确定何时可以安全地删除多磁盘托架
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在不安全的情况下删除多磁盘托架，可能会导致一个或多个 RAID 组降级，甚至可能导致存储中断。通过 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本），您可以确定何时可以安全删除多磁盘托架。
+
+如果需要更换多磁盘托架，则必须先发生以下事件，然后才能安全地删除托架：
+
+* 必须已记录一条 AutoSupport 消息，指示托架已做好删除准备。
+* 必须已记录一条 EMS 消息，指示托架已做好删除准备。
+* 托架中两个磁盘的状态必须显示为 `broken` 在磁盘窗口中。
++
+只有在清空故障磁盘的托架配对磁盘后，才能删除这些磁盘。您可以单击详细信息以在磁盘窗口的属性选项卡中查看磁盘清空状态。
+
+* 托架上的故障 LED （琥珀色）必须持续亮起，指示托架已做好拆卸准备。
+* 必须关闭活动 LED （绿色），指示没有磁盘活动。
+* 磁盘架数字显示屏仅显示磁盘架 ID 编号。
+
+
+[NOTE]
+====
+您不能重复使用故障磁盘的托架配对项。删除包含故障磁盘的多磁盘托架时，必须将其更换为新托架。
+
+====

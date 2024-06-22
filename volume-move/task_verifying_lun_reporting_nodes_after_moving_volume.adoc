@@ -1,0 +1,39 @@
+---
+permalink: volume-move/task_verifying_lun_reporting_nodes_after_moving_volume.html 
+sidebar: sidebar 
+keywords: volume, lun, destination, aggregate, high-availability, ha, pair, ontap, selective, reporting-nodes, list, path, verify, verify lun reporting nodes after moving a volume 
+summary: 您可以添加 LUN 报告节点，以帮助维护优化的 LUN 路径。 
+---
+= 移动卷后验证 LUN 报告节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以添加 LUN 报告节点，以帮助维护优化的 LUN 路径。
+
+如果要移动的卷包含 LUN ，而目标聚合位于另一个高可用性（ HA ）对上，则 ONTAP 会自动将 HA 对添加到选择性 LUN 映射报告节点列表中
+
+.开始之前
+必须配置两个 LIF ：一个 LIF 位于目标节点上，另一个 LIF 位于目标节点的 HA 配对节点上。
+
+.关于此任务
+只有在将卷从一个 HA 对移动到另一个 HA 对时，才需要此操作步骤。如果将卷移动到同一 HA 对的其他节点，例如，具有双节点集群或 MetroCluster 配置，则可以跳过此操作步骤。
+
+.步骤
+. 验证目标节点及其配对节点是否位于卷的报告节点列表中。如果节点不在 reporting-nodes 列表中，请将目标节点及其配对节点添加到卷的 reporting-nodes 列表中：
++
+`lun mapping add-reporting-nodes`
+
+. 从主机重新扫描以发现新添加的路径。
+. 将新路径添加到 MPIO 配置。
+. 从报告节点列表中删除先前的 LUN 所有者及其配对节点：
++
+`lun mapping remove-reporting-nodes -remote-nodes -vserver vserver_name -path lun_path -igroup igroup_name`
+
+. 重新扫描主机以验证是否删除了旧路径。
++
+有关重新扫描主机的具体步骤，请参见主机文档。
+
+

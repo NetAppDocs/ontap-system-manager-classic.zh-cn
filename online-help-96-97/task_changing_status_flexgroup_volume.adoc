@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_changing_status_flexgroup_volume.html 
+sidebar: sidebar 
+keywords: flexgroup, volume, status, change, online, help 
+summary: 如果要使 FlexGroup 卷脱机，使 FlexGroup 卷重新联机或限制对 FlexGroup 卷的访问，您可以使用 System Manager 更改 FlexGroup 卷的状态。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本更改 FlexGroup 卷的状态
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使 FlexGroup 卷脱机，使 FlexGroup 卷重新联机或限制对 FlexGroup 卷的访问，您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更改 FlexGroup 卷的状态。
+
+.关于此任务
+System Manager 不支持对 FlexGroup 卷进行成分卷级别管理。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要修改其状态的 FlexGroup 卷。
+. 单击 * 更多操作 * > * 将状态更改为 * ，然后选择所需状态以更新 FlexGroup 卷状态。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

@@ -1,0 +1,54 @@
+---
+permalink: online-help-96-97/task_performing_negotiated_planned_switchover.html 
+sidebar: sidebar 
+keywords: online, help, perform, negotiated, switchover, system, help 
+summary: 从 System Manager 9.6 开始，您可以对 MetroCluster 站点启动协商（计划内）切换。如果要对站点执行灾难恢复测试或计划内维护，此操作非常有用。 
+---
+= 执行协商切换
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以对 MetroCluster 站点启动协商（计划内）切换。如果要对站点执行灾难恢复测试或计划内维护，此操作非常有用。
+
+.步骤
+. [[STEP1]]在System Manager中、使用集群管理员凭据登录到本地MetroCluster站点(站点A)。
+. 单击 * 配置 * > * MetroCluster *
++
+此时将显示 MetroCluster 切换 / 切回操作窗口。
+
+. 单击 * 下一步 * 。
++
+MetroCluster 切换和切回操作窗口将显示操作的状态， System Manager 将验证协商切换是否可行。
+
+. 验证过程完成后，执行以下子步骤之一：
++
+** 如果验证成功，请继续执行步骤 link:#step5["5."]。
+** 如果验证失败，但站点 B 已启动，则表示发生错误，例如子系统出现问题或 NVRAM 镜像未同步。您可以执行以下任一过程：
++
+*** 修复导致此错误的问题描述，单击 * 关闭 * ，然后在步骤中重新开始 link:#step1["1."]。
+*** 暂停站点 B 节点，单击 * 关闭 * ，然后执行中的步骤 xref:task_performing_unplanned_switchover.adoc[执行计划外切换]。
+
+
+** 如果验证失败，并且站点 B 已关闭，则很可能存在连接问题。验证站点 B 是否确实已关闭，然后执行中的步骤 xref:task_performing_unplanned_switchover.adoc[执行计划外切换]。
+
+
+. [[Step5]]单击*从站点B切换到站点A*以启动切换过程。
++
+此时将显示一条警告消息，警告您切换操作将停止站点 B 上的所有数据 SVM ，并在站点 A 上重新启动它们
+
+. 如果要继续，请单击 * 是 * 。
++
+切换过程将开始。站点 A 和站点 B 的状态显示在其配置的图形表示上方。如果切换操作失败，则会显示一条错误消息。单击 * 关闭 * 。更正任何错误，然后从步骤重新开始 link:#step1["1."]
+
+. 等待 System Manager 显示修复已完成。
++
+修复完成后，站点 B 将正常运行，系统将为切回过程做好准备。
+
++
+切回过程的准备工作完成后，窗口底部的 * 从站点 A 切回到站点 B* 按钮将处于活动状态。
+
+. 要继续执行切回操作，请执行中的步骤 xref:task_performing_switchback.adoc[执行切回]。
+

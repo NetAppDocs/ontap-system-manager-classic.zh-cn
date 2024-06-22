@@ -1,0 +1,69 @@
+---
+permalink: online-help-96-97/concept_setting_up_network.html 
+sidebar: sidebar 
+keywords: online, help, set, up, network, ipspace, broadcast, domain, subnet, system, manager, cluster, range 
+summary: 设置网络包括创建 IP 空间，广播域和子网。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本设置网络
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）设置网络。设置网络包括创建 IP 空间，广播域和子网。
+
+
+
+== 创建 IP 空间
+
+您可以使用 System Manager 创建 IP 空间，以便配置一个 ONTAP 集群，以便从多个管理上独立的网络域进行客户端访问，即使客户端使用相同的 IP 地址子网范围也是如此。这样，您就可以隔离客户端流量，以确保隐私和安全。
+
+.关于此任务
+集群中的所有 IP 空间名称都必须是唯一的，并且不能包含系统保留的名称，例如 "`local` " 或 "`localhost.` "
+
+.步骤
+. 单击 * 网络 * 选项卡。
+. 在 * IP 空间 * 选项卡中，单击 * 创建 * 。
+. 在 * 创建 IP 空间 * 对话框中，为要创建的 IP 空间指定一个名称。
+. 单击 * 创建 * 。
+
+
+
+
+== 创建广播域
+
+您可以使用 System Manager 创建广播域，以便对计算机网络进行逻辑划分。在广播域中，所有关联节点均可通过数据链路层的广播进行访问
+
+.步骤
+. 单击 * 网络 * 选项卡。
+. 在 * 广播域 * 选项卡中，单击 * 创建 * 。
+. 在 * 创建广播域 * 对话框中，指定要创建的广播域的名称， MTU 大小， IP 空间和端口。
+. 单击 * 创建 * 。
+
+
+
+
+== 创建子网
+
+您可以使用 System Manager 创建子网，以便对 IP 网络进行逻辑细分，从而预先分配 IP 地址。通过子网，您可以通过为每个新接口指定子网而不是 IP 地址和网络掩码值来更轻松地创建接口。
+
+.开始之前
+您必须已创建使用子网的广播域。
+
+.关于此任务
+如果在创建子网时指定了网关，则在使用该子网创建 LIF 时，网关的默认路由会自动添加到 SVM 中。
+
+.步骤
+. 单击 * 网络 * 选项卡。
+. 在 * 子网 * 选项卡中，单击 * 创建 * 。
+. 在 * 创建子网 * 对话框中，指定子网详细信息，例如名称，子网 IP 地址或子网掩码， IP 地址范围，网关地址和广播域。
++
+您可以将 IP 地址指定为范围，逗号分隔的多个地址或两者的组合。
+
+. 单击 * 创建 * 。
+
+
+* 相关信息 *
+
+xref:reference_network_window.adoc[网络窗口]

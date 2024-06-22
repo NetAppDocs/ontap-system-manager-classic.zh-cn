@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_viewing_system_manager_log_files.html 
+sidebar: sidebar 
+keywords: view, ontap, system, manager, log, file, online, help 
+summary: 如果您在使用 System Manager 时遇到任何问题，可以将日志文件发送给技术支持以帮助解决问题。System Manager 日志文件与 ONTAP 日志文件位于 mlog 目录中。 
+---
+= 查看 System Manager 日志文件— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)时遇到任何问题、您可以在NetApp支持部门的指导下发送日志文件以帮助解决问题。System Manager日志文件位于中 `mlog` 目录以及ONTAP日志文件。
+
+.步骤
+. 确定托管集群管理 LIF 的节点。
+. 在Web浏览器中输入以下URL： `+https://cluster-mgmt-LIF/spi+`
++
+`cluster-mgmt-LIF` 是集群管理LIF的IP地址。
+
+. 键入集群管理员凭据，然后单击 * 确定 * 。
+. 在 * Data ONTAP - 根卷文件访问 * 窗口中，单击托管集群管理 LIF 的节点的 * 日志 * 链接。
+. 导航到 `mlog` 目录以访问System Manager日志文件。
++
+根据您遇到的问题描述类型，您可能需要以下日志文件：
+
++
+** `sysmgr.log`
++
+此文件包含 System Manager 的最新日志。
+
+** `mgwd.log`
+** `php.log`
+** `apache_access.log`
+** `messages.log`
+
+
+
+
+
+
+== 系统日志记录的工作原理
+
+系统日志记录是应用程序故障排除的重要工具。您应启用系统日志记录，以便在应用程序出现问题时可以找到问题所在。您可以在运行时启用 System Manager 日志记录，而无需修改应用程序二进制文件。
+
+日志输出可能非常庞大，因此难以管理。通过 System Manager ，您可以选择要输出的日志语句类型来细化日志记录输出。默认情况下，系统日志记录设置为信息。您可以选择以下日志级别之一：
+
+* 关闭
+* error
+* 警告
+* 信息
+* 调试
+
+
+这些级别分层运行。如果日志级别设置为 off ，则表示不记录消息。

@@ -1,0 +1,132 @@
+---
+permalink: online-help-96-97/concept_name_mapping.html 
+sidebar: sidebar 
+keywords: name, mapping, system, manager, specify, user, platform, online, help, command, button, rules 
+summary: 您可以使用 System Manager 指定名称映射条目以映射不同平台的用户。 
+---
+= 使用 System Manager 进行名称映射— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）指定名称映射条目以映射不同平台的用户。
+
+
+
+== 名称映射转换规则
+
+ONTAP 系统会为每个 SVM 保留一组转换规则。每个规则都包含两部分： _pattern_ 和 _replacement_ 。转换从相应列表的开头开始，并根据第一个匹配规则执行替换。模式是 UNIX 模式的正则表达式。替换项是一个字符串、其中包含表示模式中的子表达式的转义序列、与UNIX中的情况一样 `sed` 计划。
+
+
+
+== 名称映射窗口
+
+您可以使用名称映射窗口指定名称映射条目以映射不同平台的用户。
+
+
+
+=== 名称映射
+
+您可以创建并使用名称映射将 UNIX 用户映射到 Windows 用户，将 Windows 用户映射到 UNIX 用户或将 Kerberos 用户映射到 UNIX 用户。
+
+
+
+=== 命令按钮
+
+* * 添加 * 。
++
+打开添加名称映射条目对话框，在此可以在 Storage Virtual Machine （ SVM ）上创建名称映射。
+
+* * 编辑 * 。
++
+打开编辑名称映射条目对话框，在此可以编辑 SVM 上的名称映射。
+
+* * 删除 *
++
+打开删除名称映射条目对话框，在此可以删除名称映射条目。
+
+* * 交换 *
++
+打开交换名称映射条目对话框，在此可以互换两个选定名称映射条目的位置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 名称映射列表
+
+* * 位置 *
++
+指定名称映射在优先级列表中的位置。名称映射在优先级列表中的应用顺序相同。
+
+* * 模式 *
++
+指定必须匹配的用户名模式。
+
+* * 替换 *
++
+指定用户名的替换模式。
+
+* * 方向 *
++
+指定名称映射的方向。可能的值包括：用于 Kerberos 到 UNIX 名称映射的 KRB_UNIX ，用于 Windows 到 UNIX 名称映射的 WIN_UNIX 以及用于 UNIX 到 Windows 名称映射的 UNIX_WIN 。
+
+
+
+
+
+=== 命令按钮
+
+* * 添加 * 。
++
+打开添加组映射条目对话框，在此可以在 SVM 上创建组映射。
+
+* * 编辑 * 。
++
+打开编辑组映射条目对话框，在此可以编辑 SVM 上的组映射。
+
+* * 删除 *
++
+打开删除组映射条目对话框，在此可以删除组映射条目。
+
+* * 交换 *
++
+打开交换组映射条目对话框，在此可以交换两个选定组映射条目的位置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 组映射列表
+
+* * 位置 *
++
+指定组映射在优先级列表中的位置。组映射将按照优先级列表中的顺序进行应用。
+
+* * 模式 *
++
+指定必须匹配的用户名模式。
+
+* * 替换 *
++
+指定用户名的替换模式。
+
+* * 方向 *
++
+指定组映射的方向。可能值为 `krb_unix` 对于Kerberos到UNIX组映射、 `win_unix` 对于Windows到UNIX组映射、和 `unix_win` UNIX到Windows组映射。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["SMB/CIFS 管理"]

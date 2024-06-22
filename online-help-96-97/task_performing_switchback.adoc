@@ -1,0 +1,45 @@
+---
+permalink: online-help-96-97/task_performing_switchback.html 
+sidebar: sidebar 
+keywords: metrocluster, perform, switchback, system, manager, online, help 
+summary: 从 System Manager 9.6 开始，您可以执行切回操作，以便在系统成功完成切换操作后将控制权恢复到原始 MetroCluster 站点（站点 B ）。 
+---
+= 执行切回
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以执行切回操作，以便在系统成功完成切换操作后将控制权恢复到原始 MetroCluster 站点（站点 B ）。
+
+.开始之前
+在执行切回操作之前，您必须完成以下任务：
+
+* 您必须通过准备 MetroCluster 站点 xref:task_performing_negotiated_planned_switchover.adoc[执行协商（计划内）切换] 或 xref:task_performing_unplanned_switchover.adoc[执行计划外切换]。
+* 如果修复操作期间发生错误，您必须按照显示的说明进行修复。
+* 如果远程站点的状态显示为 "`Getting ready for switchback` " ，则聚合仍在重新同步。您应等待远程站点的状态指示其已做好切回准备。
+
+
+.关于此任务
+如果切换操作成功，则会显示 MetroCluster 切换和切回操作窗口。此窗口将显示两个站点的状态，并提供一条消息，告知您操作已成功。
+
+.步骤
+. 单击 * 从站点 A 切回到站点 B* 以启动切回操作。
++
+此时将显示一条警告消息，告知您切回操作正在将 MetroCluster 控制权交还给站点 B ，此过程可能需要一段时间。
+
+. 如果要继续，请单击 * 是 * 。
+. 切回过程完成后，执行以下子步骤之一：
++
+** 如果切回操作成功，请单击 * 完成 * 以确认 MetroCluster 操作完成。
++
+[NOTE]
+====
+在确认切回操作完成之前， System Manager 将继续显示一条消息，指出操作已完成。在确认切回操作完成之前，您无法启动其他操作或监控后续切换或切回操作。
+
+====
+** 如果切回操作不成功，则状态区域顶部将显示错误消息。根据需要进行更正，然后单击 * 从站点 A 切回站点 B* 以重试此过程。
+
+
+

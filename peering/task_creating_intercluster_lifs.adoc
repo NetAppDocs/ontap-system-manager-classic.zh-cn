@@ -1,0 +1,36 @@
+---
+permalink: peering/task_creating_intercluster_lifs.html 
+sidebar: sidebar 
+keywords: creating, create, intercluster, logical, interface, lif, enable, network, communicate, ipspace, peer, relationship, create intercluster lif, Beginning with ontap 9.3 
+summary: '从 ONTAP 9.3 开始，直到 ONTAP 9.7 为止，您可以使用 ONTAP 系统管理器的 " 经典 " 界面创建集群间逻辑接口（ LIF ），从而使集群网络能够与节点进行通信。您必须在要为其创建对等关系的每个集群中的每个节点上，在要用于对等关系的每个 IP 空间内创建一个集群间 LIF 。' 
+---
+= 创建集群间 LIF （从 ONTAP 9.3 开始）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.3 开始，直到 ONTAP 9.7 为止，您可以使用 ONTAP System Manager _classic_ 界面创建集群间逻辑接口（ LIF ），从而使集群网络能够与节点进行通信。您必须在要为其创建对等关系的每个集群中的每个节点上，在要用于对等关系的每个 IP 空间内创建一个集群间 LIF 。
+
+.关于此任务
+例如，如果您有一个四节点集群，希望通过 IP 空间 A 与集群 X 建立对等关系，并通过 IP 空间 Y 与集群 Y 建立对等关系，则总共需要八个集群间 LIF ； IP 空间 A 上四个（每个节点一个）， IP 空间 Y 上四个（每个节点一个）。
+
+您必须在要创建对等关系的两个集群上执行此操作步骤。
+
+.步骤
+. 单击 * 配置 * > * 高级集群设置 * 。
+. 在 * 设置高级集群功能 * 窗口中，单击 * 集群对等 * 选项旁边的 * 继续 * 。
+. 从 * IP 空间 * 列表中选择一个 IP 空间。
+. 输入每个节点的 IP 地址，端口，网络掩码和网关详细信息。
++
+image::../media/intercluster_lif_creation_93.gif[此图通过周围的文本进行了说明。]
+
+. 单击 * 提交并继续 * 。
+
+
+
+
+== 下一步操作
+
+您应在集群对等窗口中输入集群详细信息，以继续建立集群对等关系。

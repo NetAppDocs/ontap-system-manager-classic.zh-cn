@@ -1,0 +1,33 @@
+---
+permalink: fc-config-windows/task_initializing_formatting_lun.html 
+sidebar: sidebar 
+keywords: lun, access, windows, host, partition, file, system, initialize, lun, optional, format, initialize and format the lun 
+summary: 当新 LUN 首次由 Windows 主机访问时，它没有分区或文件系统。您必须初始化 LUN ，并可选择使用文件系统对其进行格式化。 
+---
+= 初始化并格式化 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当新 LUN 首次由 Windows 主机访问时，它没有分区或文件系统。您必须初始化 LUN ，并可选择使用文件系统对其进行格式化。
+
+.开始之前
+LUN 必须已被 Windows 主机发现。
+
+.关于此任务
+LUN 在 Windows 磁盘管理中显示为磁盘。
+
+您可以使用 GPT 或 MBR 分区表将磁盘初始化为基本磁盘。
+
+通常，您会使用 NTFS 等文件系统格式化 LUN ，但某些应用程序会改用原始磁盘。
+
+.步骤
+. 启动 Windows 磁盘管理。
+. 右键单击 LUN ，然后选择所需的磁盘或分区类型。
+. 按照向导中的说明进行操作。
++
+如果选择将 LUN 格式化为 NTFS ，则必须选中 * 执行快速格式化 * 复选框。
+
+

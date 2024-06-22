@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/task_creating_svm.html 
+sidebar: sidebar 
+keywords: svm, create, storage, virtual, machine, online, help 
+summary: 您可以使用 Storage Virtual Machine （ SVM ）窗口创建完全配置的 SVM 。在这些 SVM 上创建存储对象后， SVM 将提供数据。 
+---
+= 使用System Manager创建SVM - ONTAP 9.7及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中，您可以使用 Storage Virtual Machine （ SVM ）窗口创建完全配置的 SVM 。在这些 SVM 上创建存储对象后， SVM 将提供数据。
+
+.开始之前
+* 您必须已创建聚合，并且聚合必须处于联机状态。
+* 您必须确保聚合具有足够的空间来容纳 SVM 根卷。
+
+
+.步骤
+. 输入 SVM 的名称。
+. 为 SVM 选择数据协议：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+通过使用 Active Directory 配置 CIFS 服务器来启用 CIFS 协议
+ a| 
+.. 选中 * Active Directory* 框。
+.. 输入 Active Directory 管理员名称。
+.. 输入 Active Directory 管理员密码。
+.. 输入 CIFS 服务器的名称。
+.. 输入 Active Directory 域的名称。
+.. 根据您的要求，选择 * 在此 SVM* 上配置一个数据 LIF 或 * 在此 SVM* 上为每个节点配置一个数据 LIF 框。
+.. 提供数据 LIF 详细信息，例如 IP 地址，网络掩码，网关和端口。
+.. 提供 DNS 详细信息。
+
+
+
+
+ a| 
+通过使用工作组配置 CIFS 服务器来启用 CIFS 协议
+ a| 
+.. 选择 * 工作组 * 框。
+.. 输入工作组的名称。
+.. 输入 CIFS 服务器的名称。
+.. 根据您的要求，选中 * 在此 SVM* 上配置一个数据 LIF 或 * 在此 SVM* 上为每个节点配置一个数据 LIF 复选框。
+.. 提供数据 LIF 详细信息，例如 IP 地址，网络掩码，网关和端口。
+
+
+
+
+ a| 
+启用 NFS 协议
+ a| 
+.. 选择 * NFS * 框。
+.. 根据您的要求，选中 * 在此 SVM* 上配置一个数据 LIF 或 * 在此 SVM* 上为每个节点配置一个数据 LIF 复选框。
+.. 提供数据 LIF 详细信息，例如 IP 地址，网络掩码，网关和端口。
+
+
+
+
+ a| 
+启用 iSCSI 协议
+ a| 
+.. 选择 * iSCSI* 框。
+.. 提供数据 LIF 详细信息，例如 IP 地址，网络掩码，网关和端口。
+
+
+
+
+ a| 
+启用 FC/FCoE 协议
+ a| 
+.. 选择 * FC/FCoE* 框。
+.. 为 FC 或 FCoE 协议选择 FC/FCoE 端口。
++
+[NOTE]
+====
+每个节点必须为每个协议（ FC 和 FCoE ）至少配置一个正确配置的端口。
+
+====
+
+
+
+
+ a| 
+启用 NVMe 协议
+ a| 
+.. 选择 * NVMe* 框。
+.. 为 NVMe 协议选择 NVMe 端口。
++
+[NOTE]
+====
+要配置 NVMe ，其中一个节点必须至少具有一个支持 NVMe 的适配器。        此外，从 ONTAP 9.5 开始，必须为与 SVM 关联的 HA 对中的每个节点至少配置一个 NVMe LIF 。您最多可以为对中的每个节点创建两个 NVMe LIF 。
+
+====
+
+
+|===
+. *可选：*单击*高级选项*图标并提供有关配置高级选项的详细信息、例如默认语言、安全模式、CIFS服务器详细信息和NFS详细信息。
+. 单击 * 提交并继续 * 以创建 SVM 。
+
+
+
+
+== 下一步操作
+
+如果已单击 * 提交并继续 * ，则必须验证您在 " 摘要 " 窗口中提供的详细信息，然后单击 * 管理集群 * 启动 System Manager ，或者单击 * 配置应用程序 * 配置存储应用程序，或者单击 * 导出配置 * 下载配置文件。

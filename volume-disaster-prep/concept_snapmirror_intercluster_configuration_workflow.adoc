@@ -1,0 +1,23 @@
+---
+permalink: volume-disaster-prep/concept_snapmirror_intercluster_configuration_workflow.html 
+sidebar: sidebar 
+keywords: preparing, prepare, volume, disaster, recovery, verify, cluster, peer, relationship, snapmirror, residing, reside, peer, destination, periodical, volume disaster recovery preparation workflow 
+summary: 准备用于灾难恢复的卷包括验证集群对等关系，在驻留在对等集群上的卷之间创建 SnapMirror 关系，设置用于数据访问的目标 SVM 以及定期监控 SnapMirror 关系。 
+---
+= 卷灾难恢复准备工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备用于灾难恢复的卷包括验证集群对等关系，在驻留在对等集群上的卷之间创建 SnapMirror 关系，设置用于数据访问的目标 SVM 以及定期监控 SnapMirror 关系。
+
+image::../media/snapmirror_intercluster_cfg_workflow.gif[此图是卷灾难恢复准备工作流的流程图。工作流中的步骤与主题匹配。]
+
+此外，我们还提供了其他文档来帮助您激活目标卷以测试灾难恢复设置或发生灾难时。您还可以了解有关如何在灾难发生后重新激活源卷的更多信息。
+
+xref:../volume-disaster-recovery/index.html[卷灾难恢复]
+
++
+介绍如何在发生灾难后快速激活目标卷，然后在 ONTAP 中重新激活源卷。

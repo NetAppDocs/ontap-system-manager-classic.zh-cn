@@ -1,0 +1,93 @@
+---
+permalink: online-help-96-97/task_delegating_administration_to_svm_administrators.html 
+sidebar: sidebar 
+keywords: online, help, delegate, administration, svm, administrator 
+summary: 使用基本网络配置设置一个可正常工作的 Storage Virtual Machine （ SVM ）或 SVM 后，您可以选择将 SVM 的管理委派给 SVM 管理员。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本将管理任务委派给 SVM 管理员
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (在ONTAP 9.7及更早版本中提供)在设置具有基本网络配置的正常运行的Storage Virtual Machine (SVM)或SVM之后、选择性地将SVM的管理委派给SVM管理员。
+
+.关于此任务
+SVM 管理员不能使用 System Manager 管理委派的 SVM 。管理员只能使用命令行界面（ CLI ）对其进行管理。
+
+.步骤
+. 在*Administrator Details*部分中，为设置密码 `vsadmin` 用户帐户
+. 如果要使用专用 LIF 进行 SVM 管理，请选择 * 为 SVM 管理创建 LIF * ，然后指定网络详细信息。
++
+SAN 协议需要一个专用的 SVM 管理 LIF ，其中数据和管理协议不能共享同一个 LIF 。只能在数据端口上创建 SVM 管理 LIF 。
+
+. 指定用于创建 iSCSI LIF 的网络详细信息，包括子网详细信息：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+使用子网指定 IP 地址
+ a| 
+.. 选择 * 使用子网 * 。
+.. 在添加详细信息对话框中，选择必须从中分配 IP 地址的子网。
++
+对于集群间 LIF ，仅显示与选定 IP 空间关联的子网。
+
+.. 如果要为接口分配特定 IP 地址，请选择 * 使用特定 IP 地址 * ，然后键入 IP 地址。
++
+如果您指定的 IP 地址尚未位于子网范围内，则会将此 IP 地址添加到子网中。
+
+.. 单击 * 确定 * 。
+
+
+
+
+ a| 
+手动指定 IP 地址，而不使用子网
+ a| 
+.. 选择 * 不使用子网 * 。
+.. 在添加详细信息对话框中，执行以下步骤：
++
+... 指定 IP 地址和网络掩码或前缀。
+... 可选：指定网关。
+... 如果不想对目标字段使用默认值，请指定新的目标值。
++
+如果不指定自定义值，则目标字段将根据 IP 地址系列填充默认值。
+
++
+如果路由不存在，则会根据网关和目标自动创建新路由。
+
+
+
+.. 单击 * 确定 * 。
+
+
+|===
+. 指定用于创建数据 LIF 的端口：
++
+.. 单击 * 浏览 * 。
+.. 从选择网络端口或适配器对话框中选择一个端口。
+.. 单击 * 确定 * 。
+
+
+
+
+.结果
+。 `vsadmin` 帐户已解锁并配置了密码。
+
+的默认访问方法 `vsadmin` 帐户为ONTAP API `(ontapi)` 和SSH `(ssh)`。SVM 管理员可以使用管理 IP 地址登录到存储系统。
+
+
+
+== 下一步操作
+
+您必须使用编辑 Storage Virtual Machine 对话框为 SVM 分配聚合。
+
+[NOTE]
+====
+如果 SVM 未分配任何聚合，则 SVM 管理员无法创建卷。
+
+====

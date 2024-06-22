@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_cloning_luns.html 
+sidebar: sidebar 
+keywords: clone, lun, create, multiple, copy, system, manager, online, help 
+summary: 通过 LUN 克隆，您可以为 LUN 创建多个可读和可写副本。您可以使用 System Manager 为 LUN 创建一个临时副本以供测试，也可以在不向其他用户提供生产数据访问权限的情况下为其提供一份数据副本。 
+---
+= 使用 System Manager 克隆 LUN — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）创建 LUN 的临时副本以供测试，或者在不向其他用户提供生产数据访问权限的情况下为其提供数据副本。通过 LUN 克隆，您可以为 LUN 创建多个可读和可写副本。
+
+.开始之前
+* 您必须已在存储系统上安装 FlexClone 许可证。
+* 如果在 LUN 上禁用了空间预留，则包含此 LUN 的卷必须具有足够的空间来容纳对克隆所做的更改。
+
+
+.关于此任务
+* 创建 LUN 克隆时， System Manager 中默认会启用自动删除 LUN 克隆。
++
+当 ONTAP 触发自动删除以节省空间时， LUN 克隆将被删除。
+
+* 您不能克隆 SnapLock 卷上的 LUN 。
+
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，选择要克隆的 LUN ，然后单击 * 克隆 * 。
+. 如果要更改默认名称，请为 LUN 克隆指定一个新名称。
+. 单击 * 克隆 * 。
+. 验证您创建的 LUN 克隆是否已列在 * LUN * 窗口中。
+
+
+* 相关信息 *
+
+xref:reference_luns_window.adoc[LUN 窗口]

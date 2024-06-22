@@ -1,0 +1,70 @@
+---
+permalink: expansion/task_updating_lun_paths_for_new_nodes.html 
+sidebar: sidebar 
+keywords: cluster, configure, san, lif, add, update, path, lun, node, update lun paths for the new nodes 
+summary: 如果集群配置了 SAN ，则必须在新添加的节点上创建 SAN LIF ，然后更新路径。 
+---
+= 更新新节点的 LUN 路径
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果集群配置了 SAN ，则必须在新添加的节点上创建 SAN LIF ，然后更新路径。
+
+.关于此任务
+只有当集群包含操作步骤时，才需要此 LUN 。如果集群仅包含文件，则可以跳过此操作步骤。
+
+.步骤
+. 对于集群中的每个 Storage Virtual Machine （ SVM ），在新添加的节点上创建新的 LIF ：
++
+.. 使用确定使用FC或iSCSI协议的SVM `vserver show` 命令 `-fields allowed-protocols` 参数并查看输出。
++
+[listing]
+----
+cluster1::> vserver show -fields allowed-protocols
+vserver allowed-protocols
+------- -----------------
+vs1     cifs,ndmp
+vs2     fcp
+vs3     iscsi
+...
+----
+.. 对于使用FC或iSCSI的每个SVM、使用在新添加的每个节点上至少创建两个数据LUN `network interface create` 命令 `-role data` 参数。
++
+[listing]
+----
+cluster1::> network interface create -vserver vs1 -lif lif5 -role data
+-data-protocol iscsi -home-node cluster1-3 -home-port e0b
+-address 192.168.2.72 -netmask 255.255.255.0
+----
+.. 对于每个SVM、使用验证其在集群中的所有节点上是否都具有此SVM `network interface show` 命令 `-vserver` 参数。
+
+
+. 更新端口集：
++
+.. 使用确定端口集是否存在 `lun portset show` 命令：
+.. 如果要使新LIF对现有主机可见、请使用将每个新LIF添加到端口集 `lun portset add` 命令--每个LIF一次。
+
+
+. 如果使用 FC 或 FCoE ，请更新分区：
++
+.. 验证是否已正确设置分区，以使主机上的现有启动程序端口能够连接到新节点上的新目标端口。
+.. 更新交换机分区以将新节点连接到现有启动程序。
++
+分区设置因所使用的交换机而异。
+
+.. 如果您计划将LUN移动到新节点、请使用向主机公开新路径 `lun mapping add-reporting-nodes` 命令：
+
+
+. 在所有主机操作系统上，重新扫描以发现新添加的路径。
+. 根据主机操作系统，删除任何陈旧路径。
+. 向 MPIO 配置添加或删除路径。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/san-config/index.html["SAN配置"^]
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN 管理"^]

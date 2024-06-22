@@ -1,0 +1,43 @@
+---
+permalink: fc-config-esxi/task_provisioning_datastore_creating_its_containing_lun_volume.html 
+sidebar: sidebar 
+keywords: datastore, contain, virtual, machine, vmdk, esxi, host, provision, lun, cluster, provision a datastore and create its containing lun and volume 
+summary: 数据存储库包含 ESXi 主机上的虚拟机及其 VMDK 。ESXi 主机上的数据存储库在存储集群上的 LUN 上进行配置。 
+---
+= 配置数据存储库并创建其包含的 LUN 和卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+数据存储库包含 ESXi 主机上的虚拟机及其 VMDK 。ESXi 主机上的数据存储库在存储集群上的 LUN 上进行配置。
+
+.开始之前
+必须安装适用于 VMware vSphere 的 Virtual Storage Console （ VSC ）并将其注册到管理 ESXi 主机的 vCenter Server 中。
+
+VSC 必须具有足够的集群或 Storage Virtual Machine （ SVM ）凭据才能创建 LUN 和卷。
+
+.关于此任务
+VSC 可自动配置数据存储库，包括在指定的 SVM 上创建 LUN 和卷。
+
+.步骤
+. 在 vSphere Web Client * 主页 * 页面中，单击 * 主机和集群 * 。
+. 在导航窗格中，展开要配置数据存储库的数据中心。
+. 右键单击 ESXi 主机，然后选择 * NetApp VSC* > * 配置数据存储库 * 。
++
+或者，您也可以在配置时右键单击集群，使数据存储库可供集群中的所有主机使用。
+
+. 在向导中提供所需信息：
++
+image::../media/datastore_provisioning_wizard_vsc5.gif[图中显示了 VSC 数据存储库配置向导的第一页。]
+
++
+** 选择 * VMFS* 作为数据存储库类型。
+** 选择 * FC/FCoE* 作为 VMFS 协议。
+** 选择 * 无 * 作为存储功能配置文件。
+** 选中 * 精简配置 * 复选框。
+** 选中 * 创建新卷 * 复选框。
+
+
+

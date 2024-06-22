@@ -1,0 +1,16 @@
+---
+permalink: fc-config-rhel/concept_fc_configuration_workflow.html 
+sidebar: sidebar 
+keywords: storage, available, host, fc, provision, volume, lun, virtual, machine, svm, connect, fc configuration and provisioning workflow 
+summary: 使用 FC 为主机提供存储时，您需要在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。 
+---
+= FC 配置和配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 FC 为主机提供存储时，您需要在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。
+
+image::../media/fc_red_hat_linux_workflow.gif[此图通过周围的文本进行了说明。]

@@ -1,0 +1,131 @@
+---
+permalink: online-help-96-97/concept_how_ontap_reports_drive_types.html 
+sidebar: sidebar 
+keywords: ontap, report, disk, type, industry, standards, sas, fc, storage, array, online, help 
+summary: ONTAP 会将一种类型与每个磁盘相关联。ONTAP 报告的某些磁盘类型与行业标准不同；您应了解 ONTAP 磁盘类型与行业标准的对应关系，以避免混淆。 
+---
+= ONTAP 如何在 System Manager - ONTAP 9.7 及更早版本中报告磁盘类型
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）可将一种类型与每个磁盘相关联。ONTAP 报告的某些磁盘类型与行业标准不同；您应了解 ONTAP 磁盘类型与行业标准的对应关系，以避免混淆。
+
+除非另有说明，否则 ONTAP 文档提及磁盘类型时，它是 ONTAP 使用的类型。_RAID 磁盘类型 _ 表示特定磁盘在 RAID 中所起的作用。RAID 磁盘类型与 ONTAP 磁盘类型无关。
+
+对于特定配置，支持的磁盘类型取决于存储系统型号，磁盘架类型以及系统中安装的 I/O 模块。
+
+下表显示了 ONTAP 磁盘类型如何映射到 SAS 和 FC 存储连接类型以及存储阵列的行业标准磁盘类型。
+
+
+
+== SAS-connected 存储
+
+|===
+| ONTAP磁盘类型 | 磁盘类 | 行业标准磁盘类型 | Description 
+
+
+ a| 
+BSAS
+ a| 
+Capacity
+ a| 
+SATA
+ a| 
+桥接的 SAS-SATA 磁盘，增加了硬件，可将其插入 SAS 连接的存储架
+
+
+
+ a| 
+FSAS
+ a| 
+Capacity
+ a| 
+NL-SAS
+ a| 
+近线 SAS
+
+
+
+ a| 
+mSATA
+ a| 
+Capacity
+ a| 
+SATA
+ a| 
+多磁盘托架存储架中的 SATA 磁盘
+
+
+
+ a| 
+（ SAS ）。
+ a| 
+性能
+ a| 
+（ SAS ）。
+ a| 
+串行连接 SCSI
+
+
+
+ a| 
+SSD
+ a| 
+超高性能
+ a| 
+SSD
+ a| 
+固态驱动器
+
+|===
+
+
+== FC连接存储
+
+|===
+| ONTAP磁盘类型 | 磁盘类 | 行业标准磁盘类型 
+
+
+ a| 
+ATA
+ a| 
+Capacity
+ a| 
+SATA
+
+
+
+ a| 
+FCAL
+ a| 
+性能
+ a| 
+FC
+
+|===
+
+
+== 存储阵列
+
+|===
+| ONTAP磁盘类型 | 磁盘类 | 行业标准磁盘类型 | Description 
+
+
+ a| 
+LUN
+ a| 
+不适用
+ a| 
+LUN
+ a| 
+由存储阵列提供支持并由 ONTAP 用作磁盘的逻辑存储设备这些 LUN 称为 _array LUN_ ，以便与 ONTAP 为客户端提供的 LUN 进行区分。
+
+|===
+* 相关信息 *
+
+https://hwu.netapp.com["NetApp Hardware Universe"^]
+
+http://www.netapp.com/us/media/tr-3437.pdf["NetApp 技术报告 3437 ：《存储子系统弹性》"^]

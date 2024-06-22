@@ -1,0 +1,293 @@
+---
+permalink: online-help-96-97/task_configuring_managing_cloud_tiers.html 
+sidebar: sidebar 
+keywords: configure, manage, cloud, tier, online, help, fabricpool, aggregate, storage, system, add, ssd, provision, storage, fabricpool, aggregate, manually, tiering, policy 
+summary: 将数据存储在层中可以提高存储系统的效率。您可以使用启用了 FabricPool 的聚合来管理存储层。云层会根据数据是否经常访问将数据存储在层中。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本配置和管理云层
+:allow-uri-read: 
+
+
+您可以使用 ONTAP System Manger classic （适用于 ONTAP 9.7 及更早版本）配置和管理云层。将数据存储在层中可以提高存储系统的效率。您可以使用启用了 FabricPool 的聚合来管理存储层。云层会根据数据是否经常访问将数据存储在层中。
+
+.开始之前
+* 您必须运行 ONTAP 9.2 或更高版本。
+* 您必须具有全闪存（全 SSD ）聚合
+
+
+image::../media/fabricpool_workflow.gif[FabricPool 工作流]
+
+
+
+= 添加云层
+
+[role="lead"]
+您可以使用 System Manager 向 SSD 聚合或虚拟机磁盘（ VMDK ）聚合添加云层。云层可为不常用的数据提供存储。
+
+.开始之前
+* 要连接到对象存储，您必须具有访问密钥 ID 和机密密钥。
+* 您必须已在对象存储中创建存储分段。
+* 集群和云层之间必须存在网络连接。
+* 如果云层与集群之间的通信使用 SSL 或 TLS 进行加密，则必须安装所需的证书。
+
+
+.关于此任务
+以下对象存储可用作云层：
+
+* StorageGRID
+* 阿里云（从 System Manager 9.6 开始）
+* Amazon Web Services （ AWS ） Simple Storage Service （ S3 ）
+* Amazon Web Services （ AWS ） Commercial Cloud Service （ C2S ）
+* Microsoft Azure Blob Storage
+* IBM 云
+* Google Cloud
+
+
+[NOTE]
+====
+* 不支持 Azure 堆栈这种内部 Azure 服务。
+* 如果要将任何对象存储用作 StorageGRID 以外的云层，则必须具有 FabricPool 容量许可证。您可以单击 * 添加许可证 * 来添加许可证。
+* 如果要在 FabricPool 中使用 IBM 云对象存储环境（例如， Cleversafe ），则应指定一个证书颁发机构（ CA ）证书。可以通过移动 * 对象存储证书 * 切换按钮并指定证书凭据来指定 CA 证书。
+
+
+====
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 云层 * 。
+. 单击 * 添加 * 。
++
+此时将显示一个对话框，其中列出了所有受支持的对象存储提供程序。
+
+. 从列表中，选择要指定为云层的对象存储提供程序。
++
+此时将显示添加云层窗口。
+
+. 从 * 区域 * 字段的下拉列表中选择一个区域。
++
+根据您的选择， * 服务名称（ FQDN ） * 字段会自动填充服务器端点。
+
+. 指定云层的访问密钥 ID ，云层的机密密钥以及容器名称。
++
+如果您选择 AWS Commercial Cloud Service （ C2S ）作为类型，则必须指定 CAP URL ，服务器 CA 证书和客户端证书。
+
+. 如果要修改以下任何设置，请单击高级选项图标 image:../media/advanced_options.gif[""] 要显示 * 高级选项 * 对话框窗口以进行更改，请执行以下操作：
++
+** 用于访问云层的端口号
+** 启用或禁用 * ssl* 选项，以便将数据安全传输到云层
+
+
+. *可选：*如果要为StorageGRID 添加云层或将IBM云对象存储环境(例如Cleversafe)与FabricPool 结合使用、则应指定CA证书。通过移动 * 对象存储证书 * 切换按钮并复制证书内容来指定 CA 证书。然后将证书内容粘贴到签名证书中。
+. 从 * IP 空间 * 列表中，选择用于连接到云层的 IP 空间。
+. 单击 * 保存 * 以保存云层。
+. 单击 * 保存并附加聚合 * 以保存云层并将聚合附加到云层。
+
+
+
+
+== 将聚合附加到云层
+
+您可以使用 System Manager 将全闪存聚合附加到云层。您可以将不常用的数据存储在云层中。
+
+.开始之前
+您必须已向集群添加云层。
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 云层 * 。
+. 在 * 在聚合中使用 * 列中，单击 * 附加聚合 * 。
++
+此时将显示附加聚合窗口。
+
+. 选择要附加到云层的聚合。
+. 单击 * 保存 * 。
+
+
+
+
+== 通过手动创建启用了 FabricPool 的聚合来配置存储
+
+您可以使用 System Manager 创建启用了 FabricPool 的聚合，以便将云层附加到 SSD 聚合。
+
+.开始之前
+* 您必须已创建云层并将其附加到 SSD 聚合所在的集群。
+* 必须已创建内部云层。
+* 云层和聚合之间必须存在专用网络连接。
+
+
+.关于此任务
+以下对象存储可用作云层：
+
+* StorageGRID
+* 阿里云（从 System Manager 9.6 开始）
+* Amazon Web Services （ AWS ） Simple Storage Service （ S3 ）
+* Amazon Web Services （ AWS ） Commercial Cloud Service （ C2S ）
+* Microsoft Azure Blob Storage
+* IBM 云
+* Google Cloud
+
+
+[NOTE]
+====
+* 不支持 Azure 堆栈这种内部 Azure 服务。
+* 如果要将任何对象存储用作 StorageGRID 以外的云层，则必须具有 FabricPool 容量许可证。
+
+
+====
+.步骤
+. 使用以下方法之一创建启用了 FabricPool 的聚合：
++
+** 单击 * 应用程序和层 * > * 存储层 * > * 添加聚合 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * > * 创建 * 。
+
+
+. 启用 * 手动创建聚合 * 选项以创建聚合。
+. 创建启用了 FabricPool 的聚合：
++
+.. 指定聚合的名称，磁盘类型以及要包含在聚合中的磁盘或分区数。
++
+[NOTE]
+====
+只有全闪存（全 SSD ）聚合支持启用了 FabricPool 的聚合。
+
+====
++
+最小热备用规则将应用于磁盘大小最大的磁盘组。
+
+.. *可选：*修改聚合的RAID配置：
++
+... 单击 * 更改 * 。
+... 在更改 RAID 配置对话框中，指定 RAID 类型和 RAID 组大小。
++
+共享磁盘支持两种 RAID 类型： RAID-DP 和 RAID-TEC 。
+
+... 单击 * 保存 * 。
+
+
+
+
+. 选中 * 云 * 复选框，然后从列表中选择一个 FabricPool 层。
+. 单击 * 创建 * 。
+
+
+
+
+== 更改卷的分层策略
+
+您可以使用 System Manager 更改卷的默认分层策略，以控制在数据变为非活动状态时是否将卷的数据移动到云层。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要更改分层策略的卷，然后单击 * 更多操作 * > * 更改分层策略 * 。
+. 从 * 分层策略 * 列表中选择所需的分层策略，然后单击 * 保存 * 。
+
+
+
+
+== 编辑云层
+
+您可以使用 System Manager 修改云层的配置信息。您可以编辑的配置详细信息包括名称，完全限定域名（ FQDN ），端口，访问密钥 ID ，机密密钥和对象存储证书。
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 云层 * 。
+. 选择要编辑的云层，然后单击 * 编辑 * 。
+. 在 * 编辑云层 * 窗口中，修改云层名称， FQDN ，端口，访问密钥 ID ，机密密钥， 和对象存储证书。
++
+如果您已选择 AWS Commercial Cloud Service （ C2S ）云层，则可以修改服务器 CA 证书和客户端证书。
+
+. 单击 * 保存 * 。
+
+
+
+
+== 删除云层
+
+您可以使用 System Manager 删除不再需要的云层。
+
+.开始之前
+您必须已删除与云层关联且已启用 FabricPool 的聚合。
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 云层 * 。
+. 选择要删除的云层，然后单击 * 删除 * 。
+
+
+
+
+== 什么是云层和分层策略
+
+云层可为不常访问的数据提供存储。您可以将全闪存（全 SSD ）聚合附加到云层以存储不常用的数据。您可以使用分层策略来确定是否应将数据移动到云层。
+
+您可以在卷上设置以下分层策略之一：
+
+* * 仅 Snapshot *
++
+仅移动当前未被活动文件系统引用的卷的 Snapshot 副本。默认分层策略为仅快照策略。
+
+* * 自动 *
++
+将非活动数据（冷数据）和 Snapshot 副本从活动文件系统移动到云层。
+
+* * 备份（适用于 System Manager 9.5 ） *
++
+将数据保护（ DP ）卷中新传输的数据移动到云层。
+
+* * 全部（从 System Manager 9.6 开始） *
++
+将所有数据移动到云层。
+
+* * 无 *
++
+防止卷上的数据移动到云层。
+
+
+
+
+
+== 什么是非活动（冷）数据
+
+性能层中不常访问的数据称为非活动（冷）数据。默认情况下， 31 天内未访问的数据将变为非活动状态。
+
+非活动数据将在聚合级别，集群级别和卷级别显示。只有在聚合或集群上完成非活动扫描后，才会显示该聚合或集群的非活动数据。默认情况下，系统会显示启用了 FabricPool 的聚合和 SSD 聚合的非活动数据。不会显示 FlexGroup 的非活动数据。
+
+
+
+== 云层窗口
+
+您可以使用 System Manager 添加，编辑和删除云层以及查看云层详细信息。
+
+" 云层 " 窗口将显示集群中已获得许可的云层总数，集群中已使用的已获得许可的空间以及集群中可用的已获得许可的空间。" 云层 " 窗口还会显示已使用的未获许可的云容量。
+
+
+
+=== 命令按钮
+
+* * 添加 * 。
++
+用于添加云层。
+
+* * 附加聚合 *
++
+用于将聚合附加到云层。
+
+* * 删除 *
++
+用于删除选定云层。
+
+* * 编辑 * 。
++
+用于修改选定云层的属性。
+
+
+
+
+
+=== 详细信息区域
+
+您可以查看有关云层的详细信息，例如云层列表，对象存储的详细信息，已用聚合以及已用容量。
+
+如果您使用命令行界面（ CLI ）创建阿里云， Amazon AWS S3 ， AWS Commercial Cloud Service （ C2S ）， Google Cloud ， IBM Cloud ， Microsoft Azure Blob Storage 或 StorageGRID 以外的云层，则此云层将在 System Manager 中显示为其他。然后，您可以将聚合附加到此云层。
+
+* 相关信息 *
+
+xref:task_installing_ca_certificate_if_you_use_storagegrid_webscale.adoc[如果使用 StorageGRID ，则安装 CA 证书]
+
+xref:reference_storage_tiers_window.adoc[存储层窗口]

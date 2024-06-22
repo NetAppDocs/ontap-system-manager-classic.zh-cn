@@ -1,0 +1,68 @@
+---
+permalink: online-help-96-97/reference_metrocluster_switchover_switchback_window.html 
+sidebar: sidebar 
+keywords: metrocluster, switchover, switchback, operations, window, command, button, other, action, online, help, status 
+summary: 从 System Manager 9.6 开始，您可以使用 MetroCluster 切换和切回操作窗口启动从一个站点或集群（站点 B ）到另一个站点或集群（站点 A ）的协商（计划内）切换或计划外切换。在站点 B 上执行维护或修复后，您可以启动从站点 A 切回站点 B 的操作，并在此窗口中查看此操作的状态。 
+---
+= MetroCluster 切换和切回操作窗口
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以使用 MetroCluster 切换和切回操作窗口启动从一个站点或集群（站点 B ）到另一个站点或集群（站点 A ）的协商（计划内）切换或计划外切换。在站点 B 上执行维护或修复后，您可以启动从站点 A 切回站点 B 的操作，并在此窗口中查看此操作的状态。
+
+
+
+== 命令按钮
+
+* * 将站点 B 切换到站点 A*
++
+启动将站点 B 切换到站点 A 的过程
+
+* * 将站点 A 切回到站点 B*
++
+启动将站点 A 切换回站点 B 的过程
+
+
+
+
+
+== 其他操作
+
+* * 导航到站点 B 集群 *
++
+输入站点 B 的集群管理 IP 地址
+
+* * 计划外切换的复选框 *
++
+如果要启动计划外切换，请选中 * 继续执行计划外切换 * 复选框。
+
+
+
+
+
+== 状态区域
+
+在系统完成切换或切回过程时， System Manager 将使用以下方法显示状态：
+
+* * 进度线图 *
++
+显示操作的各个阶段，并指示已完成的阶段。这些阶段包括切换，站点 B 操作和切回。
+
+* * 显示详细信息 *
++
+显示在 MetroCluster 操作进行过程中具有时间戳的系统事件列表。
+
+* * 本地：站点 A*
++
+显示站点 A 集群配置的图形，包括该站点在操作各个阶段的状态。
+
+* * 远程：站点 B*
++
+显示站点 B 集群配置的图形，包括该站点在操作各个阶段的状态。
+
+
+
+如果您登录到站点 B 并查看 MetroCluster 切换和切回操作窗口，则站点 A 的状态将显示为 "`Inactive` " ，站点 B 的状态将显示为 " `SWITCHOVER mode` " 。

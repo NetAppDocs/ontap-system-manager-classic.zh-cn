@@ -1,0 +1,65 @@
+---
+permalink: online-help-96-97/concept_rules_for_assigning_storage_objects_to_policy_groups.html 
+sidebar: sidebar 
+keywords: rulw, assign, storage, object, policy, group, svm, nested, online, help 
+summary: 您应了解一些规则，这些规则规定如何将存储对象分配给存储 QoS 策略组。 
+---
+= 将存储对象分配给策略组的规则
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解一些规则，这些规则规定如何将存储对象分配给存储 QoS 策略组。
+
+
+
+== 存储对象和策略组必须属于同一个 SVM
+
+存储对象必须包含在策略组所属的 SVM 中。您可以在创建策略组时指定策略组所属的 SVM 。多个策略组可以属于同一个 SVM 。
+
+在下图中，策略组 pg1 属于 SVM vs1 。您不能将卷 vol2 或 vol3 分配给策略组 pg1 ，因为这些卷包含在不同的 SVM 中。
+
+image::../media/qos_rule_same_vserver.gif[本图通过周围的文字进行了说明。]
+
+
+
+== 嵌套的存储对象不能属于策略组
+
+如果某个存储对象的包含对象或子对象属于某个策略组，则不能将该存储对象分配给该策略组。下表列出了这些限制。
+
+|===
+| 如果您分配 ... | 则不能分配 ... 
+
+
+ a| 
+SVM 到策略组
+ a| 
+将 SVM 包含的任何存储对象分配给策略组
+
+
+
+ a| 
+卷到策略组
+ a| 
+包含 SVM 的卷或策略组的任何子 LUN
+
+
+
+ a| 
+将LUN分配给策略组
+ a| 
+将包含 LUN 的卷或 SVM 分配给策略组
+
+
+
+ a| 
+文件到策略组
+ a| 
+将文件包含的卷或 SVM 分配给策略组
+
+|===
+在下图中， SVM vs3 将分配给策略组 pg2 。您不能将卷 vol4 或 vol5 分配给策略组，因为存储层次结构（ SVM vs3 ）中的对象已分配给策略组。
+
+image::../media/qos_rule_one_object.gif[本图通过周围的文字进行了说明。]

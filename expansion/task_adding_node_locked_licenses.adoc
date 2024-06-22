@@ -1,0 +1,43 @@
+---
+permalink: expansion/task_adding_node_locked_licenses.html 
+sidebar: sidebar 
+keywords: cluster, feature, node-locked, license, entitle, functionality, add, add node-locked licenses 
+summary: 如果集群具有使用节点锁定许可证的功能，则必须确保为新节点安装节点锁定许可证。 
+---
+= 添加节点锁定许可证
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果集群中的功能使用节点锁定许可证（仅允许特定节点使用许可功能），则必须确保为新节点安装节点锁定许可证。您应在节点加入集群之前添加许可证。
+
+如果您使用的是_Classic_ System Manager UI和ONTAP 9.7及更早版本、请完成此任务。如果在ONTAP 9.7及更高版本中使用System Manager UI、请参见 link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["通过添加许可证密钥启用新功能"]。
+
+有关管理许可证的详细信息、请参见 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["管理许可证概述"]。
+
+.步骤
+. 使用添加每个许可证密钥 `system license add` 命令：
++
+[listing]
+----
+cluster1::> system license add -license-code AAAAAAAAAAAAAA
+----
+. 使用查看现有许可证 `system license show` 命令：
++
+[listing]
+----
+cluster1::> system license show
+
+Serial Number: 9-99-999999
+Owner: cluster1
+Package           Type    Description           Expiration
+----------------- ------- --------------------- --------------------
+Base              site    Cluster Base License  -
+NFS               license NFS License           -
+CIFS              license CIFS License          -
+...
+----
+. 查看输出以确保为所有序列号显示节点锁定许可证，包括现有节点和新节点的序列号。
+

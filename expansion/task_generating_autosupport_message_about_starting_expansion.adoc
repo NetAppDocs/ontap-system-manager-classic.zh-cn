@@ -1,0 +1,33 @@
+---
+permalink: expansion/task_generating_autosupport_message_about_starting_expansion.html 
+sidebar: sidebar 
+keywords: generating, generate, autosupport, message, start, expansion, expand, cluster, troubleshoot, generate an autosupport message about starting expansion 
+summary: 在扩展集群之前，您应立即发送 AutoSupport 消息以指示即将开始扩展过程。 
+---
+= 生成有关开始扩展的 AutoSupport 消息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在扩展集群之前，您应立即发送 AutoSupport 消息以指示即将开始扩展过程。此消息将向内部和外部支持人员告知扩展情况，并用作稍后可能需要进行的任何故障排除的时间戳。
+
+.开始之前
+必须设置 AutoSupport 。
+
+.步骤
+. 对于集群中的每个节点、使用发送一条AutoSupport消息 `system node autosupport invoke` 命令：
++
+[listing]
+----
+cluster1::> system node autosupport invoke -node * -message "cluster expansion started" -type all
+The AutoSupport was successfully invoked on node "cluster1-1". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+The AutoSupport was successfully invoked on node "cluster1-2". To view the status
+of the AutoSupport, use the "system node autosupport history show" command.
+Note: It may take several minutes for the AutoSupport to appear in the history list.
+2 entries were acted on.
+----
+

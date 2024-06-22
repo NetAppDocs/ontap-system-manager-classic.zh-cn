@@ -1,0 +1,69 @@
+---
+permalink: online-help-96-97/task_editing_application.html 
+sidebar: sidebar 
+keywords: edit, application, online, help, provisioned, snapshot, copy 
+summary: 您可以编辑已配置的应用程序以增加存储大小或管理应用程序的 Snapshot 副本。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑应用程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）编辑已配置的应用程序以增加存储大小或管理应用程序的 Snapshot 副本。
+
+.关于此任务
+作为集群管理员，在配置应用程序后，您可以对其进行编辑以修改存储大小。您还可以创建，还原或删除应用程序的 Snapshot 副本。以下示例操作步骤介绍了如何编辑 * NAS 容器 * 应用程序。
+
+.步骤
+. 单击 * 应用程序和层 * > * 应用程序 *
+. 单击 NAS 容器应用程序的名称。
++
+[NOTE]
+====
+如果有人在您查看应用程序列表时使用命令行界面或 REST API 添加新应用程序，则在滚动列表时将无法查看这些新应用程序。
+
+====
++
+" 应用程序详细信息： nas" 窗口的 * 概述 * 选项卡显示应用程序设置。
+
+. 单击 * 编辑 * 。
++
+编辑 NAS 容器： NAS 将显示当前存储大小设置和 * NFS 访问 - 授予对主机的访问权限 * 地址。
+
+. 修改 * 存储总大小 * 值。
+. 在大小单位字段中，从下拉菜单中选择以指定正确的大小单位（字节， MB ， GB 或 TB ）。
+. 在 * ONTAP 服务级别 * 字段中，从下拉菜单中选择以指定值。
+. 单击 * 保存 * 。
+. 导航回 * 应用程序详细信息： NA* 窗口，然后选择 "* Snapshot 副本 "* 选项卡。
++
+此时将显示此已配置应用程序的 Snapshot 副本列表。您可以使用 * 搜索 * 字段按名称搜索 Snapshot 副本。
+
+. 根据需要执行以下任务来管理 Snapshot 副本：
++
+|===
+| 任务 | 操作 
+
+
+ a| 
+创建
+ a| 
+单击 * 创建 * 以创建新的 Snapshot 副本。
+
+
+
+ a| 
+还原
+ a| 
+单击要还原的 Snapshot 副本旁边的复选框，然后单击 * 还原 * 。
+
+
+
+ a| 
+删除
+ a| 
+单击要删除的 Snapshot 副本旁边的复选框，然后单击 * 删除 * 。
+
+|===
+

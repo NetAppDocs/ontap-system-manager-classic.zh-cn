@@ -1,0 +1,41 @@
+---
+permalink: online-help-96-97/task_configuring_nvme_protocol_on_svms.html 
+sidebar: sidebar 
+keywords: configure, nvme, protocol, svm, system, manager, namespaces, online, help 
+summary: 您可以使用 System Manager 在 Storage Virtual Machine （ SVM ）上配置 NVMe 协议。然后，您可以创建命名空间并将其分配给 NVMe 子系统和主机。 
+---
+= 在使用 System Manager 的 SVM 上配置 NVMe 协议 - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)在Storage Virtual Machine (SVM)上配置NVMe协议。然后，您可以创建命名空间并将其分配给 NVMe 子系统和主机。
+
+.关于此任务
+采用 NVMe 的 SVM 不应具有任何其他协议。如果选择 NVMe ，则其余协议将被禁用。您也可以在创建 SVM 时配置 NVMe 。
+
+.步骤
+. 如果在创建 SVM 时未配置 NVMe 协议，请单击 * 存储 * > * SVM*
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击 * NVMe* 。
+. 根据需要单击此链接以配置协议。
++
+[NOTE]
+====
+如果启用了任何其他协议，则必须取消选择这些协议，才能选择 NVMe 。NVMe 不能与任何其他协议结合使用。
+
+====
+. 在 * 编辑 Storage Virtual Machine* 窗格中，单击 * 资源分配 * 。
+. 在 * 资源分配 * 选项卡中，您可以选择不委派卷创建，也可以选择聚合以自动配置卷。
+. 单击 * 服务 * 选项卡以配置名称服务开关详细信息。
+. 单击 * 保存并关闭 *
++
+此时将在 SVM 上配置 NVMe 协议。配置协议后，您可以使用 * SVM 设置 * 启动或停止服务
+
+
+
+* 相关信息 *
+
+xref:concept_setting_up_nvme.adoc[设置 NVMe]

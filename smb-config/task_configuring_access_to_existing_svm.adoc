@@ -1,0 +1,14 @@
+---
+permalink: smb-config/task_configuring_access_to_existing_svm.html 
+sidebar: sidebar 
+keywords: add, access, smb, cifs, client, exist, svm, involve, configuration, map, dns, server, verify, windows, administration, host, configure, configure smb/cifs access to an existing svm 
+summary: 为 SMB/CIFS 客户端添加对现有 SVM 的访问权限涉及到向 SVM 添加 CIFS 配置，在 DNS 服务器上添加映射以及从 Windows 管理主机验证 CIFS 访问。然后、您可以配置CIFS客户端访问。 
+---
+= 配置对现有 SVM 的 SMB/CIFS 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+为 SMB/CIFS 客户端添加对现有 SVM 的访问权限涉及到向 SVM 添加 CIFS 配置，在 DNS 服务器上添加映射以及从 Windows 管理主机验证 CIFS 访问。然后、您可以配置CIFS客户端访问。

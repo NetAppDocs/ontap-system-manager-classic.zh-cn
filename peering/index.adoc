@@ -1,0 +1,57 @@
+---
+permalink: peering/index.html 
+sidebar: sidebar 
+keywords: cluster, administrator, create, authenticated, peer, relationship, svm, enable, communicate, replicate, data 
+summary: 集群管理员可以在集群和 SVM 之间创建经过身份验证的对等关系，使集群能够彼此通信，以便在不同集群中的卷之间复制数据。 
+---
+= 集群和 SVM 对等概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+集群管理员可以在集群和 SVM 之间创建经过身份验证的对等关系，使集群能够彼此通信，以便在不同集群中的卷之间复制数据。  您可以使用 ONTAP 系统管理器 _classic_ 界面执行这些过程，该界面随 ONTAP 9.7 及更早版本的 ONTAP 9 一起提供。
+
+如果符合以下条件，请使用 ONTAP System Manager _classic_ 界面创建集群对等关系和 SVM 对等关系：
+
+* 您正在使用运行 ONTAP 9.7 或更早版本的 ONTAP 9 的集群。
+* 您需要经过身份验证的集群对等关系。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您希望使用 System Manager ，而不是 ONTAP 命令行界面（ CLI ）或自动脚本编写工具。
+
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+ONTAP 9.3 中的 ONTAP System Manager 简化了在集群之间和 SVM 之间配置对等关系的方式。所有 ONTAP 9 版本均可使用集群对等操作步骤和 SVM 对等操作步骤。您应使用适用于您的 ONTAP 版本的操作步骤。
+
+|===
+
+
+| 要执行以下任务，请执行以下操作 ... | 请参见 ... 
+
+
+ a| 
+重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本）
+ a| 
+* https://docs.netapp.com/us-en/ontap/concept_administration_overview.html["使用 System Manager 进行集群管理"^]
+
+
+
+
+ a| 
+ONTAP 命令行界面（ CLI ）
+ a| 
+* https://docs.netapp.com/us-en/ontap/peering/index.html["使用命令行界面概述集群和 SVM 对等关系"^]
++
+使用命令行界面设置集群对等关系和 SVM 对等关系。
+
+* https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"^]
++
+使用命令行界面配置子网，集群间 LIF ，路由，防火墙策略和其他网络组件
+
+
+
+|===

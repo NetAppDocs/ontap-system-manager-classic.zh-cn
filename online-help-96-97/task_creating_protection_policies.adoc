@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_creating_protection_policies.html 
+sidebar: sidebar 
+keywords: create, protection, policies, online, help, system, manager 
+summary: 您可以使用 System Manager 创建异步镜像策略，存储策略或镜像和存储策略，并将这些策略应用于数据保护关系。 
+---
+= 创建保护策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 创建异步镜像策略，存储策略或镜像和存储策略，并将这些策略应用于数据保护关系。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择要为其创建保护策略的 Storage Virtual Machine （ SVM ），然后单击 * SVM 设置 * 。
+. 在 * 策略 * 窗格中，单击 * 保护策略 * 。
+. 单击 * 创建 * 。
+. 在 * 创建策略 * 对话框中，选择要创建的策略类型。
+. 指定策略名称和传输优先级。
++
+低表示传输的优先级最低，传输通常计划在正常优先级传输之后进行。默认情况下，优先级设置为正常。
+
+. 对于类型为异步镜像的策略，选中 * 传输所有源 Snapshot 副本 * 复选框，以便在镜像策略中包含 "`all_source_snapshots` " 规则，该策略将从源卷备份所有 Snapshot 副本。
+. 选中 * 启用网络压缩 * 复选框以压缩数据传输期间传输的数据。
+. 单击 * 添加注释 * 为策略添加其他注释。
+. 对于类型为 vault 或 mirror vault 的策略，请指定 SnapMirror 标签和目标保留计数。
+. 单击 * 创建 * 。
+

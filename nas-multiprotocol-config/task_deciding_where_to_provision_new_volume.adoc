@@ -1,0 +1,35 @@
+---
+permalink: nas-multiprotocol-config/task_deciding_where_to_provision_new_volume.html 
+sidebar: sidebar 
+keywords: create, multiprotocol, volume, volume, storage, virtual, machine, svm, configuration, decision, workflow, decide where to provision the new volume 
+summary: 在创建新的多协议卷之前，您必须确定是否将该卷放置在现有 Storage Virtual Machine 中，如果是，还必须确定 SVM 需要多少配置。此决定将决定您的工作流。 
+---
+= 确定在何处配置新卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在创建新的多协议卷之前，您必须确定是否将该卷放置在现有 Storage Virtual Machine （ SVM ）中，如果是，还必须确定 SVM 所需的配置。此决定将决定您的工作流。
+
+
+
+== 操作步骤
+
+* 如果要在新 SVM 上配置卷，请创建一个基本 SVM 。
++
+link:task_creating_new_svm.html["创建基本 SVM"]
+
++
+如果现有 SVM 上尚未启用 CIFS 和 NFS ，则必须选择此选项。
+
+* 如果要在已启用 CIFS 和 NFS 但尚未对其进行配置的现有 SVM 上配置卷，请在现有 SVM 上添加 CIFS 和 NFS 访问。
++
+link:concept_adding_nas_access_to_existing_svm.html["在现有 SVM 上添加 CIFS 和 NFS 访问"]
+
+* 如果要在已完全配置为可进行 CIFS 和 NFS 多协议访问的现有 SVM 上配置卷，则可以直接创建和配置卷。
++
+link:task_creating_configuring_volume.html["创建和配置卷"]
+
+

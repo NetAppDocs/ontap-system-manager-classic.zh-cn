@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/concept_what_compatible_spare_disks_are.html 
+sidebar: sidebar 
+keywords: system, manager, compatible, spare, disk, hdd, compacity, raid, online, help 
+summary: 在 System Manager 中，兼容备用磁盘是指与聚合中其他磁盘的属性匹配的磁盘。如果要通过添加 HDD （容量磁盘）来增加现有聚合的大小或将聚合的 RAID 类型从 RAID4 更改为 RAID-DP ，则聚合必须包含足够的兼容备用磁盘。 
+---
+= System Manager 中的兼容备用磁盘— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中，兼容备用磁盘是指与聚合中其他磁盘的属性匹配的磁盘。如果要通过添加 HDD （容量磁盘）来增加现有聚合的大小或将聚合的 RAID 类型从 RAID4 更改为 RAID-DP ，则聚合必须包含足够的兼容备用磁盘。
+
+必须匹配的磁盘属性包括磁盘类型，磁盘大小（如果没有相同的磁盘大小，可以是更大的磁盘），磁盘 RPM ，校验和，节点所有者，池， 和共享磁盘属性。如果您使用的磁盘大小较高，则必须注意，磁盘大小会缩小，并且所有磁盘的大小会减小到最低磁盘大小。现有共享磁盘与更大的非共享磁盘匹配，非共享磁盘将转换为共享磁盘并作为备用磁盘添加。
+
+如果为 RAID 组启用了 RAID 混合选项，例如磁盘类型混合和磁盘 RPM 混合， 聚合中现有磁盘的磁盘类型和磁盘 RPM 与备用磁盘的有效磁盘类型和有效磁盘 RPM 匹配，以获取兼容的备用磁盘。
+
+* 相关信息 *
+
+xref:task_adding_capacity_disks.adoc[添加容量磁盘]
+
+xref:task_editing_aggregates.adoc[编辑聚合]

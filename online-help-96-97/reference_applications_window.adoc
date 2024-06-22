@@ -1,0 +1,143 @@
+---
+permalink: online-help-96-97/reference_applications_window.html 
+sidebar: sidebar 
+keywords: applications, window, svm, online, help, storage, virtual, machine, online, help, action, icon, tab, column 
+summary: 您可以使用 System Manager 显示 Storage Virtual Machine （ SVM ）中的应用程序列表。此列表包含有关每个应用程序的详细信息。 
+---
+= System Manager 中的 "Applications （应用程序） " 窗口 - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）显示 Storage Virtual Machine （ SVM ）中的应用程序列表。此列表包含有关每个应用程序的详细信息。
+
+
+
+== 选项卡
+
+根据集群的配置， System Manager 会使用以下方法之一显示有关应用程序的信息：
+
+* * 无选项卡 *
++
+有关应用程序的详细信息，包括名称，类型，存储使用情况，性能， 和相关信息。
+
+* * 两个选项卡 *
++
+显示内容提供了两个选项卡，用于显示有关应用程序的信息。
+
++
+** * 增强功能 *
++
+有关应用程序的详细信息，包括名称，类型，存储使用情况，性能， 和相关信息。
+
+** * 基本 *
++
+有关应用程序的基本信息。
+
+
+
+
+
+
+
+== 应用程序列表
+
+选定 SVM 的应用程序将按以下方式以列表形式显示在 * 增强型 * 选项卡上：
+
+* 对于 System Manager 9.5 及更早版本，列表中最多显示 32 个应用程序。
+* 对于 System Manager 9.6 ，列表中会显示前 25 个应用程序。滚动到列表底部时，列表中还会添加 25 个应用程序。继续滚动时，您可以继续一次添加 25 个应用程序，以将列表最多扩展到 1000 个应用程序。
+
+
+
+
+== 列出列
+
+有关每个应用程序的信息将在 * 增强型 * 选项卡的以下列中列出。
+
+* * 展开 / 折叠箭头 image:../media/arrow_expand_collapse_white_background.gif[""]*
++
+包含一个箭头，您可以单击此箭头将信息展开为显示详细视图或将信息折叠回摘要视图。
+
+* * 名称 *
++
+应用程序的名称。
+
+* * 类型 *
++
+应用程序类型。
+
+* * 组件 *
++
+应用程序的组件。
+
+* * ONTAP 服务级别 *
++
+应用程序的 ONTAP 服务级别。
+
+* * 使用情况 *
++
+一个图形条，用于显示使用情况百分比。
+
+* * 已用 *
++
+应用程序使用的存储空间量。
+
+* * 可用 *
++
+应用程序仍可使用的存储空间量。
+
+* * 大小 *
++
+应用程序的大小。
+
+* * IOPS *
++
+应用程序的每秒输入和输出操作数（ IOPS ）。
+
+* * 延迟 *
++
+应用程序的延迟量。
+
+
+
+
+
+== 输入字段
+
+可以使用以下字段修改信息的显示：
+
+* * SVM*
++
+用于显示 SVM 的下拉列表，从中可以选择包含要显示的应用程序的 SVM 。
+
+* * 搜索字段 *
++
+用于键入应用程序名称的全部或部分内容，以便根据键入的条件启动搜索。然后，列表中将仅显示名称与条件匹配的应用程序。
+
+* * 按字段排序 *
++
+用于根据名称，大小或类型对应用程序列表进行排序。
+
+
+
+
+
+== 操作图标
+
+可以使用 * 增强型 * 选项卡上的以下图标启动操作：
+
+* * 添加图标 image:../media/add_plus_sign.gif[""]*
++
+用于向选定 SVM 添加应用程序。
+
+* * 筛选器图标 image:../media/filter_icon_white_background.gif[""]*
++
+用于指定要在搜索结果中显示的应用程序类型。
+
+* * 显示图标 image:../media/display_icon.gif[""]*
++
+用于在列表视图和应用程序信息卡视图之间切换。
+
+

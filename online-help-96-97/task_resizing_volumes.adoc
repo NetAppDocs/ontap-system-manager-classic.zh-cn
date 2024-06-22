@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_resizing_volumes.html 
+sidebar: sidebar 
+keywords: resize, volume, capacity, snapshot, copy, online, help 
+summary: 当卷容量接近全满时，您可以增加卷的大小，删除某些 Snapshot 副本或调整 Snapshot 预留。您可以使用 System Manager 中的卷大小调整向导提供更多可用空间。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本调整卷大小
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当卷容量接近全满时、您可以使用ONTAP System Manager classic (在ONTAP 9.7及更早版本中提供)来增加卷的大小、删除某些Snapshot副本或调整Snapshot预留。您可以使用 System Manager 中的卷大小调整向导提供更多可用空间。
+
+.关于此任务
+* 对于配置为自动增长的卷，您可以根据卷大小的增加修改卷可以自动增长到的限制。
+* 如果数据保护卷的镜像关系已断开或已对该卷执行反向重新同步操作，则无法调整该卷的大小。
++
+而是必须使用命令行界面（ CLI ）。
+
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要调整大小的卷。
+. 单击 * 更多操作 * > * 调整大小 * 。
+. 根据向导的提示键入或选择信息。
+. 确认详细信息，然后单击 * 完成 * 完成向导。
+. 在 * 卷 * 窗口中验证对卷的可用空间和总空间所做的更改。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_editing_protection_policies.html 
+sidebar: sidebar 
+keywords: edit, protection, policies, online, help, system, manager 
+summary: 您可以使用 System Manager 修改保护策略并将此策略应用于数据保护关系。 
+---
+= 编辑保护策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 修改保护策略并将此策略应用于数据保护关系。
+
+.关于此任务
+保护策略不会在集群级别显示。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 Storage Virtual Machine （ SVM ），然后单击 * SVM 设置 * 。
+. 在 * 策略 * 窗格中，单击 * 保护策略 * 。
+. 选择要编辑的保护策略，然后单击 * 编辑 * 。
+. 修改传输优先级，然后启用或禁用网络压缩。
+. 对于异步镜像策略，请备份所有源 Snapshot 副本。
+. 对于存储策略或镜像存储策略，修改 SnapMirror 标签和保留计数。
++
+您不能删除镜像存储策略的 sm_created 标签。
+
+. 单击 * 保存 * 。
+

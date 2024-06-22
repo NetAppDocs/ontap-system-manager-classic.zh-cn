@@ -1,0 +1,127 @@
+---
+permalink: online-help-96-97/concept_how_data_ontap_name_service_switch_configuration_works.html 
+sidebar: sidebar 
+keywords: ontap, name, service, switch, configuration, works, unix, system, online, help 
+summary: ONTAP 将名称服务配置信息存储在一个表中，该表相当于 UNIX 系统上的 /etc/nsswitch.conf 文件。您必须了解该表的功能以及 ONTAP 如何使用它，以便可以根据您的环境对其进行适当配置。 
+---
+= 关于System Manager中的ONTAP 名称服务开关配置—ONTAP 9.7及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)会将名称服务配置信息存储在一个表中、该表相当于 `/etc/nsswitch.conf` 文件。您必须了解该表的功能以及 ONTAP 如何使用它，以便可以根据您的环境对其进行适当配置。
+
+ONTAP 名称服务切换表可确定 ONTAP 为检索特定类型的名称服务信息而查询的名称服务源。ONTAP 会为每个 SVM 维护一个单独的名称服务切换表。
+
+
+
+== 数据库类型
+
+该表为以下每种数据库类型存储一个单独的名称服务列表：
+
+|===
+| 数据库类型 | 定义名称服务源 ... | 有效源为 ... 
+
+
+ a| 
+主机
+ a| 
+将主机名转换为 IP 地址
+ a| 
+文件， DNS
+
+
+
+ a| 
+组
+ a| 
+查找用户组信息
+ a| 
+文件， nis ， ldap
+
+
+
+ a| 
+密码
+ a| 
+查找用户信息
+ a| 
+文件， nis ， ldap
+
+
+
+ a| 
+网络组
+ a| 
+正在查找网络组信息
+ a| 
+文件， nis ， ldap
+
+
+
+ a| 
+命名映射
+ a| 
+正在映射用户名
+ a| 
+文件， LDAP
+
+|===
+
+
+== 源类型
+
+源用于指定用于检索相应信息的名称服务源。
+
+|===
+| 指定源类型 ... | 查找信息的位置 | 由命令系列管理 ... 
+
+
+ a| 
+文件
+ a| 
+本地源文件
+ a| 
+`vserver services name-service unix-user`
+
+`vserver services name-service unix-group`
+
+`vserver services name-service netgroup`
+
+`vserver services name-service dns hosts`
+
+
+
+ a| 
+NIS
+ a| 
+在 SVM 的 NIS 域配置中指定的外部 NIS 服务器
+ a| 
+`vserver services name-service nis-domain`
+
+
+
+ a| 
+ldap
+ a| 
+在 SVM 的 LDAP 客户端配置中指定的外部 LDAP 服务器
+ a| 
+`vserver services name-service ldap`
+
+
+
+ a| 
+DNS
+ a| 
+在 SVM 的 DNS 配置中指定的外部 DNS 服务器
+ a| 
+`vserver services name-service dns`
+
+|===
+即使您计划使用NIS或LDAP进行数据访问和SVM管理身份验证、也仍应包括 `files` 并将本地用户配置为在NIS或LDAP身份验证失败时的回退。
+
+* 相关信息 *
+
+xref:task_editing_svm_settings.adoc[编辑SVM设置]

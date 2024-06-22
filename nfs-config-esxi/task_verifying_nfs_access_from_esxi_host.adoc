@@ -1,0 +1,27 @@
+---
+permalink: nfs-config-esxi/task_verifying_nfs_access_from_esxi_host.html 
+sidebar: sidebar 
+keywords: provision, datastore, esxi, verify, nfs, access, creating, create, virtual, machine, power, verify nfs access from an esxi host 
+summary: 配置数据存储库后，您可以通过在该数据存储库上创建虚拟机并打开其电源来验证 ESXi 主机是否具有 NFS 访问权限。 
+---
+= 验证从 ESXi 主机进行的 NFS 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置数据存储库后，您可以通过在该数据存储库上创建虚拟机并打开其电源来验证 ESXi 主机是否具有 NFS 访问权限。
+
+.步骤
+. 在 vSphere Web Client * 主页 * 页面中，单击 * 主机和集群 * 。
+. 在导航窗格中，展开数据中心以找到先前创建的数据存储库。
+. 单击 * 创建新虚拟机 * 并在向导中提供所需信息。
++
+要验证 NFS 访问，您应选择先前创建的数据中心， ESXi 主机和数据存储库。
+
++
+虚拟机将显示在 vSphere Web Client 清单中。
+
+. 启动虚拟机。
+

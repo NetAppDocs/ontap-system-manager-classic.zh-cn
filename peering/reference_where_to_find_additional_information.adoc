@@ -1,0 +1,42 @@
+---
+permalink: peering/reference_where_to_find_additional_information.html 
+sidebar: sidebar 
+keywords: successful, create, cluster, peer, relationship, protect, availability, data, configure, protection, configuration, where to find additional information 
+summary: 成功创建集群对等关系后，即可保护数据的可用性。 
+---
+= 从何处查找追加信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+成功创建集群对等关系后，即可保护数据的可用性。
+
+您可以使用以下信息保护数据：
+
+* link:../volume-disaster-prep/index.html["卷灾难恢复准备"]
++
+介绍如何快速配置和监控不同集群中的卷之间的 SnapMirror 关系。
+
+* link:../volume-backup-snapvault/index.html["使用 SnapVault 进行卷备份"]
++
+介绍如何快速配置集群间 SnapVault 关系。
+
+
+
+有关更多信息，请参见：
+
+* https://docs.netapp.com/us-en/ontap/data-protection/index.html["数据保护"^]
++
+介绍如何使用 Snapshot 副本和 SnapMirror 复制到远程系统来防止数据丢失
+
+* http://www.netapp.com/us/media/tr-4015.pdf["NetApp 技术报告 4015 ：《 ONTAP 9.1 和 9.2 的 SnapMirror 配置和最佳实践》"^]
++
+介绍有关配置复制的信息和最佳实践，包括集群对等。
+
+* https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"^]
++
+提供有关集群对等的概念信息。
+
+

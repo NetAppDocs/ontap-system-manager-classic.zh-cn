@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_viewing_list_saved_snapshot_copies.html 
+sidebar: sidebar 
+keywords: view, list, saved, snapshot, copy, system, manager, online, help 
+summary: 您可以使用 System Manager 从卷窗口下部窗格的 Snapshot 副本选项卡中查看选定卷的所有已保存 Snapshot 副本列表。您可以使用已保存 Snapshot 副本列表重命名，还原或删除 Snapshot 副本。 
+---
+= 使用 System Manager 查看已保存的 Snapshot 副本列表— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)从卷窗口下部窗格的Snapshot副本选项卡查看选定卷的所有已保存Snapshot副本的列表。您可以使用已保存 Snapshot 副本列表重命名，还原或删除 Snapshot 副本。
+
+.开始之前
+卷必须处于联机状态。
+
+.关于此任务
+一次只能查看一个卷的 Snapshot 副本。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 单击要查看其已保存 Snapshot 副本的卷旁边的加号（ + ）。
+. 单击 * 显示更多详细信息 * 链接可查看有关卷的更多信息。
+. 单击 * Snapshot 副本 * 选项卡。
++
+此时将显示选定卷的可用 Snapshot 副本列表。
+
+

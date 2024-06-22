@@ -1,0 +1,33 @@
+---
+permalink: smb-config/task_configuring_verifying_client_access.html 
+sidebar: sidebar 
+keywords: client, access, share, setting, ntfs, file, permission, windows, explorer, modify, share, acl, system, manager, affect, group, volume, configure, verify, vonfigure and verify cifs client access 
+summary: 准备好后，您可以通过在 Windows 资源管理器中设置 NTFS 文件权限并在 System Manager 中修改共享 ACL ，为选定客户端授予对共享的访问权限。然后，您应测试受影响的用户或组是否可以访问此卷。 
+---
+= 配置并验证 CIFS 客户端访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备好后，您可以通过在 Windows 资源管理器中设置 NTFS 文件权限并在 System Manager 中修改共享 ACL ，为选定客户端授予对共享的访问权限。然后，您应测试受影响的用户或组是否可以访问此卷。
+
+.步骤
+. 确定要为哪些客户端和用户或组授予对共享的访问权限。
+. 在 Windows 客户端上，使用管理员角色为用户或组授予对文件和文件夹的权限。
++
+.. 以具有足够管理权限的管理员身份登录到 Windows 客户端，以管理 NTFS 权限。
+.. 在 Windows 资源管理器中，右键单击驱动器，然后选择 * 属性 * 。
+.. 选择 * 安全性 * 选项卡，然后根据需要调整组和用户的安全设置。
+
+
+. 在 System Manager 中，修改共享 ACL 以授予 Windows 用户或组对共享的访问权限。
++
+.. 导航到 * 共享 * 窗口。
+.. 选择共享，然后单击 * 编辑 * 。
+.. 选择 * 权限 * 选项卡，并为用户或组授予对共享的访问权限。
+
+
+. 在 Windows 客户端上，以现在有权访问共享和文件的用户之一身份登录，并验证您是否可以访问共享并创建文件。
+

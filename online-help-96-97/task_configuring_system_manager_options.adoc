@@ -1,0 +1,31 @@
+---
+permalink: online-help-96-97/task_configuring_system_manager_options.html 
+sidebar: sidebar 
+keywords: system, manager, configure, system, manager, option, online, help 
+summary: 您可以启用日志记录并为 System Manager 指定非活动超时值。 
+---
+= 配置 System Manager 选项— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以启用日志记录并为 ONTAP System Manager classic （在 ONTAP 9.7 或更早版本中提供）指定非活动超时值。
+
+.关于此任务
+您可以从 System Manager 登录窗口配置这些选项。但是，您必须登录到应用程序才能指定非活动超时值。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 窗格中，单击 * 常规 * 。
+. 指定日志级别。
+. 以分钟为单位指定非活动超时值。
++
+[NOTE]
+====
+如果已启用安全断言标记语言（ SAML ）身份验证，则此选项不可用。
+
+====
+. 单击 * 确定 * 。
+

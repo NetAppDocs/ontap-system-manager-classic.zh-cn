@@ -1,0 +1,15 @@
+---
+section: volume-restore-snapvault
+title: 使用 SnapVault 进行卷还原管理
+entries:
+- title: 概述
+  url: "/volume-restore-snapvault/index.html"
+- title: 卷还原工作流
+  url: "/volume-restore-snapvault/concept_volume_restore_workflow.html"
+  entries:
+  - title: 确定 SnapVault 备份目标卷
+    url: "/volume-restore-snapvault/task_identifying_snapvault_backup_destination_volume.html"
+  - title: 从 SnapVault 备份还原数据
+    url: "/volume-restore-snapvault/task_restoring_data_from_snapvault_backup.html"
+  - title: 验证还原操作
+    url: "/volume-restore-snapvault/task_verifying_restore_operation.html"

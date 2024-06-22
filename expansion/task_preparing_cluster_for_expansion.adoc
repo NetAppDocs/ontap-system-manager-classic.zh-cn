@@ -1,0 +1,14 @@
+---
+permalink: expansion/task_preparing_cluster_for_expansion.html 
+sidebar: sidebar 
+keywords: prepare, cluster, expansion, node-locked, license, verify, system, health, configuration, generate autosupport, message, prepare the cluster for expansion 
+summary: 要为集群做好扩展准备，您必须添加节点锁定许可证，验证系统运行状况，备份集群的配置并生成 AutoSupport 消息。 
+---
+= 准备集群以进行扩展
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要为集群做好扩展准备，您必须添加节点锁定许可证，验证系统运行状况，备份集群配置并生成 AutoSupport 消息。

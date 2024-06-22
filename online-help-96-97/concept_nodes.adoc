@@ -1,0 +1,103 @@
+---
+permalink: online-help-96-97/concept_nodes.html 
+sidebar: sidebar 
+keywords: node, system, manager, view, detail, cluster, online, help 
+summary: 您可以使用 System Manager 查看集群中节点的详细信息。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理节点
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）查看集群中节点的详细信息。
+
+
+
+== 初始化 ComplianceClock 时间
+
+您可以使用 System Manager 将 ComplianceClock 时间初始化为当前集群时间。要创建 SnapLock 聚合，必须初始化 ComplianceClock 时间。
+
+.开始之前
+必须安装 SnapLock 许可证。
+
+.关于此任务
+初始化 ComplianceClock 时间后，您无法修改或停止它。
+
+.步骤
+. 单击 * 存储 * > * 节点 * 。
+. 选择节点，然后单击 * 初始化 ComplianceClock* 。
+. 在 * 初始化 ComplianceClock* 对话框中，单击 * 是 * 将 ComplianceClock 时间初始化为当前集群时间。
+
+
+
+
+== 节点窗口
+
+您可以使用节点窗口查看集群中节点的详细信息。
+
+
+
+=== 命令按钮
+
+* * 初始化 ComplianceClock*
++
+将选定节点的 ComplianceClock 初始化为系统时钟的当前值。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 节点列表
+
+* * 名称 *
++
+显示节点的名称。
+
+* * 状态 *
++
+显示节点的状态（节点是已启动还是已关闭）。
+
+* * 运行时间 *
++
+显示节点运行的持续时间。
+
+* * ONTAP 版本 *
++
+显示节点上安装的 ONTAP 版本。
+
+* * 型号 *
++
+显示节点的平台型号。
+
+* * 系统 ID*
++
+显示节点的 ID 。
+
+* * 序列号 *
++
+显示节点的序列号。
+
+
+
+
+
+=== 详细信息区域
+
+显示有关选定节点的详细信息。
+
+* * 详细信息选项卡 *
++
+显示与选定节点相关的信息，例如节点名称，节点状态以及节点运行的持续时间。
+
+* * 性能选项卡 *
++
+显示选定节点的吞吐量， IOPS 和延迟。
+
++
+更改客户端时区或集群时区会影响性能指标图。您应刷新浏览器以查看更新后的图形。
+
+

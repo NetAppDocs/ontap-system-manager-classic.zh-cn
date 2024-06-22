@@ -1,0 +1,94 @@
+---
+permalink: online-help-96-97/concept_ldap_configuration_services.html 
+sidebar: sidebar 
+keywords: ldap, configuration, service, system, manager, online, help, storage, virtual, machine, ldap, client, window 
+summary: 您可以使用 System Manager 管理 LDAP 配置。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理 LDAP 配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理 LDAP 配置。
+
+
+
+== 编辑活动 LDAP 客户端
+
+您可以使用 System Manager 将活动 LDAP 客户端与 Storage Virtual Machine （ SVM ）相关联，从而可以将 LDAP 用作名称服务或用于名称映射。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * LDAP 配置 * 。
+. 在 * LDAP 配置 * 窗口中，单击 * 编辑 * 。
+. 在 * 活动 LDAP 客户端 * 对话框中，选择要编辑的 LDAP 客户端，然后执行以下操作：
++
+** 修改 Active Directory 域服务器。
+** 修改首选 Active Directory 服务器。
+
+
+. 单击 * 确定 * 。
+. 验证您所做的更改是否已在 * LDAP 配置 * 窗口中更新。
+
+
+
+
+== 删除活动 LDAP 客户端
+
+如果您不希望 Storage Virtual Machine （ SVM ）与某个活动 LDAP 客户端关联，则可以使用 System Manager 删除该客户端。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 单击 * SVM 设置 * 选项卡。
+. 在 * 服务 * 窗格中，单击 * LDAP 配置 * 。
+. 单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+
+
+== LDAP 配置窗口
+
+您可以使用 LDAP 配置窗口在 Storage Virtual Machine （ SVM ）级别编辑或删除活动 LDAP 客户端。
+
+
+
+=== 命令按钮
+
+* * 编辑 * 。
++
+打开 Active LDAP 客户端对话框，在此可以编辑活动 LDAP 客户端的属性，例如 Active Directory 域服务器和首选 Active Directory 服务器。
+
+* * 删除 *
++
+打开删除活动 LDAP 客户端对话框，在此可以删除活动 LDAP 客户端。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== LDAP 配置区域
+
+显示有关活动 LDAP 客户端的详细信息。
+
+* * LDAP 客户端名称 *
++
+显示活动 LDAP 客户端的名称。
+
+* * Active Directory 域服务器 *
++
+显示活动 LDAP 客户端的 Active Directory 域。
+
+* * 首选 Active Directory 服务器 *
++
+显示活动 LDAP 客户端的首选 Active Directory 服务器。
+
+

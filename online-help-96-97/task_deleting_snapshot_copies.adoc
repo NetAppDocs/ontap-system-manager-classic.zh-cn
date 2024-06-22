@@ -1,0 +1,50 @@
+---
+permalink: online-help-96-97/task_deleting_snapshot_copies.html 
+sidebar: sidebar 
+keywords: delete, snapshot, copy, online, help, system, manager 
+summary: 您可以使用 System Manager 删除 Snapshot 副本以节省磁盘空间或释放磁盘空间。如果不再需要 Snapshot 副本，您也可以删除该 Snapshot 副本。 
+---
+= 使用 System Manager 删除 Snapshot 副本— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）删除 Snapshot 副本以节省磁盘空间或释放磁盘空间。如果不再需要 Snapshot 副本，您也可以删除该 Snapshot 副本。
+
+.开始之前
+如果要删除处于繁忙或锁定状态的 Snapshot 副本，则必须已从正在使用 Snapshot 副本的应用程序释放此 Snapshot 副本。
+
+.关于此任务
+* 如果 FlexClone 卷正在使用父卷中的基本 Snapshot 副本，则不能删除该 Snapshot 副本。
++
+基本 Snapshot 副本是用于创建 FlexClone 卷的 Snapshot 副本。基本Snapshot副本始终显示状态 `busy` 和应用程序依赖关系作为 `busy,vclone` 在父卷中。
+
+* 您不能删除 SnapMirror 关系中使用的已锁定 Snapshot 副本。
++
+Snapshot 副本已锁定，下次更新时需要使用此副本。
+
+* 在 Snapshot 副本到期之前，不能从 SnapVault 关系中使用的 SnapLock DP 卷中删除 Snapshot 副本。
+* 您不能删除处于 SnapVault 关系中的 SnapLock DP 卷的未过期 Snapshot 副本（已提交到 WORM 状态）。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 展开所需的卷。
+. 单击 * 显示更多详细信息 * 链接可查看有关卷的更多信息。
+. 单击 * Snapshot 副本 * 选项卡。
++
+此时将显示选定卷的可用 Snapshot 副本列表。
+
+. 选择要删除的 Snapshot 副本。
+. 单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

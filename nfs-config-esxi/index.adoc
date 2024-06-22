@@ -1,0 +1,38 @@
+---
+permalink: nfs-config-esxi/index.html 
+sidebar: sidebar 
+keywords: nfs, access, esxi, host, datastores, ontap, volume, configuration, overview, vsc 
+summary: 使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本），您可以使用 ONTAP 卷为 ESXi 主机快速设置对数据存储库的 NFS 访问。 
+---
+= 使用VSC为ESXi配置NFS概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本），您可以使用 ONTAP 卷为 ESXi 主机快速设置对数据存储库的 NFS 访问。
+
+在以下情况下使用此操作步骤：
+
+* 您正在使用受支持版本的适用于 VMware vSphere 的 Virtual Storage Console （ VSC ）来配置数据存储库和创建卷。
++
+** 从 VSC 7.0 开始， VSC 属于 https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["适用于 VMware vSphere 的 ONTAP 工具"^] 虚拟设备，包括适用于 VMware vSphere 的 VSC ， vStorage APIs for Storage Awareness （ VASA ） Provider 和 Storage Replication Adapter （ SRA ）功能。
+** 请务必检查 https://imt.netapp.com/matrix/["NetApp 互操作性表工具"^] 以确认当前 ONTAP 版本与 VSC 版本之间的兼容性。
+
+
+* 您的数据网络使用默认 IP 空间，默认广播域和默认故障转移组。
++
+如果您的数据网络正常运行，则这些默认对象会规定 LIF 在链路出现故障时可以正确地进行故障转移。如果您不使用默认对象，应参见 https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"^] 有关如何配置 LIF 路径故障转移的信息。
+
+* 您希望使用适用于 VMware VAAI 的插件。
++
+** 通过 VMware vStorage APIs for Array Integration （ VAAI ），您可以执行副本卸载和空间预留。适用于 VMware VAAI 的插件使用此功能来提高主机性能，因为操作不需要通过 ESXi 主机，因此可以利用 ONTAP 中节省空间和时间的克隆功能。
+** 最佳做法是使用 VMware VAAI 进行数据存储库配置。
+** 适用于 VMware VAAI 的 NFS 插件可从获取 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^] 站点
+
+
+* NFS 访问将通过 NFSv3 和 NFSv4 进行，以便与 VMware VAAI 结合使用。
+
+
+有关详细信息，请参见 https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html["TR-4597 ：适用于 ONTAP 的 VMware vSphere"^] 以及适用于您的 VSC 版本的文档。

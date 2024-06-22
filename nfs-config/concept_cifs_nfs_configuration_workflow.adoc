@@ -1,0 +1,16 @@
+---
+permalink: nfs-config/concept_cifs_nfs_configuration_workflow.html 
+sidebar: sidebar 
+keywords: configuring, configure, creating, create, aggregate, workflow, goal-creating, nfs-enabled, svm, access, exist, volume, access, nfs configuration workflow 
+summary: 配置 NFS 包括选择性地创建聚合，然后选择特定于您的目标的工作流—创建启用了 NFS 的新 SVM ，配置对现有 SVM 的 NFS 访问，或者只需将 NFS 卷添加到已完全配置 NFS 访问的现有 SVM 。 
+---
+= NFS 配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 NFS 包括选择性地创建聚合，然后选择特定于您的目标的工作流—创建启用了 NFS 的新 SVM ，配置对现有 SVM 的 NFS 访问，或者仅将 NFS 卷添加到已完全配置 NFS 访问的现有 SVM 。
+
+image::../media/nfs_config.gif[简要介绍了 NFS 设置过程,including the steps that occur before NFS setup begins,and the steps that can be optionally performed afterwards.]

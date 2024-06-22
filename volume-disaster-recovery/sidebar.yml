@@ -1,0 +1,29 @@
+---
+section: volume-disaster-recovery
+title: 卷灾难恢复
+entries:
+- title: 概述
+  url: "/volume-disaster-recovery/index.html"
+- title: 卷灾难恢复工作流
+  url: "/volume-disaster-recovery/concept_volume_disaster_recovery_workflow.html"
+  entries:
+  - title: 激活目标卷
+    url: "/volume-disaster-recovery/task_activating_destination_volume.html"
+    entries:
+    - title: 验证源卷的状态
+      url: "/volume-disaster-recovery/task_verifying_source_volume_status.html"
+    - title: 断开 SnapMirror 关系
+      url: "/volume-disaster-recovery/task_breaking_snapmirror_relationship.html"
+    - title: 验证目标卷状态
+      url: "/volume-disaster-recovery/task_verifying_destination_volume_status.html"
+  - title: 配置用于数据访问的目标卷
+    url: "/volume-disaster-recovery/task_configuring_destination_volume_for_data_access.html"
+  - title: 重新激活源卷
+    url: "/volume-disaster-recovery/task_reactivating_source_volume.html"
+    entries:
+    - title: 重新同步源卷
+      url: "/volume-disaster-recovery/task_resynchronizing_source_volume.html"
+    - title: 更新源卷
+      url: "/volume-disaster-recovery/task_updating_source_volume.html"
+    - title: 重新激活源卷
+      url: "/volume-disaster-recovery/task_returning_recovered_volume_to_source_role.html"

@@ -1,0 +1,42 @@
+---
+permalink: online-help-96-97/task_deleting_application.html 
+sidebar: sidebar 
+keywords: delete, application, provisioned 
+summary: 您可以删除不再需要的已配置应用程序。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本删除应用程序
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)删除不再需要的已配置应用程序。
+
+.关于此任务
+作为集群管理员，在配置应用程序后，您可以在不再需要应用程序时将其删除。以下示例操作步骤介绍了如何删除 * NAS 容器 * 应用程序。
+
+.步骤
+. 单击 * 应用程序和层 * > * 应用程序 *
+. 单击 NAS 容器应用程序的名称。
++
+[NOTE]
+====
+如果有人在您查看应用程序列表时使用命令行界面或 REST API 添加新应用程序，则在滚动列表时将无法查看这些新应用程序。
+
+====
++
+" 应用程序详细信息： nas" 窗口的 * 概述 * 选项卡显示应用程序设置。
+
+. 单击 * 删除 * 。
++
+此时将显示一个对话框，询问您是否确实要删除此应用程序。
+
+. 单击 * 删除 * 。
++
+[NOTE]
+====
+使用应用程序删除操作删除的任何卷都不会置于恢复队列中。此时将立即删除此卷。
+
+====
+

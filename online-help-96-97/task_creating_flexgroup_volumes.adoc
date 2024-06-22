@@ -1,0 +1,111 @@
+---
+permalink: online-help-96-97/task_creating_flexgroup_volumes.html 
+sidebar: sidebar 
+keywords: create, flexgroup, volume, online, help, system, manager 
+summary: FlexGroup 卷可以包含许多卷，这些卷可以作为一个组进行管理，而不是单独进行管理。您可以使用 System Manager 通过选择特定聚合或系统建议的聚合来创建 FlexGroup 卷。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建 FlexGroup 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）通过选择特定聚合或选择系统建议的聚合来创建 FlexGroup 卷。FlexGroup 卷可以包含许多卷，这些卷可以作为一个组进行管理，而不是单独进行管理。
+
+.关于此任务
+* 您只能创建读 / 写（ rw ） FlexGroup 卷。
+* 从 System Manager 9.6 开始，您可以在 MetroCluster 配置中创建 FlexGroup 卷。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 单击 * 创建 * > * 创建 FlexGroup * 。
+. 在 * 创建 FlexGroup * 窗口中，指定 FlexGroup 卷的名称。
++
+默认情况下，系统会根据最佳实践选择聚合。
+
+. 单击 "* 卷加密 " 按钮为卷启用加密。
++
+只有在已启用卷加密许可证且相应平台支持加密的情况下，此选项才可用。
+
++
+如果对选定聚合进行加密，则启用卷加密可能会影响跨卷存储效率。
+
+. 指定 FlexGroup 卷的大小。
++
+[NOTE]
+====
+您还必须指定度量单位。
+
+====
+. 启用 * FabricPool * 切换按钮以在 FlexGroup 卷中使用 FabricPool 聚合。
++
+** 启用 * FabricPool 分层策略 * 后，您可以从下拉菜单中的以下选项中选择分层策略：
++
+*** * 仅 Snapshot *
++
+仅移动当前未被活动文件系统引用的卷的 Snapshot 副本。默认分层策略为仅快照策略。
+
+*** * 自动 *
++
+将非活动数据（冷数据）和 Snapshot 副本从活动文件系统移动到云层。
+
+*** * 备份（适用于 System Manager 9.5 ） *
++
+将数据保护（ DP ）卷中新传输的数据移动到云层。
+
+*** * 全部（从 System Manager 9.6 开始） *
++
+将所有数据移动到云层。
+
+*** * 无 *
++
+防止卷上的数据移动到云层。
+
+
+
+** 如果将 * FabricPool * 保留在 "`not enabled` " 位置，则创建的 FlexGroup 卷仅包含非 FabricPool 聚合，并且分层策略设置为 "`None` " 。
+** 如果 SVM 中不存在 FabricPool 聚合，则 * FabricPool * 将显示在 " 未启用 " 位置，并且无法更改。
+** 如果 SVM 中仅存在 FabricPool 聚合，则 * FabricPool * 按钮将显示在 " 已启用 " 位置，并且无法更改。
+
+
+. 如果要指定特定聚合，请单击 image:../media/advanced_options.gif[""] （高级选项）。
++
+默认情况下，系统会根据最佳实践选择与要创建的 FlexGroup 卷关联的聚合。它们将显示在 * 聚合 * 标签旁边。
+
+. 在 * 保护 * 部分中，执行以下操作：
++
+.. 启用 * 卷保护 * 选项。
+.. 选择 * 复制 * 类型。
++
+[NOTE]
+====
+FlexGroup 卷不支持 * 同步 * 复制类型。
+
+====
+.. 如果您不知道复制类型和关系类型，请单击 * 帮助我选择 * 。
++
+*** 指定值并单击 * 应用 * 。
++
+系统会根据指定的值自动选择复制类型和关系类型。
+
+
+
+.. 选择关系类型。
++
+关系类型可以是镜像，存储或镜像和存储。
+
+.. 为目标卷选择一个集群和一个 SVM 。
++
+如果选定集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则仅会列出对等 SVM 。如果选定集群运行的是 ONTAP 9.3 或更高版本，则会列出对等 SVM 和允许的 SVM 。
+
+.. 根据需要修改卷名称后缀。
+
+
+. 单击 * 创建 * 以创建 FlexGroup 卷。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

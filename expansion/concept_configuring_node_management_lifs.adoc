@@ -1,0 +1,58 @@
+---
+permalink: expansion/concept_configuring_node_management_lifs.html 
+sidebar: sidebar 
+keywords: controller, module, physical, install, power, configure, node-mangement, lif, configure node-management lifs 
+summary: 物理安装控制器模块后，您可以打开每个控制器模块的电源并配置其节点管理 LIF 。 
+---
+= 配置节点管理 LIF
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+物理安装控制器模块后，您可以打开每个控制器模块的电源并配置其节点管理 LIF 。
+
+.关于此任务
+您必须在两个节点上执行此操作步骤。
+
+.步骤
+. 通过串行控制台访问控制器模块。
+. 打开控制器模块的电源，并等待节点启动，此时集群设置向导将在控制台上自动启动。
++
+[listing]
+----
+Welcome to the cluster setup wizard.
+
+You can enter the following commands at any time:
+  "help" or "?" - if you want to have a question clarified,
+  "back" - if you want to change previously answered questions, and
+  "exit" or "quit" - if you want to quit the cluster setup wizard.
+   Any changes you made before quitting will be saved.
+
+You can return to cluster setup at any time by typing "cluster setup".
+To accept a default or omit a question, do not enter a value.
+----
+. 按照基于 Web 的集群设置向导中的提示，使用先前收集的网络信息配置节点管理 LIF 。
+. Type `exit` 完成节点管理LIF配置后、退出设置向导并完成管理任务。
++
+[listing]
+----
+Use your web browser to complete cluster setup by accessing
+https://10.63.11.29
+
+Otherwise, press Enter to complete cluster setup using the command line interface:
+exit
+----
+. 以身份登录到此节点 `admin` 用户、不需要密码。
++
+[listing]
+----
+Tue Mar 4 23:13:33 UTC 2015
+login: admin
+******************************************************
+* This is a serial console session. Output from this *
+* session is mirrored on the SP console session.     *
+----
+. 对新安装的第二个控制器模块重复整个操作步骤。
+

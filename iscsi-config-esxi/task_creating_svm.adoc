@@ -1,0 +1,76 @@
+---
+permalink: iscsi-config-esxi/task_creating_svm.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, svm, iscsi, target, host, access, lun, logical, interface, lif, administration, function, cluster, create, create a new svm 
+summary: Storage Virtual Machine （ SVM ）提供 iSCSI 目标，主机可通过此目标访问 LUN 。创建 SVM 时，还需要创建逻辑接口（ LIF ），以提供 LUN 的路径。您可以创建 SVM 以将用户的数据和管理功能与集群中其他用户的数据和管理功能分隔开。 
+---
+= 创建新的SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Storage Virtual Machine （ SVM ）提供 iSCSI 目标，主机可通过此目标访问 LUN 。创建 SVM 时，还需要创建逻辑接口（ LIF ），以提供 LUN 的路径。您可以创建 SVM 以将用户的数据和管理功能与集群中其他用户的数据和管理功能分隔开。
+
+.开始之前
+* 您必须具有足够的可用网络地址，以便为每个节点创建两个 LIF 。
+
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 单击 * 创建 * 。
+. 在 * Storage Virtual Machine （ SVM ） Setup* 窗口中，创建 SVM ：
++
+.. 指定 SVM 的唯一名称。
++
+此名称必须是完全限定域名（ FQDN ），或者遵循其他约定，以确保名称在集群中是唯一的。
+
+.. 选择 SVM 所属的 IP 空间。
++
+如果集群不使用多个 IP 空间，则会使用 `Default` IP 空间。
+
+.. 保留默认卷类型选择。
++
+SAN 协议仅支持 FlexVol 卷。
+
+.. 选择您拥有许可证的所有协议以及可能在 SVM 上使用的协议，即使您不想立即配置所有协议也是如此。
++
+创建 SVM 时选择 NFS 和 CIFS 可以使这两个协议共享相同的 LIF 。稍后添加这些协议不允许它们共享 LIF 。
+
++
+如果 CIFS 是您选择的协议之一，则安全模式将设置为 NTFS 。否则，安全模式将设置为 UNIX 。
+
+.. 保留默认语言设置 C.UTF-8 。
+.. 选择要包含 SVM 根卷的所需根聚合。
++
+数据卷的聚合将在后续步骤中单独选择。
+
+.. 单击 * 提交并继续 * 。
+
+
++
+此时将创建 SVM ，但尚未配置协议。
+
+. 如果由于启用了 CIFS 或 NFS 而显示 * 配置 CIFS/NFS 协议 * 页面，请单击 * 跳过 * ，然后稍后再配置 CIFS 或 NFS 。
+. 从 * 配置 iSCSI 协议 * 页面配置 iSCSI 服务并创建 LIF ：
++
+.. 输入目标别名。
+.. 使用子网或不使用子网为 LIF 分配 IP 地址。
+.. 输入 ... `2` 在*每个节点的Lifs数*字段中。
++
+每个节点需要两个 LIF ，以确保可用性和数据移动性。
+
+.. 跳过可选的 * 为 iSCSI 存储配置 LUN * 区域，因为稍后可通过适用于 VMware vSphere 的 Virtual Storage Console 配置 LUN 。
+.. 单击 * 提交并继续 * 。
+
+
+. 如果由于启用了 FC 而显示 * 配置 FC/FCoE 协议 * 页面，请单击 * 跳过 * ，然后稍后再配置 FC 。
+. 显示 * SVM 管理 * 时，请为此 SVM 配置单独的管理员：
++
+** 单击 * 跳过 * ，然后根据需要稍后配置管理员。
+** 输入请求的信息，然后单击 * 提交并继续 * 。
+
+
+. 查看 * 摘要 * 页面，记录 LIF 信息，然后单击 * 确定 * 。
+

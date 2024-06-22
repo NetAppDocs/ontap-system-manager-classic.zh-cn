@@ -1,0 +1,14 @@
+---
+permalink: nfs-config-esxi/task_configuring_esxi_host.html 
+sidebar: sidebar 
+keywords: configure, configuring, esxi, host, port, vswitches, practice, setting, correct, aggregate, provision, volume, configure the esxi host 
+summary: 配置 ESXi 主机涉及配置端口和 vSwitch 以及使用 ESXi 主机最佳实践设置。验证这些设置是否正确后，您可以创建聚合并确定在何处配置新卷。 
+---
+= 配置 ESXi 主机
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 ESXi 主机涉及配置端口和 vSwitch 以及使用 ESXi 主机最佳实践设置。验证这些设置是否正确后，您可以创建聚合并确定在何处配置新卷。

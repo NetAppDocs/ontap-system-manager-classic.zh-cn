@@ -1,0 +1,36 @@
+---
+permalink: online-help-96-97/task_deleting_aggregates.html 
+sidebar: sidebar 
+keywords: delete, aggregates, system, manager, online, help, root 
+summary: 如果您不再需要聚合中的数据，可以使用 System Manager 删除聚合。但是，您无法删除根聚合，因为它包含根卷，其中包含系统配置信息。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本删除聚合
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当您不再需要聚合中的数据时，可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）删除聚合。但是，您无法删除根聚合，因为它包含根卷，其中包含系统配置信息。
+
+.开始之前
+* 必须删除聚合中的所有 FlexVol 卷以及关联的 Storage Virtual Machine （ SVM ）。
+* 聚合必须处于脱机状态。
+
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 选择要删除的一个或多个聚合，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_aggregates_window.adoc[聚合窗口]
+
+xref:reference_storage_tiers_window.adoc[存储层窗口]

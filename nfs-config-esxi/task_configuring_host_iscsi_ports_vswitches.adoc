@@ -1,0 +1,30 @@
+---
+permalink: nfs-config-esxi/task_configuring_host_iscsi_ports_vswitches.html 
+sidebar: sidebar 
+keywords: esxi, host, network, port, nfs, connection, storage, cluster, configure, configure host ports and vswitches 
+summary: ESXi 主机需要使用网络端口才能通过 NFS 连接到存储集群。 
+---
+= 配置主机端口和 vSwitch
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ESXi 主机需要使用网络端口才能通过 NFS 连接到存储集群。
+
+.关于此任务
+建议使用 IP 哈希作为 NIC 绑定策略，这需要在一个 vSwitch 上使用一个 VMkernel 端口。
+
+用于 NFS 的主机端口和存储集群端口必须在同一子网中具有 IP 地址。
+
+此任务列出了配置 ESXi 主机的高级步骤。如果需要更详细的说明，请参见适用于您的 ESXi 版本的 VMware 出版物 _Storage_ 。
+
+http://www.vmware.com["VMware"]
+
+.步骤
+. 登录到 vSphere Client ，然后从清单窗格中选择 ESXi 主机。
+. 在 * 管理 * 选项卡上，单击 * 网络连接 * 。
+. 单击 * 添加网络连接 * ，然后选择 * VMkernel * 和 * 创建 vSphere 标准交换机 * 以创建 VMkernel 端口和 vSwitch 。
+. 为 vSwitch 配置巨型帧（ MTU 大小为 9000 ，如果使用）。
+

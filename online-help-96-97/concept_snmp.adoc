@@ -1,0 +1,155 @@
+---
+permalink: online-help-96-97/concept_snmp.html 
+sidebar: sidebar 
+keywords: system, manager, configure, snmp, svm, cluster, online, help, test, trap, host, configuration, window, command, protocol, 
+summary: 您可以使用 System Manager 配置 SNMP 以监控集群中的 SVM 。 
+---
+= 使用 System Manager 配置 SNMP - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）配置 SNMP 以监控集群中的 SVM 。
+
+
+
+== 启用或禁用SNMP
+
+您可以使用 System Manager 在集群上启用或禁用 SNMP 。通过 SNMP ，您可以监控集群中的 Storage Virtual Machine （ SVM ），以便在出现问题之前避免出现问题，并防止出现问题。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 窗格中，单击 * SNMP * 。
+. 在 * SNMP * 窗口中，单击 * 启用 * 或 * 禁用 * 。
+
+
+
+
+== 编辑 SNMP 信息
+
+您可以使用 System Manager 中的编辑 SNMP 设置对话框更新有关存储系统位置和联系人的信息，并指定系统的 SNMP 社区。
+
+.关于此任务
+System Manager 使用 SNMP 协议 SNMPv1 和 SNMPv2c 以及 SNMP 社区来发现存储系统。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 窗格中，单击 * SNMP * 。
+. 单击 * 编辑 * 。
+. 在 * 常规 * 选项卡中，指定存储系统和 SNMP 社区的联系人信息和位置信息。
++
+社区名称可以包含 32 个字符，并且不能包含以下特殊字符：， / ： " " 我们的 " 。
+
+. 在 "* SNMPv3 ？ " 选项卡中，执行以下操作：
++
+.. 单击 * 添加 * 以添加 SNMPv3 用户。
+.. 指定用户名并根据需要修改引擎 ID 。
+.. 选择 * 身份验证协议 * 并输入您的凭据。
+.. 选择 * 隐私协议 * 并输入您的凭据。
+.. 单击 * 确定 * 以保存更改。
+
+
+. 单击 * 确定 * 。
+. 在 * SNMP * 窗口中验证对 SNMP 设置所做的更改。
+
+
+
+
+== 启用或禁用 SNMP 陷阱
+
+通过 SNMP 陷阱，您可以监控存储系统各个组件的运行状况和状态。您可以使用 System Manager 中的编辑 SNMP 设置对话框在存储系统上启用或禁用 SNMP 陷阱。
+
+.关于此任务
+虽然默认情况下会启用 SNMP ，但默认情况下会禁用 SNMP 陷阱。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 窗格中，单击 * SNMP * 。
+. 在 * SNMP * 窗口中，单击 * 编辑 * 。
+. 在 * 编辑 SNMP 设置 * 对话框中，选择 * 陷阱主机 * 选项卡，然后选中或清除 * 启用陷阱 * 复选框以分别启用或禁用 SNMP 陷阱。
+. 如果启用 SNMP 陷阱，请添加要将陷阱发送到的主机的主机名或 IP 地址。
+. 单击 * 确定 * 。
+
+
+
+
+== 测试陷阱主机配置
+
+您可以使用 System Manager 测试是否已正确配置陷阱主机设置。
+
+.步骤
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]*
+. 在 * 设置 * 窗格中，单击 * SNMP * 。
+. 在 * SNMP * 窗口中，单击 * 测试陷阱主机 * 。
+. 单击 * 确定 * 。
+
+
+
+
+== SNMP窗口
+
+通过 SNMP 窗口，您可以查看系统的当前 SNMP 设置。您还可以更改系统的 SNMP 设置，启用 SNMP 协议以及添加陷阱主机。
+
+
+
+=== 命令按钮
+
+* * 启用 / 禁用 *
++
+启用或禁用 SNMP 。
+
+* * 编辑 * 。
++
+打开编辑 SNMP 设置对话框，在此可以为存储系统指定 SNMP 社区并启用或禁用陷阱。
+
+* * 测试陷阱主机 *
++
+向所有已配置的主机发送测试陷阱，以检查此测试陷阱是否到达所有主机，以及是否已正确设置 SNMP 配置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== 详细信息
+
+详细信息区域显示有关存储系统的 SNMP 服务器和主机陷阱的以下信息：
+
+* * SNMP *
++
+显示 SNMP 是否已启用。
+
+* * 陷阱 *
++
+显示 SNMP 陷阱是否已启用。
+
+* * 位置 *
++
+显示 SNMP 服务器的地址。
+
+* * 联系人 *
++
+显示 SNMP 服务器的联系详细信息。
+
+* * 陷阱主机 IP 地址 *
++
+显示陷阱主机的 IP 地址。
+
+* * 社区名称 *
++
+显示 SNMP 服务器的社区名称。
+
+* * 安全名称 *
++
+显示 SNMP 服务器的安全模式。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"]

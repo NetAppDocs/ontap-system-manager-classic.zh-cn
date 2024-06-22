@@ -1,0 +1,15 @@
+---
+permalink: iscsi-config-windows/generic_machine_translation_disclaimer.html 
+sidebar: sidebar 
+keywords: machine, translation 
+summary: 机器翻译 
+---
+= 机器翻译
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+有关本地化内容的重要信息，请参见 netapp.com 。
+
+https://www.netapp.com/company/legal/machine-translation/[]

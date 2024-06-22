@@ -1,0 +1,21 @@
+---
+section: snmp-config
+title: SNMP配置
+entries:
+- title: 概述
+  url: "/snmp-config/index.html"
+- title: SNMP配置工作流
+  url: "/snmp-config/concept_snmp_configuration_workflow.html"
+  entries:
+  - title: 验证是否已启用 SNMP
+    url: "/snmp-config/task_verifying_snmp_is_enabled.html"
+  - title: 添加 SNMP 社区
+    url: "/snmp-config/task_adding_snmp_community.html"
+  - title: 添加 SNMPv3 安全用户
+    url: "/snmp-config/task_adding_snmpv3_security_user.html"
+  - title: 添加 SNMP 陷阱主机：
+    url: "/snmp-config/task_adding_snmp_traphost.html"
+  - title: 测试 SNMP 陷阱
+    url: "/snmp-config/task_testing_snmp_traps.html"
+  - title: 测试 SNMP 轮询
+    url: "/snmp-config/task_testing_snmp_polling.html"

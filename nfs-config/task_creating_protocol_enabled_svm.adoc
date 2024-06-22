@@ -1,0 +1,14 @@
+---
+permalink: nfs-config/task_creating_protocol_enabled_svm.html 
+sidebar: sidebar 
+keywords: nfs-enabled, svm, create, creating, nfs, volume, export, policy, root, client, access, create a new nfs-enabled svm 
+summary: 设置启用了 NFS 的 SVM 涉及使用 NFS 卷和导出创建新的 SVM ，打开 SVM 根卷的默认导出策略，然后从 UNIX 管理主机验证 NFS 访问。然后，您可以配置 NFS 客户端访问。 
+---
+= 创建启用了 NFS 的新 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+设置启用了 NFS 的 SVM 涉及使用 NFS 卷和导出创建新的 SVM ，打开 SVM 根卷的默认导出策略，然后从 UNIX 管理主机验证 NFS 访问。然后，您可以配置 NFS 客户端访问。

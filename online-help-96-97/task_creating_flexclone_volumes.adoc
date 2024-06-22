@@ -1,0 +1,40 @@
+---
+permalink: online-help-96-97/task_creating_flexclone_volumes.html 
+sidebar: sidebar 
+keywords: create, flexclone, volume, system, manager, online, help 
+summary: 如果需要现有 FlexVol 卷的可写时间点副本，可以使用 System Manager 创建 FlexClone 卷。您可能希望创建卷的副本以供测试，或者在不授予其他用户对生产数据访问权限的情况下为其提供对卷的访问权限。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建 FlexClone 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果需要现有 FlexVol 卷的可写时间点副本，您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建 FlexClone 卷。您可能希望创建卷的副本以供测试，或者在不授予其他用户对生产数据访问权限的情况下为其提供对卷的访问权限。
+
+.开始之前
+* 存储系统上必须安装 FlexClone 许可证。
+* 要克隆的卷必须处于联机状态，并且必须为非根卷。
+
+
+.关于此任务
+用于为 SnapMirror 目标创建 FlexClone 卷的基本 Snapshot 副本将标记为繁忙，无法删除。如果从非最新 Snapshot 副本的 Snapshot 副本创建 FlexClone 卷，并且源卷上不再存在该 Snapshot 副本，则对目标卷的所有 SnapMirror 更新都将失败。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从卷列表中选择要克隆的 FlexVol 卷。
+. 单击 * 更多操作 * > * 克隆 * > * 创建 * > * 卷 * 。
+. 键入要创建的 FlexClone 卷的名称。
+. *可选：*如果要为新的FlexClone卷启用精简配置、请选择*精简配置*。
++
+默认情况下，此设置与父卷的设置相同。
+
+. 创建 Snapshot 副本或选择要用作创建 FlexClone 卷的基本 Snapshot 副本的现有 Snapshot 副本。
+. 单击 * 克隆 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

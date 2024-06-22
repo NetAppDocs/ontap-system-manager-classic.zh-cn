@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/concept_updating_clusters_metrocluster_configuration.html 
+sidebar: sidebar 
+keywords: update, cluster, metrocluster, configuration, online, help 
+summary: 您可以使用 System Manager 更新 MetroCluster 配置中的集群。您必须在两个集群上执行每个操作，但更新集群除外。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本更新 MetroCluster 配置中的集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新 MetroCluster 配置中的集群。您必须在两个集群上执行每个操作，但更新集群除外。
+
+image::../media/updating_cluster_mcc_configuration.gif[正在更新集群 MCC 配置]
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/upgrade/task_upgrade_andu_sm.html["升级 ONTAP"]

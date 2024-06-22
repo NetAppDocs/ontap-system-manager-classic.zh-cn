@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_starting_or_stopping_nvme_service.html 
+sidebar: sidebar 
+keywords: start, stop, nvme, service, online, help, adaptor, namespace 
+summary: 通过 NVMe 服务，您可以管理用于命名空间的 NVMe 适配器。您可以使用 System Manager 启动 NVMe 服务以使适配器联机。您可以停止 NVMe 服务以使 NVMe 适配器脱机并禁用对命名空间的访问。 
+---
+= 使用 System Manager 启动和停止 NVMe 服务 - ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)启动NVMe服务以使适配器联机。通过 NVMe 服务，您可以管理用于命名空间的 NVMe 适配器。您可以停止 NVMe 服务以使 NVMe 适配器脱机并禁用对命名空间的访问。
+
+.开始之前
+在启动 NVMe 服务之前，必须存在支持 NVMe 的适配器。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 菜单中，单击 * NVMe* 。
+. 根据需要单击 * 启动 * 或 * 停止 * 服务。
+

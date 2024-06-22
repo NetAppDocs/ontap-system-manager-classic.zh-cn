@@ -1,0 +1,94 @@
+---
+permalink: peering/task_preparing_for_cluster_peering.html 
+sidebar: sidebar 
+keywords: create, creating, cluster, peer, relationship, verify, time, synchronized, external, network, procotol, ntp, server, subnet, port, passphrase, prepare, prepare for cluster peering 
+summary: '在使用 ONTAP System Manager" 经典 " 界面和 ONTAP 9.7 或更早版本创建集群对等关系之前，您必须验证每个集群上的时间是否与外部网络时间协议（ NTP ）服务器同步，并确定要使用的子网，端口和密码短语。' 
+---
+= 准备建立集群对等关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 ONTAP System Manager _classic_ 界面和 ONTAP 9.7 或更早版本创建集群对等关系之前，您必须验证每个集群上的时间是否与外部网络时间协议（ NTP ）服务器同步，并确定要使用的子网，端口和密码短语。
+
+.步骤
+. 如果您运行的是 ONTAP 9.2 或更早版本，请确定要用于每个集群对等关系的密码短语。
++
+密码短语必须至少包含八个字符。
+
++
+|===
+
+
+| 关系 | 密码短语是 ... 
+
+
+ a| 
+集群 A 和集群 B
+ a| 
+
+|===
++
+从 ONTAP 9.3 开始，您可以在创建集群对等关系时从远程集群生成密码短语。
+
++
+link:task_creating_cluster_peer_relationship_starting_with_ontap_9_3.html["创建集群对等关系（从 ONTAP 9.3 开始）"]
+
+. 确定要用于集群间 LIF 的子网， IP 地址和端口。
++
+默认情况下，系统会自动从子网中选择 IP 地址。如果要手动指定 IP 地址，必须确保此 IP 地址已在子网中可用或稍后可添加到子网中。有关子网的信息，请参见网络选项卡。
+
++
+创建一个类似于下表的表，以记录有关集群的信息。  下表假定每个集群有四个节点。如果集群具有四个以上的节点，请为追加信息添加行。
+
++
+|===
+
+
+|  | 集群 A | 集群 B 
+
+
+ a| 
+子网（ ONTAP 9.2 或更早版本）
+ a| 
+ a| 
+
+
+
+ a| 
+IP 地址（从 ONTAP 9.3 开始，对于 ONTAP 9.2 或更早版本为可选）
+ a| 
+ a| 
+
+
+
+ a| 
+节点 1 端口
+ a| 
+ a| 
+
+
+
+ a| 
+节点2端口
+ a| 
+ a| 
+
+
+
+ a| 
+节点3端口
+ a| 
+ a| 
+
+
+
+ a| 
+节点4端口
+ a| 
+ a| 
+
+|===
+

@@ -1,0 +1,49 @@
+---
+permalink: online-help-96-97/task_preparing_for_switchover_switchback_operations.html 
+sidebar: sidebar 
+keywords: prepare, switchover, switchback, operation, system, manager, online, help 
+summary: 在使用 System Manager 9.6 执行切换操作之前，您应验证是否已在受影响的站点上执行了必要的步骤。 
+---
+= 准备切换和切回操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 ONTAP System Manager classic 9.6 执行切换操作之前，您应验证是否已在受影响的站点上执行了必要的步骤。
+
+.步骤
+. 如果要从站点 B 上的灾难中恢复，则必须执行以下步骤：
++
+.. 修复或更换任何损坏的磁盘或硬件。
+.. 恢复电源。
+.. 更正发生的错误问题。
+.. 启动灾难站点。
+
+
+. 确保集群中存在以下条件：
++
+** 如果要执行计划内切换，则两个站点均处于 "Active" 状态。
+** MetroCluster 系统使用配置类型 "`IP_Fabric` " 。
+** 这两个站点均采用双节点配置（每个集群两个节点）运行。使用 System Manager 时，不支持使用单节点或四节点配置的站点执行切换和切回操作。
+
+
+. 如果要从本地站点（站点 A ）启动远程站点（站点 B ），请确保站点 B 运行的是 System Manager 9.6 或更高版本。
+
+
+
+
+== 使用 System Manger - ONTAP 9.7 及更早版本重命名 MetroCluster 本地站点（站点 A ）
+
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）重命名集群中的 MetroCluster 本地站点（站点 A ）。
+
+.步骤
+. 单击 * 配置 * > * 配置更新 * 。
+. 单击 * 更新集群名称 * 。
+. 更新文本框中的名称，然后单击 * 提交 * 。
++
+您可以在显示 MetroCluster 站点 A 状态时查看更新后的名称。
+
+. 要在从远程站点(站点B)查看MetroCluster站点A时显示更新后的名称、请在远程站点(站点B)的命令行界面中执行以下命令： `cluster peer modify-local-name`
+

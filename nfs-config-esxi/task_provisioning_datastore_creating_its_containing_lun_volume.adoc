@@ -1,0 +1,35 @@
+---
+permalink: nfs-config-esxi/task_provisioning_datastore_creating_its_containing_lun_volume.html 
+sidebar: sidebar 
+keywords: datastore, virtual, machine, vmdk, esxi, host, provision, storage, cluster, provision a datastore and create its containing volume 
+summary: 数据存储库包含 ESXi 主机上的虚拟机及其 VMDK 。ESXi 主机上的数据存储库是在存储集群上的卷上配置的。 
+---
+= 配置数据存储库并创建其包含的卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+数据存储库包含 ESXi 主机上的虚拟机及其 VMDK 。ESXi 主机上的数据存储库是在存储集群上的卷上配置的。
+
+.开始之前
+必须安装适用于VMware vSphere for (VSC)的Virtual Storage Console并将其注册到管理ESXi主机的vCenter Server中。
+
+VSC必须具有足够的集群或凭据才能在指定的SVM上创建卷。
+
+.关于此任务
+VSC 可自动配置数据存储库，包括在指定的 SVM 上创建卷。
+
+.步骤
+. 在 vSphere Web Client * 主页 * 页面中，单击 * 主机和集群 * 。
+. 在导航窗格中，展开要配置数据存储库的数据中心。
+. 右键单击 ESXi 主机，然后选择 * NetApp VSC* > * 配置数据存储库 * 。
++
+或者，您也可以在配置时右键单击集群，使数据存储库可供集群中的所有主机使用。
+
+. 在向导中提供所需信息：
++
+image::../media/vsc_datastore_provisioning_wizard_nfs.gif[图中显示了 VSC 数据存储库配置向导的第一页。]
+
+

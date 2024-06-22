@@ -1,0 +1,16 @@
+---
+permalink: fc-config-windows/concept_fc_configuration_workflow.html 
+sidebar: sidebar 
+keywords: storage, available, host, fc, provision, volume, lun, storage, virtual, machine, svm, connect, fc configuration workflow 
+summary: 使用 FC 为主机提供存储时，您需要在 Storage Virtual Machine 上配置卷和 LUN ，然后从主机连接到 LUN 。 
+---
+= FC配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 FC 为主机提供存储时，您需要在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。
+
+image::../media/fc_windows_workflow.png[此图是 FC 工作流的流程图。工作流中的步骤与主题匹配。]

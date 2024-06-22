@@ -1,0 +1,17 @@
+---
+section: volume-backup-snapvault
+title: 使用 SnapVault 进行卷备份
+entries:
+- title: 概述
+  url: "/volume-backup-snapvault/index.html"
+- title: SnapVault 备份配置工作流
+  url: "/volume-backup-snapvault/concept_snapvault_configuration_workflow.html"
+  entries:
+  - title: 验证集群对等关系和 SVM 对等关系
+    url: "/volume-backup-snapvault/task_verify_cluster_peer_relationship.html"
+  - title: 创建 SnapVault 关系（从 ONTAP 9.3 开始）
+    url: "/volume-backup-snapvault/task_creating_snapvault_relationship_93_later.html"
+  - title: 创建 SnapVault 关系（ ONTAP 9.2 或更早版本）
+    url: "/volume-backup-snapvault/task_creating_snapvault_relationship_92_earlier.html"
+  - title: 监控 SnapVault 关系
+    url: "/volume-backup-snapvault/task_monitoring_snapvault_relationship.html"

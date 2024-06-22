@@ -1,0 +1,29 @@
+---
+permalink: online-help-96-97/task_setting_snapshot_copy_reserve.html 
+sidebar: sidebar 
+keywords: set, up, snapshot, copy, reserve, system, manager, online, help 
+summary: 您可以使用 System Manager 为卷中的 Snapshot 副本预留空间（以百分比表示）。通过设置 Snapshot 副本预留，您可以为 Snapshot 副本分配足够的磁盘空间，使其不会占用活动文件系统空间。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本设置 Snapshot 副本预留
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）为卷中的 Snapshot 副本预留空间（以百分比为单位）。通过设置 Snapshot 副本预留，您可以为 Snapshot 副本分配足够的磁盘空间，使其不会占用活动文件系统空间。
+
+.关于此任务
+SAN 和 VMware 卷中为 Snapshot 副本预留的默认空间为 5% 。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要为其设置 Snapshot 副本预留的卷。
+. 单击 * 更多操作 * > * 管理快照 * > * 配置设置 * 。
+. 键入或选择要为 Snapshot 副本预留的卷空间百分比，然后单击 * 确定 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

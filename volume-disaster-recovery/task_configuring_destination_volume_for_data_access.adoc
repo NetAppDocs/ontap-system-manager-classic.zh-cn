@@ -1,0 +1,50 @@
+---
+permalink: volume-disaster-recovery/task_configuring_destination_volume_for_data_access.html 
+sidebar: sidebar 
+keywords: activating, activate, destination, volume, configure, data, access, nas, client, san, host, access, data, source, reactivate, configure the destination volume for data access 
+summary: 激活目标卷后，您必须为该卷配置数据访问。在重新激活源卷之前， NAS 客户端和 SAN 主机可以从目标卷访问数据。 
+---
+= 配置用于数据访问的目标卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+激活目标卷后，您必须为该卷配置数据访问。在重新激活源卷之前， NAS 客户端和 SAN 主机可以从目标卷访问数据。
+
+.关于此任务
+您必须从 * 目标 * 集群执行此任务。
+
+
+
+== 操作步骤
+
+* NAS 环境：
++
+.. 使用与源 SVM 中的源卷挂载到的相同接合路径将 NAS 卷挂载到命名空间。
+.. 将相应的 ACL 应用于目标卷上的 CIFS 共享。
+.. 将 NFS 导出策略分配给目标卷。
+.. 将配额规则应用于目标卷。
+.. 通过执行更改 DNS 名称解析等必要步骤，将客户端重定向到目标卷。
+.. 在客户端上重新挂载 NFS 和 CIFS 共享。
+
+
+* SAN环境：
++
+.. 将 LUN 映射到相应的启动程序组，以使卷中的 LUN 可供 SAN 客户端使用。
+.. 对于 iSCSI ，创建从 SAN 主机启动程序到 SAN LIF 的 iSCSI 会话。
+.. 在 SAN 客户端上，执行存储重新扫描以检测已连接的 LUN 。
+
+
+
+
+
+
+== 下一步操作
+
+您应解决导致源卷不可用的问题。您必须尽可能使源卷重新联机，然后重新同步和重新激活源卷。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]

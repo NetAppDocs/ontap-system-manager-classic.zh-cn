@@ -1,0 +1,115 @@
+---
+permalink: online-help-96-97/task_configuring_cifs_nfs_protocols_on_svms.html 
+sidebar: sidebar 
+keywords: system, manager, configuring, cifs, nfs, protocols, svm, online, help 
+summary: 您可以使用 System Manager 在 Storage Virtual Machine （ SVM ）上配置 CIFS 和 NFS 协议，以便为 NAS 客户端提供文件级数据访问。要启用 CIFS 协议，必须创建数据 LIF 和 CIFS 服务器。要启用 NFS 协议，您可以指定 NIS 详细信息和数据 LIF 。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本在 SVM 上配置 CIFS 和 NFS 协议
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)在Storage Virtual Machine (SVM)上配置CIFS和NFS协议、以便为NAS客户端提供文件级数据访问。要启用 CIFS 协议，必须创建数据 LIF 和 CIFS 服务器。要启用 NFS 协议，您可以指定 NIS 详细信息和数据 LIF 。
+
+.开始之前
+* 要在 SVM 上配置或启用的协议必须获得许可。
++
+如果要配置的协议未在 SVM 上启用，则可以使用编辑 Storage Virtual Machine 窗口为 SVM 启用此协议。
+
+* 您必须具有用于配置 CIFS 协议的 Active Directory ，组织单位和管理帐户凭据。
+
+
+.关于此任务
+自动创建卷时不考虑 SnapLock 聚合。
+
+.步骤
+. 如果在创建 SVM 时未配置协议，请单击 * 存储 * > * SVM* 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击要配置的协议。
+. 在 * 数据 LIF 配置 * 部分中，如果要为 CIFS 和 NFS 保留相同的数据 LIF 配置，请选中 * 为 NFS 客户端保留 CIFS 数据 LIF 配置 * 复选框。
++
+如果不为 CIFS 和 NFS 保留相同的数据 LIF 配置，则必须为 CIFS 和 NFS 分别指定 IP 地址和端口。
+
+. 通过选择以下选项之一来指定 IP 地址：
++
+|===
+| 如果您要 ... | 那么 ... 
+
+
+ a| 
+使用子网指定 IP 地址
+ a| 
+.. 选择 * 使用子网 * 。
+.. 在添加详细信息对话框中，选择必须从中分配 IP 地址的子网。
++
+对于集群间 LIF ，仅显示与选定 IP 空间关联的子网。
+
+.. 如果要为接口分配特定 IP 地址，请选择 * 使用特定 IP 地址 * ，然后键入 IP 地址。
++
+如果您指定的 IP 地址尚未位于子网范围内，则会将此 IP 地址添加到子网中。
+
+.. 单击 * 确定 * 。
+
+
+
+
+ a| 
+手动指定 IP 地址，而不使用子网
+ a| 
+.. 选择 * 不使用子网 * 。
+.. 在添加详细信息对话框中，执行以下步骤：
++
+... 指定 IP 地址和网络掩码或前缀。
+... 可选：指定网关。
+... 如果不想对目标字段使用默认值，请指定新的目标值。
++
+如果不指定目标值，则目标字段将根据 IP 地址系列填充默认值。
+
+
+
++
+如果路由不存在，则会根据网关和目标自动创建新路由。
+
+.. 单击 * 确定 * 。
+
+
+|===
+. 指定用于创建数据 LIF 的端口：
++
+.. 单击 * 浏览 * 。
+.. 在 * 选择网络端口或适配器 * 对话框中，选择一个端口。
+.. 单击 * 确定 * 。
+
+
+. 通过执行以下步骤配置 CIFS 服务器：
++
+.. 指定以下信息以创建 CIFS 服务器：
++
+*** CIFS 服务器名称
+*** 要与 CIFS 服务器关联的 Active Directory
+*** 要与 CIFS 服务器关联的 Active Directory 域中的组织单位（ OU ）
++
+默认情况下，此参数设置为 CN=Computers 。
+
+*** 具有足够权限将 CIFS 服务器添加到 OU 的管理帐户的凭据
+
+
+.. *可选：*选择*访问此SVM*的所有共享时加密数据*可为SVM的所有共享启用SMB 3.0加密。
+.. 在配置协议时，通过指定共享名称，共享大小和访问权限来为 CIFS 存储配置卷。
+.. 选择 * 访问此共享时加密数据 * 可为特定共享启用 SMB 3.0 加密。
+
+
+. *可选：*配置NIS服务：
++
+.. 指定 NIS 服务器的 IP 地址和 NIS 域名，以便在 SVM 上配置 NIS 服务。
+.. 选择要添加 "`nis` " 名称服务源的相应数据库类型。
+.. 通过指定导出名称，大小和权限为 NFS 存储配置卷。
+
+
+. 单击 * 提交并继续 * 。
+
+
+.结果
+CIFS 服务器和 NIS 域使用指定的配置进行配置，并创建数据 LIF 。默认情况下，数据 LIF 具有管理访问权限。您可以在摘要页面上查看配置详细信息。

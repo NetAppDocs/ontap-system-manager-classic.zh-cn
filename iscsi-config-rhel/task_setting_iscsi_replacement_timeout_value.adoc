@@ -1,0 +1,26 @@
+---
+permalink: iscsi-config-rhel/task_setting_iscsi_replacement_timeout_value.html 
+sidebar: sidebar 
+keywords: support, multipath, modify, replacement, timeout, value, iscsi, configuration, file, set, set the iscsi replacement timeout value 
+summary: 要支持多路径，必须修改 iSCSI 配置文件中的替换超时值。 
+---
+= 设置 iSCSI 替换超时值
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要支持多路径，必须修改 iSCSI 配置文件中的替换超时值。
+
+.步骤
+. 在中更改替换超时值 `/etc/iscsi/iscsid.conf` 文件从默认值120到5。
++
+替换超时值类似于中的如下所示 `iscsid.conf`：
+
++
+[listing]
+----
+node.session.timeo.replacement_timeout = 5
+----
+

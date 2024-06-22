@@ -1,0 +1,97 @@
+---
+permalink: online-help-96-97/concept_kerberos_interface_services.html 
+sidebar: sidebar 
+keywords: kerberos, interface, service, system, manager, manage, online, help, edit, configuration, buttons, command, window 
+summary: 您可以使用 System Manager 管理 Kerberos 接口服务。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理 Kerberos 接口服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理 Kerberos 接口服务。
+
+
+
+== 编辑 Kerberos 配置
+
+您可以使用 System Manager 启用 Kerberos 并编辑与 Storage Virtual Machine （ SVM ）关联的 Kerberos 配置，从而使 SVM 能够对 NFS 使用 Kerberos 安全服务。
+
+.开始之前
+* 您必须在 SVM 级别至少配置一个 Kerberos 域。
+* SVM 上必须至少有两个数据 LIF 。
++
+一个数据 LIF 由服务主体名称（ Service Principal Name ， SPN ）用于 UNIX 和 CIFS 相关的 Kerberos 流量。另一个数据 LIF 用于访问非 Kerberos 流量。
+
++
+[NOTE]
+====
+基本 NFS Kerberos 访问不需要 CIFS 服务器。多协议访问或使用 Active Directory 作为 LDAP 服务器进行名称映射时，需要 CIFS 服务器。
+
+====
+
+
+.关于此任务
+如果您使用的是 Microsoft Active Directory Kerberos ，则域中使用的任何 SPN 的前 15 个字符必须是唯一的。Microsoft Active Directory 对 SPN 的限制为最多 15 个字符，并且不允许使用重复的 SPN 。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * Kerberos 接口 * 。
+. 在 * Kerberos 接口 * 窗口中，选择接口，然后单击 * 编辑 * 。
+. 在 * 编辑 Kerberos 配置 * 对话框中，进行所需的更改，然后单击 * 确定 * 。
+
+
+
+
+== Kerberos 接口窗口
+
+您可以使用 Kerberos 接口窗口启用 Kerberos 并编辑 Storage Virtual Machine （ SVM ）的 Kerberos 配置。
+
+
+
+=== 命令按钮
+
+* * 编辑 * 。
++
+打开编辑 Kerberos 配置对话框，在此可以启用 Kerberos 并编辑与 SVM 关联的 Kerberos 配置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== Kerberos 接口列表
+
+提供有关 Kerberos 配置的详细信息。
+
+* * 接口名称 *
++
+指定与 SVM 的 Kerberos 配置关联的逻辑接口。
+
+* * 服务主体名称 *
++
+指定与 Kerberos 配置匹配的服务主体名称（ Service Principal Name ， SPN ）。
+
+* * 域 *
++
+指定与 Kerberos 配置关联的 Kerberos 域的名称。
+
+* * Kerberos 状态 *
++
+指定是否启用 Kerberos 。
+
+
+
+* 相关信息 *
+
+link:https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["NetApp 技术报告 4067 ：《 NetApp ONTAP 中的 NFS 》"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19384-tr-4616.pdf["NetApp 技术报告 4616 ：《采用 Microsoft Active Directory 的 ONTAP 中的 NFS Kerberos 》"^]
+
+link:https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 技术报告 4835 ：《如何在 ONTAP 中配置 LDAP 》"^]

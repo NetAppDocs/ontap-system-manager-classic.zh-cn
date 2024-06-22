@@ -1,0 +1,16 @@
+---
+permalink: iscsi-config-rhel/concept_iscsi_configuration_provisioning_workflow.html 
+sidebar: sidebar 
+keywords: storage, host, iscsi, provision, lun, virtual, machine, svm, iscsi configuration and provisioning workflow 
+summary: 使用 iSCSI 为主机提供存储时，您需要在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。 
+---
+= iSCSI 配置和配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用 iSCSI 为主机提供存储时，您需要在 Storage Virtual Machine （ SVM ）上配置卷和 LUN ，然后从主机连接到 LUN 。
+
+image::../media/iscsi_red_hat_linux_workflow.gif[此图通过周围的文本进行了说明。]

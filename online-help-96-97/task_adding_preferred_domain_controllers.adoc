@@ -1,0 +1,58 @@
+---
+permalink: online-help-96-97/task_adding_preferred_domain_controllers.html 
+sidebar: sidebar 
+keywords: system, manager, add, preferred, domain, controller, online, help, dns, edit, modify, delete 
+summary: System Manager 会通过 DNS 自动发现域控制器。或者，您也可以将一个或多个域控制器添加到特定域的首选域控制器列表中。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本管理首选域控制器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)管理首选域控制器。
+
+
+
+== 添加首选域控制器
+
+System Manager 会通过 DNS 自动发现域控制器。或者，您也可以将一个或多个域控制器添加到特定域的首选域控制器列表中。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 域 * 选项卡中，单击 * 首选域控制器 * 区域中的 * 添加 * 。
+. 输入要添加的域控制器的完全限定域名（ FQDN ）和 IP 地址。
++
+您可以通过输入域控制器的 IP 地址并以逗号分隔来添加多个域控制器。
+
+. 单击 * 保存 * 。
+. 验证添加的域控制器是否显示在首选域控制器列表中。
+
+
+
+
+== 编辑首选域控制器
+
+您可以使用 System Manager 修改为特定域配置的首选域控制器的 IP 地址。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 域 * 选项卡的 * 首选域控制器 * 区域中，双击要编辑的域控制器。
+. 修改域控制器的 IP 地址，然后单击 * 保存 * 。
+
+
+
+
+== 删除首选域控制器
+
+您可以使用 System Manager 删除与 Storage Virtual Machine （ SVM ）计算机帐户关联的首选域控制器。如果您不再需要使用特定域控制器，则可以执行此操作。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 域 * 选项卡中，从 * 首选域控制器 * 区域中选择要删除的域，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+

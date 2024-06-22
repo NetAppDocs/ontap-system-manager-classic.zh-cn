@@ -1,0 +1,98 @@
+---
+permalink: online-help-96-97/concept_cifs_protocol.html 
+sidebar: sidebar 
+keywords: cif, protocol, system, manager, enable, configure, server, client, file, cluster, online, help, set up, general, properties, edit 
+summary: 您可以使用 System Manager 启用和配置 CIFS 服务器，以允许 CIFS 客户端访问集群上的文件。 
+---
+= 使用System Manager配置CIFS协议—ONTAP 9.7及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）启用和配置 CIFS 服务器，以允许 CIFS 客户端访问集群上的文件。
+
+
+
+== 设置 CIFS
+
+您可以使用 System Manager 启用和配置 CIFS 服务器，以允许 CIFS 客户端访问集群上的文件。
+
+.开始之前
+* 存储系统上必须安装 CIFS 许可证。
+* 在 Active Directory 域中配置 CIFS 时，必须满足以下要求：
++
+** 必须正确启用和配置 DNS 。
+** 存储系统必须能够使用完全限定域名（ FQDN ）与域控制器进行通信。
+** 集群与域控制器之间的时差（时钟偏差）不得超过五分钟。
+
+
+* 如果 CIFS 是在 Storage Virtual Machine （ SVM ）上配置的唯一协议，则必须满足以下要求：
++
+** 根卷的安全模式必须为 NTFS 。
++
+默认情况下， System Manager 会将安全模式设置为 UNIX 。
+
+** 超级用户访问必须设置为 `Any` 对于CIFS协议。
+
+
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 配置 * 选项卡中，单击 * 设置 * 。
+. 在 * CIFS 服务器设置 * 对话框的 * 常规 * 选项卡中，指定 NetBIOS 名称和 Active Directory 域详细信息。
+. 单击 * 选项 * 选项卡，然后执行以下操作：
++
+** 在 SMB 设置区域中，根据需要选中或清除 SMB 签名复选框和 SMB 加密复选框。
+** 指定默认 UNIX 用户。
+** 在 WINS 服务器区域中，添加所需的 IP 地址。
+
+
+. 单击 * 设置 * 。
+
+
+
+
+== 编辑 CIFS 的常规属性
+
+您可以使用 System Manager 修改 CIFS 的常规属性，例如默认 UNIX 用户和默认 Windows 用户。您还可以为 CIFS 服务器启用或禁用 SMB 签名。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 配置 * 选项卡中，单击 * 选项 * 。
+. 在 * CIFS 选项 * 对话框中，根据需要修改以下 CIFS 服务器属性：
++
+** UNIX 用户
+** Windows 用户
+** IP 地址
+** 启用或禁用 SMB 签名
++
+启用 SMB 签名可防止数据受到损坏。但是，尽管网络流量保持不变，但客户端和服务器上的 CPU 使用率可能会增加，从而导致性能下降。您可以在任何不需要防止重放攻击的 Windows 客户端上禁用 SMB 签名。
+
++
+有关在 Windows 客户端上禁用 SMB 签名的信息，请参见 Microsoft Windows 文档。
+
+** 启用或禁用 SMB 3.0 加密
++
+您应启用 SMB 多通道以在 SMB 3.0 会话和传输连接之间建立多个通道。
+
+
+
+. 单击 * 保存 * 或 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:task_creating_cifs_share.adoc[创建 CIFS 共享]
+
+xref:reference_cifs_window.adoc[CIFS窗口]
+
+xref:task_editing_volume_properties.adoc[编辑卷属性]
+
+xref:task_modifying_export_policy_rules.adoc[修改导出策略规则]
+
+https://docs.netapp.com/us-en/ontap/smb-admin/index.html["SMB/CIFS 管理"]

@@ -1,0 +1,44 @@
+---
+section: fc-config-rhel
+title: 适用于 Red Hat Enterprise Linux 的 FC 配置
+entries:
+- title: 概述
+  url: "/fc-config-rhel/index.html"
+- title: FC 配置和配置工作流
+  url: "/fc-config-rhel/concept_fc_configuration_workflow.html"
+  entries:
+  - title: 验证是否支持 FC 配置
+    url: "/fc-config-rhel/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: 填写 FC 配置工作表
+    url: "/fc-config-rhel/reference_completing_iscsi_configuration_worksheet.html"
+  - title: 安装 HBA 供应商提供的 HBA 实用程序
+    url: "/fc-config-rhel/task_installing_hba_utility_from_hba_vendor.html"
+  - title: 更新 HBA 驱动程序，固件和 BIOS
+    url: "/fc-config-rhel/task_updating_hba_driver_firmware_bios.html"
+  - title: 安装 Linux Unified Host Utilities 并优化 I/O 性能
+    url: "/fc-config-rhel/task_installing_linux_unified_host_utilities_optimizing_i_o_performance.html"
+  - title: 记录每个主机 FC 端口的 WWPN
+    url: "/fc-config-rhel/task_record_wwpn_for_each_host_fc_port.html"
+  - title: 配置 DM-Multipath
+    url: "/fc-config-rhel/task_configuring_dm_multipath.html"
+  - title: 创建聚合
+    url: "/fc-config-rhel/task_creating_aggregate.html"
+  - title: 确定在何处配置卷
+    url: "/fc-config-rhel/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: 验证 FC 服务是否正在现有 SVM 上运行
+      url: "/fc-config-rhel/task_verifying_that_fc_service_is_running_on_existing_svm.html"
+    - title: 创建LUN
+      url: "/fc-config-rhel/task_creating_lun_its_containing_volume.html"
+    - title: 在现有 SVM 上配置 FC
+      url: "/fc-config-rhel/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: 创建新的SVM
+      url: "/fc-config-rhel/task_creating_svm.html"
+  - title: 按主机和 LIF WWPN 对 FC 交换机进行分区
+    url: "/fc-config-rhel/task_zoning_fc_switches_by_host_lif_wwpns.html"
+  - title: 发现新的 SCSI 设备（ LUN ）和多路径设备
+    url: "/fc-config-rhel/task_discovering_new_scsi_devices_dm_multipath_devices.html"
+  - title: 在多路径设备上配置逻辑卷并创建文件系统
+    url: "/fc-config-rhel/task_configuring_logical_volumes_on_multipath_devices_creating_file_system.html"
+  - title: 验证主机是否可以对多路径设备进行写入和读取
+    url: "/fc-config-rhel/task_verifying_that_host_can_write_to_read_fom_lun.html"

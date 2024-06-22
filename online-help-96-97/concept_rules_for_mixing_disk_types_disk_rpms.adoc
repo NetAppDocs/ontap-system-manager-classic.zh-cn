@@ -1,0 +1,18 @@
+---
+permalink: online-help-96-97/concept_rules_for_mixing_disk_types_disk_rpms.html 
+sidebar: sidebar 
+keywords: rule, online, help, create, aggregate, add, capacity, disk, rpm 
+summary: 创建聚合并向聚合添加容量磁盘时，您应了解显示磁盘类型和磁盘 RPM 时适用的规则。 
+---
+= 在 System Manager 中显示磁盘类型和磁盘 RPM 的规则— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在创建聚合并向聚合添加容量磁盘时，您应了解在 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）中显示磁盘类型和磁盘 RPM 时适用的规则。
+
+如果未启用磁盘类型混合和磁盘 RPM 混合选项，则会显示实际磁盘类型和实际磁盘 RPM 。
+
+启用这些混合选项后，将显示有效磁盘类型和有效磁盘 RPM ，而不是实际磁盘类型和实际磁盘 RPM 。例如，启用磁盘混合选项后， System Manager 会将 BSAS 磁盘显示为 FSAS 。同样，启用磁盘 RPM 混合选项后，如果磁盘的 RPM 为 10K 和 15K ， System Manager 会将有效 RPM 显示为 10K 。

@@ -1,0 +1,82 @@
+---
+permalink: online-help-96-97/task_restoring_volume_mirror_relationship.html 
+sidebar: sidebar 
+keywords: restore, volume, mirror, relationship, snapmirror, online, help, system, manager 
+summary: 对于与版本无关的镜像关系，如果源数据损坏且不再可用，您可以使用 System Manager 将 Snapshot 副本还原到源卷或其他卷。您可以将原始数据替换为目标卷中的 Snapshot 副本。 
+---
+= 使用 System Manager 还原镜像关系中的卷— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对于与版本无关的镜像关系，如果源数据损坏且不再可用，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）将 Snapshot 副本还原到源卷或其他卷。您可以将原始数据替换为目标卷中的 Snapshot 副本。
+
+.开始之前
+* 必须在源集群和目标集群或包含源卷和目标卷的节点上启用 SnapMirror 许可证。
+* 源集群和目标集群之间的对等关系必须运行正常。
+* 为还原操作选择的源聚合或任何其他聚合必须是 64 位聚合。
+* 如果要从运行 ONTAP 9.2 或更早版本的集群连接到启用了安全断言标记语言（ SAML ）身份验证的远程集群，则还必须在此远程集群上启用基于密码的身份验证。
+
+
+.关于此任务
+* 您不能还原 MetroCluster 配置中源 Storage Virtual Machine （ SVM ）与目标 SVM 之间的镜像关系中的卷。
+* 您不能对 SnapLock 卷执行还原操作。
+* 您可以还原 MetroCluster 配置中 sync-source SVM 之间的镜像关系。
+* 您可以将 sync-source SVM 上的卷与默认 SVM 之间的镜像关系还原。
+* 您可以将镜像关系从默认 SVM 上的卷还原到 sync-source SVM 上的 DP 卷。
+
+
+.步骤
+. 单击 * 保护 * > * 卷关系 * 。
+. 选择镜像关系，然后单击 * 操作 * > * 还原 * 。
+. 在 * 还原 * 对话框中，将数据还原到镜像关系中的源卷或选择任何其他卷：
++
+|===
+| 如果要将数据还原到 ... | 执行此操作 ... 
+
+
+ a| 
+源卷
+ a| 
+.. 选择 * 源卷 * 。
+.. 转至步骤 7. 。
+
+
+
+
+ a| 
+任何其他卷
+ a| 
+选择 * 其他卷 * ，然后从列表中选择集群和 SVM 。
+
+|===
+. 将数据还原到新卷或现有卷：
++
+|===
+| 如果要将数据还原到 ... | 执行此操作 ... 
+
+
+ a| 
+新卷
+ a| 
+如果要更改默认名称、则以格式显示 `destination_SVM_name_destination_volume_name_` 还原、指定新名称、然后选择卷所属的聚合。
+
+
+
+ a| 
+现有卷
+ a| 
+选择 * 选择卷 * 选项。
+
+您必须选择源卷以外的卷，或者包含某些数据并具有通用 Snapshot 副本的读 / 写卷。
+
+仅会列出与源卷具有相同语言属性的卷。
+
+|===
+. 选择要还原的最新 Snapshot 副本或特定 Snapshot 副本。
+. 选中确认复选框以从 Snapshot 副本还原卷。
+. *可选：*选中*启用网络压缩*复选框以压缩在还原操作期间传输的数据。
+. 单击 * 还原 * 。
+

@@ -1,0 +1,87 @@
+---
+permalink: online-help-96-97/task_editing_svm_settings.html 
+sidebar: sidebar 
+keywords: online, help, system, manager, edit, svm, settings 
+summary: 您可以使用 System Manager 编辑 Storage Virtual Machine （ SVM ）的属性，例如名称服务开关，名称映射开关和聚合列表。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑 SVM 设置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）编辑 Storage Virtual Machine （ SVM ）的属性，例如名称服务开关，名称映射开关和聚合列表。
+
+.关于此任务
+* 您可以编辑以下 SVM 属性的值：
++
+** 名称服务开关
+** 支持提供数据的协议
++
+[NOTE]
+====
+即使您在 SVM 上禁用了此协议，在 SVM 上配置的 CIFS 协议仍会继续提供数据。
+
+====
+** 可用于创建卷的聚合的列表
++
+[NOTE]
+====
+对于 FlexVol 卷，只有在将管理委派给 SVM 管理员后，才能分配聚合。
+
+====
+
+
+* 对于通过命令行界面创建的 SVM 或未配置且未通过 ONTAP 设置为默认值的 SVM 服务， System Manager 不会显示名称服务开关和名称映射开关的值。
++
+您可以使用命令行界面查看这些服务，因为服务选项卡已禁用。
+
++
+只有在使用 System Manager 创建 SVM 或 ONTAP 将 SVM 的服务设置为默认值时， System Manager 才会显示 SVM 的名称服务开关和名称映射开关。
+
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择SVM、然后单击*编辑*。
+. 在 * 详细信息 * 选项卡中，修改所需的数据协议。
+. 在 * 资源分配 * 选项卡中，选择以下方法之一来委派卷创建：
++
+|===
+| 如果要配置卷创建 ... | 那么 ... 
+
+
+ a| 
+适用于所有聚合
+ a| 
+选择 * 不委派卷创建 * 选项。
+
+
+
+ a| 
+用于特定聚合
+ a| 
+.. 选择 * 委派卷创建 * 选项。
+.. 选择委派卷创建所需的聚合。
+
+
+|===
+. 在 * 服务 * 选项卡中，指定所需数据库类型的名称服务切换源以及检索名称服务信息时应参考这些源的顺序。
++
+每个数据库类型的默认值如下：
+
++
+** hosts ： files ， dns
+** namemap ： files
+** group ： files
+** netgroup ： files
+** passwd ： files
+
+
+. 单击 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:concept_how_data_ontap_name_service_switch_configuration_works.adoc[ONTAP 名称服务交换机配置的工作原理]

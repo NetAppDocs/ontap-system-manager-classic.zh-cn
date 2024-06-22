@@ -1,0 +1,37 @@
+---
+permalink: online-help-96-97/task_extending_expiry_date_snapshot_copies.html 
+sidebar: sidebar 
+keywords: extend, expiry, date, snapshot, copy, system, manager, online, help 
+summary: 您可以使用 System Manager 延长卷中 Snapshot 副本的到期日期。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本延长 Snapshot 副本的到期日期
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）延长卷中 Snapshot 副本的到期日期。
+
+.开始之前
+您的系统上必须安装 SnapLock 许可证。
+
+.关于此任务
+您只能延长作为 SnapLock for SnapVault 关系目标的数据保护（ DP ）卷中 Snapshot 副本的到期日期。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. Select a volume.
+. 单击 * 显示更多详细信息 * 可查看有关卷的更多信息。
+. 单击 * Snapshot 副本 * 选项卡。
++
+此时将显示选定卷的可用 Snapshot 副本列表。
+
+. 选择要修改的 Snapshot 副本，然后单击 * 延长到期日期 * 。
+. 在 * 延长到期日期 * 对话框中，指定到期日期。
++
+值必须介于 1 天到 70 年之间或无限范围内。
+
+. 单击 * 确定 * 。
+

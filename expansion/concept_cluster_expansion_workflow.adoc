@@ -1,0 +1,16 @@
+---
+permalink: expansion/concept_cluster_expansion_workflow.html 
+sidebar: sidebar 
+keywords: cluster, expansion, workflow 
+summary: 集群扩展工作流 
+---
+= 集群扩展工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+向现有集群添加两个节点涉及验证集群是否已做好扩展准备，准备集群，安装新节点以及完成扩展。
+
+image::../media/cluster_expansion_workflow.gif[此图通过周围的文本进行了说明。]

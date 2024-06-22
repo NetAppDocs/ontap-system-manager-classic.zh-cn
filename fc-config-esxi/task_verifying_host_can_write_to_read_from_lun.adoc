@@ -1,0 +1,42 @@
+---
+permalink: fc-config-esxi/task_verifying_host_can_write_to_read_from_lun.html 
+sidebar: sidebar 
+keywords: lun, verify, write, data, verify that the host can write to and read from the lun 
+summary: 在使用 LUN 之前，您应验证主机是否可以将数据写入 LUN 并将其读回。 
+---
+= 验证主机是否可以对 LUN 进行写入和读取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 LUN 之前，您应验证主机是否可以将数据写入 LUN 并将其读回。
+
+.关于此任务
+如果创建 LUN 的集群节点可以故障转移到其配对节点，则应验证在节点故障转移期间是否读取数据。如果集群在生产环境中使用，则可能无法执行此测试。
+
+.步骤
+. 在 vSphere Web Client * 主页 * 页面上，单击 * 主机和集群 * 。
+. 在导航窗格中，单击 * 存储 * 选项卡。
+. 展开数据中心，然后选择新的数据存储库。
+. 在中间窗格中，单击 * 管理 * > * 文件 * 。
++
+此时将显示数据存储库的内容。
+
+. 在数据存储库中创建一个新文件夹，然后将文件上传到该新文件夹。
++
+您可能需要安装客户端集成插件。
+
+. 验证您是否可以访问刚刚写入的文件。
+. *可选：*对包含LUN的集群节点进行故障转移、并验证您是否仍可以写入和读取文件。
++
+如果任何测试失败，请验证 FC 服务是否正在存储集群上运行，并检查 LUN 的 FC 路径和 FC 交换机分区。
+
+. *可选：*如果对集群节点进行故障转移、请务必交还此节点并将所有LIF返回其主端口。
+. 对于 ESXi 集群，请从集群中的每个 ESXi 主机查看数据存储库，并验证是否显示了您上传的文件。
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/high-availability/index.html["ONTAP 9 高可用性配置"]

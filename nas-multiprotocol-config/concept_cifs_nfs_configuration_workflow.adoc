@@ -1,0 +1,16 @@
+---
+permalink: nas-multiprotocol-config/concept_cifs_nfs_configuration_workflow.html 
+sidebar: sidebar 
+keywords: configure, smb, cif, nfs, creating, create, aggregate, volume, share, export, verify, unix, windows, administration, host, nfs, client, multiprotocol, configuration, workflow, multiprotocol configuration workflow 
+summary: 配置 SMB/CIFS 和 NFS 时，需要选择创建聚合；也可以选择创建新的 SVM 或配置现有 SVM ；创建卷，共享和导出；以及验证从 UNIX 和 Windows 管理主机进行的访问。然后，您可以打开对 SMB/CIFS 和 NFS 客户端的访问。 
+---
+= 多协议配置工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 SMB/CIFS 和 NFS 时，需要选择创建聚合；也可以选择创建新的 SVM 或配置现有 SVM ；创建卷，共享和导出；以及验证从 UNIX 和 Windows 管理主机进行的访问。然后，您可以打开对 SMB/CIFS 和 NFS 客户端的访问。
+
+image::../media/cifs_nfs_multiprotocol.gif[概述了在 ONTAP 中设置 NFS 和 CIFS 所涉及的步骤。]

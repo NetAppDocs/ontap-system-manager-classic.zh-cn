@@ -1,0 +1,66 @@
+---
+permalink: expansion/task_verifying_health_system.html 
+sidebar: sidebar 
+keywords: expand, cluster, verify, component, healthy, config, advisor, tool, run, ontap, cli, command, verify the health of the system 
+summary: 在扩展集群之前，您必须运行 Config Advisor 工具并运行多个 ONTAP 命令行界面命令，以验证集群的所有组件是否运行正常。 
+---
+= 验证系统的运行状况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在扩展集群之前，您必须运行 Config Advisor 工具并运行多个 ONTAP 命令行界面命令，以验证集群的所有组件是否运行正常。
+
+.步骤
+. 验证您是否已安装最新版本的 Config Advisor ：
++
+** 如果您的笔记本电脑上没有 Config Advisor ，请下载它。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+** 如果您有 Config Advisor ，请启动它，单击 * 帮助 * > * 检查更新 * ，然后根据需要按照提示进行升级。
++
+[NOTE]
+====
+升级期间，请勿卸载此工具的先前版本或删除此数据文件夹。此工具将卸载先前版本并将其替换为最新版本。它会将此数据文件夹重命名为最新的文件夹，并保留此文件夹中的所有内容。
+
+====
+
+
+. 运行 Config Advisor 验证布线和配置：
++
+.. 将笔记本电脑连接到集群的管理网络。
+.. 单击 * 收集数据 * 。
++
+Config Advisor 将显示发现的任何问题。
+
+.. 如果发现问题，请更正问题并重新运行此工具。
+
+
+. 使用以下命令检查系统的运行状况：
++
+.. 使用验证集群是否处于运行状况良好的状态 `system health status show` 命令并验证状态是否为 `ok`。
++
+[listing]
+----
+cluster1::> system health status show
+Status
+---------------
+ok
+----
+.. 使用验证集群中的所有节点是否均处于运行状况良好的状态 `cluster show` 命令并验证每个节点的运行状况是否为 `true`。
++
+[listing]
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+2 entries were displayed.
+----
+
+
+

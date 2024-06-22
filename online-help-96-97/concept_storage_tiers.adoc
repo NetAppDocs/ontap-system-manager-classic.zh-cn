@@ -1,0 +1,18 @@
+---
+permalink: online-help-96-97/concept_storage_tiers.html 
+sidebar: sidebar 
+keywords: system, manager, storage, tiers, aggregates, security, requirements, backup, performance, data, sharing, online, help 
+summary: 您可以使用 System Manager 创建聚合，以满足用户的不同安全要求，备份要求，性能要求和数据共享要求。 
+---
+= 存储层
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 创建聚合，以满足用户的不同安全要求，备份要求，性能要求和数据共享要求。
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["磁盘和聚合管理"]

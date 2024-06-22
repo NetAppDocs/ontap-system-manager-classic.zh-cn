@@ -1,0 +1,89 @@
+---
+permalink: nas-multiprotocol-config/task_mapping_unix_windows_user_names.html 
+sidebar: sidebar 
+keywords: windows, unix, user, acconut, map, user, access, file, permission, ntfs, conversion, rule, default, user, map unix and windows user names 
+summary: 如果您的站点同时具有 Windows 和 UNIX 用户帐户，则应使用名称映射来确保 Windows 用户可以访问具有 UNIX 文件权限的文件，并确保 UNIX 用户可以访问具有 NTFS 文件权限的文件。名称映射可能涉及隐式映射，转换规则和默认用户的任意组合。 
+---
+= 映射 UNIX 和 Windows 用户名
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的站点同时具有 Windows 和 UNIX 用户帐户，则应使用名称映射来确保 Windows 用户可以访问具有 UNIX 文件权限的文件，并确保 UNIX 用户可以访问具有 NTFS 文件权限的文件。名称映射可能涉及隐式映射，转换规则和默认用户的任意组合。
+
+.关于此任务
+只有当您的站点具有不隐式映射的 Windows 和 UNIX 用户帐户时，即每个 Windows 用户名的小写版本与 UNIX 用户名匹配时，才应使用此操作步骤。可以使用 NIS ， LDAP 或本地用户来执行此操作。如果两组用户不匹配，则应配置名称映射。
+
+.步骤
+. 考虑以下因素，确定名称映射的方法—名称映射转换规则，默认用户映射或两者：
++
+** 转换规则使用正则表达式将一个用户名转换为另一个用户名，如果要在单个级别控制或跟踪访问，这一点非常有用。
++
+例如，您可以将 UNIX 用户映射到域中的 Windows 用户，反之亦然。
+
+** 使用默认用户可以为未通过隐式映射或名称映射转换规则映射的所有用户分配用户名。
++
+每个 SVM 都有一个名为 "`pcuser` " 的默认 UNIX 用户，但没有默认 Windows 用户。
+
+
+
+. 导航到 * SVM* 窗口。
+. 选择要配置的 SVM 。
+. 单击 * SVM 设置 * 选项卡。
+. *可选*：创建将UNIX用户帐户转换为Windows用户帐户的名称映射、反之亦然：
++
+.. 在 * 主机用户和组 * 窗格中，单击 * 名称映射 * 。
+.. 单击 * 添加 * ，保留默认的 * 从 Windows 到 UNIX* 方向，然后创建一个正则表达式，以便在 Windows 用户尝试访问使用 UNIX 文件权限的文件时生成 UNIX 凭据。
++
+使用以下条目将 ENG 域中的任何 Windows 用户转换为同名的 UNIX 用户。模式 `ENG\\(.+)` 查找具有前缀的任何Windows用户名 `ENG\\`和替换项 `\1` 通过删除用户名以外的所有内容来创建UNIX版本。
+
++
+image::../media/name_mappings_1_windows_to_unix.gif[Windows 到 UNIX 条目的屏幕截图]
+
+.. 单击 "* 添加 " ，选择 "UNIX 到 Windows* " 方向，然后创建相应的映射，以便在 UNIX 用户尝试访问具有 NTFS 文件权限的文件时生成 Windows 凭据。
++
+使用以下条目将每个 UNIX 用户转换为 ENG 域中同名的 Windows 用户。模式 `(.+)` 查找任何UNIX名称和替换项 `ENG\\\1` 通过插入创建Windows版本 `ENG\\` 在用户名之前。
+
++
+image::../media/name_mappings_2_unix_to_windows.gif[UNIX 到 Windows 条目的屏幕截图]
+
+.. 由于每个规则的位置决定了应用规则的顺序，因此您应查看结果并确认该顺序符合您的预期。
++
+image::../media/name_mappings_3_outcome.gif[本图通过周围的文字进行了说明。]
+
+.. 重复步骤5b到5d以映射SVM上的所有域和名称。
+
+
+. *可选*：创建默认Windows用户：
++
+.. 在 SVM 的 LDAP ， NIS 或本地用户中创建 Windows 用户帐户。
++
+如果使用本地用户，则可以在 " 主机用户和组 " 窗格的 * Windows * 下创建帐户。
+
+.. 通过在 * 协议 * 窗格中选择 * nfs* > * 编辑 * 并输入用户名来设置默认 Windows 用户。
+
+
++
+您可以创建一个名为 "`unixusers` " 的本地 Windows 用户并将其设置为默认 Windows 用户。
+
+. *可选*：如果您希望用户与默认值(即"`pcuser`"用户)不同、请配置默认UNIX用户。
++
+.. 在 SVM 的 LDAP ， NIS 或本地用户中创建 UNIX 用户帐户。
++
+如果使用本地用户，则可以在 " 主机用户和组 " 窗格的 "*UNIX* " 下创建帐户。
+
+.. 通过在 * 协议 * 窗格中选择 * CIFS* > * 选项 * 并输入用户名来设置默认 UNIX 用户。
+
+
++
+您可以创建一个名为 "`winusers` " 的本地 UNIX 用户并将其设置为默认 UNIX 用户。
+
+
+
+
+
+== 下一步操作
+
+如果您配置了默认用户，则在稍后在工作流中配置文件权限时，应设置默认 Windows 用户和默认 UNIX 用户的权限。

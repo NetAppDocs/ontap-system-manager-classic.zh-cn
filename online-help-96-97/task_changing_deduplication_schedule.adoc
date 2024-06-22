@@ -1,0 +1,27 @@
+---
+permalink: online-help-96-97/task_changing_deduplication_schedule.html 
+sidebar: sidebar 
+keywords: change, deduplication, schedule, online, help, system, manager 
+summary: 您可以使用 System Manager 更改重复数据删除计划，方法是选择手动，自动或按您指定的计划运行重复数据删除。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本更改重复数据删除计划
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更改重复数据删除计划，方法是选择手动，自动或按您指定的计划运行重复数据删除。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要修改重复数据删除计划的读 / 写卷。
+. 单击 * 编辑 * ，然后单击 * 存储效率 * 选项卡。
+. 根据需要更改重复数据删除计划。
+. 单击 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

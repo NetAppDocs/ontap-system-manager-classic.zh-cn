@@ -1,0 +1,112 @@
+---
+permalink: online-help-96-97/task_creating_mirror_relationship_from_source_volume.html 
+sidebar: sidebar 
+keywords: create, mirror, relationship, source, lvm, system, manager, online, help 
+summary: 您可以使用 System Manager 从源 Storage Virtual Machine （ SVM ）创建镜像关系，并为此镜像关系分配镜像策略和计划。如果源卷上的数据损坏或丢失，镜像副本可以快速提供数据。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本从源 SVM 创建镜像关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）从源 Storage Virtual Machine （ SVM ）创建镜像关系，并为镜像关系分配镜像策略和计划。如果源卷上的数据损坏或丢失，镜像副本可以快速提供数据。
+
+.开始之前
+* 必须在源集群和目标集群上启用 SnapMirror 许可证。
++
+[NOTE]
+====
+** 对于某些平台，如果目标集群启用了 SnapMirror 许可证和数据保护优化 \ （ DPO ）许可证，则源集群不必启用 SnapMirror 许可证。
+** 在目标集群上启用DPO许可证后、必须刷新源集群的浏览器以启用 `Protect` 选项
+
+
+====
+* 在镜像 SnapLock 卷时，必须在源集群和目标集群上安装 SnapMirror 许可证，并且必须在目标集群上安装 SnapLock 许可证。
+* 源集群和目标集群以及源 SVM 和目标 SVM 之间的对等关系必须运行正常。
+* 目标聚合必须具有可用空间。
+* FlexVol 卷必须处于联机状态且类型为读 / 写。
+* 两个集群上的 SnapLock 聚合类型必须相同。
+* 一次选择最多可以保护 25 个卷。
+* 如果要从运行 ONTAP 9.2 或更早版本的集群连接到启用了安全断言标记语言（ SAML ）身份验证的远程集群，则必须在远程集群上启用基于密码的身份验证。
+
+
+.关于此任务
+* System Manager 不支持级联关系。
++
+例如，关系中的目标卷不能是另一关系中的源卷。
+
+* 您只能在相同类型的 SnapLock 卷之间创建镜像关系。
++
+例如，如果源卷是 SnapLock Enterprise 卷，则目标卷也必须是 SnapLock Enterprise 卷。
+
+* 如果在源卷上启用了加密，而目标集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则默认情况下，目标卷上会禁用加密。
+* 仅为 FlexCache 应用程序建立对等关系且对 SnapMirror 应用程序没有对等权限的 SVM 不会显示在此任务中的 SVM 列表中。您可以使用 ONTAP System Manager 9.6 增强的对等工作流为这些 SVM 授予权限或建立对等关系。然后，您可以在此任务中选择它们以创建保护关系。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要为其创建镜像关系的卷，然后单击 * 更多操作 * > * 保护 * 。
++
+只有读 / 写卷才具有 * 保护 * 选项。
+
+. 选择 * 复制 * 类型：
++
+|===
+| 如果选择的复制类型为 ... | 执行此操作 ... 
+
+
+ a| 
+异步
+ a| 
+.. * 可选： * 如果您不知道复制类型和关系类型，请单击 * 帮助我选择 * ，指定值，然后单击 * 应用 * 。
+.. 选择关系类型。
++
+关系类型可以是镜像，存储或镜像和存储。
+
+.. 选择集群和 SVM 。
++
+如果选定集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则仅会列出对等 SVM 。如果选定集群运行的是 ONTAP 9.3 或更高版本，则会列出对等 SVM 和允许的 SVM 。
+
+.. 根据需要修改卷名称后缀。
+
+
+
+
+ a| 
+同步
+ a| 
+.. * 可选： * 如果您不知道复制类型和关系类型，请单击 * 帮助我选择 * ，指定值，然后单击 * 应用 * 。
+.. 选择同步策略。
++
+同步策略可以是 StrictSync 或 Sync 。
+
+.. 选择集群和 SVM 。
++
+如果选定集群运行的 ONTAP 软件版本早于 ONTAP 9.3 ，则仅会列出对等 SVM 。如果选定集群运行的是 ONTAP 9.3 或更高版本，则会列出对等 SVM 和允许的 SVM 。
+
+.. 根据需要修改卷名称后缀。
+
+
+|===
+. 单击 *image:../media/nas_bridge_202_icon_settings_olh_96_97.gif[""]* ，更新保护策略和保护计划，选择 * 启用了 FabricPool 的聚合 * ，然后初始化保护关系。
+. 单击 * 保存 * 。
+
+
+.结果
+此时将使用以下默认设置创建类型为 _dp_ 的新目标卷：
+
+* 已启用自动增长。
+* 已禁用数据压缩。
+* 语言属性设置为与源卷的语言属性匹配。
+
+
+如果目标 FlexVol 卷与源 FlexVol 卷位于不同的 SVM 上，则在这两个 SVM 之间创建对等关系（如果此关系尚不存在）。
+
+在源卷和目标卷之间创建镜像关系。如果选择初始化此关系，则基本 Snapshot 副本将传输到目标卷。
+
+* 相关信息 *
+
+xref:reference_protection_window.adoc[保护窗口]

@@ -1,0 +1,44 @@
+---
+section: iscsi-config-esxi
+title: 使用 VSC 为 ESXi 配置 iSCSI
+entries:
+- title: 概述
+  url: "/iscsi-config-esxi/index.html"
+- title: iSCSI 配置工作流
+  url: "/iscsi-config-esxi/concept_iscsi_configuration_provisioning_workflow.html"
+  entries:
+  - title: 验证是否支持 iSCSI 配置。
+    url: "/iscsi-config-esxi/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: 填写 iSCSI 配置工作表
+    url: "/iscsi-config-esxi/reference_completing_iscsi_configuration_worksheet.html"
+  - title: 安装 Virtual Storage Console
+    url: "/iscsi-config-esxi/task_installing_virtual_storage_console_for_vmware_vsphere.html"
+  - title: 将存储集群或 SVM 添加到适用于 VMware vSphere 的 VSC 中
+    url: "/iscsi-config-esxi/task_adding_storage_cluster_to_virtual_storage_cluster.html"
+  - title: 配置网络以获得最佳性能
+    url: "/iscsi-config-esxi/task_configuring_your_network_for_best_performance.html"
+  - title: 配置主机 iSCSI 端口和 vSwitch
+    url: "/iscsi-config-esxi/task_configuring_host_iscsi_ports_vswitches.html"
+  - title: 启用 iSCSI 软件适配器
+    url: "/iscsi-config-esxi/task_enabling_iscsi_software_adapter.html"
+  - title: 将 iSCSI 端口绑定到 iSCSI 软件适配器
+    url: "/iscsi-config-esxi/task_binding_iscsi_ports_to_iscsi_software_adapter.html"
+  - title: 配置 ESXi 主机最佳实践设置
+    url: "/iscsi-config-esxi/task_configuring_esxi_host_best_practice_settings.html"
+  - title: 创建聚合
+    url: "/iscsi-config-esxi/task_creating_aggregate.html"
+  - title: 确定在何处配置卷
+    url: "/iscsi-config-esxi/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: 验证 iSCSI 服务是否正在现有 SVM 上运行
+      url: "/iscsi-config-esxi/task_verifying_iscsi_is_running_on_existing_vserver.html"
+    - title: 在现有 SVM 上配置 iSCSI
+      url: "/iscsi-config-esxi/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: 创建新的SVM
+      url: "/iscsi-config-esxi/task_creating_svm.html"
+  - title: 测试从主机到存储集群的 iSCSI 路径
+    url: "/iscsi-config-esxi/task_testing_iscsi_paths.html"
+  - title: 配置数据存储库并创建其包含的 LUN 和卷
+    url: "/iscsi-config-esxi/task_provisioning_datastore_creating_its_containing_lun_volume.html"
+  - title: 验证主机是否可以对 LUN 进行写入和读取
+    url: "/iscsi-config-esxi/task_verifying_host_can_write_to_read_from_lun.html"

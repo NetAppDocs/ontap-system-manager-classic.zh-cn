@@ -1,0 +1,69 @@
+---
+indexpage:
+  title: ONTAP System Manager 经典文档
+  summary: ONTAP System Manager 是一款简单而多功能的产品，可帮助您轻松配置和管理 ONTAP 集群。System Manager 可简化常见存储任务，例如创建卷，
+    LUN ， qtree ，共享和导出， 这样可以节省时间并防止出现错误。
+  keywords: ontap, netapp, documentation, system, manager
+  lead: ONTAP 9.7及更早的ONTAP 9版本提供了System Manager经典界面。此站点提供了有关使用System Manager经典版的配置工作流的文档、以及适用于ONTAP
+    9.6和9.7的System Manager经典联机帮助。
+  tiles:
+  - title: 入门
+    links:
+    - title: 了解 System Manager 经典版
+      url: "/online-help-96-97/index.html"
+    - title: 使用 System Manager 管理适用于 ONTAP 9.7 及更高版本的下一代 ONTAP
+      url: https://docs.netapp.com/us-en/ontap/concept_administration_overview.html
+    - title: 使用命令行界面管理 ONTAP
+      url: https://docs.netapp.com/us-en/ontap/system-admin/index.html
+  - title: 配置NAS存储
+    links:
+    - title: NFS配置
+      url: "/nfs-config/index.html"
+    - title: 使用 VSC 为 ESXi 配置 NFS
+      url: "/nfs-config-esxi/index.html"
+    - title: SMB 和 NFS 多协议配置
+      url: "/nas-multiprotocol-config/index.html"
+    - title: SMB配置
+      url: "/smb-config/index.html"
+  - title: 配置 SAN 存储
+    links:
+    - title: 使用 VSC 为 ESXi 配置 FC
+      url: "/fc-config-esxi/index.html"
+    - title: 适用于 Red Hat Enterprise Linux 的 FC 配置
+      url: "/fc-config-rhel/index.html"
+    - title: 适用于 Windows 的 FC 配置
+      url: "/fc-config-windows/index.html"
+    - title: 使用 VSC 为 ESXi 配置 iSCSI
+      url: "/iscsi-config-esxi/index.html"
+    - title: 适用于 Red Hat Enterprise Linux 的 iSCSI 配置
+      url: "/iscsi-config-rhel/index.html"
+    - title: 适用于 Windows 的 iSCSI 配置
+      url: "/iscsi-config-windows/index.html"
+  - title: 数据保护和灾难恢复
+    links:
+    - title: 集群和 SVM 对等配置
+      url: "/peering/index.html"
+    - title: 卷灾难恢复
+      url: "/volume-disaster-recovery/index.html"
+    - title: 卷灾难恢复准备
+      url: "/volume-disaster-prep/index.html"
+    - title: 卷备份 SnapVault
+      url: "/volume-backup-snapvault/index.html"
+    - title: 使用 SnapVault 进行卷还原管理
+      url: "/volume-restore-snapvault/index.html"
+  - title: 集群管理
+    links:
+    - title: 集群扩展配置
+      url: "/expansion/index.html"
+    - title: 卷移动管理
+      url: "/volume-move/index.html"
+    - title: SNMP配置
+      url: "/snmp-config/index.html"
+    - title: 使用 System Manger 9.6 和 9.7 进行集群管理
+      url: "/online-help-96-97/index.html"
+  - title: 更多资源
+    links:
+    - title: ONTAP 9 文档
+      url: https://docs.netapp.com/us-en/ontap/
+    - title: 自动化和 REST API 文档
+      url: https://docs.netapp.com/us-en/ontap-automation/index.html

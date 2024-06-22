@@ -1,0 +1,14 @@
+---
+permalink: expansion/task_installing_new_nodes.html 
+sidebar: sidebar 
+keywords: cluster, install, controller, configure, node-management, run, ontap, repurpose, hardware-level, ha, address, maintenance, mode, join, install the new node 
+summary: 准备好集群后，您必须安装控制器并配置节点管理 LIF 。 
+---
+= 安装新节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备好集群后，您必须安装控制器并配置节点管理 LIF 。如果控制器运行的 ONTAP 版本与现有集群不同，或者经过重新利用且缺少硬件级 HA ，则必须在维护模式下解决这些问题。最后，您可以将节点加入集群。

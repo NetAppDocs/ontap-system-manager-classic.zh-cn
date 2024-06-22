@@ -1,0 +1,50 @@
+---
+permalink: smb-config/task_creating_share_setting_its_permissions.html 
+sidebar: sidebar 
+keywords: windows, user, access, volume, create, cifs, restrict, share, modify, control, list, scl, share, create a share and set its permissions 
+summary: 在 Windows 用户访问卷之前，您必须在卷上创建 CIFS 共享，并通过修改共享的访问控制列表（ ACL ）来限制对共享的访问。 
+---
+= 创建共享并设置其权限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 Windows 用户访问卷之前，您必须在卷上创建 CIFS 共享，并通过修改共享的访问控制列表（ ACL ）来限制对共享的访问。
+
+.关于此任务
+出于测试目的，您应仅允许管理员访问。稍后，在确认卷可访问之后，您可以允许访问更多客户端。
+
+.步骤
+. 导航到 * 共享 * 窗口。
+. 创建共享，以便 SMB 客户端可以访问此卷：
++
+.. 单击 * 创建共享 * 。
+.. 在 * 创建共享 * 对话框中，单击 * 浏览 * ，展开命名空间层次结构，然后选择先前创建的卷。
+.. *可选*：如果希望共享名称与卷名称不同、请更改共享名称。
+.. 单击 * 创建 * 。
+
+
++
+创建共享时， Everyone 组的默认 ACL 设置为 Full Control 。
+
+. *可选*：通过修改共享ACL限制对共享的访问：
++
+.. 选择共享，然后单击 * 编辑 * 。
+.. 在 * 权限 * 选项卡中，选择 * 任何人 * 组，然后单击 * 删除 * 。
+.. 单击 * 添加 * ，然后输入在包含 SVM 的 Windows Active Directory 域中定义的管理员组的名称。
+.. 选择新管理员组后，为其选择所有权限。
+.. 单击 * 保存并关闭 * 。
+
+
++
+更新后的共享访问权限将列在 " 共享访问控制 " 窗格中。
+
+
+
+
+
+== 下一步操作
+
+您应以 Windows 管理员身份验证访问权限。

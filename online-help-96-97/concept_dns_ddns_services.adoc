@@ -1,0 +1,88 @@
+---
+permalink: online-help-96-97/concept_dns_ddns_services.html 
+sidebar: sidebar 
+keywords: dns, ddns, service, system, manager, manage, online, help, edit, settings, command, button 
+summary: 您可以使用 System Manager 管理 DNS/DDNS 服务。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本管理 DNS/DDNS 服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理 DNS/DDNS 服务。
+
+
+
+== 启用或禁用DDNS
+
+您可以使用 System Manager 在存储系统上启用或禁用 DDNS 。
+
+.关于此任务
+* 默认情况下、DNS处于启用状态。
+* 默认情况下， DDNS 处于禁用状态。
+* System Manager 不会对 DNS 和 DDNS 设置执行任何验证检查。
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * DNS/DDNS * 。
+. 在 * DNS/DDNS 服务 * 窗口中，单击 * 编辑 * 。
+. 在 * 编辑 DNS/DDNS 设置 * 对话框中，选中 * DDNS 服务 * 复选框以启用 DDNS 。
++
+您可以通过清除 * DDNS 服务 * 复选框来禁用 DDNS 。
+
+. 单击 * 确定 * 。
+
+
+
+
+== 编辑 DNS 和 DDNS 设置
+
+您可以使用DNS集中维护主机信息。您可以使用 System Manager 添加或修改存储系统的 DNS 域名。您还可以在存储系统上启用 DDNS ，以便在 DNS 服务器中自动更新名称服务器。
+
+.开始之前
+您必须为 Storage Virtual Machine （ SVM ）设置 CIFS 服务器或 Active Directory 帐户，以使安全 DDNS 正常运行。
+
+.关于此任务
+System Manager 不会对 DNS 和 DDNS 设置执行任何验证检查。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 服务 * 窗格中，单击 * DNS/DDNS * 。
+. 单击 * 编辑 * 。
+. 在 * DNS 域和名称服务器 * 区域中，添加或修改 DNS 域名和 IP 地址。
+. 选中 * DDNS 服务 * 复选框以启用 DDNS 。
++
+.. 选中 * 启用安全 DDNS * 复选框以启用安全 DDNS 。
+.. 指定 DDNS 服务的完全限定域名（ FQDN ）和生存时间值。
++
+默认情况下、生存时间设置为24小时、FQDN设置为 `SVM name. domain name`。
+
+
+
+. 单击 * 确定 * 以保存所做的更改。
+
+
+
+
+== DNS/DDNS 服务窗口
+
+通过 DNS/DDNS 服务窗口，您可以查看和编辑系统的当前 DNS 和 DDNS 设置。
+
+
+
+=== 命令按钮
+
+* * 编辑 * 。
++
+打开编辑 DNS/DDNS 设置对话框，在此可以添加或修改 DNS 或 DDNS 详细信息。您还可以启用或禁用 DDNS 。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+

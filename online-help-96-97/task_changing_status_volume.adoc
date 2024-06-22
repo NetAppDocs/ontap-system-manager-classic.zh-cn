@@ -1,0 +1,34 @@
+---
+permalink: online-help-96-97/task_changing_status_volume.html 
+sidebar: sidebar 
+keywords: flexvol, change, status, volume, online, help, system, manager 
+summary: 如果要使卷脱机，使卷重新联机或限制对卷的访问，您可以使用 System Manager 更改 FlexVol 卷的状态。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本更改卷的状态
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要使卷脱机，使卷重新联机或限制对卷的访问，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）更改 FlexVol 卷的状态。
+
+.开始之前
+* 如果希望某个卷成为卷复制操作或 SnapMirror 复制操作的目标，则该卷必须处于受限状态。
+* 如果要使 NAS 卷脱机，则必须卸载此 NAS 卷。
+
+
+.关于此任务
+您可以使卷脱机以对卷执行维护，移动卷或销毁卷。当卷脱机时，客户端无法对该卷进行读取或写入访问。您不能使根卷脱机。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要修改其状态的卷。
+. 从 * 更多操作 * > * 将状态更改为 * 菜单中，选择所需的卷状态。
+. 单击确认对话框中的 * 确定 * 以更改卷状态。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

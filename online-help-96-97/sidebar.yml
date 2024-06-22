@@ -1,0 +1,495 @@
+---
+section: online-help-96-97
+title: 使用 System Manager 9.6 和 9.7 进行集群管理
+entries:
+- title: 了解 System Manager
+  url: "/online-help-96-97/index.html"
+- title: 使用 ONTAP 系统管理器设置集群
+  entries:
+  - title: 使用模板文件设置集群
+    url: "/online-help-96-97/task_setting_up_cluster_using_template_file.html"
+    entries:
+    - title: 创建集群
+      url: "/online-help-96-97/task_creating_cluster.html"
+    - title: 设置网络
+      url: "/online-help-96-97/task_setting_up_network.html"
+    - title: 设置支持页面
+      url: "/online-help-96-97/task_setting_up_support_page.html"
+    - title: 查看存储建议
+      url: "/online-help-96-97/task_reviewing_storage_recommendations.html"
+    - title: 创建 SVM ：
+      url: "/online-help-96-97/task_creating_svm.html"
+- title: 使用 ONTAP System Manager 基于浏览器的图形界面访问集群
+  url: "/online-help-96-97/task_accessing_cluster_using_system_manager.html"
+- title: 配置 System Manager 选项
+  url: "/online-help-96-97/task_configuring_system_manager_options.html"
+- title: 查看 ONTAP System Manager 日志文件
+  url: "/online-help-96-97/task_viewing_system_manager_log_files.html"
+- title: 设置集群
+  entries:
+  - title: 设置集群
+    url: "/online-help-96-97/task_updating_cluster_name.html"
+  - title: 添加许可证
+    url: "/online-help-96-97/task_adding_licenses.html"
+  - title: 设置集群的时区
+    url: "/online-help-96-97/task_setting_time_zone_for_cluster.html"
+  - title: 监控 HA 对
+    url: "/online-help-96-97/task_monitoring_ha_pairs.html"
+- title: 设置网络
+  url: "/online-help-96-97/concept_setting_up_network.html"
+- title: 设置物理存储
+  entries:
+  - title: 将磁盘分配给节点
+    url: "/online-help-96-97/task_assigning_disks_to_nodes.html"
+  - title: 将备用磁盘置零
+    url: "/online-help-96-97/task_zeroing_disks.html"
+  - title: 通过聚合配置存储
+    url: "/online-help-96-97/task_provisioning_storage_through_aggregates.html"
+- title: 创建 SVM
+  url: "/online-help-96-97/task_creating_svms.html"
+  entries:
+  - title: 在 SVM 上配置 CIFS 和 NFS 协议
+    url: "/online-help-96-97/task_configuring_cifs_nfs_protocols_on_svms.html"
+  - title: 在 SVM 上配置 iSCSI 协议
+    url: "/online-help-96-97/task_configuring_iscsi_protocol_on_svms.html"
+  - title: 在 SVM 上配置 FC 协议和 FCoE 协议
+    url: "/online-help-96-97/task_configuring_fc_fcoe_protocol_on_svms.html"
+  - title: 在 SVM 上配置 NVMe 协议
+    url: "/online-help-96-97/task_configuring_nvme_protocol_on_svms.html"
+  - title: 将管理任务委派给 SVM 管理员
+    url: "/online-help-96-97/task_delegating_administration_to_svm_administrators.html"
+  - title: 创建 FlexVol 卷
+    url: "/online-help-96-97/task_creating_flexvol_volumes.html"
+  - title: 创建 SnapLock 卷
+    url: "/online-help-96-97/task_creating_snaplock_volumes.html"
+- title: 设置 SAML 身份验证
+  url: "/online-help-96-97/task_setting_up_saml_authentication.html"
+- title: 设置对等
+  url: "/online-help-96-97/task_setting_up_peering.html"
+- title: 管理集群
+  entries:
+  - title: 信息板窗口
+    url: "/online-help-96-97/reference_dashboard_window.html"
+  - title: MetroCluster 切换和切回
+    entries:
+    - title: MetroCluster 切换和切回工作流
+      url: "/online-help-96-97/concept_metrocluster_switchover_switchback_workflow.html"
+    - title: 准备切换和切回操作
+      url: "/online-help-96-97/task_preparing_for_switchover_switchback_operations.html"
+    - title: 执行协商切换
+      url: "/online-help-96-97/task_performing_negotiated_planned_switchover.html"
+    - title: 执行计划外切换
+      url: "/online-help-96-97/task_performing_unplanned_switchover.html"
+    - title: 执行切回
+      url: "/online-help-96-97/task_performing_switchback.html"
+    - title: MetroCluster 切换和切回操作窗口
+      url: "/online-help-96-97/reference_metrocluster_switchover_switchback_window.html"
+- title: 应用程序
+  url: "/online-help-96-97/concept_applications.html"
+  entries:
+  - title: 配置基本模板
+    url: "/online-help-96-97/task_provisioning_basic_template.html"
+  - title: 存储服务定义
+    url: "/online-help-96-97/reference_storage_service_definitions.html"
+  - title: 将基于 SAN 的 Microsoft SQL Server 添加到 System Manager 中
+    url: "/online-help-96-97/task_adding_microsoft_sql_server_over_san_to_system_manager.html"
+  - title: 应用程序配置设置
+    url: "/online-help-96-97/reference_application_provisioning_settings.html"
+  - title: 编辑应用程序
+    url: "/online-help-96-97/task_editing_application.html"
+  - title: 删除应用程序
+    url: "/online-help-96-97/task_deleting_application.html"
+  - title: 应用程序窗口
+    url: "/online-help-96-97/reference_applications_window.html"
+- title: 配置更新
+  url: "/online-help-96-97/concept_configuration_update.html"
+- title: 服务处理器
+  url: "/online-help-96-97/concept_service_processors.html"
+- title: 集群对等方
+  url: "/online-help-96-97/concept_cluster_peers.html"
+- title: 高可用性
+  url: "/online-help-96-97/concept_high_availability.html"
+- title: licenses
+  url: "/online-help-96-97/concept_licenses.html"
+- title: 集群扩展
+  url: "/online-help-96-97/concept_cluster_expansion.html"
+- title: 更新集群
+  url: "/online-help-96-97/concept_updating_clusters.html"
+  entries:
+  - title: 更新非 MetroCluster 配置中的集群
+    url: "/online-help-96-97/concept_updating_clusters_non_metrocluster_configuration.html"
+  - title: 更新 MetroCluster 配置中的集群
+    url: "/online-help-96-97/concept_updating_clusters_metrocluster_configuration.html"
+  - title: 获取 ONTAP 软件映像
+    url: "/online-help-96-97/task_obtaining_ontap_software_images.html"
+  - title: 更新单节点集群
+    url: "/online-help-96-97/task_updating_single_node_clusters.html"
+  - title: 无中断更新集群
+    url: "/online-help-96-97/task_updating_cluster_nondisruptively.html"
+  - title: 集群更新窗口
+    url: "/online-help-96-97/reference_cluster_update_window.html"
+- title: 集群的日期和时间设置
+  url: "/online-help-96-97/concept_date_time.html"
+- title: SNMP
+  url: "/online-help-96-97/concept_snmp.html"
+- title: LDAP
+  url: "/online-help-96-97/concept_ldap.html"
+- title: 用户
+  url: "/online-help-96-97/concept_cluster_user_accounts.html"
+- title: 角色
+  url: "/online-help-96-97/concept_roles.html"
+- title: 管理网络
+  url: "/online-help-96-97/concept_managing_network.html"
+- title: IP 空间
+  url: "/online-help-96-97/concept_ipspaces.html"
+- title: 广播域
+  url: "/online-help-96-97/concept_broadcast_domains.html"
+- title: Subnets
+  url: "/online-help-96-97/concept_subnets.html"
+- title: 网络接口
+  url: "/online-help-96-97/concept_network_interfaces.html"
+- title: 以太网端口
+  url: "/online-help-96-97/concept_ethernet_ports.html"
+- title: FC/FCoE 和 NVMe 适配器
+  url: "/online-help-96-97/concept_fc_fcoe_nvme_adapters.html"
+- title: 存储层
+  entries:
+  - title: 编辑聚合
+    url: "/online-help-96-97/task_editing_aggregates.html"
+  - title: 删除聚合
+    url: "/online-help-96-97/task_deleting_aggregates.html"
+  - title: 创建聚合时更改 RAID 配置
+    url: "/online-help-96-97/task_changing_raid_configuration_when_creating_aggregate.html"
+  - title: 通过添加 SSD 来配置缓存
+    url: "/online-help-96-97/task_provisioning_cache_by_adding_disks.html"
+  - title: 添加容量磁盘
+    url: "/online-help-96-97/task_adding_capacity_disks.html"
+  - title: 添加容量磁盘时更改 RAID 组
+    url: "/online-help-96-97/task_changing_raid_group_when_adding_capacity_disks.html"
+  - title: 移动 FlexVol 卷
+    url: "/online-help-96-97/task_moving_flexvol_volumes.html"
+  - title: 镜像聚合
+    url: "/online-help-96-97/task_mirroring_aggregates.html"
+  - title: 查看聚合信息
+    url: "/online-help-96-97/task_viewing_aggregate_information.html"
+  - title: 如果使用 StorageGRID ，则安装 CA 证书
+    url: "/online-help-96-97/task_installing_ca_certificate_if_you_use_storagegrid_webscale.html"
+  - title: 如何使用有效的 ONTAP 磁盘类型混合 HDD
+    url: "/online-help-96-97/reference_effective_data_ontap_disk_types.html"
+  - title: 什么是兼容备用磁盘
+    url: "/online-help-96-97/concept_what_compatible_spare_disks_are.html"
+  - title: System Manager 如何使用热备件
+    url: "/online-help-96-97/concept_how_system_manager_calculates_hot_spares.html"
+  - title: 显示磁盘类型和磁盘 RPM 的规则
+    url: "/online-help-96-97/concept_rules_for_mixing_disk_types_disk_rpms.html"
+  - title: 用于创建聚合的存储建议
+    url: "/online-help-96-97/concept_storage_recommendations_for_creating_aggregates.html"
+  - title: 存储层窗口
+    url: "/online-help-96-97/reference_storage_tiers_window.html"
+- title: 配置和管理云层
+  url: "/online-help-96-97/task_configuring_managing_cloud_tiers.html"
+- title: 聚合
+  url: "/online-help-96-97/concept_aggregates.html"
+- title: 存储池
+  url: "/online-help-96-97/concept_storage_pools.html"
+- title: 将磁盘重新分配给节点
+  url: "/online-help-96-97/task_reassigning_disks_to_nodes.html"
+- title: Disks
+  entries:
+  - title: 查看磁盘信息
+    url: "/online-help-96-97/task_viewing_disk_information.html"
+  - title: ONTAP 如何报告磁盘类型
+    url: "/online-help-96-97/concept_how_ontap_reports_drive_types.html"
+  - title: 确定何时可以安全删除多磁盘托架
+    url: "/online-help-96-97/concept_how_to_determine_when_safe_to_remove_multi_disk_carrier.html"
+  - title: 磁盘窗口
+    url: "/online-help-96-97/reference_disks_window.html"
+- title: 阵列 LUN
+  url: "/online-help-96-97/concept_array_luns.html"
+- title: 节点
+  url: "/online-help-96-97/concept_nodes.html"
+- title: 硬件缓存
+  url: "/online-help-96-97/concept_hardware_cache.html"
+- title: 事件
+  url: "/online-help-96-97/concept_events.html"
+- title: 系统警报
+  url: "/online-help-96-97/concept_system_alerts.html"
+- title: AutoSupport 通知
+  url: "/online-help-96-97/concept_autosupport.html"
+- title: 作业
+  url: "/online-help-96-97/concept_jobs.html"
+- title: Flash Pool 统计信息
+  url: "/online-help-96-97/concept_flash_pool_statistics.html"
+- title: SVM 信息板窗口
+  url: "/online-help-96-97/reference_svm_dashboard_window.html"
+  entries:
+  - title: 监控 SVM
+    url: "/online-help-96-97/task_monitoring_svm_using_dashboard.html"
+  - title: 编辑 SVM 设置
+    url: "/online-help-96-97/task_editing_svm_settings.html"
+  - title: 删除 SVM
+    url: "/online-help-96-97/task_deleting_svms.html"
+  - title: 启动 SVM
+    url: "/online-help-96-97/task_starting_svms.html"
+  - title: 停止 SVM
+    url: "/online-help-96-97/task_stopping_svms.html"
+  - title: 管理 SVMs
+    url: "/online-help-96-97/reference_managing_svms.html"
+  - title: 跟踪文件访问以诊断 SVM 上的访问错误
+    url: "/online-help-96-97/task_tracing_file_access_to_diagnose_access_errors_on_svms.html"
+  - title: 关于SVM
+    url: "/online-help-96-97/concept_why_you_use_svms.html"
+  - title: 关于ONTAP 名称服务开关配置
+    url: "/online-help-96-97/concept_how_data_ontap_name_service_switch_configuration_works.html"
+  - title: Storage Virtual Machine 窗口
+    url: "/online-help-96-97/reference_svm_window.html"
+  - title: 跟踪文件访问窗口
+    url: "/online-help-96-97/reference_trace_file_access_window.html"
+- title: Volumes
+  entries:
+  - title: 编辑卷属性
+    url: "/online-help-96-97/task_editing_volume_properties.html"
+  - title: 编辑数据保护卷
+    url: "/online-help-96-97/task_editing_data_protection_volumes.html"
+  - title: 删除卷
+    url: "/online-help-96-97/task_deleting_volumes.html"
+  - title: 创建 FlexClone 卷
+    url: "/online-help-96-97/task_creating_flexclone_volumes.html"
+  - title: 创建 FlexClone 文件
+    url: "/online-help-96-97/task_creating_flexclone_files.html"
+  - title: 将 FlexClone 卷与其父卷拆分
+    url: "/online-help-96-97/task_splitting_flexclone_volume_from_its_parent_volume.html"
+  - title: 查看 FlexClone 卷层次结构
+    url: "/online-help-96-97/task_viewing_flexclone_volumes_hierarchy.html"
+  - title: 更改卷的状态
+    url: "/online-help-96-97/task_changing_status_volume.html"
+  - title: 查看已保存 Snapshot 副本的列表
+    url: "/online-help-96-97/task_viewing_list_saved_snapshot_copies.html"
+  - title: 在定义的计划之外创建 Snapshot 副本
+    url: "/online-help-96-97/task_creating_snapshot_copies_outside_defined_schedule.html"
+  - title: 设置 Snapshot 副本预留
+    url: "/online-help-96-97/task_setting_snapshot_copy_reserve.html"
+  - title: 隐藏 Snapshot 副本目录
+    url: "/online-help-96-97/task_hiding_snapshot_copy_directory.html"
+  - title: 计划自动创建 Snapshot 副本
+    url: "/online-help-96-97/task_scheduling_automatic_creation_snapshot_copies.html"
+  - title: 从 Snapshot 副本还原卷
+    url: "/online-help-96-97/task_restoring_volume_from_snapshot_copy.html"
+  - title: 延长 Snapshot 副本的到期日期
+    url: "/online-help-96-97/task_extending_expiry_date_snapshot_copies.html"
+  - title: 重命名 Snapshot 副本
+    url: "/online-help-96-97/task_renaming_snapshot_copies.html"
+  - title: 删除 Snapshot 副本
+    url: "/online-help-96-97/task_deleting_snapshot_copies.html"
+  - title: 调整卷大小
+    url: "/online-help-96-97/task_resizing_volumes.html"
+  - title: 在卷上启用存储效率
+    url: "/online-help-96-97/task_enabling_storage_efficiency_on_volume.html"
+  - title: 更改重复数据删除计划
+    url: "/online-help-96-97/task_changing_deduplication_schedule.html"
+  - title: 运行重复数据删除操作
+    url: "/online-help-96-97/task_running_deduplication_operations.html"
+  - title: 在聚合或节点之间移动 FlexVol 卷
+    url: "/online-help-96-97/task_moving_flexvol_volumes_between_aggregates_or_nodes.html"
+  - title: 将卷分配给存储 QoS
+    url: "/online-help-96-97/task_assigning_volumes_to_storage_qos.html"
+  - title: 从源 SVM 创建镜像关系
+    url: "/online-help-96-97/task_creating_mirror_relationship_from_source_volume.html"
+  - title: 从源 SVM 创建存储关系
+    url: "/online-help-96-97/task_creating_vault_relationship_from_source_svm.html"
+  - title: 从源 SVM 创建镜像和存储关系
+    url: "/online-help-96-97/task_creating_mirror_vault_relationship_from_source_svm.html"
+  - title: 为 VMware 创建 NFS 数据存储库
+    url: "/online-help-96-97/task_creating_nfs_datastore_for_vmware.html"
+  - title: 更改卷的分层策略
+    url: "/online-help-96-97/task_changing_tiering_policy_volume_destination_topic_delete.html"
+  - title: 创建 FlexGroup 卷
+    url: "/online-help-96-97/task_creating_flexgroup_volumes.html"
+  - title: 查看 FlexGroup 卷信息
+    url: "/online-help-96-97/task_viewing_flexgroup_volume_information.html"
+  - title: 编辑 FlexGroup 卷
+    url: "/online-help-96-97/task_editing_flexgroup_volumes.html"
+  - title: 为 FlexGroup 卷指定高级选项
+    url: "/online-help-96-97/task_specifying_advanced_options_for_flexgroup_volume.html"
+  - title: 调整 FlexGroup 卷大小
+    url: "/online-help-96-97/task_resizing_flexgroup_volumes.html"
+  - title: 更改 FlexGroup 卷的状态
+    url: "/online-help-96-97/task_changing_status_flexgroup_volume.html"
+  - title: 删除 FlexGroup 卷
+    url: "/online-help-96-97/task_deleting_flexgroup_volumes.html"
+  - title: 创建 FlexCache 卷
+    url: "/online-help-96-97/task_creating_flexcache_volumes.html"
+  - title: 查看 FlexCache 卷信息
+    url: "/online-help-96-97/task_viewing_flexcache_volume_information.html"
+  - title: 编辑 FlexCache 卷
+    url: "/online-help-96-97/task_editing_flexcache_volumes.html"
+  - title: 为 FlexCache 卷指定高级选项
+    url: "/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html"
+  - title: 调整 FlexCache 卷大小
+    url: "/online-help-96-97/task_resizing_flexcache_volumes.html"
+  - title: 更改 FlexCache 卷的状态
+    url: "/online-help-96-97/task_changing_status_flexcache_volume.html"
+  - title: 删除 FlexCache 卷
+    url: "/online-help-96-97/task_deleting_flexcache_volumes.html"
+  - title: 卷保证对 FlexVol 卷的工作原理
+    url: "/online-help-96-97/concept_how_volume_guarantees_work_for_flexvol_volumes.html"
+  - title: 对 FlexVol 卷使用空间预留
+    url: "/online-help-96-97/concept_using_space_reservation_with_flexvol_volumes.html"
+  - title: 用于调整卷大小的选项
+    url: "/online-help-96-97/concept_options_for_resizing_volumes.html"
+  - title: 卷窗口
+    url: "/online-help-96-97/reference_volumes_window.html"
+- title: Junction path
+  url: "/online-help-96-97/concept_namespace.html"
+- title: 共享
+  url: "/online-help-96-97/concept_shares.html"
+- title: LUN
+  url: "/online-help-96-97/concept_luns.html"
+  entries:
+  - title: 创建 FC SAN 优化的 LUN
+    url: "/online-help-96-97/task_creating_fc_san_optimized_luns.html"
+  - title: 应用程序专用的 LUN 设置
+    url: "/online-help-96-97/reference_application_specific_lun_settings.html"
+  - title: 创建 LUNs
+    url: "/online-help-96-97/task_creating_luns.html"
+  - title: 删除 LUN
+    url: "/online-help-96-97/task_deleting_luns.html"
+  - title: 管理启动程序组
+    url: "/online-help-96-97/task_creating_initiator_groups.html"
+  - title: 创建端口集
+    url: "/online-help-96-97/task_creating_portsets.html"
+  - title: 正在克隆 LUN
+    url: "/online-help-96-97/task_cloning_luns.html"
+  - title: 编辑 LUN
+    url: "/online-help-96-97/task_editing_luns.html"
+  - title: 使 LUN 联机
+    url: "/online-help-96-97/task_bringing_luns_online.html"
+  - title: 使 LUN 脱机
+    url: "/online-help-96-97/task_taking_luns_offline.html"
+  - title: 正在移动 LUN
+    url: "/online-help-96-97/task_moving_luns.html"
+  - title: 将 LUN 分配给存储 QoS
+    url: "/online-help-96-97/task_assigning_luns_to_storage_qos.html"
+  - title: 编辑启动程序组
+    url: "/online-help-96-97/task_editing_initiator_groups.html"
+  - title: 编辑启动程序
+    url: "/online-help-96-97/task_editing_initiators.html"
+  - title: 查看 LUN 信息
+    url: "/online-help-96-97/task_viewing_lun_information.html"
+  - title: 查看启动程序组
+    url: "/online-help-96-97/task_viewing_initiator_groups.html"
+  - title: 使用包含 LUN 的 FlexVol 卷的准则
+    url: "/online-help-96-97/concept_guidelines_working_with_volumes_that_contain_luns.html"
+  - title: 了解 LUN 的空间预留
+    url: "/online-help-96-97/concept_using_space_reservation_for_luns.html"
+  - title: 使用 LUN 多协议类型的准则
+    url: "/online-help-96-97/concept_lun_multiprotocol_type_guidelines.html"
+  - title: LUN 窗口
+    url: "/online-help-96-97/reference_luns_window.html"
+- title: qtree
+  url: "/online-help-96-97/concept_qtrees.html"
+- title: 配额
+  url: "/online-help-96-97/concept_quotas.html"
+- title: CIFS协议
+  url: "/online-help-96-97/concept_cifs_protocol.html"
+  entries:
+  - title: 添加主目录路径
+    url: "/online-help-96-97/task_adding_home_directory_paths.html"
+  - title: 重置 CIFS 域控制器
+    url: "/online-help-96-97/task_resetting_cifs_domain_controllers.html"
+  - title: 更新 CIFS 组策略配置
+    url: "/online-help-96-97/task_updating_cifs_group_policy_configuration.html"
+  - title: 设置 BranchCache
+    url: "/online-help-96-97/task_setting_up_branchcache.html"
+  - title: 添加首选域控制器
+    url: "/online-help-96-97/task_adding_preferred_domain_controllers.html"
+  - title: 查看 CIFS 域信息
+    url: "/online-help-96-97/task_viewing_cifs_domain_information.html"
+  - title: CIFS窗口
+    url: "/online-help-96-97/reference_cifs_window.html"
+- title: NFS 协议
+  url: "/online-help-96-97/concept_nfs_protocol.html"
+- title: 设置 NVMe
+  url: "/online-help-96-97/concept_setting_up_nvme.html"
+  entries:
+  - title: 创建 NVMe 命名空间
+    url: "/online-help-96-97/task_creating_nvme_namespace.html"
+  - title: 编辑 NVMe 命名空间
+    url: "/online-help-96-97/task_editing_nvme_namespace.html"
+  - title: 克隆 NVMe 命名空间
+    url: "/online-help-96-97/task_cloning_nvme_namespace.html"
+  - title: 启动和停止 NVMe 服务
+    url: "/online-help-96-97/task_starting_or_stopping_nvme_service.html"
+  - title: 什么是 NVMe 子系统
+    url: "/online-help-96-97/concept_what_nvme_subsystem_is.html"
+- title: iSCSI 协议
+  url: "/online-help-96-97/concept_iscsi_protocol.html"
+- title: FC/FCoE 协议
+  url: "/online-help-96-97/concept_fc_fcoe_protocol.html"
+- title: 导出策略
+  url: "/online-help-96-97/concept_export_policies.html"
+- title: 效率策略
+  url: "/online-help-96-97/concept_efficiency_policies.html"
+- title: 管理QoS策略组
+  url: "/online-help-96-97/task_creating_qos_policy_groups.html"
+  entries:
+  - title: 将存储对象分配给策略组的规则
+    url: "/online-help-96-97/concept_rules_for_assigning_storage_objects_to_policy_groups.html"
+- title: NIS服务
+  url: "/online-help-96-97/concept_nis_services.html"
+- title: LDAP 客户端服务
+  url: "/online-help-96-97/concept_ldap_client_services.html"
+- title: LDAP 配置服务
+  url: "/online-help-96-97/concept_ldap_configuration_services.html"
+- title: Kerberos 域服务
+  url: "/online-help-96-97/concept_kerberos_realm_services.html"
+- title: DNS/DDNS 服务
+  url: "/online-help-96-97/concept_dns_ddns_services.html"
+- title: SVM用户
+  url: "/online-help-96-97/concept_svm_user_accounts.html"
+- title: '"unix"'
+  url: "/online-help-96-97/concept_unix.html"
+- title: 本地Windows组
+  entries:
+  - title: 管理本地Windows组
+    url: "/online-help-96-97/task_editing_local_windows_group_properties.html"
+- title: 名称映射
+  url: "/online-help-96-97/concept_name_mapping.html"
+- title: 镜像关系
+  entries:
+  - title: 管理镜像关系
+    url: "/online-help-96-97/task_editing_mirror_relationships.html"
+  - title: 中断 SnapMirror 关系
+    url: "/online-help-96-97/task_breaking_snapmirror_relationships.html"
+  - title: 反向重新同步镜像关系
+    url: "/online-help-96-97/task_reverse_resynchronizing_snapmirror_relationships.html"
+  - title: 中止镜像传输
+    url: "/online-help-96-97/task_aborting_mirror_relationships.html"
+  - title: 还原镜像关系中的卷
+    url: "/online-help-96-97/task_restoring_volume_mirror_relationship.html"
+- title: 存储关系
+  entries:
+  - title: 管理存储关系
+    url: "/online-help-96-97/task_editing_vault_relationships.html"
+  - title: 中止 Snapshot 副本传输
+    url: "/online-help-96-97/task_aborting_vault_relationships.html"
+  - title: 还原存储关系中的卷
+    url: "/online-help-96-97/task_restoring_volume_vault_relationship.html"
+- title: 镜像和存储关系
+  entries:
+  - title: 管理镜像和存储关系
+    url: "/online-help-96-97/task_editing_mirror_vault_relationships.html"
+  - title: 中止镜像和存储关系
+    url: "/online-help-96-97/task_aborting_mirror_vault_relationships.html"
+  - title: 还原镜像和存储关系中的卷
+    url: "/online-help-96-97/task_restoring_volume_mirror_vault_relationship.html"
+- title: 保护窗口
+  url: "/online-help-96-97/reference_protection_window.html"
+- title: SVM关系
+  url: "/online-help-96-97/concept_svm_relationships.html"
+- title: 管理保护策略
+  url: "/online-help-96-97/concept_protection_policies.html"
+- title: 管理Snapshot策略
+  url: "/online-help-96-97/concept_snapshot_policies.html"
+- title: 管理计划
+  url: "/online-help-96-97/concept_schedules.html"

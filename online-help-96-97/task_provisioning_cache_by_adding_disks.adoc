@@ -1,0 +1,138 @@
+---
+permalink: online-help-96-97/task_provisioning_cache_by_adding_disks.html 
+sidebar: sidebar 
+keywords: ssd, system, manager, storage, pool, root, aggregate, provision, cache, online, help, ssd, disks, flash, pool 
+summary: 您可以使用 System Manager 将 SSD 添加为存储池或专用 SSD 以配置缓存。通过添加 SSD ，您可以将非根聚合或不包含分区磁盘的根聚合转换为 Flash Pool 聚合，或者增加现有 Flash Pool 聚合的缓存大小。 
+---
+= 通过使用 System Manager - ONTAP 9.7 及更早版本添加 SSD 来配置缓存
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）将 SSD 添加为存储池或专用 SSD 以配置缓存。通过添加 SSD ，您可以将非根聚合或不包含分区磁盘的根聚合转换为 Flash Pool 聚合，或者增加现有 Flash Pool 聚合的缓存大小。
+
+.关于此任务
+* 添加的 SSD 缓存不会增加到聚合的大小，您可以将 SSD RAID 组添加到聚合中，即使该组达到最大大小也是如此。
+* 使用 System Manager 添加缓存时，无法使用已分区的 SSD 。
+
+
+
+
+== 通过添加 SSD 为聚合配置缓存
+
+您可以使用 System Manager 将现有的非根 HDD 聚合或不包含分区磁盘的根聚合转换为 Flash Pool 聚合，以添加存储池或专用 SSD 来配置缓存。
+
+.开始之前
+* 聚合必须处于联机状态。
+* 存储池中必须有足够的备用 SSD 或分配单元可分配为缓存磁盘。
+* 集群中的所有节点都必须运行 ONTAP 8.3 或更高版本。
++
+如果集群处于混合版本状态，您可以使用命令行界面创建 Flash Pool 聚合，然后配置 SSD 缓存。
+
+* 您必须已确定一个有效的 64 位非根聚合，该聚合由可转换为 Flash Pool 聚合的 HDD 组成。
+* 聚合不能包含任何阵列 LUN 。
+
+
+.关于此任务
+您必须了解特定于平台和特定于工作负载的 Flash Pool 聚合 SSD 层大小和配置最佳实践。
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 在 * 存储层 * 窗口中，选择聚合，然后单击 * 更多操作 * > * 添加缓存 * 。
++
+[NOTE]
+====
+启用了 FabricPool 的聚合不支持添加缓存。
+
+====
+. 在 * 添加缓存 * 对话框中，执行相应的操作：
++
+|===
+| 缓存源选择为 ... | 执行此操作 ... 
+
+
+ a| 
+存储池
+ a| 
+.. 选择可从中获取缓存的存储池。
+.. 指定缓存大小。
+.. 根据需要修改 RAID 类型。
+
+
+
+
+ a| 
+专用 SSD
+ a| 
+选择 SSD 大小和要包含的 SSD 数量，并可选择修改 RAID 配置：
+
+.. 单击 * 更改 * 。
+.. 在更改 RAID 配置对话框中，指定 RAID 类型和 RAID 组大小，然后单击 * 保存 * 。
+
+
+|===
+. 单击 * 添加 * 。
++
+对于镜像聚合、将显示一个*添加缓存*对话框、其中包含将添加两倍选定磁盘数量的信息。
+
+. 在 * 添加缓存 * 对话框中，单击 * 是 * 。
+
+
+.结果
+缓存磁盘将添加到选定聚合。
+
+
+
+== 通过添加 SSD 来增加 Flash Pool 聚合的缓存
+
+您可以使用 System Manager 将 SSD 添加为存储池或专用 SSD ，以增加 Flash Pool 聚合的大小。
+
+.开始之前
+* Flash Pool 聚合必须处于联机状态。
+* 存储池中必须有足够的备用 SSD 或分配单元可分配为缓存磁盘。
+
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+. 在 * 聚合 * 窗口中，选择 Flash Pool 聚合，然后单击 * 添加缓存 * 。
+. 在 * 添加缓存 * 对话框中，执行相应的操作：
++
+|===
+| 缓存源选择为 ... | 执行此操作 ... 
+
+
+ a| 
+存储池
+ a| 
+选择可从中获取缓存的存储池，并指定缓存大小。
+
+
+
+ a| 
+专用 SSD
+ a| 
+选择 SSD 大小和要包含的 SSD 数量。
+
+|===
+. 单击 * 添加 * 。
++
+对于镜像聚合，将显示添加缓存对话框，其中包含将添加两倍选定磁盘数量的信息。
+
+. 在 * 添加缓存 * 对话框中，单击 * 是 * 。
+
+
+.结果
+缓存磁盘将添加到选定 Flash Pool 聚合。
+
+* 相关信息 *
+
+http://www.netapp.com/us/media/tr-4070.pdf["NetApp 技术报告 4070 ：《 Flash Pool 设计和实施》"^]
+
+xref:concept_how_storage_pool_works.adoc[存储池的工作原理]

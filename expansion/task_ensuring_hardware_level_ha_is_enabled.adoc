@@ -1,0 +1,50 @@
+---
+permalink: expansion/task_ensuring_hardware_level_ha_is_enabled.html 
+sidebar: sidebar 
+keywords: install, controller, module, reuse, maintenance, mode, ha, state, hardware-level, enable, ensure hardware-level ha is enabled 
+summary: 如果新安装的控制器模块已重复使用，而不是新安装的控制器模块，则必须进入维护模式并确保其 HA 状态设置为 HA 。 
+---
+= 确保已启用硬件级 HA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果重新使用新安装的控制器模块，而不是新安装的控制器模块，则必须进入维护模式，并确保其 HA 状态设置为 HA 。
+
+.关于此任务
+如果您使用的是新控制器模块，则可以跳过此操作步骤，因为默认情况下已启用 HA 。否则，必须在两个节点上执行此操作步骤。
+
+.步骤
+. 在第一个节点上，进入维护模式：
++
+.. 输入以退出noshell `halt`。
++
+此时将显示 LOADER 提示符。
+
+.. 输入进入维护模式 `boot_ontap maint`。
++
+显示某些信息后，将显示维护模式提示符。
+
+
+
+. 在维护模式下，确保控制器模块和机箱处于 HA 状态：
++
+.. 输入以显示控制器模块和机箱的HA状态 `ha-config show`。
+.. 如果显示的控制器状态不是 `HA`、输入 `ha-config modify controller ha`。
+.. 如果显示的机箱状态不是 `HA`、输入 `ha-config modify chassis ha`。
+.. 输入以验证是否已在控制器模块和机箱上启用HA `ha-config show`。
+
+
+. 返回到 ONTAP ：
++
+.. 输入 ... `halt` 退出维护模式。
+.. 输入以启动ONTAP `boot_ontap`
+.. 等待节点启动，集群设置向导将在控制台上自动启动。
+.. 按四次 Enter 接受节点管理 LIF 的现有设置。
+.. 以身份登录到此节点 `admin` 用户、不需要密码。
+
+
+. 在要添加到集群的另一个节点上重复此操作步骤。
+

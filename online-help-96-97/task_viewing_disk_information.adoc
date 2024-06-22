@@ -1,0 +1,24 @@
+---
+permalink: online-help-96-97/task_viewing_disk_information.html 
+sidebar: sidebar 
+keywords: view, disk, information, system, manager, name, online, help 
+summary: 您可以使用 System Manager 中的磁盘窗口查看磁盘的名称，大小和容器详细信息，以及有关容量磁盘和缓存磁盘的图形信息。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本查看磁盘信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版中的磁盘窗口（在 ONTAP 9.7 及更早版本中提供）查看磁盘的名称，大小和容器详细信息以及有关容量磁盘和缓存磁盘的图形信息。
+
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 磁盘 * 。
+. 从显示的磁盘列表中选择要查看其信息的磁盘。
+. 查看磁盘详细信息。
+
+
+* 相关信息 *
+
+xref:reference_disks_window.adoc[磁盘窗口]

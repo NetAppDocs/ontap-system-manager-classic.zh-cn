@@ -1,0 +1,73 @@
+---
+permalink: online-help-96-97/concept_nfs_protocol.html 
+sidebar: sidebar 
+keywords: nfs, protocol, system, manager, authenticate, client, asses, data, svm, online, help 
+summary: 您可以使用 System Manager 对 NFS 客户端进行身份验证，以访问 SVM 上的数据。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本配置 NFS 协议
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）对 NFS 客户端进行身份验证，以访问 SVM 上的数据。
+
+
+
+== 编辑NFS设置
+
+您可以使用 System Manager 编辑 NFS 设置，例如启用或禁用 NFSv3 ， NFSv4 和 NFSv4.1 ，启用或禁用 NFSv4 客户端的读写委派以及启用 NFSv4 ACL 。您也可以编辑默认 Windows 用户。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击 * NFS * 。
+. 在*NFS*窗口中，单击*Edit*。
+. 在 * 编辑 NFS 设置 * 对话框中，进行所需的更改。
+. 单击 * 保存并关闭 * 。
+
+
+
+
+== NFS窗口
+
+您可以使用 NFS 窗口显示和配置 NFS 设置。
+
+* * 服务器状态 *
++
+显示 NFS 服务的状态。如果在 Storage Virtual Machine （ SVM ）上配置了 NFS 协议，则会启用此服务。
+
++
+[NOTE]
+====
+如果已从运行 Data ONTAP 8.1.x 且已启用 NFS 的存储系统升级到 ONTAP 8.3 或更高版本，则会在 ONTAP 8.3 或更高版本中启用 NFS 服务。但是，您必须启用对 NFSv3 或 NFSv4 的支持，因为不再支持 NFSv2 。
+
+====
+
+
+
+
+=== 命令按钮
+
+* * 启用 *
++
+启用 NFS 服务。
+
+* * 禁用 *
++
+禁用 NFS 服务。
+
+* * 编辑 * 。
++
+打开编辑 NFS 设置对话框，在此可以编辑 NFS 设置。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/nfs-admin/index.html["NFS 管理"^]

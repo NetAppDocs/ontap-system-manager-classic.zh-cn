@@ -1,0 +1,46 @@
+---
+permalink: nfs-config-esxi/task_deploying_netapp_nfs_plugin_for_vmware_vaai.html 
+sidebar: sidebar 
+keywords: plug-in, software, library, integrate, vmware, virtual, disk, libraries, install, esxi, host, nfs, improve, copy, offload, space, reservation, option, deploy, deploy the nfs plug-in for vmware vaai 
+summary: 此插件是一个软件库，它集成了 ESXi 主机上安装的 VMware 虚拟磁盘库。通过下载并安装适用于 VMware VAAI 的 NFS 插件，您可以使用副本卸载和空间预留选项来提高克隆操作的性能。 
+---
+= 部署适用于 VMware VAAI 的 NFS 插件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此插件是一个软件库，它集成了 ESXi 主机上安装的 VMware 虚拟磁盘库。通过下载并安装适用于 VMware VAAI 的 NFS 插件，您可以使用副本卸载和空间预留选项来提高克隆操作的性能。
+
+.关于此任务
+要为要安装 NFS 插件的 ESXi 主机上的虚拟机提供一致的访问权限，您可以在计划内维护期间迁移虚拟机或安装 NFS 插件。
+
+.步骤
+. 下载适用于 VMware VAAI 的 NFS 插件。
++
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
++
+您应下载联机捆绑包 (`NetAppNasPlugIn.vib`)
+
+. 验证是否已在每个 ESXi 主机上启用 VAAI 。
++
+在 VMware vSphere 5.0 及更高版本中， VAAI 默认处于启用状态。
+
+. 在Virtual Storage Console中、转到*工具*>* NFS VAAI工具*。
+. 单击*选择文件*以上传 `NetAppNasPlugIn.vib` 文件
+. 单击 * 上传 * 。
++
+您会看到 `uploaded successfully` 消息。
+
+. 单击 * 在主机上安装 * 。
+. 选择要安装此插件的 ESXi 主机，单击 * 安装 * ，然后单击 * 确定 * 。
+. 重新启动 ESXi 主机以启用此插件。
++
+安装此插件后，您必须重新启动 ESXi 主机，然后才能完成安装。
+
++
+您无需重新启动存储系统。
+
+

@@ -1,0 +1,37 @@
+---
+permalink: nfs-config/task_configuring_verifying_client_access_add_nfs_existing_svm.html 
+sidebar: sidebar 
+keywords: 'client, access, share, unix, file, permission, administration, host, add, export, rule, system, manager, affect, user, affect, volume, configure and verify nfs client access (configure nfs access to an existing svm)' 
+summary: 准备好后，您可以通过在 UNIX 管理主机上设置 UNIX 文件权限并在 System Manager 中添加导出规则来为选定客户端授予对共享的访问权限。然后，您应测试受影响的用户或组是否可以访问此卷。 
+---
+= 配置和验证 NFS 客户端访问（配置对现有 SVM 的 NFS 访问）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备好后，您可以通过在 UNIX 管理主机上设置 UNIX 文件权限并在 System Manager 中添加导出规则来为选定客户端授予对共享的访问权限。然后，您应测试受影响的用户或组是否可以访问此卷。
+
+.步骤
+. 确定要为哪些客户端和用户或组授予对共享的访问权限。
+. 在 UNIX 管理主机上，使用 root 用户在卷上设置 UNIX 所有权和权限。
+. 在 System Manager 中，向导出策略添加允许 NFS 客户端访问共享的规则。
++
+.. 选择 Storage Virtual Machine （ SVM ），然后单击 * SVM 设置 * 。
+.. 在 * 策略 * 窗格中，单击 * 导出策略 * 。
+.. 选择与卷同名的导出策略。
+.. 在 * 导出规则 * 选项卡中，单击 * 添加 * 并指定一组客户端。
+.. 为 * 规则索引 * 选择 * 。 2 以使此规则在允许访问管理主机的规则之后执行。
+.. 选择*NFSv3*。
+.. 指定所需的访问详细信息，然后单击 * 确定。 *
++
+您可以通过键入子网为客户端授予完全读/写访问权限 `10.1.1.0/24` 作为*Client Specific*，并选中除*Allow Superuser Access*外的所有访问复选框。
+
++
+image::../media/export_rule_for_clients_nfs_nfs.gif[上述文本对此屏幕截图进行了说明。]
+
+
+
+. 在 UNIX 客户端上，以现在有权访问卷的用户之一身份登录，并验证您是否可以挂载卷并创建文件。
+

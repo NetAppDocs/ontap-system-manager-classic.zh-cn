@@ -1,0 +1,17 @@
+---
+permalink: smb-config/concept_adding_protocol_volume_to_protocol_enabled_svm.html 
+sidebar: sidebar 
+keywords: add, cifs, volume, cifs-enabled, svm, involves, creating, create, configure, configuring, share, set, permission, verify, windows, administration, host, add a cifs volume to a cifs-enabled svm 
+summary: 将 CIFS 卷添加到启用了 CIFS 的 SVM 涉及创建和配置卷，创建共享并设置其权限以及从 Windows 管理主机验证访问。然后、您可以配置CIFS客户端访问。 
+---
+= 将 CIFS 卷添加到启用了 CIFS 的 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将 CIFS 卷添加到启用了 CIFS 的 SVM 涉及创建和配置卷，创建共享并设置其权限以及从 Windows 管理主机验证访问。然后、您可以配置CIFS客户端访问。
+
+.开始之前
+必须在SVM上完全设置CIFS。

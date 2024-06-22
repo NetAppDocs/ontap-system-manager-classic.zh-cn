@@ -1,0 +1,140 @@
+---
+permalink: smb-config/task_creating_new_svm.html 
+sidebar: sidebar 
+keywords: wizard, process, creating, create, storage, virtual, machine, svm, domain, name, system, dns, logical, interface, lif, configuring, configure, cifs, server, creating, create, sharing, share, volume, create a new svm with a cifs volume and share 
+summary: 您可以使用向导来指导您完成创建新 Storage Virtual Machine （ SVM ），配置域名系统（ DNS ），创建数据逻辑接口（ LIF ），配置 CIFS 服务器以及创建和共享卷的过程。 
+---
+= 使用 CIFS 卷和共享创建新的 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用向导来指导您完成创建新 Storage Virtual Machine （ SVM ），配置域名系统（ DNS ），创建数据逻辑接口（ LIF ），配置 CIFS 服务器以及创建和共享卷的过程。
+
+.开始之前
+* 您必须配置网络，并且必须将相关物理端口连接到网络。
+* 您必须了解 SVM 将使用以下哪些网络组件：
++
+** 要创建数据逻辑接口（ LIF ）的节点以及该节点上的特定端口
+** 要从中配置数据 LIF IP 地址的子网，或者您也可以选择要分配给数据 LIF 的特定 IP 地址
+** 此 SVM 将加入的 Active Directory （ AD ）域，以及向其中添加 SVM 所需的凭据
+
+
+* 子网必须可路由到网络信息服务（ NIS ），轻型目录访问协议（ LDAP ）， Active Directory （ AD ）和 DNS 等服务所需的所有外部服务器。
+* 必须正确配置任何外部防火墙，才能访问网络服务。
+* AD 域控制器，客户端和 SVM 上的时间必须在五分钟内彼此同步。
+
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 单击 * 创建。 *
+. 在 * Storage Virtual Machine （ SVM ） Setup* 对话框中，创建 SVM ：
++
+.. 指定 SVM 的唯一名称。
++
+此名称必须是完全限定域名（ FQDN ），或者遵循其他约定，以确保名称在集群中是唯一的。
+
+.. 选择您拥有许可证且最终将在 SVM 上使用的所有协议，即使您不想立即配置所有协议也是如此。
++
+如果最终需要 NFS 访问，则必须立即选择 * NFS * ，以便 CIFS 和 NFS 客户端可以共享相同的数据 LIF 。
+
+.. 保留默认语言设置 C.UTF-8 。
++
+[NOTE]
+====
+如果您支持在 NFS 和 SMB/CIFS 客户端中显示国际字符，请考虑使用 * UTF8MB4* 语言代码，该代码从 ONTAP 9.5 开始提供。
+
+====
++
+此语言将由您稍后创建的卷继承，并且无法更改卷的语言。
+
+.. *可选*：选择要包含SVM根卷的根聚合。
++
+为根卷选择的聚合不会确定数据卷的位置。在稍后配置存储时，系统会自动选择数据卷的聚合。
+
++
+image::../media/svm_setup_details_page_ntfs_selected_smb.gif[本图通过周围的文字进行了说明。]
+
+.. *可选*：在* DNS配置*区域中、确保默认DNS搜索域和名称服务器是要用于此SVM的域和名称服务器。
++
+image::../media/svm_setup_details_dns_smb.gif[本图通过周围的文字进行了说明。]
+
+.. 单击 * 提交并继续 * 。
+
+
++
+此时将创建 SVM ，但尚未配置协议。
+
+. 在 * 配置 CIFS/NFS 协议 * 页面的 * 数据 LIF 配置 * 部分中，指定客户端用于访问数据的 LIF 的详细信息：
++
+.. 从您指定的子网自动为 LIF 分配 IP 地址，或者手动输入地址。
+.. 单击 * 浏览 * 并选择要与 LIF 关联的节点和端口。
++
+image::../media/svm_setup_cifs_nfs_page_lif_multi_nas_smb.gif[本图通过周围的文字进行了说明。]
+
+
+
+. 在 * CIFS 服务器配置 * 部分中，定义 CIFS 服务器并将其配置为访问 AD 域：
++
+.. 为 CIFS 服务器指定在 AD 域中唯一的名称。
+.. 指定 CIFS 服务器可以加入的 AD 域的 FQDN 。
+.. 如果要关联 AD 域中的组织单位（ OU ），而不是 CN=Computers ，请输入 OU 。
+.. 指定具有足够权限将 CIFS 服务器添加到 OU 的管理帐户的名称和密码。
+.. 如果要避免对此 SVM 上的所有共享进行未经授权的访问，请选择使用 SMB 3.0 加密数据的选项。
+
+
++
+image::../media/svm_setup_cifs_nfs_page_cifs_ad_smb.gif[本图通过周围的文字进行了说明。]
+
+. 创建用于 CIFS/SMB 访问的卷并在其上配置共享：
++
+.. 命名 CIFS/SMB 客户端将用于访问卷的共享。
++
+您为共享输入的名称也将用作卷名称。
+
+.. 指定卷的大小。
++
+image::../media/svm_setup_cifs_nfs_page_cifs_share_smb.gif[配置 CIFS 共享的区域的屏幕截图]
+
+
+
++
+您无需为卷指定聚合，因为它会自动位于可用空间最多的聚合上。
+
+. *可选*：通过修改共享ACL限制对共享的访问：
++
+.. 在 * 权限 * 字段中，单击 * 更改 * 。
+.. 选择 Everyone 组，然后单击 * 删除 * 。
+.. *可选*：单击*添加*、然后输入包含SVM的Windows Active Directory域中定义的管理员组的名称。
+.. 选择新的管理员组，然后选择 * 完全控制 * 。
+.. 单击 * 保存并关闭 * 。
+
+
+. 单击 * 提交并继续 * 。
++
+此时将创建以下对象：
+
++
+** 以 SVM 命名的数据 LIF ，后缀为 "` cifs_lif1` "
+** 属于 AD 域的 CIFS 服务器
+** 位于可用空间最多的聚合上的卷，其名称与共享名称匹配，并以后缀 "` cifs_volume` " 结尾
+** 卷上的共享
+
+
+. 对于显示的所有其他协议配置页面，请单击 * 跳过 * 并稍后配置协议。
+. 显示 * SVM 管理 * 页面时，配置或推迟为此 SVM 配置单独的管理员：
++
+** 单击 * 跳过 * ，然后根据需要稍后配置管理员。
+** 输入请求的信息，然后单击 * 提交并继续 * 。
+
+
+. 查看 * 摘要 * 页面，记下稍后可能需要的任何信息，然后单击 * 确定 * 。
++
+DNS 管理员需要知道 CIFS 服务器名称和数据 LIF 的 IP 地址。Windows 客户端需要知道 CIFS 服务器和共享的名称。
+
+
+
+.结果
+此时将创建一个新的 SVM ，其中 CIFS 服务器包含一个共享的新卷。

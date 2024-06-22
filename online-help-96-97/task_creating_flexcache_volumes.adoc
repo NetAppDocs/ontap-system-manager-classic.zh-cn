@@ -1,0 +1,53 @@
+---
+permalink: online-help-96-97/task_creating_flexcache_volumes.html 
+sidebar: sidebar 
+keywords: online, help, create, flexcache, volume, system, manager 
+summary: 从 System Manager 9.6 开始，您可以创建 FlexCache 卷。 
+---
+= 创建 FlexCache 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以创建 FlexCache 卷。
+
+.关于此任务
+要创建 FlexCache 卷，您必须具有 FlexCache 容量许可证。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 在 * 卷 * 窗口中，单击 * 创建 * > * FlexCache * 。
++
+此时将显示创建 FlexCache 卷窗口。
+
+. *可选：*"初始卷*"区域中的以下字段显示要创建FlexCache 卷的初始卷的值。您可以对其进行修改。
++
+** * 集群 * ：使用下拉菜单选择与原始卷关联的集群。
+** * SVM* ：使用下拉菜单选择包含原始卷的 SVM 。
++
+如果您选择的 SVM 未建立对等关系，但允许建立对等关系，则 System Manager 允许您明确为其建立对等关系。
+
+** * 卷 * ：使用下拉菜单选择卷名称或在字段中输入名称。
+
+
+. * FlexCache Volume* 区域中的以下字段显示了要创建的 FlexCache 卷的默认值。您可以对其进行修改。
++
+** * SVM* ：使用下拉菜单选择要在其中创建 FlexCache 卷的 SVM 。如果 FlexCache 许可证容量已满或接近已满，您可以选择 * 管理 FlexCache 许可证 * 来修改许可证。
+** * 新卷名称 * ：输入 FlexCache 卷的名称。
+** * 大小 * ：指定 FlexCache 卷的大小，包括度量单位。
++
+默认情况下，大小字段会进行初始设置。指定的大小不能超过许可的容量大小。
+
+
+
+. 单击 * 保存 * 以创建 FlexCache 卷。
++
+您可以返回到 * 卷 * 窗口以查看卷列表中的 FlexCache 卷。
+
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

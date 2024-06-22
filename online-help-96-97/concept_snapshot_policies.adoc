@@ -1,0 +1,130 @@
+---
+permalink: online-help-96-97/concept_snapshot_policies.html 
+sidebar: sidebar 
+keywords: snapshot, manager, system, create, manage, policy, storage, online, help 
+summary: 您可以使用 System Manager 在存储系统中创建和管理 Snapshot 策略。 
+---
+= 使用System Manager - ONTAP 9.7及更早版本管理Snapshot策略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)在存储系统中创建和管理Snapshot策略。
+
+
+
+== 关于 Snapshot 策略
+
+应用于卷时， Snapshot 策略会指定一个或多个计划，根据该计划创建 Snapshot 副本，并指定每个计划可以创建的最大 Snapshot 副本数。一个 Snapshot 策略最多可包含五个计划。
+
+对于存储关系， SnapMirror 标签属性用于选择源卷上的 Snapshot 副本。在备份存储操作中，只会复制在存储策略规则中配置了标签的 Snapshot 副本。分配给源卷的 Snapshot 策略必须包含 SnapMirror 标签属性。
+
+
+
+== 创建 Snapshot 策略
+
+您可以在 System Manager 中创建 Snapshot 策略，以指定可以自动创建的 Snapshot 副本的最大数量以及创建频率。
+
+.步骤
+. 单击 * 保护 * > * 快照策略 * 。
+. 单击 * 创建 * 。
+. 在 * 创建 Snapshot 策略 * 对话框中，指定策略名称。
+. 单击 * 添加 * ，然后指定计划名称，要保留的最大 Snapshot 副本数以及 SnapMirror 标签名称。
++
+指定计划可保留的最大 Snapshot 副本数不得超过 254 个。
+
+. 单击 * 确定 * ，然后单击 * 创建 * 。
+
+
+
+
+== 编辑 Snapshot 策略
+
+您可以使用 System Manager 中的编辑 Snapshot 策略对话框修改现有 Snapshot 策略的详细信息，例如计划名称， SnapMirror 标签或创建的最大 Snapshot 副本数。
+
+.步骤
+. 单击 * 保护 * > * 快照策略 * 。
+. 在 * 快照策略 * 窗口中，选择要修改的 Snapshot 策略，然后单击 * 编辑 * 。
+. 在 * 编辑 Snapshot 策略 * 对话框中，选择要修改的计划，然后单击 * 编辑 * 。
+. 单击 * 确定 * 。
+. 在 * 编辑 Snapshot 策略 * 对话框中验证对选定 Snapshot 策略所做的更改，然后单击 * 保存 * 。
+
+
+
+
+== 删除 Snapshot 策略
+
+您可以使用 System Manager 删除 Snapshot 策略。如果删除一个或多个卷正在使用的 Snapshot 策略，则不会再根据已删除的策略创建卷的 Snapshot 副本。
+
+.开始之前
+您必须已将 Snapshot 策略与使用该策略的每个卷解除关联。
+
+.步骤
+. 单击 * 保护 * > * 快照策略 * 。
+. 选择 Snapshot 策略并单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+
+
+== Snapshot 策略窗口
+
+您可以使用 Snapshot 策略窗口管理 Snapshot 策略任务，例如添加，编辑和删除 Snapshot 策略。
+
+
+
+=== 命令按钮
+
+* * 创建 * 。
++
+打开创建 Snapshot 策略对话框，在此可以添加备份计划并指定策略中要保留的最大 Snapshot 副本数。
+
+* * 编辑 * 。
++
+打开编辑 Snapshot 策略对话框，在此可以修改创建 Snapshot 副本的频率以及要保留的最大 Snapshot 副本数。
+
+* * 删除 *
++
+打开删除对话框，在此可以删除选定的 Snapshot 策略。
+
+* * 查看方式 *
++
+用于以列表或树的形式查看 Snapshot 策略。
+
+* * 状态 *
++
+打开菜单，在此可以启用或禁用选定的 Snapshot 策略。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== Snapshot 策略列表
+
+* * 策略 / 计划名称 *
++
+指定 Snapshot 策略的名称以及策略中的计划。
+
+* * Storage Virtual Machine*
++
+指定 Snapshot 副本所属的 Storage Virtual Machine （ SVM ）的名称。
+
+* * 状态 *
++
+指定 Snapshot 策略的状态，可以是 " 已启用 " 或 " 已禁用 " 。
+
+* * 要保留的最大快照数 *
++
+指定要保留的最大 Snapshot 副本数。
+
+* * SnapMirror 标签 *
++
+指定备份计划生成的 Snapshot 副本的 SnapMirror 标签属性的名称。
+
+

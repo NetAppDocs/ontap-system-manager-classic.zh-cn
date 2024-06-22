@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/task_viewing_lun_information.html 
+sidebar: sidebar 
+keywords: view, lun, information, manangement, online, help 
+summary: 您可以使用 System Manager 中的 LUN 管理选项卡查看有关 LUN 的详细信息，例如其名称，状态，大小和类型。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本查看 LUN 信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager 经典版（在 ONTAP 9.7 及更早版本中提供）中的 * LUN 管理 * 选项卡查看有关 LUN 的详细信息，例如其名称，状态，大小和类型。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，从显示的 LUN 列表中选择要查看相关信息的 LUN 。
+. 在 * LUN * 窗口中查看 LUN 详细信息。
+

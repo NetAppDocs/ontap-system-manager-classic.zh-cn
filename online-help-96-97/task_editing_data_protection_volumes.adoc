@@ -1,0 +1,38 @@
+---
+permalink: online-help-96-97/task_editing_data_protection_volumes.html 
+sidebar: sidebar 
+keywords: edit, data, protection, system, manager, online, help, dp, volume 
+summary: 您可以使用 System Manager 修改数据保护（ DP ）卷的卷名称。如果源卷未启用存储效率，您可能希望仅在目标卷上启用存储效率。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑数据保护卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）修改数据保护（ DP ）卷的卷名称。如果源卷未启用存储效率，您可能希望仅在目标卷上启用存储效率。
+
+.关于此任务
+您不能修改镜像 DP 卷上的存储效率。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中，选择要编辑的 DP 卷所在的 Storage Virtual Machine （ SVM ）。
+. 选择要修改的卷，然后单击 * 编辑 * 。
+. 在 * 编辑数据保护卷 * 对话框中，修改卷名称。
+. 确保已选择 * 启用存储效率 * 选项。
++
+如果已在卷上启用存储效率，则默认情况下会选中此复选框。
+
+. *可选：*单击*高级*选项卡、然后执行以下步骤：
++
+.. 选择要分配给卷的缓存策略。
+.. 选择卷中缓存数据的保留优先级。
+
+
++
+这些选项仅适用于 Flash Pool 聚合中的数据保护 FlexVol 卷。
+
+. 单击 * 保存 * 。
+

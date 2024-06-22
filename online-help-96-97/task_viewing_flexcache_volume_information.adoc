@@ -1,0 +1,92 @@
+---
+permalink: online-help-96-97/task_viewing_flexcache_volume_information.html 
+sidebar: sidebar 
+keywords: system, manager, flexcache, volume, information, online, help 
+summary: 从 System Manager 9.6 开始，您可以查看有关 FlexCache 卷的信息。您可以通过图形方式查看 FlexCache 卷的已分配空间和性能。 
+---
+= 查看 FlexCache 卷信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以查看有关 FlexCache 卷的信息。您可以通过图形方式查看 FlexCache 卷的已分配空间和性能。
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从显示的卷列表中，选择要查看其信息的 FlexCache 卷。
++
+对于 FlexCache 卷， * 模式 * 列显示 FlexCache 。
+
++
+选择后，将显示选定 FlexCache 卷的卷窗口。
+
+. 最初， * 卷 * 窗口将显示 * 概述 * 选项卡。单击选项卡可查看有关 FlexCache 卷的其他详细信息：
++
+|===
+| 单击此选项卡 ... | 要查看这些详细信息 ... 
+
+
+ a| 
+* 概述 *
+ a| 
+有关 FlexCache 卷的常规信息，分配给 FlexCache 卷的空间以及有关 FlexCache 卷的性能信息。
+
+
+
+ a| 
+* 存储效率 * 。
+ a| 
+FlexCache 卷的存储效率设置。
+
+
+
+ a| 
+* 性能 *
+ a| 
+基于延迟， IOPS 和吞吐量的 FlexCache 卷的平均性能指标，读取性能指标和写入性能指标。此外，还会显示缓存命中或未命中的百分比。
+
+|===
+. *可选：*单击*更多操作*以查看追加信息 并从下拉菜单中的选择中执行操作：
++
+|===
+| Action | Description 
+
+
+ a| 
+更改状态
+ a| 
+用于更改 FlexCache 卷的状态。请参见 link:task_changing_status_flexcache_volume.html["更改 FlexCache 卷的状态"]。
+
+
+
+ a| 
+调整大小
+ a| 
+用于调整 FlexCache 卷的大小。请参见 link:task_resizing_flexcache_volumes.html["调整 FlexCache 卷大小"]。
+
+
+
+ a| 
+存储效率
+ a| 
+用于调整参数以提高 FlexCache 卷的存储效率。
+
+
+
+ a| 
+存储 QoS
+ a| 
+用于调整 FlexCache 卷的最小和最大存储限制。
+
+
+
+ a| 
+重新设置加密密钥
+ a| 
+用于重置加密密钥（仅当已在包含 FlexCache 卷的对等集群上启用加密时）
+
+|===
+

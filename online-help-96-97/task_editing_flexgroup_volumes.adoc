@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_editing_flexgroup_volumes.html 
+sidebar: sidebar 
+keywords: edit, flexgroup, volume, system, volume, online, help 
+summary: 从 System Manager 9.6 开始，您可以编辑现有 FlexGroup 卷的属性。 
+---
+= 编辑 FlexGroup 卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 System Manager 9.6 开始，您可以编辑现有 FlexGroup 卷的属性。
+
+.开始之前
+FlexGroup 卷必须处于联机状态。
+
+.关于此任务
+在以下情况下，可以扩展 FabricPool FlexGroup 卷：
+
+* FabricPool FlexGroup 卷只能使用 FabricPool 聚合进行扩展。
+* 非 FabricPool FlexGroup 卷只能使用非 FabricPool 聚合进行扩展。
+* 如果 FlexGroup 卷同时包含 FabricPool 卷和非 FabricPool 卷，则可以使用 FabricPool 聚合和非 FabricPool 聚合扩展 FlexGroup 卷。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 选择要修改的 FlexGroup 卷，然后单击 * 编辑 * 。
+. *可选：*如果要重命名FlexGroup 卷、请在*名称*字段中输入新名称。
++
+从 System Manager 9.6 开始，您还可以重命名 FlexGroup DP 卷。
+
+. *可选：*启用*加密*选项可为卷启用加密。
++
+只有在已启用卷加密许可证且相应平台支持加密的情况下，此选项才可用。
+
+. 指定 Snapshot 副本预留的百分比。
+. * 可选： * 单击 image:../media/advanced_options.gif[""] 修改 FlexGroup 卷设置。请参见 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
+. 指定要将 FlexGroup 卷调整到的大小。
++
+默认情况下，现有聚合用于调整 FlexGroup 卷的大小。卷允许的最小大小显示在大小字段旁边。
+
++
+[NOTE]
+====
+如果要通过添加新资源来扩展 FlexGroup 卷，请单击 image:../media/advanced_options.gif[""] （高级选项）。请参见 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
+
+====
+. 单击 * 保存 * 以保存更改。
+
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

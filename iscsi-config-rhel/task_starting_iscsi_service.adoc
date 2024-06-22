@@ -1,0 +1,58 @@
+---
+permalink: iscsi-config-rhel/task_starting_iscsi_service.html 
+sidebar: sidebar 
+keywords: iscsi, configuration, file, service, host, discover, target, access, lun, run, start the iscsi service 
+summary: 编辑 iSCSI 配置文件后，您必须启动 iSCSI 服务，以便主机可以发现目标并访问 LUN 。如果 iSCSI 服务正在运行，则必须重新启动它。 
+---
+= 启动 iSCSI 服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+编辑 iSCSI 配置文件后，您必须启动 iSCSI 服务，以便主机可以发现目标并访问 LUN 。如果 iSCSI 服务正在运行，则必须重新启动它。
+
+.步骤
+. 在 Linux 主机命令提示符处启动 iSCSI 服务：
++
+|===
+| 如果您使用的是 ... | 输入 ... 
+
+
+ a| 
+Red Hat Enterprise Linux 7 系列和 SUSE Linux Enterprise 12 系列
+ a| 
+`systemctl start iscsid`
+
+
+
+ a| 
+Red Hat Enterprise Linux 6 系列
+
+[NOTE]
+====
+首次在运行 Red Hat Enterprise Linux 6 系列和 Oracle Linux 6 系列的主机上启动 iSCSI 服务时，必须执行此命令。如果您执行 `/etc/init.d/iscsi start` 而不是以前执行的 `service iscsid force-start`，则会收到错误消息。
+
+==== a| 
+`service iscsid force-start`
+
+
+
+ a| 
+Red Hat Enterprise Linux 5 或 4 系列以及 Oracle Linux 5 系列， Red Hat Enterprise Virtualization ， Oracle Linux 和 Oracle VM
+ a| 
+`/etc/init.d/iscsi start`
+
+
+
+ a| 
+SUSE Linux Enterprise Server 10 或 11 系列
+ a| 
+`/etc/init.d/open-iscsi start`
+
+|===
++
+Citrix 不建议使用 iscsiadm 工具。原生 XAPI 堆栈可完成启动和停止 iSCSI 服务，启动时自动登录以及其他 iSCSI 操作等任务。
+
+

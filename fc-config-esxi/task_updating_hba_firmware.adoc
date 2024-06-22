@@ -1,0 +1,32 @@
+---
+permalink: fc-config-esxi/task_updating_hba_firmware.html 
+sidebar: sidebar 
+keywords: fc, host, bus, adapter, hba, esx, support, driver, firmware, bio, update, update the hba driver firmware and bios 
+summary: 如果 ESX 主机中的 FC 主机总线适配器运行的驱动程序，固件和 BIOS 版本不受支持，则必须对其进行更新。 
+---
+= 更新 HBA 驱动程序，固件和 BIOS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 ESX 主机中的 FC 主机总线适配器（ HBA ）运行的驱动程序，固件和 BIOS 版本不受支持，则必须对其进行更新。
+
+.开始之前
+您必须已通过确定您的配置支持的驱动程序，固件和 BIOS 版本 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]。
+
+.关于此任务
+驱动程序，固件， BIOS 和 HBA 实用程序由 HBA 供应商提供。
+
+.步骤
+. 使用适用于您的 ESXi 版本的 ESXi 主机控制台命令列出已安装的 HBA 驱动程序，固件和 BIOS 版本。
+. 根据需要从 HBA 供应商的支持站点下载并安装新的驱动程序，固件和 BIOS 。
++
+安装说明以及所需的任何安装实用程序均可随下载获得。
+
+
+
+* 相关信息 *
+
+http://kb.vmware.com/kb/1002413["VMware 知识库文章 1002413 ：确定 Qlogic 或 Emulex FC HBA 的固件"]

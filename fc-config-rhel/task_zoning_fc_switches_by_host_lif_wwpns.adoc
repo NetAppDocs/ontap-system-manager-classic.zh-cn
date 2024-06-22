@@ -1,0 +1,44 @@
+---
+permalink: fc-config-rhel/task_zoning_fc_switches_by_host_lif_wwpns.html 
+sidebar: sidebar 
+keywords: zoning, fc, switch, enable, host, connect, storage, limit, number, path, zone, management, interface, zone the fc switches by the host and lif wwpns 
+summary: 通过对 FC 交换机进行分区，主机可以连接到存储并限制路径数。您可以使用交换机的管理接口对交换机进行分区。 
+---
+= 按主机和 LIF WWPN 对 FC 交换机进行分区
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过对 FC 交换机进行分区，主机可以连接到存储并限制路径数。您可以使用交换机的管理接口对交换机进行分区。
+
+.开始之前
+* 您必须具有交换机的管理员凭据。
+* 您必须了解创建 LUN 的 Storage Virtual Machine （ SVM ）的每个主机启动程序端口和每个 FC LIF 的 WWPN 。
+
+
+.关于此任务
+有关对交换机进行分区的详细信息，请参见交换机供应商的文档。
+
+您必须按 WWPN 进行分区，而不是按物理端口进行分区。每个启动程序端口都必须位于一个单独的分区中，并具有所有相应的目标端口。
+
+LUN 会映射到 igroup 中的一部分启动程序，以限制从主机到 LUN 的路径数。
+
+* 默认情况下， ONTAP 使用选择性 LUN 映射使 LUN 只能通过 LUN 所属节点及其 HA 配对节点上的路径进行访问。
+* 您仍然必须对每个节点上的所有 FC LIF 进行分区，以实现 LUN 移动性，以防 LUN 移动到集群中的另一个节点。
+* 移动卷或 LUN 时，必须在移动之前修改选择性 LUN 映射报告节点列表。
+
+
+下图显示了连接到四节点集群的主机。有两个分区，一个分区以实线表示，一个分区以虚线表示。每个分区都包含一个来自主机的启动程序和一个来自每个存储节点的 LIF 。
+
+image::../media/scm_en_drw_dual_fabric_zoning_fc_rhel.gif[此图显示了一个主机,two FC switches,and four storage nodes. Lines represent the two zones.]
+
+您必须使用目标 LIF 的 WWPN ，而不是存储节点上物理 FC 端口的 WWPN 。LIF WWPN均在该范围内 `2x:xx:00:a0:98:xx:xx:xx`、其中 `x` 是任意十六进制数字。所有物理端口WWPN均在该范围内 `50:0a:09:8x:xx:xx:xx:xx`。
+
+.步骤
+. 登录到 FC 交换机管理程序，然后选择分区配置选项。
+. 创建一个新分区，其中包含第一个启动程序以及与启动程序连接到同一 FC 交换机的所有 FC LIF 。
+. 为主机中的每个 FC 启动程序创建其他分区。
+. 保存分区，然后激活新的分区配置。
+

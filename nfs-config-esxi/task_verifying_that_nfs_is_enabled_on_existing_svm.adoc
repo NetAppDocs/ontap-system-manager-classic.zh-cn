@@ -1,0 +1,24 @@
+---
+permalink: nfs-config-esxi/task_verifying_that_nfs_is_enabled_on_existing_svm.html 
+sidebar: sidebar 
+keywords: verify, nfs, enable, configure, access, esxi, verify that nfs is enabled on an existing SVM 
+summary: 如果选择使用现有 SVM ，则必须先验证是否已在 SVM 上启用 NFS 。然后，您可以使用 Virtual Storage Console 使用 ESXi 配置 NFS 访问并验证是否已为 ESXi 启用 NFS 。 
+---
+= 验证是否已在现有SVM上启用NFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果选择使用现有 SVM ，则必须先验证是否已在 SVM 上启用 NFS 。然后，您可以使用 Virtual Storage Console 使用 ESXi 配置 NFS 访问并验证是否已为 ESXi 启用 NFS 。
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 单击 * SVM 设置 * 选项卡。
+. 在 * 协议 * 窗格中，单击 * NFS * 。
+. 验证 NFS 是否显示为已启用。
++
+如果未启用 NFS ，则必须启用它或创建新的 SVM 。
+
+

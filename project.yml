@@ -1,0 +1,51 @@
+---
+settings:
+  name: System Manager Classic
+  noindex: true
+  internal:
+    pdf_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  search: ontap-system-manager-classic
+  langs: zh-cn,us-en,ja-jp,ko-kr,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: System Manager 经典文档
+    url: "/index.html"
+  - title: 配置NAS存储
+    entries:
+    - section: nfs-config
+    - section: nfs-config-esxi
+    - section: nas-multiprotocol-config
+    - section: smb-config
+  - title: 配置 SAN 存储
+    entries:
+    - section: fc-config-esxi
+    - section: fc-config-rhel
+    - section: fc-config-windows
+    - section: iscsi-config-esxi
+    - section: iscsi-config-rhel
+    - section: iscsi-config-windows
+  - title: 数据保护和灾难恢复
+    entries:
+    - section: peering
+    - section: volume-disaster-recovery
+    - section: volume-disaster-prep
+    - section: volume-backup-snapvault
+    - section: volume-restore-snapvault
+  - title: 集群管理
+    entries:
+    - section: expansion
+    - section: volume-move
+    - section: snmp-config
+  - title: 使用 System Manager 9.6 和 9.7 进行集群管理
+    entries:
+    - section: online-help-96-97
+  - title: ONTAP 文档
+    url: https://docs.netapp.com/us-en/ontap/
+  - title: 法律声明
+    url: "/reference_legal_notices.html"
+product-family:
+  name: ONTAP
+  repo: ontap-family

@@ -1,0 +1,39 @@
+---
+permalink: online-help-96-97/task_moving_flexvol_volumes.html 
+sidebar: sidebar 
+keywords: move, flexvol, volume, aggregate, system, manager, online, help 
+summary: 您可以使用 System Manager 无中断地将 FlexVol 卷移动到其他聚合或节点，以提高容量利用率并提高性能。 
+---
+= 使用 System Manager 移动 FlexVol 卷— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）无中断地将 FlexVol 卷移动到其他聚合或其他节点，以提高容量利用率和性能。
+
+.开始之前
+如果要移动数据保护卷，则必须先初始化数据保护镜像关系，然后再移动该卷。
+
+.关于此任务
+* 移动 Flash Pool 聚合上托管的卷时，只会将存储在 HDD 层中的数据移动到目标聚合。
++
+与卷关联的缓存数据不会移动到目标聚合。因此，卷移动后，性能可能会有所下降。
+
+* 您不能从 SnapLock 聚合移动卷。
+* 您不能将卷从配置用于灾难恢复的 SVM 移动到启用了 FabricPool 的聚合。
+
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 选择包含卷的聚合，然后单击菜单：更多操作 [ 卷移动 ] 。
+. 根据向导的提示键入或选择信息。
+. 确认详细信息，然后单击 * 完成 * 完成向导。
+

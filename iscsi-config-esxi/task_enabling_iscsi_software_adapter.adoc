@@ -1,0 +1,25 @@
+---
+permalink: iscsi-config-esxi/task_enabling_iscsi_software_adapter.html 
+sidebar: sidebar 
+keywords: iscsi, software, adapter, create, connection, esx, host, operating, system, enable, enable the iscsi software adapter, esxi 
+summary: iSCSI 软件适配器会在 ESX 主机上创建 iSCSI 连接。它内置在操作系统中，但必须先启用，然后才能使用。 
+---
+= 启用 iSCSI 软件适配器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI 软件适配器会在 ESXi 主机上创建 iSCSI 连接。它内置在操作系统中，但必须先启用，然后才能使用。
+
+.开始之前
+您必须在工作站上安装 VMware vSphere Client ，或者您必须有权访问 vSphere Web Client 。
+
+.步骤
+. 登录到 vSphere Client 。
+. 从清单窗格中选择 ESX 主机。
+. 单击 * 配置 * > * 存储适配器 * 。
+. 选择 iSCSI 软件适配器，然后单击 * 属性 * > * 配置 * 。
+. 选择 * 已启用 * ，然后单击 * 确定 * 。
+

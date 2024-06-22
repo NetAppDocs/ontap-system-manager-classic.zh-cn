@@ -1,0 +1,52 @@
+---
+permalink: snmp-config/index.html 
+sidebar: sidebar 
+keywords: content, configure, snmp, cluster, management, level, add, communities, community, security, user, traphost, communication, snmp configuration overview 
+summary: '在 ONTAP 9.7 或更早版本中使用 ONTAP 系统管理器的 " 经典 " 界面，您可以在集群管理级别配置 SNMP ，添加社区，安全用户和陷阱主机以及测试 SNMP 通信。' 
+---
+= SNMP配置概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP 9.7 或更早版本中使用 ONTAP System Manager _classic_ 界面，您可以在集群管理级别配置 SNMP ，添加社区，安全用户和陷阱主机以及测试 SNMP 通信。
+
+如果要按以下方式配置对集群的 SNMP 访问，应使用以下过程：
+
+* 您正在使用运行 ONTAP 9 的集群。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
++
+[NOTE]
+====
+这些过程中有几个步骤必须使用命令行界面。
+
+====
+
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+您可以使用为所有 ONTAP 9 版本配置对集群的 SNMP 访问。您应使用适用于您的 ONTAP 版本的操作步骤。
+
+|===
+
+
+| 要执行以下任务，请执行以下操作 ... | 请参见 ... 
+
+
+ a| 
+重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本）
+ a| 
+https://docs.netapp.com/us-en/ontap/networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html["在集群上管理SNMP (仅限集群管理员)"^]
+
+
+
+ a| 
+ONTAP 命令行界面（ CLI ）
+ a| 
+https://docs.netapp.com/us-en/ontap/networking/commands_for_managing_snmp.html["用于管理 SNMP 的命令"^]
+
+|===

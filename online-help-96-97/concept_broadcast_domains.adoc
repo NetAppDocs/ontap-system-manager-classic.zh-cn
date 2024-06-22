@@ -1,0 +1,64 @@
+---
+permalink: online-help-96-97/concept_broadcast_domains.html 
+sidebar: sidebar 
+keywords: system, manager, create, manage, broadcast, domain, online, help, edit, settings, port, delete 
+summary: 您可以使用 System Manager 创建和管理广播域。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理广播域
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建和管理广播域。
+
+
+
+== 编辑广播域设置
+
+您可以使用 System Manager 修改广播域的属性，例如名称， MTU 大小以及与广播域关联的端口。
+
+.关于此任务
+* 您不能修改将管理端口 e0M 分配到的广播域的 MTU 大小。
+* 您不能使用 System Manager 编辑集群 IP 空间中的广播域。
++
+您必须改用命令行界面（ CLI ）。
+
+
+
+.步骤
+. 单击 * 网络 * > * 广播域 * 。
+. 选择要修改的广播域，然后单击 * 编辑 * 。
+. 在 * 编辑广播域 * 对话框中，根据需要修改广播域属性。
+. 单击 * 保存并关闭 * 。
+
+
+
+
+== 删除广播域
+
+当您不再需要广播域时，可以使用 System Manager 删除此广播域。
+
+.开始之前
+不能将任何子网与要删除的广播域相关联。
+
+.关于此任务
+* 删除广播域时，与此广播域关联的端口将分配给默认 IP 空间，并且不会更改这些端口的 MTU 设置。
+* 您不能使用 System Manager 删除集群 IP 空间中的广播域。
++
+您必须改用命令行界面（ CLI ）。
+
+
+
+.步骤
+. 单击 * 网络 * > * 广播域 * 。
+. 选择要删除的广播域，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+* 相关信息 *
+
+xref:reference_network_window.adoc[网络窗口]
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"]

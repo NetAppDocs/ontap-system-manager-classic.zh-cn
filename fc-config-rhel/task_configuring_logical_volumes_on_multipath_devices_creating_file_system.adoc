@@ -1,0 +1,27 @@
+---
+permalink: fc-config-rhel/task_configuring_logical_volumes_on_multipath_devices_creating_file_system.html 
+sidebar: sidebar 
+keywords: linux, host, access, scsi, device, lun, partition, file, system, multipath, device, underly, scsi, lofical, create, file, system, configure, configure logical volumes on multipath devices and creating a file system 
+summary: 当 Linux 主机首次访问新的 SCSI 设备（ LUN ）时，没有分区或文件系统。如果要使用已分区的多路径设备，必须先对底层 SCSI 设备进行分区。您可能还需要在多路径设备上创建逻辑卷，并可选择创建文件系统。 
+---
+= 在多路径设备上配置逻辑卷并创建文件系统
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当 Linux 主机首次访问新的 SCSI 设备（ LUN ）时，没有分区或文件系统。如果要使用已分区的多路径设备，必须先对底层 SCSI 设备进行分区。您可能还需要在多路径设备上创建逻辑卷，并可选择创建文件系统。
+
+.开始之前
+Linux 主机必须已发现 SCSI 设备和相应的多路径设备。
+
+.关于此任务
+至少应在 SCSI 设备上配置 DM-Multipath 。除了 DM-Multipath 之外，任何其他配置都是可选的。如果您要执行其他配置，例如分区，在多路径设备上配置逻辑卷以及创建文件系统，请遵循以下步骤。有关 Linux 命令的详细信息，请参阅 Red Hat Enterprise Linux 文档和手册页。
+
+.步骤
+. 要使用已分区的多路径设备、请首先使用对底层SCSI设备进行分区 `fdisk` 或 `parted` 实用程序。
+. 使用创建相应的多路径分区 `kpartx` 实用程序。
+. 使用逻辑卷管理器（ LVM ）命令在相应的多路径设备上创建逻辑卷。
+. 使用在逻辑卷或多路径设备上创建文件系统、例如ext4或XFS `mkfs` 实用程序。
+

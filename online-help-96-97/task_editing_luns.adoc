@@ -1,0 +1,28 @@
+---
+permalink: online-help-96-97/task_editing_luns.html 
+sidebar: sidebar 
+keywords: edit, lun, properties, online, help, system, manager 
+summary: 您可以使用 System Manager 中的 LUN 属性对话框更改 LUN 的名称，问题描述，大小，空间预留设置或映射的启动程序主机。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本编辑 LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）中的 LUN 属性对话框更改 LUN 的名称，问题描述 ，大小，空间预留设置或映射的启动程序主机。
+
+.关于此任务
+调整 LUN 大小时，必须在主机端执行为使用 LUN 的主机类型和应用程序建议的步骤。
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，从 LUN 列表中选择要编辑的 LUN ，然后单击 * 编辑 * 。
+. 进行所需的更改。
+. 单击 * 保存并关闭 * 。
+
+
+* 相关信息 *
+
+xref:reference_luns_window.adoc[LUN 窗口]

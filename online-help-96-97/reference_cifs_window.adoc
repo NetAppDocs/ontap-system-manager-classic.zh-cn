@@ -1,0 +1,146 @@
+---
+permalink: online-help-96-97/reference_cifs_window.html 
+sidebar: sidebar 
+keywords: cifs, window, configuration, tab, domain, symlink, branchcache, online, help 
+summary: 您可以使用 CIFS 窗口配置 CIFS 服务器，管理域控制器，管理符号 UNIX 映射以及配置 BranchCache 。 
+---
+= System Manager 中的 CIFS 窗口— ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP 系统管理器中的CIFS窗口(在ONTAP 9.7及更早版本中提供)来配置CIFS服务器、管理域控制器、管理符号UNIX映射以及配置BranchCache。
+
+
+
+== 配置选项卡
+
+通过配置选项卡，您可以创建和管理 CIFS 服务器。
+
+* * 服务器 *
++
+指定 CIFS 服务器的状态，服务器名称，身份验证模式， Active Directory 域的名称以及 SMB 多通道的状态。
+
+* * 主目录 *
++
+指定主目录路径以及用于确定 PC 用户名如何映射到主目录条目的模式。
+
+* * 命令按钮 *
++
+** 设置
++
+打开 CIFS 设置向导，在此可以在 Storage Virtual Machine （ SVM ）上设置 CIFS 。
+
+** 选项
++
+显示 CIFS 选项对话框，在此可以启用或禁用 SMB 3.0 签名，启用或禁用 SMB 3.0 加密以及添加 Windows Internet Name Service （ WINS ）服务器。
+
++
+SMB 签名可防止 CIFS 服务器和客户端之间的网络流量受到影响。
+
+** 删除
++
+用于删除 CIFS 服务器。
+
+** 刷新
++
+更新窗口中的信息。
+
+
+
+
+
+
+
+== 域选项卡
+
+通过域选项卡，您可以查看和重置 CIFS 域控制器，以及添加或删除首选域控制器。您也可以使用此选项卡管理 CIFS 组策略配置。
+
+* * 服务器 *
++
+显示有关在启用了 CIFS 的 SVM 上发现的身份验证服务器和首选域控制器的信息。
+
++
+您还可以重置有关已发现服务器的信息，添加首选域控制器，删除域控制器或刷新域控制器列表。
+
+* * 组策略 *
++
+用于查看，启用或禁用 CIFS 服务器上的组策略配置。如果组策略的状态发生更改，您也可以重新加载组策略。
+
+
+
+
+
+== 符号链接选项卡
+
+通过符号链接选项卡，您可以管理 CIFS 用户的 UNIX 符号链接映射。
+
+* * 路径映射 *
++
+显示 CIFS 的符号链接映射列表。
+
+* * 命令按钮 *
++
+** 创建
++
+打开创建新符号链接路径映射对话框，在此可以创建 UNIX 符号链接映射。
+
+** 编辑
++
+打开编辑符号链接路径映射对话框，在此可以修改 CIFS 共享和路径。
+
+** 删除
++
+用于删除符号链接映射。
+
+** 刷新
++
+更新窗口中的信息。
+
+
+
+
+
+
+
+== BranchCache 选项卡
+
+BranchCache 选项卡可用于在启用了 CIFS 的 SVM 上设置和管理 BranchCache 设置。
+
+您可以查看 BranchCache 服务的状态，哈希存储的路径，哈希存储的大小以及 BranchCache 的运行模式，服务器密钥和版本。
+
+* * 命令按钮 *
++
+** 设置
++
+打开 BranchCache 设置对话框，在此可以为 CIFS 服务器配置 BranchCache 。
+
+** 编辑
++
+打开修改 BranchCache 设置对话框，在此可以修改 BranchCache 配置的属性。
+
+** 删除
++
+用于删除 BranchCache 配置。
+
+** 刷新
++
+更新窗口中的信息。
+
+
+
+
+
+* 相关信息 *
+
+xref:task_setting_up_cifs.adoc[正在设置CIFS]
+
+xref:task_editing_cifs_general_properties.adoc[编辑 CIFS 的常规属性]
+
+xref:task_adding_home_directory_paths.adoc[正在添加主目录路径]
+
+xref:task_deleting_home_directory_paths.adoc[正在删除主目录路径]
+
+xref:task_resetting_cifs_domain_controllers.adoc[重置 CIFS 域控制器]

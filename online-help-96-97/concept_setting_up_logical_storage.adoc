@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_setting_up_logical_storage.html 
+sidebar: sidebar 
+keywords: online, help, set, up, logical, storage, svm, volume 
+summary: 设置逻辑存储包括创建 Storage Virtual Machine （ SVM ）和卷。 
+---
+= 使用 System Manager classic — ONTAP 9.7 及更早版本设置逻辑存储
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）设置逻辑存储。设置逻辑存储包括创建 Storage Virtual Machine （ SVM ）和卷。

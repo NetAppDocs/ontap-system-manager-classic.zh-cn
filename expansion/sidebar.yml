@@ -1,0 +1,61 @@
+---
+section: expansion
+title: 集群管理
+entries:
+- title: 集群扩展管理
+  entries:
+  - title: 概述
+    url: "/expansion/index.html"
+  - title: 集群扩展工作流
+    url: "/expansion/concept_cluster_expansion_workflow.html"
+    entries:
+    - title: 验证集群是否已做好扩展准备
+      url: "/expansion/task_verifying_cluster_is_ready_for_expansion.html"
+      entries:
+      - title: 验证计划的配置
+        url: "/expansion/task_verifying_planned_configuration.html"
+      - title: 收集所需的网络信息
+        url: "/expansion/task_gathering_required_information.html"
+      - title: 添加或更换交换机
+        url: "/expansion/task_adding_or_replacing_switches.html"
+    - title: 准备集群以进行扩展
+      url: "/expansion/task_preparing_cluster_for_expansion.html"
+      entries:
+      - title: 添加节点锁定许可证
+        url: "/expansion/task_adding_node_locked_licenses.html"
+      - title: 验证系统的运行状况
+        url: "/expansion/task_verifying_health_system.html"
+      - title: 备份集群配置
+        url: "/expansion/task_backing_up_cluster_configuration.html"
+      - title: 生成有关开始扩展的 AutoSupport 消息
+        url: "/expansion/task_generating_autosupport_message_about_starting_expansion.html"
+    - title: 安装新节点
+      url: "/expansion/task_installing_new_nodes.html"
+      entries:
+      - title: 安装控制器
+        url: "/expansion/task_installing_controllers.html"
+      - title: 配置节点管理 LIF
+        url: "/expansion/concept_configuring_node_management_lifs.html"
+      - title: 升级或降级节点
+        url: "/expansion/task_upgrading_or_downgrading_nodes.html"
+      - title: 确保已启用硬件级 HA
+        url: "/expansion/task_ensuring_hardware_level_ha_is_enabled.html"
+      - title: 使用 System Manager 向集群添加节点
+        url: "/expansion/task_adding_nodes_to_cluster_using_system_manager.html"
+      - title: 使用命令行界面将节点加入集群
+        url: "/expansion/concept_joining_nodes_to_cluster_using_cli.html"
+    - title: 完成扩展
+      url: "/expansion/task_completing_expansion.html"
+      entries:
+      - title: 在 System Manager 中配置节点详细信息
+        url: "/expansion/task_configuring_node_details_system_manager.html"
+      - title: 在新节点上配置 AutoSupport
+        url: "/expansion/task_configuring_autosupport_on_new_nodes_using_cli.html"
+      - title: 配置服务处理器网络
+        url: "/expansion/task_configuring_service_processor_network_cli.html"
+      - title: 验证扩展集群的配置
+        url: "/expansion/task_validating_configuration_expanded_cluster.html"
+      - title: 生成有关完成扩展的 AutoSupport 消息
+        url: "/expansion/task_generating_autosupport_message_about_completing_expansion.html"
+      - title: 更新新节点的 LUN 路径
+        url: "/expansion/task_updating_lun_paths_for_new_nodes.html"

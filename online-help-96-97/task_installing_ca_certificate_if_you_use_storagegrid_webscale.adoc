@@ -1,0 +1,35 @@
+---
+permalink: online-help-96-97/task_installing_ca_certificate_if_you_use_storagegrid_webscale.html 
+sidebar: sidebar 
+keywords: install, ca, certificate, storagegrid, fabricpool, aggregate, online, help 
+summary: 要使 ONTAP 能够使用 StorageGRID 作为启用了 FabricPool 的聚合的对象存储进行身份验证，您可以在集群上安装 StorageGRID CA 证书。 
+---
+= 如果将 StorageGRID 与 System Manager - ONTAP 9.7 及更早版本结合使用，请安装 CA 证书
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要使 ONTAP 能够使用 StorageGRID 作为启用了 FabricPool 的聚合的对象存储进行身份验证，您可以使用 System Manager classic （在 ONTAP 9.7 及更早版本中提供）在集群上安装 StorageGRID CA 证书。
+
+.步骤
+. 按照 StorageGRID 系统文档中的说明，使用网格管理界面复制 StorageGRID 系统的 CA 证书。
++
+https://docs.netapp.com/sgws-113/topic/com.netapp.doc.sg-admin/home.html["《 StorageGRID 11.3 管理员指南》"]
+
++
+将 StorageGRID 添加为云层时，如果未安装 CA 证书，则会显示一条消息。
+
+. 添加 StorageGRID CA 证书。
++
+[NOTE]
+====
+您指定的完全限定域名（ FQDN ）必须与 StorageGRID CA 证书上的自定义公用名匹配。
+
+====
+
+
+* 相关信息 *
+
+xref:task_adding_cloud_tier.adoc[正在添加云层]

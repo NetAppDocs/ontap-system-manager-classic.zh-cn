@@ -1,0 +1,90 @@
+---
+permalink: online-help-96-97/task_adding_capacity_disks.html 
+sidebar: sidebar 
+keywords: add, capacity, disk, online, help, aggregate 
+summary: 您可以通过添加容量磁盘来增加现有非根聚合或包含磁盘的根聚合的大小。您可以使用 System Manager 添加选定 ONTAP 磁盘类型的 HDD 或 SSD 并修改 RAID 组选项。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本添加容量磁盘
+:allow-uri-read: 
+:experimental: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过添加容量磁盘来增加现有非根聚合或包含磁盘的根聚合的大小。您可以使用 System Manager classic （适用于 ONTAP 9.7 及更早版本）添加选定 ONTAP 磁盘类型的 HDD 或 SSD 并修改 RAID 组选项。
+
+.开始之前
+* 聚合必须处于联机状态。
+* 必须有足够的兼容备用磁盘。
+
+
+.关于此任务
+* 最好添加与聚合中的其他磁盘大小相同的磁盘。
++
+如果您添加的磁盘小于聚合中的其他磁盘，则聚合的配置会变得不最佳，进而可能会出现发生原因性能问题。
+
++
+如果您添加的磁盘大于聚合中已有 RAID 组中的可用磁盘，则这些磁盘将进行缩减，其空间将减少到该 RAID 组中其他磁盘的大小。如果在聚合中创建了新的 RAID 组，并且新 RAID 组中保留的磁盘大小相似，则这些磁盘不会进行缩减。
+
++
+如果您添加的磁盘与聚合中的其他磁盘大小不同，则可能不会添加选定磁盘，而是会自动添加可用大小介于指定大小 90% 到 105% 之间的其他磁盘。例如，对于 744 GB 的磁盘，可以选择介于 669 GB 到 781 GB 范围内的所有磁盘。对于此范围内的所有备用磁盘， ONTAP 首先会仅选择已分区的磁盘，然后仅选择未分区的磁盘，最后会同时选择已分区的磁盘和未分区的磁盘。
+
+* 您不能使用 System Manager 将 HDD 添加到以下配置：
++
+** 仅包含 SSD 的聚合
+** 包含分区磁盘的根聚合
+您必须使用命令行界面向这些配置中添加HDD。
+
+
+* 共享磁盘支持两种 RAID 类型： RAID DP 和 RAID-TEC 。
+* 不能将 SSD 与存储池结合使用。
+* 如果RAID组类型为RAID DP、并且您要添加10 TB或以上大小的FSAS或MSATA磁盘、则只能将其添加到 `Specific RAID group`，而不是 `New RAID group` 或 `All RAID groups`。
++
+在将磁盘大小缩减为现有聚合的已有 RAID 组中的磁盘大小后，系统会添加这些磁盘。
+
+* 如果RAID组类型为RAID-TEC、并且要添加10 TB或以上大小的FSAS或MSATA磁盘、则可以将其添加到 `All RAID groups`， `New RAID group`，和 `Specific RAID group`。
++
+在将磁盘大小缩减为现有聚合的已有 RAID 组中的磁盘大小后，系统会添加这些磁盘。
+
+
+
+.步骤
+. 选择以下方法之一：
++
+** 单击 * 应用程序和层 * > * 存储层 * 。
+** 单击 * 存储 * > * 聚合和磁盘 * > * 聚合 * 。
+
+
+. 在 * 存储层 * 窗口中，选择要添加容量磁盘的聚合，然后单击菜单：更多操作 [ 添加容量 ] 。
+. 在 * 添加容量 * 对话框中指定以下信息：
++
+.. 使用 * 要添加的磁盘类型 * 选项指定容量磁盘的磁盘类型。
+.. 使用 * 磁盘数或分区数 * 选项指定容量磁盘的数量。
+
+
+. 使用 * 将磁盘添加到 * 选项指定要添加容量磁盘的 RAID 组。
++
+默认情况下、System Manager会将容量磁盘添加到 `All RAID groups`。
+
++
+.. 单击 * 更改 * 。
+.. 在*RAID组选择*对话框中，将RAID组指定为 `New RAID group` 或 `Specific RAID group` 使用*将磁盘添加到*选项。
++
+共享磁盘只能添加到中 `New RAID group` 选项
+
+
+
+. 单击 * 添加 * 。
++
+对于镜像聚合、将显示一个*添加容量*对话框、其中包含将添加两倍选定磁盘数量的信息。
+
+. 在 * 添加容量 * 对话框中，单击 * 是 * 以添加容量磁盘。
+
+
+.结果
+此时，容量磁盘将添加到选定聚合中，而聚合大小将增加。
+
+* 相关信息 *
+
+xref:concept_what_compatible_spare_disks_are.adoc[什么是兼容备用磁盘]

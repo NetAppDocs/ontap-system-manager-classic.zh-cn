@@ -1,0 +1,44 @@
+---
+permalink: volume-restore-snapvault/index.html 
+sidebar: sidebar 
+keywords: content, restore, volume, snapvault, vault, backup, ontap, data, loss, volume restore using snapvault overview 
+summary: 如果发生数据丢失，您可以从 ONTAP 中的 SnapVault 备份快速还原卷。 
+---
+= 使用 SnapVault 还原卷概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果发生数据丢失，您可以从 ONTAP 中的 SnapVault 备份快速还原卷。
+
+如果要按照以下方式从存储备份中还原，请使用此操作步骤：
+
+* 您正在使用运行 ONTAP 9 的集群。
+* 您是集群管理员。
+* 您已按照中所述的操作步骤配置存储关系 xref:../volume-backup-snapvault/index.html[使用 SnapVault 进行卷备份]
+* 您不希望执行单个文件或 LUN 还原。
+* 您希望使用最佳实践，而不是浏览每个可用选项。
+* 您不想阅读大量概念背景信息。
+* 您希望使用适用于 ONTAP 9.7 及更早版本的 System Manager 经典界面，而不是适用于 ONTAP 9.7 及更高版本的 ONTAP System Manager UI 。
+
+
+如果这些假设与您的情况不符，或者您需要更多概念背景信息，您应查看以下资源：
+
+link:http://www.netapp.com/us/media/tr-4183.pdf["NetApp 技术报告 4183 ：《 SnapVault 最佳实践》"^]
+
+
+
+== 在 ONTAP 中执行此操作的其他方法
+
+[cols="2"]
+|===
+| 要执行以下任务，请执行以下操作 ... | 查看此内容 ... 
+
+
+| 重新设计的 System Manager （适用于 ONTAP 9.7 及更高版本） | link:https://docs.netapp.com/us-en/ontap/task_dp_restore_from_vault.html["从早期的 Snapshot 副本还原卷"^] 
+
+
+| ONTAP 命令行界面 | link:https://docs.netapp.com/us-en/ontap/data-protection/restore-volume-snapvault-backup-task.html["从 SnapMirror 目标还原卷的内容"^] 
+|===

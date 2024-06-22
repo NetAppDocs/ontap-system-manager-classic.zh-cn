@@ -1,0 +1,22 @@
+---
+permalink: online-help-96-97/concept_disks.html 
+sidebar: sidebar 
+keywords: system, manager, disk, manage, online, help 
+summary: 您可以使用 System Manager 管理磁盘。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理磁盘
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理磁盘。
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["磁盘和聚合管理"^]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"^]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"^]

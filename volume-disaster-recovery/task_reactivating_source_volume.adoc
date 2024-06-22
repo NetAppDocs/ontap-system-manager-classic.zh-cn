@@ -1,0 +1,14 @@
+---
+permalink: volume-disaster-recovery/task_reactivating_source_volume.html 
+sidebar: sidebar 
+keywords: source, volume, resynchronize, data, destination, volume, source, update, modification, resynchronization, operation, activate, reactivate the source volume 
+summary: 当源卷变为可用时，您必须将目标卷中的数据重新同步到源卷，在重新同步操作后更新任何修改并激活源卷。 
+---
+= 重新激活源卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当源卷变为可用时，您必须将目标卷中的数据重新同步到源卷，在重新同步操作后更新任何修改并激活源卷。

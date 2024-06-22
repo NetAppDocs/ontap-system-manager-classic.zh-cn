@@ -1,0 +1,73 @@
+---
+permalink: peering/task_creating_intercluster_interfaces_on_all_nodes.html 
+sidebar: sidebar 
+keywords: cluster, communicate, logical, interface, lif, intercluster, create, ipspace, peer, relationship, create intercluster interfaces on all nodes, ontap 9.2 or earlier 
+summary: '在 ONTAP 9.2 或更低版本的 ONTAP 9 中使用 ONTAP 系统管理器的 " 经典 " 界面，您可以创建用于对等的集群间 LIF 。' 
+---
+= 在所有节点上创建集群间接口（ ONTAP 9.2 或更早版本）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 ONTAP 9.2 或更早版本的 ONTAP 9 中使用 ONTAP System Manager _classic_ 界面，您可以创建用于对等的集群间 LIF 。
+
+集群通过专用于集群间通信的逻辑接口（ LIF ）相互通信。您必须在要用于对等关系的每个 IP 空间中创建一个集群间 LIF 。  必须在要创建对等关系的每个集群中的每个节点上创建 LIF 。
+
+.开始之前
+您必须已确定要用于集群间 LIF 的子网和端口，以及 IP 地址（可选）。
+
+.关于此任务
+您必须在要创建对等关系的两个集群上执行此操作步骤。例如，如果您有一个四节点集群，希望通过 IP 空间 A 与集群 X 建立对等关系，并通过 IP 空间 Y 与集群 Y 建立对等关系，则总共需要八个集群间 LIF ； IP 空间 A 上四个（每个节点一个）， IP 空间 Y 上四个（每个节点一个）。
+
+.步骤
+. 【第 1 步 - 集群间 LIF 】在源集群的一个节点上创建集群间 LIF ：
++
+.. 导航到 * 网络接口 * 窗口。
+.. 单击 * 创建 * 。
++
+此时将显示创建网络接口对话框。
+
+.. 输入集群间 LIF 的名称。
++
+您可以对第一个节点上的集群间 LIF 使用 "`icl01` " ，对第二个节点上的集群间 LIF 使用 "`icl02` " 。
+
+.. 选择 * 集群间连接 * 作为接口角色。
+.. 选择 IP 空间。
+.. 在 * 添加详细信息 * 对话框中，从 * 分配 IP 地址 * 下拉列表中选择 * 使用子网 * ，然后选择要用于集群间通信的子网。
++
+默认情况下，单击 * 创建 * 后，系统会自动从子网中选择 IP 地址。如果不想使用自动选择的 IP 地址，则必须手动指定节点用于集群间通信的 IP 地址。
+
+.. 如果要手动指定节点用于集群间通信的 IP 地址，请选择 * 使用此 IP 地址 * ，然后键入 IP 地址。
++
+您必须确保要使用的 IP 地址在子网中已可用或稍后可添加到子网中。
+
+.. 在 * 端口 * 区域中，单击要配置的节点，然后选择要用于此节点的端口。
+.. 如果您决定不共享端口以进行集群间数据通信，请确认选定端口在 * 托管接口计数 * 列中显示 "`0` " 。
++
+image::../media/lif_creation_intercluster.gif[创建网络接口对话框]
+
+.. 单击 * 创建 * 。
+
+
+. 重复 <<step1-intercluster-lif,第 1 步>> 用于集群中的每个节点。
++
+集群中的每个节点都有一个集群间 LIF 。
+
+. 记下集群间 LIF 的 IP 地址，以便稍后在与其他集群创建对等关系时可以使用它们：
++
+.. 在 * 网络接口 * 窗口的 * 角色 * 列中，单击 image:../media/icon_columnfilter_sm_peering.gif["列筛选器图标"]，清除 * 所有 * 复选框，然后选择 * 集群间 * 。
++
+网络接口窗口仅显示集群间 LIF 。
+
+.. 记下 * IP 地址 /WWPN * 列中列出的 IP 地址，或者保持 * 网络接口 * 窗口处于打开状态，以便稍后可以检索 IP 地址。
++
+您可以单击列显示图标（image:../media/icon_columnshowhide_sm_onc_peering.gif["显示或隐藏列图标"]）以隐藏不想查看的列。
+
+
+
+
+
+.结果
+每个集群中的所有节点都具有集群间 LIF ，这些 LIF 可以相互通信。

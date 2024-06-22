@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/concept_storage_virtual_machines.html 
+sidebar: sidebar 
+keywords: system, manager, svm, clister, online, help 
+summary: 您可以使用 System Manager 管理集群中的 SVM 。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理 Storage Virtual Machine
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理集群中的 SVM 。
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN 管理"^]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"^]

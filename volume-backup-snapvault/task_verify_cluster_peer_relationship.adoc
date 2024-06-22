@@ -1,0 +1,52 @@
+---
+permalink: volume-backup-snapvault/task_verify_cluster_peer_relationship.html 
+sidebar: sidebar 
+keywords: set, up, volume, data, protection, snapvault, technology, verify, source, cluster, communicate, communicating, peer, relationship, svm, verify cluster peer relationship and svm peer relationship 
+summary: 在使用 SnapVault 技术为卷设置数据保护之前，您必须验证源集群和目标集群是否已建立对等关系并通过对等关系彼此通信。您还必须验证源 SVM 和目标 SVM 是否已建立对等关系，并且正在通过对等关系彼此通信。 
+---
+= 验证集群对等关系和 SVM 对等关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 SnapVault 技术为卷设置数据保护之前，您必须验证源集群和目标集群是否已建立对等关系并通过对等关系彼此通信。您还必须验证源 SVM 和目标 SVM 是否已建立对等关系，并且正在通过对等关系彼此通信。
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+
+
+== 操作步骤
+
+* 如果您运行的是 ONTAP 9.3 或更高版本，请执行以下步骤以验证集群对等关系和 SVM 对等关系：
++
+.. 单击 * 配置 * > * 集群对等方 * 。
+.. 验证对等集群是否已通过身份验证且可用。
++
+image::../media/cluster_pper_930_backup.gif[集群 pper 930s 备份]
+
+.. 单击 * 配置 * > * SVM 对等方 * 。
+.. 验证目标 SVM 是否已与源 SVM 建立对等关系。
+
+
+* 如果您运行的是 ONTAP 9.2 或更早版本，请执行以下步骤以验证集群对等关系和 SVM 对等关系：
++
+.. 单击 * 配置 * 选项卡。
+.. 在 * 集群详细信息 * 窗格中，单击 * 集群对等方 * 。
+.. 验证对等集群是否已通过身份验证且可用。
++
+image::../media/cluster_peer_health_backup.gif[集群对等运行状况备份]
+
+.. 单击 * SVM* 选项卡并选择源 SVM 。
+.. 在 * 对等 Storage Virtual Machine* 区域中，验证目标 SVM 是否已与源 SVM 建立对等关系。
++
+如果在此区域中未看到任何对等 SVM ，则可以在创建 SnapVault 关系时创建 SVM 对等关系。
+
+
+
++
+xref:task_creating_snapvault_relationship_92_earlier.adoc[创建 SnapVault 关系（ ONTAP 9.2 或更早版本）]
+
+

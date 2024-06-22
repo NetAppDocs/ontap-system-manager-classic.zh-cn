@@ -1,0 +1,36 @@
+---
+permalink: iscsi-config-windows/task_verifying_that_host_can_write_to_read_from_lun.html 
+sidebar: sidebar 
+keywords: lun, verify, host, write, data, verify that the host can write to and read from the lun 
+summary: 在使用 LUN 之前，您应验证主机是否可以将数据写入 LUN 并将其读回。 
+---
+= 验证主机是否可以对 LUN 进行写入和读取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 LUN 之前，您应验证主机是否可以将数据写入 LUN 并将其读回。
+
+.开始之前
+必须使用文件系统对 LUN 进行初始化和格式化。
+
+.关于此任务
+如果创建 LUN 的存储集群节点可以故障转移到其配对节点，则应验证在节点进行故障转移期间是否读取数据。如果存储集群正在生产环境中使用，则可能无法执行此测试。
+
+如果任何测试失败，您应验证 iSCSI 服务是否正在运行，并检查 LUN 的 iSCSI 路径。
+
+.步骤
+. 在主机上，将一个或多个文件复制到 LUN 。
+. 将文件复制回原始磁盘上的其他文件夹。
+. 将复制的文件与原始文件进行比较。
++
+您可以使用 `comp` 命令以比较两个文件。
+
+. *可选：*对包含LUN的存储集群节点进行故障转移、并验证您是否仍可访问LUN上的文件。
+. 使用原生 DSM 查看 LUN 的路径，并验证您是否具有预期的路径数。
++
+您应看到两个指向创建 LUN 的存储集群节点的路径，以及两个指向配对节点的路径。
+
+

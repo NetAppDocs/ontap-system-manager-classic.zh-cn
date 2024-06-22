@@ -1,0 +1,43 @@
+---
+permalink: online-help-96-97/task_creating_flexclone_files.html 
+sidebar: sidebar 
+keywords: create, flexclone, file, parent, test, applications, online, help 
+summary: 您可以使用 System Manager 创建 FlexClone 文件，该文件是父文件的可写副本。您可以使用这些副本测试应用程序。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本创建 FlexClone 文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建 FlexClone 文件，该文件是父文件的可写副本。您可以使用这些副本测试应用程序。
+
+.开始之前
+* 克隆的文件必须是活动文件系统的一部分。
+* 存储系统上必须安装 FlexClone 许可证。
+
+
+.关于此任务
+* 只有 FlexVol 卷才支持 FlexClone 文件。
++
+您可以通过从卷所在的卷（而不是从父卷）访问父文件来为卷中的父文件创建 FlexClone 文件。
+
+* 您不能在 SnapLock 卷上创建 FlexClone 文件。
+
+
+.步骤
+. 单击 * 存储 * > * 卷 * 。
+. 从 * SVM* 字段的下拉菜单中选择 * 所有 SVM* 。
+. 从卷列表中选择要在其中创建 FlexClone 文件的卷。
+. 单击 * 更多操作 * > * 克隆 * > * 创建 * > * 文件 * 。
+. 在 * 创建 FlexClone 文件 * 对话框中，选择要克隆的文件，然后指定 FlexClone 文件的名称。
+. 单击 * 克隆 * 。
+
+
+.结果
+FlexClone 文件与父文件在同一个卷中创建。
+
+* 相关信息 *
+
+xref:reference_volumes_window.adoc[卷窗口]

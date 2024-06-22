@@ -1,0 +1,81 @@
+---
+permalink: fc-config-rhel/task_creating_svm.html 
+sidebar: sidebar 
+keywords: storage, virtual, machine, svm, fc, target, host, access, lun, administration, function, user, cluster, create, create a new svm 
+summary: Storage Virtual Machine （ SVM ）提供 FC 目标，主机可通过该目标访问 LUN 。创建 SVM 时，还会创建逻辑接口（ LIF ）以及 LUN 及其所在的卷。您可以创建 SVM 以将用户的数据和管理功能与集群中其他用户的数据和管理功能分隔开。 
+---
+= 创建新的SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Storage Virtual Machine （ SVM ）提供 FC 目标，主机可通过该目标访问 LUN 。创建 SVM 时，还会创建逻辑接口（ LIF ）以及 LUN 及其所在的卷。您可以创建 SVM 以将用户的数据和管理功能与集群中其他用户的数据和管理功能分隔开。
+
+.开始之前
+* 必须配置 FC 网络结构，并且必须将所需的物理端口连接到该网络结构。
+
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 选择 * 创建 * 。
+. 在 * Storage Virtual Machine （ SVM ） Setup* 窗口中，创建 SVM ：
++
+image::../media/svm_setup_details_page_unix_selected_fc_rhel.gif[图中显示了如何创建采用UNIX安全模式的SVM]
+
++
+.. 指定 SVM 的唯一名称。
++
+此名称必须是完全限定域名（ FQDN ），或者遵循其他约定，以确保名称在集群中是唯一的。
+
+.. 选择 SVM 所属的 IP 空间。
++
+如果集群不使用多个 IP 空间，则会使用 `Default` IP 空间。
+
+.. 保留默认卷类型选择。
++
+SAN 协议仅支持 FlexVol 卷。
+
+.. 选择您拥有许可证的所有协议以及可能在 SVM 上使用的协议，即使您不想立即配置所有协议也是如此。
++
+创建 SVM 时选择 NFS 和 CIFS 可以使这两个协议共享相同的 LIF 。稍后添加这些协议不允许它们共享 LIF 。
+
++
+如果 CIFS 是您选择的协议之一，则安全模式将设置为 NTFS 。否则，安全模式将设置为 UNIX 。
+
+.. 保留默认语言设置 C.UTF-8 。
+.. 选择要包含 SVM 根卷的所需根聚合。
++
+数据卷的聚合将在后续步骤中单独选择。
+
+.. 选择 * 提交并继续 * 。
+
+
++
+此时将创建 SVM ，但尚未配置协议。
+
+. 如果由于启用了 CIFS 或 NFS 而显示 * 配置 CIFS/NFS 协议 * 页面，请选择 * 跳过 * ，然后稍后再配置 CIFS 或 NFS 。
+. 如果由于启用了 iSCSI 而显示 * 配置 iSCSI 协议 * 页面，请选择 * 跳过 * ，然后稍后再配置 iSCSI 。
+. 从 * 配置 FC/FCoE 协议 * 页面配置 FC 服务并创建 LIF ， LUN 及其所属卷：
++
+.. 选中 * 为 FC* 配置数据 LIF 复选框。
+.. 输入 ... `*2*` 在*每个节点的Lifs数*字段中。
++
+每个节点需要两个 LIF ，以确保可用性和数据移动性。
+
+.. 在 * 为 FCP 存储配置 LUN * 区域中，输入所需的 LUN 大小，主机类型和主机启动程序的 WWPN 。
+.. 选择 * 提交并继续 * 。
+
+
++
+image::../media/svm_wizard_fc_details_linux.gif[图中显示了 SVM 设置向导的步骤 4 ：填写 FC 详细信息。]
+
+. 显示 * SVM 管理 * 时，请为此 SVM 配置单独的管理员：
++
+** 选择 * 跳过 * ，如果需要，稍后再配置管理员。
+** 输入请求的信息，然后选择 * 提交并继续 * 。
+
+
+. 查看 * 摘要 * 页面，记录 LIF 信息，然后选择 * 确定 * 。
+

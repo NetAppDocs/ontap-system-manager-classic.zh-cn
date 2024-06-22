@@ -1,0 +1,14 @@
+---
+permalink: nfs-config/task_configuring_access_to_existing_svm.html 
+sidebar: sidebar 
+keywords: access, nfs, clients, exist, svm, configuration, export, policy, root, volume, ldap, unix, configure, configure nfs access to an existing svm 
+summary: 为 NFS 客户端添加对现有 SVM 的访问权限涉及到向 SVM 添加 NFS 配置，打开 SVM 根卷的导出策略，可选择配置 LDAP 以及从 UNIX 管理主机验证 NFS 访问。然后，您可以配置 NFS 客户端访问。 
+---
+= 配置对现有 SVM 的 NFS 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+为 NFS 客户端添加对现有 SVM 的访问权限涉及到向 SVM 添加 NFS 配置，打开 SVM 根卷的导出策略，可选择配置 LDAP 以及从 UNIX 管理主机验证 NFS 访问。然后，您可以配置 NFS 客户端访问。

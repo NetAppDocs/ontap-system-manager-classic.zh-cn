@@ -1,0 +1,62 @@
+---
+permalink: online-help-96-97/task_moving_luns.html 
+sidebar: sidebar 
+keywords: move, lun, qtree, storage, virtual, machine, svm, online, help 
+summary: 您可以使用 System Manager 将 LUN 从其所在卷移动到 Storage Virtual Machine （ SVM ）中的另一个卷或 qtree 。您可以将 LUN 移动到包含高性能磁盘的聚合上托管的卷，从而提高访问 LUN 时的性能。 
+---
+= 使用 System Manager 移动 LUN — ONTAP 9.7 及更早版本
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）将 LUN 从其所在卷移动到 Storage Virtual Machine （ SVM ）中的其他卷或 qtree 。您可以将 LUN 移动到包含高性能磁盘的聚合上托管的卷，从而提高访问 LUN 时的性能。
+
+.关于此任务
+* 不能将 LUN 移动到同一卷中的 qtree 。
+* 如果已使用命令行界面（ CLI ）从文件创建 LUN ，则无法使用 System Manager 移动 LUN 。
+* LUN 移动操作无中断；可在 LUN 联机并提供数据时执行。
+* 如果目标卷中分配的空间不足以包含 LUN ，则不能使用 System Manager 移动 LUN ，即使在卷上启用了自动增长也是如此。
++
+您应改用命令行界面。
+
+* 您不能移动 SnapLock 卷上的 LUN 。
+
+
+.步骤
+. 单击 * 存储 * > * LUNs * 。
+. 在 * LUN 管理 * 选项卡中，从 LUN 列表中选择要移动的 LUN ，然后单击 * 移动 * 。
+. *可选：*在*移动LUN*对话框的*移动选项*区域中、如果要更改默认名称、请为LUN指定一个新名称。
+. 选择要将 LUN 移动到的存储对象，然后执行以下操作之一：
++
+|===
+| 要将 LUN 移动到的位置 | 那么 ... 
+
+
+ a| 
+新卷
+ a| 
+.. 选择要在其中创建新卷的聚合。
+.. 指定卷的名称。
+
+
+
+
+ a| 
+现有卷或 qtree
+ a| 
+.. 选择要将 LUN 移动到的卷。
+.. 如果选定卷包含任何 qtree ，请选择要将 LUN 移动到的 qtree 。
+
+
+|===
+. 单击 * 移动 * 。
+. 确认 LUN 移动操作，然后单击 * 继续 * 。
++
+LUN 会短暂显示在原始卷和目标卷上。移动操作完成后， LUN 将显示在目标卷上。
+
++
+目标卷或 qtree 将显示为 LUN 的新容器路径。
+
+

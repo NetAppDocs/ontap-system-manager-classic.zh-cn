@@ -1,0 +1,45 @@
+---
+permalink: expansion/task_configuring_node_details_system_manager.html 
+sidebar: sidebar 
+keywords: system, manager, configure, node, management, lif, service, processor, setting, add, configure the node details in system manager 
+summary: 您可以使用 System Manager 为新添加的节点配置节点管理 LIF 和服务处理器设置。 
+---
+= 在 System Manager 中配置节点详细信息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 System Manager 为新添加的节点配置节点管理 LIF 和服务处理器设置。
+
+.开始之前
+* 默认 IP 空间中必须具有足够数量的端口，才能创建 LIF 。
+* 所有端口都必须已启动且正在运行。
+
+
+.步骤
+. 配置节点管理：
++
+.. 在 * IP 地址 * 字段中输入 IP 地址。
+.. 在 * 端口 * 字段中选择用于节点管理的端口。
+.. 输入网络掩码和网关详细信息。
+
+
+. 配置服务处理器设置：
++
+.. 选中 * 覆盖默认值 * 复选框以覆盖默认值。
+.. 输入 IP 地址，网络掩码和网关详细信息。
+
+
+. 单击 * 提交并继续 * 以完成节点的网络配置。
+. 在 * 摘要 * 页面中验证节点的详细信息。
+
+
+
+
+== 下一步操作
+
+* 如果集群受到保护，则应在新添加的节点中创建所需数量的集群间 LIF ，以避免部分对等和保护运行不正常。
+* 如果集群中启用了 SAN 数据协议，则应创建所需数量的 SAN 数据 LIF 以提供数据。
+

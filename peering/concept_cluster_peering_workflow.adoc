@@ -1,0 +1,19 @@
+---
+permalink: peering/concept_cluster_peering_workflow.html 
+sidebar: sidebar 
+keywords: set, relationship, cluster, peer, creating, create, intercluster, logical, interface, lif, relationship, svm, cluster and svm peering workflow 
+summary: 设置对等关系包括为每个集群准备对等关系，在每个集群的每个节点上创建集群间逻辑接口（ LIF ），设置集群对等关系，然后设置 SVM 对等关系。 
+---
+= 集群和 SVM 对等工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP 系统管理器和 ONTAP 9.7 或更早版本来设置对等关系。
+设置对等关系包括为每个集群准备对等关系，在每个集群的每个节点上创建集群间逻辑接口（ LIF ），设置集群对等关系，然后设置 SVM 对等关系。
+
+image::../media/cluster_peering_workflow.gif[图像在周围的文本中进行了说明]
+
+如果您运行的是 ONTAP 9.2 或更早版本，则在源卷与目标卷之间创建数据保护关系时，需要创建 SVM 对等关系。

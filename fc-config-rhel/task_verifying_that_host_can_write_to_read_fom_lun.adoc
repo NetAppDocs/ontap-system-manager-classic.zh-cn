@@ -1,0 +1,72 @@
+---
+permalink: fc-config-rhel/task_verifying_that_host_can_write_to_read_fom_lun.html 
+sidebar: sidebar 
+keywords: multipath, device, verify, host, write, data, verify that the host can write to and read from a multipath device 
+summary: 在使用多路径设备之前，您应验证主机是否可以将数据写入多路径设备并将其读回。 
+---
+= 验证主机是否可以对多路径设备进行写入和读取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用多路径设备之前，您应验证主机是否可以将数据写入多路径设备并将其读回。
+
+.开始之前
+必须在 Linux 主机上为要访问的存储集群节点配置 DM-Multipath 。
+
+.关于此任务
+如果多路径设备对应的存储集群节点可以故障转移到其配对节点，则应验证在节点进行故障转移时是否读取数据。如果存储集群正在生产环境中使用，则可能无法执行此验证。
+
+.步骤
+. 在指定的多路径设备上运行一些I/O：
++
+`dd if=/dev/zero of=<multipath_device_name\>`
+
+. 确认I/O正在多路径设备上运行、并指定刷新统计信息的秒数(例如、每两秒一次、如图所示)：
++
+`iostat 2`
+
++
+当 I/O 在多路径设备上运行时，您可以看到各种 I/O 计数器输出动态更改，指示 I/O 在多路径设备上成功运行。
+
++
+[listing]
+----
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+            0.00    0.00    0.01    0.00    0.00   99.98
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.18         1.34         2.29     832606    1428026
+dm-0              0.37         1.29         2.29     801530    1427984
+dm-1              0.00         0.00         0.00       2576          0
+dm-2              0.00         0.00         0.00       1770         24
+sdd               0.17         1.18        17.87     734688   11128584
+sde               0.17         1.18        18.01     734560   11219016
+sdf               0.00         0.00         0.00       1344          0
+sdg               0.00         0.00         0.00       1344          0
+dm-3              0.68         4.71        71.96    2932496   44816008
+sdh               0.17         1.18        18.22     734360   11343920
+sdi               0.17         1.18        17.86     734272   11124488
+sdj               0.00         0.00         0.00       1344          0
+sdk               0.00         0.00         0.00       1344          0
+.............
+----
+. 如果可能、请运行 `takeover` 存储集群节点上的命令：
++
+`storage failover takeover -ofnode <node_name\>`
+
+. 重新运行、以验证I/O是否仍在多路径设备上运行``iostat`` 命令：
+. 运行 `giveback` 存储集群节点上的命令：
++
+`storage failover giveback -ofnode <node_name\>`
+
+. 检查 `iostat` 输出以验证I/O是否仍在运行。
+
+
+
+
+== 下一步操作
+
+如果任何测试失败，请验证 FC 服务是否正在运行，然后重新检查 DM-Multipath 配置以及多路径设备的 FC 路径。

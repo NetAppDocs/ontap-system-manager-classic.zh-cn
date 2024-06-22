@@ -1,0 +1,73 @@
+---
+permalink: expansion/task_validating_configuration_expanded_cluster.html 
+sidebar: sidebar 
+keywords: expand, cluster, validate, configuration, config, advisor, command, health, replication, ring, validate the configuration of the expanded cluster 
+summary: 扩展集群后，您必须运行 Config Advisor 并使用一些命令来验证配置，以验证集群运行状况和集群复制环。 
+---
+= 验证扩展集群的配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+扩展集群后，您必须运行 Config Advisor 并使用一些命令来验证配置，以验证集群运行状况和集群复制环。
+
+.步骤
+. 运行 Config Advisor 以检查配置的运行状况：
++
+.. 启动 Config Advisor ，然后单击 * 收集数据 * 。
++
+Config Advisor 将显示发现的任何问题。
+
+.. 如果发现问题，请更正问题并重新运行此工具。
+
+
+. 使用确保集群中的所有节点均处于运行状况良好的状态 `cluster show` 命令：
++
+[listing]
+----
+cluster-1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-1            true    true
+cluster1-2            true    true
+cluster1-3            true    true
+cluster1-4            true    true
+4 entries were displayed.
+----
+. 确保集群复制环在集群中的所有节点上具有相同的 epoch ，数据库 epoch 和数据库事务编号：
++
+比较事务编号的最简单方法是一次查看一个单位名称的事务编号。
+
++
+.. 使用将权限级别设置为高级 `set -privilege advanced` 命令：
+.. 使用查看有关第一个单元名称的集群环信息 `cluster ring show` 命令 `-unitname mgmt` 参数、并验证所有节点在"E出 点"、"DB出点"和"DB Trnxs"列中的数量是否相同。
++
+[listing]
+----
+cluster-1::*> cluster ring show -unitname mgmt
+Node      UnitName Epoch    DB Epoch DB Trnxs Master    Online
+--------- -------- -------- -------- -------- --------- ---------
+cluster1-1
+          mgmt     2        2        959      cluster1-1
+                                                        master
+cluster1-2
+          mgmt     2        2        959      cluster1-2
+                                                        secondary
+cluster1-3
+          mgmt     2        2        959      cluster1-3
+                                                        master
+cluster1-4
+          mgmt     2        2        959      cluster1-3
+                                                        secondary
+4 entries were displayed.
+----
+.. 对重复此命令 `-unitname vldb` 参数。
+.. 对重复此命令 `-unitname vifmgr` 参数。
+.. 对重复此命令 `-unitname bcomd` 参数。
+.. 对重复此命令 `-unitname crs` 参数。
+.. 使用将权限级别恢复为管理员 `set -privilege admin` 命令：
+
+
+

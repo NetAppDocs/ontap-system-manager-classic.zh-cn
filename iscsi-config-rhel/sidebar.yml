@@ -1,0 +1,44 @@
+---
+section: iscsi-config-rhel
+title: 适用于 Red Hat Enterprise Linux 的 iSCSI 配置
+entries:
+- title: 概述
+  url: "/iscsi-config-rhel/index.html"
+- title: iSCSI 配置和配置工作流
+  url: "/iscsi-config-rhel/concept_iscsi_configuration_provisioning_workflow.html"
+  entries:
+  - title: 验证是否支持 iSCSI 配置。
+    url: "/iscsi-config-rhel/task_verifying_that_iscsi_fc_configuration_is_supported.html"
+  - title: 填写 iSCSI 配置工作表
+    url: "/iscsi-config-rhel/reference_completing_iscsi_configuration_worksheet.html"
+  - title: 安装 Linux Unified Host Utilities 并优化 I/O 性能
+    url: "/iscsi-config-rhel/task_installing_linux_unified_host_utilities_optimizing_i_o_performance.html"
+  - title: 记录 iSCSI 节点名称
+    url: "/iscsi-config-rhel/task_recording_iscsi_node_name.html"
+  - title: 设置 iSCSI 替换超时值
+    url: "/iscsi-config-rhel/task_setting_iscsi_replacement_timeout_value.html"
+  - title: 启动 iSCSI 服务
+    url: "/iscsi-config-rhel/task_starting_iscsi_service.html"
+  - title: 配置 DM-Multipath
+    url: "/iscsi-config-rhel/task_configuring_dm_multipath.html"
+  - title: 创建聚合
+    url: "/iscsi-config-rhel/task_creating_aggregate.html"
+  - title: 确定在何处配置卷
+    url: "/iscsi-config-rhel/task_deciding_where_to_provision_volume.html"
+    entries:
+    - title: 验证 iSCSI 服务是否正在现有 SVM 上运行
+      url: "/iscsi-config-rhel/task_verifying_iscsi_is_running_on_existing_vserver.html"
+    - title: 创建LUN
+      url: "/iscsi-config-rhel/task_creating_lun_its_containing_volume.html"
+    - title: 在现有 SVM 上配置 iSCSI
+      url: "/iscsi-config-rhel/task_configuring_iscsi_fc_creating_lun_on_existing_svm.html"
+    - title: 创建新的SVM
+      url: "/iscsi-config-rhel/task_creating_svm.html"
+  - title: 启动与目标的 iSCSI 会话
+    url: "/iscsi-config-rhel/task_starting_iscsi_sessions_with_target.html"
+  - title: 发现新的 SCSI 设备（ LUN ）和多路径设备
+    url: "/iscsi-config-rhel/task_discovering_new_scsi_devices_dm_multipath_devices.html"
+  - title: 在多路径设备上配置逻辑卷并创建文件系统
+    url: "/iscsi-config-rhel/task_configuring_logical_volumes_on_multipath_devices_creating_file_system.html"
+  - title: 验证主机是否可以对多路径设备进行写入和读取
+    url: "/iscsi-config-rhel/task_verifying_that_host_can_write_to_read_fom_lun.html"

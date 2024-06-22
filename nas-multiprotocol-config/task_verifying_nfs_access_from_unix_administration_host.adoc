@@ -1,0 +1,67 @@
+---
+permalink: nas-multiprotocol-config/task_verifying_nfs_access_from_unix_administration_host.html 
+sidebar: sidebar 
+keywords: configure, nfs, access, storage, virtual, machine, svm, configuration, administration, host, read, data, verify, verify nfs access from a unix administration host 
+summary: 在配置对 Storage Virtual Machine （ SVM ）的 NFS 访问后，您应登录到 NFS 管理主机并从 SVM 读取数据并向 SVM 写入数据来验证配置。 
+---
+= 从 UNIX 管理主机验证 NFS 访问
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在配置对 Storage Virtual Machine （ SVM ）的 NFS 访问后，您应登录到 NFS 管理主机并从 SVM 读取数据并向 SVM 写入数据来验证配置。
+
+.开始之前
+* 客户端系统必须具有先前指定的导出规则允许的 IP 地址。
+* 您必须具有 root 用户的登录信息。
+
+
+.步骤
+. 以 root 用户身份登录到客户端系统。
+. 输入 ... `cd /mnt/` 将目录更改为挂载文件夹。
+. 使用 SVM 的 IP 地址创建并挂载新文件夹：
++
+.. 输入 ... `mkdir /mnt/folder` 以创建新文件夹。
+.. 输入 ... `mount -t nfs -o nfsvers=3,hard IPAddress:/volume_name /mnt/folder` 将卷挂载到此新目录。
+.. 输入 ... `cd folder` 可将目录更改为新文件夹。
++
+以下命令将创建一个名为 test1 的文件夹，并在 test1 挂载文件夹的 192.0.2.130 IP 地址处挂载 vol1 卷，然后更改为新的 test1 目录：
+
++
+[listing]
+----
+host# mkdir /mnt/test1
+host# mount -t nfs -o nfsvers=3,hard 192.0.2.130:/vol1 /mnt/test1
+host# cd /mnt/test1
+----
+
+
+. 创建一个新文件，验证该文件是否存在并向其写入文本：
++
+.. 输入 ... `touch filename` 以创建测试文件。
+.. 输入 ... `ls -l filename` 以验证文件是否存在。
+.. 输入 ... `cat >filename`下，键入一些文本，然后按Ctrl+D将文本写入测试文件。
+.. 输入 ... `cat filename` 以显示测试文件的内容。
+.. 输入 ... `rm filename` 以删除测试文件。
+.. 输入 ... `cd ..` 返回父目录。
+
+
++
+[listing]
+----
+host# touch myfile1
+host# ls -l myfile1
+-rw-r--r-- 1 root root 0 Sep 18 15:58 myfile1
+host# cat >myfile1
+This text inside the first file
+host# cat myfile1
+This text inside the first file
+host# rm -r myfile1
+host# cd ..
+----
+
+
+.结果
+您已确认已启用对 SVM 的 NFS 访问。

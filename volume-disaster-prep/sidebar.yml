@@ -1,0 +1,19 @@
+---
+section: volume-disaster-prep
+title: 卷灾难恢复准备
+entries:
+- title: 概述
+  url: "/volume-disaster-prep/index.html"
+- title: 卷灾难恢复准备工作流
+  url: "/volume-disaster-prep/concept_snapmirror_intercluster_configuration_workflow.html"
+  entries:
+  - title: 验证集群对等关系和 SVM 对等关系
+    url: "/volume-disaster-prep/task_verifying_cluster_peer_relationship.html"
+  - title: 创建 SnapMirror 关系（从 ONTAP 9.3 开始）
+    url: "/volume-disaster-prep/task_creating_snapmirror_relationships_93_later.html"
+  - title: 创建 SnapMirror 关系（ ONTAP 9.2 或更早版本）
+    url: "/volume-disaster-prep/task_creating_snapmirror_relationships_92_earlier.html"
+  - title: 设置目标 SVM 以进行数据访问
+    url: "/volume-disaster-prep/task_setting_up_destination_svm_for_data_access.html"
+  - title: 监控 SnapMirror 数据传输的状态
+    url: "/volume-disaster-prep/task_monitoring_status_snapmirror_data_transfers.html"

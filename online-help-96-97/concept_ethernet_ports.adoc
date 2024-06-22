@@ -1,0 +1,131 @@
+---
+permalink: online-help-96-97/concept_ethernet_ports.html 
+sidebar: sidebar 
+keywords: system, manager, manager, ethernet, port, create, online, help, create, interface, group, lacp, vlan, settings, duplex, mode, speed, mtu, size,  port, nodes, fcp, 
+summary: 您可以使用 System Manager 创建和管理以太网端口。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本管理以太网端口
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用ONTAP System Manager classic (在ONTAP 9.7及更早版本中可用)创建和管理以太网端口。
+
+
+
+== 创建接口组
+
+您可以使用 System Manager 创建一个接口组—单模式，静态多模式或动态多模式（ LACP ）—通过将聚合网络端口的功能组合在一起，为客户端提供一个接口。
+
+.开始之前
+必须具有不属于任何广播域或接口组或托管 VLAN 的可用端口。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 单击 * 创建接口组 * 。
+. 在 * 创建接口组 * 对话框中，指定以下设置：
++
+** 接口组的名称
+** Node
+** 要包含在接口组中的端口
+** 端口的使用模式：单模式，静态多模式或动态多模式（ LACP ）
+** 网络负载分布：基于 IP ，基于 MAC 地址，顺序或端口
+** 接口组的广播域（如果需要）
+
+
+. 单击 * 创建 * 。
+
+
+
+
+== 创建 VLAN 接口
+
+您可以使用 System Manager 创建 VLAN ，以便在同一网络域中维护单独的广播域。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 单击 * 创建 VLAN* 。
+. 在 * 创建 VLAN* 对话框中，选择节点，物理接口和广播域（如果需要）。
++
+物理接口列表仅包含以太网端口和接口组。此列表不会显示位于其他接口组或现有 VLAN 中的接口。
+
+. 键入 VLAN 标记，然后单击 * 添加 * 。
++
+您必须添加唯一的 VLAN 标记。
+
+. 单击 * 创建 * 。
+
+
+
+
+== 编辑以太网端口设置
+
+您可以使用 System Manager 编辑以太网端口设置，例如双工模式和速度设置。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 选择物理端口，然后单击 * 编辑 * 。
+. 在*编辑以太网端口*对话框中，将双工模式和速度设置修改为任一 `manual` 或 `automatic`。
+. 单击 * 编辑 * 。
+
+
+
+
+== 编辑接口组设置
+
+您可以使用 System Manager 向接口组添加端口，从接口组中删除端口以及修改接口组中端口的使用模式和负载分布模式。
+
+.关于此任务
+您不能修改分配给广播域的接口组的 MTU 设置。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 选择接口组，然后单击 * 编辑 * 。
+. 根据需要修改接口组设置，然后单击 * 保存并关闭 * 。
+
+
+
+
+== 修改 VLAN 的 MTU 大小
+
+如果要修改不属于广播域的 VLAN 接口的 MTU 大小，可以使用 System Manager 更改大小。
+
+.关于此任务
+您不能修改管理端口 e0M 的 MTU 大小。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 选择要修改的 VLAN ，然后单击 * 编辑 * 。
+. 在 * 编辑 VLAN* 对话框中，根据需要修改 MTU 大小，然后单击 * 保存 * 。
+
+
+
+
+== 删除 VLAN
+
+您可以使用 System Manager 删除在网络端口上配置的 VLAN 。在从插槽中删除 NIC 之前，您可能需要删除 VLAN 。删除 VLAN 时，此 VLAN 将自动从使用此 VLAN 的所有故障转移规则和组中删除。
+
+.开始之前
+不能将任何 LIF 与 VLAN 关联。
+
+.步骤
+. 单击 * 网络 * > * 以太网端口 * 。
+. 选择要删除的 VLAN ，然后单击 * 删除 * 。
+. 选中确认复选框，然后单击 * 删除 * 。
+
+
+
+
+== 端口和适配器
+
+端口分组在节点下，节点会根据选定协议类别显示。例如，如果使用 FC 协议提供数据，则仅显示具有 FCP 适配器的节点。托管接口计数可帮助您选择负载较低的端口。
+
+* 相关信息 *
+
+https://docs.netapp.com/us-en/ontap/networking/index.html["网络管理"]
+
+https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"]
+
+xref:reference_network_window.adoc[网络窗口]

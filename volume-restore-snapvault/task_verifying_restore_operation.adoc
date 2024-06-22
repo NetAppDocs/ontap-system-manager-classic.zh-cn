@@ -1,0 +1,34 @@
+---
+permalink: volume-restore-snapvault/task_verifying_restore_operation.html 
+sidebar: sidebar 
+keywords: perform, restore, operation, snapvault, backup, destination, volume, verify, source cluster, verify the restore operation 
+summary: 从 SnapVault 备份目标卷执行还原操作后，您必须验证源集群上还原操作的状态。 
+---
+= 验证还原操作
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 SnapVault 备份目标卷执行还原操作后，您必须验证源集群上还原操作的状态。
+
+.关于此任务
+您必须从 * 源 * 集群执行此任务。
+
+.步骤
+. 导航到 * 卷 * 窗口。
+. 在卷列表中选择源卷，然后根据您的 ONTAP 版本执行以下操作之一：
++
+** 从 ONTAP 9.3 开始：双击源卷以查看详细信息，然后单击 * 保护 * 以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
+** ONTAP 9.2 或更早版本：单击 * 数据保护 * 底部选项卡以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
+此时将显示Type字段 `Restore` 临时。还原操作完成后、将显示字段 `Vault`。
++
+您应对 SnapVault 关系中的任何问题进行故障排除。SnapMirror 关系的故障排除过程也适用于 SnapVault 关系。
+
++
+http://www.netapp.com/us/media/tr-4015.pdf["NetApp 技术报告 4015 ：《 ONTAP 9.1 和 9.2 的 SnapMirror 配置和最佳实践》"^]
+
+
+
+

@@ -1,0 +1,26 @@
+---
+permalink: online-help-96-97/task_editing_nvme_namespace.html 
+sidebar: sidebar 
+keywords: edit, nvme, namespace, online, help, system, manager 
+summary: 您可以使用 System Manager 通过更改命名空间映射到的子系统来编辑命名空间。 
+---
+= 使用System Manager - ONTAP 9.7及更早版本编辑NVMe命名空间
+:allow-uri-read: 
+
+
+[role="lead"]
+您可以使用ONTAP System Manager经典版(在ONTAP 9.7及更早版本中提供)通过更改命名空间映射到的子系统来编辑命名空间。
+
+.关于此任务
+您只能在此窗口中修改NVMe子系统设置；不能编辑其他命名空间详细信息。
+
+.步骤
+. 单击 * NVMe* > * NVMe 命名空间 * 。
+. 在 * NVMe 命名空间窗口 * 中，选择要编辑的命名空间。
+. 选择子系统选项：
++
+** 无：选择此选项将仅取消映射此命名空间的现有子系统映射。如果选定命名空间不存在子系统映射，则会预先选择此选项。
+** 使用现有子系统：如果存在子系统到命名空间的映射，则会预先选择此选项。选择其他子系统会通过取消映射先前映射的子系统来映射新子系统。
+
+
+

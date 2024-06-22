@@ -1,0 +1,31 @@
+---
+permalink: iscsi-config-esxi/task_binding_iscsi_ports_to_iscsi_software_adapter.html 
+sidebar: sidebar 
+keywords: port, create, iscsi, associate, software, adapter, support, multipath, bind, bind iscsi ports to the iscsi software adapter 
+summary: 为 iSCSI 创建的端口必须与 iSCSI 软件适配器关联，才能支持多路径。 
+---
+= 将 iSCSI 端口绑定到 iSCSI 软件适配器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+为 iSCSI 创建的端口必须与 iSCSI 软件适配器关联，才能支持多路径。
+
+.开始之前
+* 必须创建 iSCSI VMkernel 端口。
+* 必须在 ESXi 主机上启用 iSCSI 软件适配器。
+
+
+.关于此任务
+您可以使用 vSphere Client 绑定 iSCSI 端口。
+
+有关详细说明，请参见适用于您的 VMware ESXi 5 版本的 _VMware vSphere Storage_ 。
+
+http://www.vmware.com["VMware"]
+
+.步骤
+. 使用 vSphere Client 中 iSCSI 软件适配器 * 适配器详细信息 * 对话框的 * 网络端口绑定 * 选项卡将第一个 iSCSI 端口绑定到 iSCSI 软件适配器。
+. 将第二个 iSCSI 端口绑定到 iSCSI 软件适配器。
+

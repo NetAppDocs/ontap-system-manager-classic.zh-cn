@@ -1,0 +1,35 @@
+---
+permalink: fc-config-esxi/task_verifying_that_fc_service_is_running_on_existing_svm.html 
+sidebar: sidebar 
+keywords: choose, exist, storage, virtual, machine, svm, fc, service, ontap, system, manager, logical, interface, lif, create, verify that the fc service is running on an existing svm 
+summary: 如果您选择使用现有 Storage Virtual Machine ，则必须使用 ONTAP 系统管理器验证此 SVM 上是否正在运行 FC 服务。此外，还必须验证是否已创建 FC 逻辑接口。 
+---
+= 验证 FC 服务是否正在现有 SVM 上运行
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果选择使用现有 Storage Virtual Machine （ SVM ），则必须使用 ONTAP 系统管理器验证此 SVM 上是否正在运行 FC 服务。此外，还必须验证是否已创建 FC 逻辑接口（ LIF ）。
+
+.开始之前
+您必须已选择要在其上创建新 LUN 的现有 SVM 。
+
+.步骤
+. 导航到 * SVM* 窗口。
+. 选择所需的 SVM 。
+. 单击 * SVM 设置 * 选项卡。
+. 在 * 协议 * 窗格中，单击 * FC/FCoE* 。
+. 验证 FC 服务是否正在运行。
++
+image::../media/vserver_service_fc_fcoe_running_fc_esxi.gif[图中显示了 System Manager 中的 FC/FCoE 窗格，其中 FC 服务正在运行，并且有四个 FC LIF 。]
+
++
+如果 FC 服务未运行，请启动 FC 服务或创建新的 SVM 。
+
+. 验证每个节点至少列出两个 FC LIF 。
++
+如果每个节点的 FC LIF 少于两个，请更新 SVM 上的 FC 配置或为 FC 创建新的 SVM 。
+
+

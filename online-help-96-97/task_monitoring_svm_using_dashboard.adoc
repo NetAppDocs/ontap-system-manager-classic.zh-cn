@@ -1,0 +1,20 @@
+---
+permalink: online-help-96-97/task_monitoring_svm_using_dashboard.html 
+sidebar: sidebar 
+keywords: system, manager, health, performance, monitor, svms, online, help 
+summary: 您可以通过 System Manager 中的信息板监控 Storage Virtual Machine （ SVM ）的运行状况和性能。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本监控 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP System Manager classic 中的信息板（在 ONTAP 9.7 及更早版本中提供）可用于监控 Storage Virtual Machine （ SVM ）的运行状况和性能。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择要监控的 SVM 的名称。
+. 在信息板面板中查看详细信息。
+

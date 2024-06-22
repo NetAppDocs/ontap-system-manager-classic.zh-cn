@@ -1,0 +1,96 @@
+---
+permalink: online-help-96-97/concept_fc_fcoe_protocol.html 
+sidebar: sidebar 
+keywords: system, manager, configure, fc, fcoe, protocol, online, help, change, node, name, fibre, channel, san, start, stop 
+summary: 您可以使用 System Manager 配置 FC/FCoE 协议。 
+---
+= 使用 System Manager — ONTAP 9.7 及更早版本配置 FC/FCoE 协议
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）配置 FC/FCoE 协议。
+
+
+
+== 启动或停止 FC 或 FCoE 服务
+
+通过 FC 服务，您可以管理用于 LUN 的 FC 目标适配器。您可以使用 System Manager 启动 FC 服务以使适配器联机并允许访问存储系统上的 LUN 。您可以停止 FC 服务以使 FC 适配器脱机并禁用对 LUN 的访问。
+
+.开始之前
+* 必须安装 FC 许可证。
+* 目标存储系统中必须存在 FC 适配器。
+
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击 * FC/FCoE* 。
+. 根据需要单击 * 开始 * 或 * 停止 * 。
+
+
+
+
+== 更改 FC 或 FCoE 节点名称
+
+如果您更换了存储系统机箱并在同一个光纤通道 SAN 中重复使用它，则在某些情况下，更换的存储系统的节点名称可能会重复。您可以使用 System Manager 更改存储系统的节点名称。
+
+.步骤
+. 单击 * 存储 * > * SVMs * 。
+. 选择 SVM ，然后单击 * SVM 设置 * 。
+. 在 * 协议 * 窗格中，单击 * FC/FCoE* 。
+. 单击 * 编辑 * 。
+. 键入新名称，然后单击 * 确定 * 。
+
+
+
+
+== FCoE 协议
+
+以太网光纤通道（ FCoE ）是一种用于将主机连接到存储系统的新模式。与传统 FC 协议一样， FCoE 也会保留现有的 FC 管理和控制，但它会使用万兆以太网作为硬件传输。
+
+设置 FCoE 连接需要主机中一个或多个受支持的融合网络适配器（ Converged Network Adapter ， CNA ），并将其连接到受支持的数据中心桥接（ Data Center Bridging ， DCB ）以太网交换机。CNA 是一个整合点，可有效地充当 HBA 和以太网适配器。
+
+通常，您可以像使用传统 FC 连接一样配置和使用 FCoE 连接。
+
+
+
+== FC/FCoE 窗口
+
+您可以使用 FC/FCoE 窗口启动或停止 FC 服务。
+
+
+
+=== 命令按钮
+
+* * 编辑 * 。
++
+打开编辑节点名称对话框，在此可以更改 FC 或 FCoE 节点名称。
+
+* * 启动 *
++
+启动 FC/FCoE 服务。
+
+* * 停止 *
++
+停止 FC/FCoE 服务。
+
+* * 刷新 *
++
+更新窗口中的信息。
+
+
+
+
+
+=== FC/FCoE 详细信息
+
+详细信息区域显示有关 FC/FCoE 服务状态，节点名称和 FC/FCoE 适配器的信息。
+
+* 相关信息 *
+
+xref:task_configuring_fc_fcoe_protocol_on_svms.adoc[在 SVM 上配置 FC 协议和 FCoE 协议]
+
+https://docs.netapp.com/us-en/ontap/san-admin/index.html["SAN 管理"^]

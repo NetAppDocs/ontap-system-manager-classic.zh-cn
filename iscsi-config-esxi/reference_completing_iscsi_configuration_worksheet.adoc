@@ -1,0 +1,219 @@
+---
+permalink: iscsi-config-esxi/reference_completing_iscsi_configuration_worksheet.html 
+sidebar: sidebar 
+keywords: network, address, storage, configuration, information, perform, iscsi, task, complete, complete the iscsi configuration worksheet 
+summary: 要执行 iSCSI 配置任务，您需要网络地址和存储配置信息。 
+---
+= 正在完成 iSCSI 配置工作表
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要执行 iSCSI 配置任务，您需要网络地址和存储配置信息。
+
+
+
+== 目标网络地址
+
+Storage Virtual Machine （ SVM ）是 iSCSI 目标。
+
+您需要一个子网，其中包含两个 IP 地址，用于集群中每个节点的 iSCSI 数据 LIF 。为了实现高可用性，应使用两个单独的网络。在创建 SVM 过程中创建 LIF 时， ONTAP 会分配特定的 IP 地址。
+
+如果可能，请将不同物理网络或 VLAN 上的 iSCSI 流量分开。
+
+image::../media/network_fc_or_iscsi_express_iscsi_esxi.gif[此图显示了四个节点,two switches,and a host. Each node has two LIFs]
+
+LIF 的子网：
+
+|===
+| 端口连接到交换机的节点或 LIF | IP 地址 | 网络掩码 | 网关 | VLAN ID | 主端口 
+
+
+ a| 
+节点 1/LIF 连接到交换机 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+节点 2/LIF 连接到交换机 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机1的节点3/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机1的节点4/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机2的节点1/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机2的节点2/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机2的节点3/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+连接到交换机2的节点4/LIF
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+|===
+
+
+== 存储配置
+
+如果已创建聚合和 SVM ，请在此处记录其名称；否则，您可以根据需要创建它们：
+
+|===
+| 节点以拥有 LUN 
+
+
+ a| 
+Aggregate name
+
+
+
+ a| 
+SVM name
+
+|===
+
+
+== LUN信息
+
+|===
+| LUN 大小 
+
+
+ a| 
+LUN 名称（可选）
+
+
+
+ a| 
+LUN 问题描述（可选）
+
+|===
+
+
+== SVM信息
+
+如果您不使用现有 SVM ，则创建新 SVM 需要以下信息：
+
+[cols="1a,1a"]
+|===
+2+| SVM name 
+
+
+ a| 
+SVM IP 空间
+
+
+
+ a| 
+SVM 根卷的聚合
+
+
+
+ a| 
+SVM 用户名（可选）
+
+
+
+ a| 
+SVM 密码（可选）
+
+
+
+ a| 
+SVM 管理 LIF （可选）
+
+
+
+ a| 
+ a| 
+Subnet
+
+
+
+ a| 
+ a| 
+IP 地址
+
+
+
+ a| 
+ a| 
+网络掩码
+
+
+
+ a| 
+ a| 
+网关
+
+
+
+ a| 
+ a| 
+Home node
+
+
+
+ a| 
+ a| 
+主端口
+
+|===

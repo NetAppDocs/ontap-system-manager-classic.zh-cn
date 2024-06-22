@@ -1,0 +1,56 @@
+---
+permalink: online-help-96-97/task_reassigning_disks_to_nodes.html 
+sidebar: sidebar 
+keywords: system, manager, reassign, disks, node, online, help, node, aggregate, storage, pool 
+summary: 您可以使用 System Manager 将备用磁盘的所有权从一个节点重新分配给另一个节点，以增加聚合或存储池的容量。 
+---
+= 使用 System Manager - ONTAP 9.7 及更早版本将磁盘重新分配给节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）将备用磁盘的所有权从一个节点重新分配给另一个节点，以增加聚合或存储池的容量。
+
+.关于此任务
+* 如果满足以下条件，您可以重新分配磁盘：
++
+** 选定磁盘的容器类型必须为 `spare` 或 `shared` 。
+** 磁盘必须连接到 HA 配置中的节点。
+** 这些磁盘必须对节点可见。
+
+
+* 如果满足以下条件，则您不能重新分配磁盘：
++
+** 选定磁盘的容器类型为 `s共享` ，数据分区不是备用分区。
+** 磁盘已与存储池关联。
+
+
+* 如果与共享磁盘关联的节点上未启用存储故障转移，则无法重新分配共享磁盘的数据分区。
+* 对于分区磁盘，您只能重新分配磁盘的数据分区。
+* 对于 MetroCluster 配置，不能使用 System Manager 重新分配磁盘。
++
+您必须使用命令行界面为 MetroCluster 配置重新分配磁盘。
+
+
+
+[NOTE]
+====
+在更高版本的ONTAP中、您可以使用ONTAP命令行界面删除磁盘所有权、然后分配新的所有者。
+
+====
+.步骤
+. 单击 * 存储 * > * 聚合和磁盘 * > * 磁盘 * 。
+. 在 * 磁盘 * 窗口中，选择 * 清单 * 选项卡。
+. 选择要重新分配的磁盘，然后单击 * 分配 * 。
+. 在 * 警告 * 对话框中，单击 * 继续 * 。
+. 在 * 分配磁盘 * 对话框中，选择要将磁盘重新分配到的节点。
+. 单击 * 分配 * 。
+
+
+.相关信息
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["使用ONTAP命令行界面删除磁盘所有权(ONTAP 9.3及更高版本)"]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/disk-autoassignment-policy-concept.html["使用ONTAP命令行界面自动分配磁盘(ONTAP 9.3及更高版本)"]
+* link:https://docs.netapp.com/us-en/ontap/disks-aggregates/manual-assign-disks-ownership-manage-task.html["使用ONTAP命令行界面手动分配磁盘(ONTAP 9.3及更高版本)"]
+

@@ -1,0 +1,14 @@
+---
+permalink: online-help-96-97/concept_setting_up_physical_storage.html 
+sidebar: sidebar 
+keywords: physical, storage, set, up, online, help, disk, node, spare, aggregates 
+summary: 设置物理存储包括将磁盘分配给节点，将备用磁盘置零以及创建聚合。 
+---
+= 设置物理存储
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+设置物理存储包括将磁盘分配给节点，将备用磁盘置零以及创建聚合。
