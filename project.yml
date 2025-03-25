@@ -41,6 +41,11 @@ sidebar:
   - title: 使用 System Manager 9.6 和 9.7 进行集群管理
     entries:
     - section: online-help-96-97
+  - title: 适用于ONTAP 9.7及更早版本的网络管理
+    entries:
+    - section: networking-failover
+    - section: networking-bd
+    - section: networking
   - title: ONTAP 文档
     url: https://docs.netapp.com/us-en/ontap/
   - title: 法律声明

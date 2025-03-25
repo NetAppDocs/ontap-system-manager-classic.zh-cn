@@ -9069,7 +9069,6 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="33d698c5405b59cf282a091b0fab54f4" category="image-alt">此图是 SnapVault 备份配置工作流的流程图。工作流中的步骤与主题匹配。</block>
   <block id="6a34cf18fb7026d09fc129111db8a169" category="paragraph">您可以使用其他文档从目标卷还原数据，以测试备份的数据或源卷丢失时的数据。</block>
   <block id="580df0707800400af79839e20238fb6e" category="paragraph">介绍如何在 ONTAP 中从 SnapVault 备份快速还原卷</block>
-  <block id="5069c081842d21ed175ea7a6154fbacb" category="sidebar">ONTAP 9.7及更早的ONTAP 9版本提供了System Manager经典界面。此站点提供了有关使用System Manager经典版的配置工作流的文档、以及适用于ONTAP 9.6和9.7的System Manager经典联机帮助。</block>
   <block id="b82cad5226b405ad72908490db99b36c" category="sidebar">ONTAP System Manager 经典文档</block>
   <block id="b7ab6e81313c8d18114a457f193b6312" category="sidebar">ONTAP System Manager 是一款简单而多功能的产品，可帮助您轻松配置和管理 ONTAP 集群。System Manager 可简化常见存储任务，例如创建卷， LUN ， qtree ，共享和导出， 这样可以节省时间并防止出现错误。</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
@@ -9080,7 +9079,6 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="27dc49cb854bf08b0bbc4e74cdbe5316" category="sidebar">使用 VSC 为 ESXi 配置 NFS</block>
   <block id="b5224505b319d9c81346246e1f3de1a7" category="sidebar">SMB 和 NFS 多协议配置</block>
   <block id="d05c8dd88231b9c3216259d1e6814a77" category="sidebar">SMB配置</block>
-  <block id="8e719802bed185197f99105e67d3034e" category="sidebar">使用 VSC 为 ESXi 配置 FC</block>
   <block id="7d30b55c54296bcdedf5a84c9b75594f" category="sidebar">适用于 Red Hat Enterprise Linux 的 FC 配置</block>
   <block id="23617d02d88796301c4d82f522e259ea" category="sidebar">适用于 Windows 的 FC 配置</block>
   <block id="50575298e52caf9a33c4f761e7f5b730" category="sidebar">使用 VSC 为 ESXi 配置 iSCSI</block>
@@ -9311,4 +9309,641 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="34b038e21199a9f0fc12b3f94eb4fdb0" category="sidebar">配置和验证 NFS 客户端访问（创建启用了 NFS 的新 SVM ）</block>
   <block id="c9400d1db93e0471869b3c666490fa71" category="sidebar">打开 SVM 根卷的导出策略（配置对现有 SVM 的 NFS 访问）</block>
   <block id="17e1c570ca599dbf87546393bebca4a8" category="sidebar">配置并验证 NFS 客户端访问（将 NFS 卷添加到启用了 NFS 的 SVM ）</block>
+  <block id="f068de0dc9fa18c23071832f9eb3a53b" category="summary">在创建 NFS 或 SMB 服务器之前，为 SVM 配置 DNS 服务</block>
+  <block id="827c1f58eabad1c045a0db679a4497d8" category="doc">配置DNS服务(ONTAP 9.7及更早版本)</block>
+  <block id="25b12118e384a60668346d5b1770c323" category="paragraph">在创建 NFS 或 SMB 服务器之前，您必须为 SVM 配置 DNS 服务。通常， DNS 名称服务器是 NFS 或 SMB 服务器要加入的域的 Active Directory 集成 DNS 服务器。</block>
+  <block id="232fd7f26d973fe38def49233cd075bf" category="paragraph">Active Directory 集成的 DNS 服务器包含域 LDAP 和域控制器服务器的服务位置记录（ SRV ）。如果 SVM 找不到 Active Directory LDAP 服务器和域控制器，则 NFS 或 SMB 服务器设置将失败。</block>
+  <block id="fcea48ac44daed4236b24206a9380f46" category="paragraph">SVM 使用 hosts 名称服务 ns-switch 数据库确定要使用的名称服务以及查找有关主机的信息的顺序。主机数据库支持的两种名称服务为<block ref="45b963397aa40d4a0063e0d85e4fe7a1" prefix=" " category="inline-code"></block>和<block ref="b3bf60b851ebaeb2768b01a32e2ef32f" prefix=" " category="inline-code"></block>。</block>
+  <block id="4527704dc585750d6e7fe7d7aeabcf31" category="paragraph">在创建SMB服务器之前、必须确保<block ref="b3bf60b851ebaeb2768b01a32e2ef32f" prefix=" " category="inline-code"></block>是源之一。</block>
+  <block id="9102f8ca573a7ea6314fe39fd73e71bb" category="admonition">要查看 mgwd 进程和 SecD 进程的 DNS 名称服务统计信息，请使用统计信息 UI 。</block>
+  <block id="fa7cdcfa8b2a7478bb2a54d0f83a859a" category="list-text">确定名称服务数据库的当前配置<block ref="85cf4e6d42a71e693fd780c8b29accdd" prefix=" " category="inline-code"></block>。</block>
+  <block id="fa3ae76601a12e272a53977eeb41b643" category="paragraph">在此示例中， hosts 名称服务数据库使用默认设置。</block>
+  <block id="847f8ec204eec763b02e0337ced420b1" category="paragraph"><block ref="bea8635ea997a67656a3063cc78f75e2" prefix="" category="inline-code"></block></block>
+  <block id="99232d5c50dac0086529798f398fe73a" category="list-text">如果需要，请执行以下操作。</block>
+  <block id="bd268bded8420baee3fe731f1f2e049e" category="list-text">按所需顺序将 DNS 名称服务添加到主机名称服务数据库中，或者重新排列源。</block>
+  <block id="bd24bb1d831cb3160d1f19b14408492b" category="paragraph">在此示例中， hosts 数据库配置为按此顺序使用 DNS 和本地文件。</block>
+  <block id="3b305d126359f61f441d1c9b1407ee6e" category="paragraph"><block ref="840029861af4609db07d22153cf2d94e" prefix="" category="inline-code"></block></block>
+  <block id="2f31ce3b5802e173a34c2bb12e8d8985" category="list-text">验证名称服务配置是否正确。</block>
+  <block id="9a020166160829712d09ad9ea961a02e" category="list-text">配置 DNS 服务。</block>
+  <block id="053db3db6fc056eaea6e3b9cbb16fa54" category="paragraph"><block ref="e063fe914a8a273f79b0eaced2dec13a" prefix="" category="inline-code"></block></block>
+  <block id="31f0622ffb837190fe4ecd6525e69c35" category="admonition">vserver services<block ref="5ff1d8ac91e1ec1e522d748d28734965" prefix=" " category="inline-code"></block>命令会执行自动配置验证、如果ONTAP无法联系到名称服务器、则会报告错误消息。</block>
+  <block id="7f5bc8f87538b8ea3a414dc8665d481e" category="list-text">验证 DNS 配置是否正确以及服务是否已启用。</block>
+  <block id="3eb40b0aa4a335c40fe7ae415cdcb189" category="list-text">验证名称服务器的状态。</block>
+  <block id="0d0155381104939285af36f0f53fb627" category="paragraph"><block ref="c67cbbd7d42014f53a19904f42dfa281" prefix="" category="inline-code"></block></block>
+  <block id="7656300265b9c717a9f7447293499125" category="section-title">在 SVM 上配置动态 DNS</block>
+  <block id="fc273ec6012710999f8354d98772025c" category="paragraph">如果您希望 Active Directory 集成的 DNS 服务器在 DNS 中动态注册 NFS 或 SMB 服务器的 DNS 记录，则必须在 SVM 上配置动态 DNS （ DDNS ）。</block>
+  <block id="b6adff03d32e0b0dd896460087633e22" category="paragraph">必须在 SVM 上配置 DNS 名称服务。如果您使用的是安全 DDNS ，则必须使用 Active Directory 集成的 DNS 名称服务器，并且必须已为 SVM 创建 NFS 或 SMB 服务器或 Active Directory 帐户。</block>
+  <block id="cd5fdd9d20e27e06e636100f9e3665ec" category="paragraph">指定的完全限定域名（ FQDN ）必须是唯一的：</block>
+  <block id="a274cd8c658f823b928de4538a273063" category="list-text">对于NFS、在<block ref="e5b541ecb67048e7daec7514922b92f9" prefix=" " category="inline-code"></block>命令中指定的值<block ref="80b9de329099e45ebd72f10946f105d1" prefix=" " category="inline-code"></block>将成为已为这些生命周期管理器注册的FQDN。</block>
+  <block id="02e516484836bf2255956aa5c23c38b3" category="list-text">对于 SMB ，指定为 CIFS 服务器 NetBIOS 名称和 CIFS 服务器完全限定域名的值将成为 LIF 的注册 FQDN 。这在 ONTAP 中是不可配置的。在以下情形中， LIF FQDN 为 CIFS_VS1.EXAMPLE.COM":</block>
+  <block id="99e65bd556174dde23c5ca7b0afe1915" category="inline-link-macro">RFC 1123</block>
+  <block id="bc26173d39e2884f0f2c5df080b10ebc" category="admonition">要避免不符合 DDNS 更新的 RFC 规则的 SVM FQDN 配置失败，请使用符合 RFC 的 FQDN 名称。有关详细信息，请参见 <block ref="ad2a4c28e616a75898ace6fcc3f3ebc5" category="inline-link-macro-rx"></block>。</block>
+  <block id="ad862497985cd77ff1f660a2b1a5dbfa" category="list-text">在 SVM 上配置 DDNS ：</block>
+  <block id="dca9fa837ebb92308343005952b33e9f" category="paragraph"><block ref="99460e91312bd6a1252486de90b153b5" prefix="" category="inline-code"></block></block>
+  <block id="833ba41443ed9cf556f588d733a823de" category="paragraph"><block ref="235c647d12065bc5bfe5d54f2a31cb2a" prefix="" category="inline-code"></block></block>
+  <block id="17b0437c60f40b8bd47c198c724ddaad" category="paragraph">星号不能用作自定义 FQDN 的一部分。例如、<block ref="7f3e634da883bc7ad9648453c1e6820a" prefix=" " category="inline-code"></block>无效。</block>
+  <block id="05504f3d150848e08b56dd51f228d1da" category="list-text">验证 DDNS 配置是否正确：</block>
+  <block id="c2b6f9545320175e44bd88861fdcdfad" category="paragraph"><block ref="312f6ab356480452dcfd99b7fc44c477" prefix="" category="inline-code"></block></block>
+  <block id="de73a1e9954790ff0901101e659f1bf5" category="summary">创建一个 LIF ，此 LIF 是与物理或逻辑端口关联的 IP 地址。</block>
+  <block id="85590a77bfd01e233e534a520c5724c6" category="doc">在ONTAP中创建LIF (网络接口)</block>
+  <block id="ec7d87855b2f41d3b6c36ff49c461e98" category="paragraph">SVM 通过一个或多个网络逻辑接口（ LIF ）向客户端提供数据。您必须在要用于访问数据的端口上创建 LIF 。LIF (网络接口)是与物理或逻辑端口关联的IP地址。如果组件出现故障，则 LIF 可以故障转移到或迁移到其他物理端口，从而继续与网络通信。</block>
+  <block id="50802d3e5a25b93d471686a10da03dd8" category="paragraph-title">最佳实践</block>
+  <block id="5bcb18cd3811711d3c8e7a250c84fbb6" category="paragraph">连接到ONTAP的交换机端口应配置为生成树边缘端口、以减少LIF迁移期间的延迟。</block>
+  <block id="ddaa39224424042ba35394afbe714a70" category="list-text">您必须是集群管理员才能执行此任务。</block>
+  <block id="6789dcbf206f0a4f22a16b71e5acd842" category="list-text">底层物理或逻辑网络端口必须已配置为管理启动状态。</block>
+  <block id="0b7a56152c376f386379636394d6eee1" category="list-text">如果您计划使用子网名称为 LIF 分配 IP 地址和网络掩码值，则此子网必须已存在。</block>
+  <block id="8d7c6d693d91720dcea00ddb63dae543" category="paragraph">子网包含属于同一第 3 层子网的 IP 地址池。它们是使用System Manager或命令创建的<block ref="0eec35ff52aa111a144d89156bcaed96" prefix=" " category="inline-code"></block>。</block>
+  <block id="dc9e8d63cbbdb8d5ea7b651eb84b063e" category="list-text">用于指定 LIF 处理的流量类型的机制已发生更改。对于 ONTAP 9.5 及更早版本， LIF 使用角色指定要处理的流量类型。从 ONTAP 9.6 开始， LIF 使用服务策略指定要处理的流量类型。</block>
+  <block id="0e2f314790eb6267c4448c40e54aaea9" category="list-text">您不能将 NAS 和 SAN 协议分配给同一个 LIF 。</block>
+  <block id="d63abfced299c6ffbd6200e985c6d340" category="paragraph">支持的协议包括 SMB ， NFS ， FlexCache ， iSCSI 和 FC ； iSCSI 和 FC 不能与其他协议结合使用。但是， NAS 和基于以太网的 SAN 协议可以位于同一物理端口上。</block>
+  <block id="917d93a73123e18a54b6430b74261e40" category="list-text">您不应将传输SMB流量的LUN配置为自动还原到其主节点。如果SMB服务器要托管解决方案、以便通过基于SMB的Hyper-V或SQL Server实现无中断运行、则必须遵循此建议。</block>
+  <block id="9d233c1f0b092bc81ad068414cb64e53" category="list-text">您可以在同一网络端口上创建 IPv4 和 IPv6 LIF 。</block>
+  <block id="092185cac2efeb6454b5f317056077d4" category="list-text">SVM 使用的所有名称映射和主机名解析服务，例如 DNS ， NIS ， LDAP 和 Active Directory 。 必须可从至少一个处理 SVM 数据流量的 LIF 进行访问。</block>
+  <block id="9ad4be6eef992b371fa173aecc5c7bd0" category="list-text">处理节点之间集群内流量的 LIF 不应与处理管理流量的 LIF 或处理数据流量的 LIF 位于同一子网上。</block>
+  <block id="b4fdad0f41f5d63611cc1226e8b16ef6" category="list-text">如果创建的 LIF 没有有效的故障转移目标，则会显示一条警告消息。</block>
+  <block id="53c7c393b93df8cb5a9fbfa1f669b976" category="list-text">如果集群中存在大量LIF、则可以验证集群上支持的LIF容量：</block>
+  <block id="cd942e7c6676928ecc4c39ce02efa758" category="list-text">System Manager：从ONTAP 9.12.0开始、查看网络接口网格上的吞吐量。</block>
+  <block id="2d783dafcb9a806c61739c4783f65a68" category="list-text">命令行界面：使用<block ref="be57ee83c24450e6f6cbf92cb6031c11" prefix=" " category="inline-code"></block>命令并使用命令(在高级权限级别)来查看每个节点上支持的LIF容量<block ref="6d38f68efafeeda72933275474c52475" prefix=" " category="inline-code"></block>。</block>
+  <block id="df6fd02001382d75cfbaa48f225d87e0" category="list-text">从 ONTAP 9.7 开始，如果同一子网中已存在 SVM 的其他 LIF ，则无需指定 LIF 的主端口。ONTAP 会自动在与已在同一子网中配置的其他 LIF 位于同一广播域的指定主节点上选择一个随机端口。</block>
+  <block id="4832088a6467cdd27ab5e94be99fde92" category="paragraph">从 ONTAP 9.4 开始，支持 FC-NVMe 。如果要创建 FC-NVMe LIF ，应注意以下事项：</block>
+  <block id="cb246c73e23f19b4642bb424d4402935" category="list-text">创建 LIF 的 FC 适配器必须支持 NVMe 协议。</block>
+  <block id="183bb9f40117c65cde5613d5e0729ba9" category="list-text">FC-NVMe 可以是数据 LIF 上的唯一数据协议。</block>
+  <block id="f766fb2dec615453dd7fdf037100b8c5" category="list-text">必须为支持 SAN 的每个 Storage Virtual Machine （ SVM ）配置一个 LIF 处理管理流量。</block>
+  <block id="1975cc10ca1448345ac212d8f5aaa0e5" category="list-text">NVMe LIF 和命名空间必须托管在同一节点上。</block>
+  <block id="4834e2c9cccfb6e34f5abd7223de2356" category="list-text">每个 SVM 只能配置一个处理数据流量的 NVMe LIF 。</block>
+  <block id="ae0df50a6255a9c9261d6b580219771e" category="list-text">创建具有子网的网络接口时、ONTAP 会自动从选定子网中选择一个可用的IP地址并将其分配给网络接口。如果有多个子网、您可以更改此子网、但不能更改IP地址。</block>
+  <block id="f0a3b3545950846c431aae854b982efd" category="list-text">在为网络接口创建(添加) SVM时、不能指定现有子网范围内的IP地址。您将收到子网冲突错误。此问题描述 会发生在网络接口的其他工作流中、例如在SVM设置或集群设置中创建或修改集群间网络接口。</block>
+  <block id="17522c98bb6f67a1fc472441ee278f61" category="inline-xref-macro">为基于RDMA的NFS配置^</block>
+  <block id="7c883993585be7ef062c0168cab6ae16" category="list-text">从ONTAP 9.10.1开始、<block ref="168d50085a3c4e712aaa28cf90e2f228" prefix=" " category="inline-code"></block>命令行界面命令包含一个<block ref="e7f31f518110f3c17739edd51d047922" prefix=" " category="inline-code"></block>用于基于RDMA配置的NFS的参数。从ONTAP 9.12.1开始、System Manager支持为基于RDMA的NFS配置创建网络接口。有关详细信息，请参见 <block ref="9a76f9bf68e533534ddb17107f75c19e" category="inline-xref-macro-rx"></block>。</block>
+  <block id="cd13dd69b76cb5a8d8836c52e28ee458" category="list-text">从ONTAP 9.11.1开始、全闪存SAN阵列(ASA)平台可提供自动iSCSI LIF故障转移功能。</block>
+  <block id="eb3e6c35d448456277ecc4873989ccd5" category="paragraph">如果指定的SVM中不存在iSCSI LIF、或者指定SVM中的所有现有iSCSI LIF都已启用iSCSI LIF故障转移、则会在新创建的iSCSI LIF上自动启用iSCSI LIF故障转移(故障转移策略设置为、自动还原值<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>设置为<block ref="9817175b2d67fda65aaaec8b8fcf2111" prefix=" " category="inline-code"></block>)。</block>
+  <block id="2e9d79bdadc3c1a3ea80a6d99ea9c771" category="paragraph">如果在升级到9.11.1 9.11.1或更高版本后、某个SVM中存在未启用iSCSI LIF故障转移功能的现有iSCSI LIF、而您在同一SVM<block ref="075ae3d2fc31640504f814f60e5ef713" prefix="(" category="inline-code"></block>中创建了新的iSCSI LIF、则新的iSCSI LIF将采用与SVM中现有iSCSI LIF相同的故障转移策略)。</block>
+  <block id="ef934d4d8f2b4314965fe0a91d2aac87" category="inline-link-macro">适用于ASA 平台的iSCSI LIF故障转移</block>
+  <block id="76eda67d6bf3f3490d9e9fbdd8ebdde8" category="paragraph"><block ref="76eda67d6bf3f3490d9e9fbdd8ebdde8" category="inline-link-macro-rx"></block></block>
+  <block id="ff75491cef38298812f55b5192a63322" category="paragraph">从 ONTAP 9.7 开始，只要该 IP 空间的同一子网中至少已存在一个 LIF ， ONTAP 就会自动选择 LIF 的主端口。ONTAP 会选择与该子网中的其他 LIF 位于同一广播域中的主端口。您仍然可以指定主端口，但不再需要此端口（除非指定 IP 空间中的子网中尚不存在 LIF ）。</block>
+  <block id="cc81ac9d702ccf6d3fb5a87328ac320e" category="paragraph">从ONTAP 9.12.0开始、您关注的操作步骤 取决于您使用的界面—System Manager或命令行界面：</block>
+  <block id="26ed02718973e705cd69ee6e109400e0" category="open-title">System Manager</block>
+  <block id="37d203a4d30c92c7e0433e138e21db41" category="paragraph">*使用System Manager添加网络接口*</block>
+  <block id="deb6ad488690373fea929150f631f83c" category="list-text">选择*网络&gt;概述&gt;网络接口*。</block>
+  <block id="c742c2b2ed01c0f1e79d77c9eeebbfd3" category="inline-image-macro">添加图标</block>
+  <block id="09f52291822d07847dc176bf99933cf8" category="list-text">选择。 <block ref="43f48618b8b157dea4d31396a9d4b622" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="80b672eadb959ee067f798c949769797" category="list-text">选择以下接口角色之一：</block>
+  <block id="f6068daa29dbb05a7ead1e3b5a48bbee" category="list-text">数据</block>
+  <block id="a5e7f0e3e9c9116082e3187550f2112f" category="list-text">集群间</block>
+  <block id="f8fdb9cc1d709f265daea2bcde48e114" category="list-text">SVM管理</block>
+  <block id="11fc8c77734f91f1358121dc5f9f6343" category="list-text">选择协议：</block>
+  <block id="cb781df6c6dcd5341f2c38def8e0721e" category="list-text">SMB/CCIFS和NFS</block>
+  <block id="e4e1c13bb0b14f6cb7608cbecea948ef" category="list-text">iSCSI</block>
+  <block id="26bcb9f1cb6f391f4b2c18e676bb458d" category="list-text">NVMe/FC</block>
+  <block id="8b7c42123642e2e4ea7dd426aeb2de58" category="list-text">NVMe/TCP</block>
+  <block id="ca087c6b212e188bcd347b7df2d151a9" category="list-text">为LIF命名或接受从先前选择生成的名称。</block>
+  <block id="60fdbb38c75f5c6482244473f87d1a1c" category="list-text">接受主节点或使用下拉列表选择一个。</block>
+  <block id="9f5d454d522b09f8cb2c421adee76a83" category="list-text">如果在选定SVM的IP空间中至少配置了一个子网、则会显示子网下拉列表。</block>
+  <block id="1636f97e6bf0d009e6d54f431dd78331" category="list-text">如果选择子网、请从下拉列表中选择它。</block>
+  <block id="4f251f06f399aea726037b03ba55a92e" category="list-text">如果继续操作而不使用子网、则会显示广播域下拉列表：</block>
+  <block id="c77fd2236a05934d1482c13bc9c2cd4d" category="list-text">指定IP地址。如果此IP地址正在使用中、则会显示一条警告消息。</block>
+  <block id="f2ccfb6eb1082f7276bb8c59544ba16d" category="list-text">指定子网掩码。</block>
+  <block id="dd8594a8467817eb4f593564094d8619" category="list-text">从广播域中选择主端口、可以自动(建议)选择、也可以从下拉菜单中选择一个。主端口控制将根据广播域或子网选择显示。</block>
+  <block id="877dcf4e4c0dcca42bb2ac810a06d5e7" category="list-text">保存网络接口。</block>
+  <block id="91af5705f16502125e8b2187e64202c0" category="open-title">命令行界面</block>
+  <block id="9264736930746a402294c277d922cca5" category="paragraph">*使用命令行界面创建LIF*</block>
+  <block id="1ebcfad534ca6b48a25ad52ffad224cc" category="list-text">确定要用于 LIF 的广播域端口。</block>
+  <block id="f71d8c4bffdcfe0255989a522519e921" category="paragraph"><block ref="f8ae370acaa7702ed5f8a0f329fbbc89" prefix="" category="inline-code"></block></block>
+  <block id="f32118da3d70a4f320a9e03ff567af21" category="list-text">验证要用于 LIF 的子网是否包含足够的未使用 IP 地址。</block>
+  <block id="ec9f06f6ad41803059b084ab6467f053" category="paragraph"><block ref="df45c041fbec4b88d2620f8f27969ca2" prefix="" category="inline-code"></block></block>
+  <block id="2307fb5b78b821211a9b011ea25ba45a" category="list-text">在要用于访问数据的端口上创建一个或多个 LIF 。</block>
+  <block id="ffae5d6089597acdf7c65a5a7c0c7005" category="inline-link-macro">创建子网</block>
+  <block id="c54dbe39234f8280d6f1651be5a1c1a1" category="admonition">NetApp建议为数据SVM上的所有LUN创建子网对象。这对于MetroCluster配置尤为重要、因为子网对象使ONTAP能够确定目标集群上的故障转移目标、因为每个子网对象都有一个关联的广播域。有关说明，请参阅<block ref="ad8e74354bc7fdb3d5c3a1c355adf86b" category="inline-link-macro-rx"></block>。</block>
+  <block id="8d6c97487ddd2038e41c9e6af2e2c2b1" category="list-text"><block ref="42819bf7ae4bf9a7d2a14b2805ca0e83" prefix="" category="inline-code"></block>是对LIF运行命令时LIF返回到的节点<block ref="d1e4afa40f7e9718bdad64b4f5db9abb" prefix=" " category="inline-code"></block>。</block>
+  <block id="c55a4f044dfec68d4e9f5b17072e3330" category="paragraph">您还可以使用 -auto-revert 选项指定 LIF 是否应自动还原到主节点和主端口。</block>
+  <block id="a216b55b3c0bf385e4630d18a1048d5b" category="list-text"><block ref="321ff01f394ce440009a9f460f09d191" prefix="" category="inline-code"></block>是对LIF运行命令时LIF返回到的物理或逻辑端口<block ref="d1e4afa40f7e9718bdad64b4f5db9abb" prefix=" " category="inline-code"></block>。</block>
+  <block id="66538afe2f70d10ce8f5fa836c504d8e" category="list-text">您可以使用和<block ref="bba17324bbe2e8cea0c60e47268d4b36" prefix=" " category="inline-code"></block>选项指定IP地址、也可以<block ref="38df54fe961fa2bf2a7f82a5854fabad" prefix=" " category="inline-code"></block>使用选项启用从子网分配<block ref="8db950a15da003c155c149cbe4e043a2" prefix=" " category="inline-code"></block>。</block>
+  <block id="74d2e4c4ae33f4210672309e2da7aa67" category="list-text">使用子网提供 IP 地址和网络掩码时，如果使用网关定义了子网，则在使用该子网创建 LIF 时，系统会自动向 SVM 添加指向该网关的默认路由。</block>
+  <block id="f3497351aae46692e603fedb2f2cd146" category="inline-link-macro">ONTAP命令参考</block>
+  <block id="6e3363145085bfe2357613c9c430aae9" category="list-text">如果您手动分配 IP 地址（而不使用子网），则在其他 IP 子网上存在客户端或域控制器时，可能需要配置指向网关的默认路由。有关的详细信息<block ref="21a17cd54b10a034d5fb8366f2a71517" prefix=" " category="inline-code"></block>，请参见<block ref="272a3f7563defec9b271835dc324d95b" category="inline-link-macro-rx"></block>。</block>
+  <block id="8c61a3dc9fe23290c557a2511c9b35e1" category="list-text"><block ref="28c988ac956ff7a16325cde07547fef0" prefix="" category="inline-code"></block>用于指定在启动、更改管理数据库状态或建立网络连接等情况下、数据LIF是否自动还原到其主节点。默认设置为<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>，但您可以根据环境中的网络管理策略将其设置为<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>。</block>
+  <block id="307b6a8428f6f758ace66db2ccc5d91b" category="list-text"><block ref="950af4194b424bf604f7ce86c7eff452" prefix="" category="inline-code"></block>从ONTAP 9.5开始、您可以使用选项为LIF分配服务策略<block ref="950af4194b424bf604f7ce86c7eff452" prefix=" " category="inline-code"></block>。为 LIF 指定服务策略时，将使用该策略为 LIF 构建默认角色，故障转移策略和数据协议列表。在 ONTAP 9.5 中，只有集群间和 BGP 对等服务才支持服务策略。在 ONTAP 9.6 中，您可以为多个数据和管理服务创建服务策略。</block>
+  <block id="efe97ec1aaddc6abcc95f07658ec7a4c" category="list-text"><block ref="5d2f1b504fd65080a58edd34b33a0b73" prefix="" category="inline-code"></block>用于创建支持FCP或NVMe/FC协议的LIF。创建 IP LIF 时不需要此选项。</block>
+  <block id="0e8be86fb1fd96c9321d5e4107e3475b" category="list-text">*可选*：在-address选项中分配IPv6地址：</block>
+  <block id="30d51071f881a325c624c8b0d9543ceb" category="list-text">使用 network ndp prefix show 命令查看在各种接口上获取的 RA 前缀列表。</block>
+  <block id="76ffff692e8f2a4eea8bb8acb769b46a" category="paragraph"><block ref="621563f27da2174dd6450a0ccd81978f" prefix=" " category="inline-code"></block>命令可在高级权限级别下使用。</block>
+  <block id="0d710d73b461c89b1ba215412b9541e2" category="list-text">使用格式<block ref="371fe1c91d7ccdea2021e0fb5b75a7b3" prefix=" " category="inline-code"></block>手动构建IPv6地址。</block>
+  <block id="2fede0e329f4e76a33495cab21d88e61" category="paragraph"><block ref="851f5ac9941d720844d143ed9cfcf60a" prefix="" category="inline-code"></block>是在各种接口上获取的前缀。</block>
+  <block id="3848d3a93d8d8ad3c6c94bb4323068cb" category="paragraph">要派生<block ref="b80bb7740288fda1f201890375a60c8f" prefix=" " category="inline-code"></block>，请选择一个随机的64位十六进制数。</block>
+  <block id="668781a383497a3b4080e57467cebbec" category="list-text">验证 LIF 接口配置是否正确。</block>
+  <block id="d45f6cefbed50da176ce4d7e5929b922" category="paragraph"><block ref="6233fd2657a97d431cd74b2ae6f4956c" prefix="" category="inline-code"></block></block>
+  <block id="62bd47d83f665c91ba56dcaa0254344c" category="list-text">验证故障转移组配置是否符合要求。</block>
+  <block id="9ce4adc4e6c330aa6eadbd7a695d2914" category="paragraph"><block ref="7ee8691cd7d47d7e0f05f48be6aa4e75" prefix="" category="inline-code"></block></block>
+  <block id="1eb3a40a1c16648aa07d98bba6880dae" category="list-text">验证配置的 IP 地址是否可访问：</block>
+  <block id="d4f4121e7645988826a9a59b4f88d9cd" category="cell">要验证 ...</block>
+  <block id="b2ab9468407024b9e52fcb8768240b7f" category="cell">使用...</block>
+  <block id="3c40e603ab1c9e14602a6a53d041de45" category="cell">IPv4 地址</block>
+  <block id="36ecf3f9704f42836a6f1084017a4efb" category="cell">网络 ping</block>
+  <block id="681ecbfa9647e806effd6d73a57c33f5" category="cell">IPv6地址</block>
+  <block id="ececd851d593a37be8bb1a2009b6afdc" category="cell">网络ping6.</block>
+  <block id="ff7c0fcd6a31e735a61c001f75426961" category="paragraph-title">示例</block>
+  <block id="f8f0bbecb07bf9393c191809861e2a52" category="paragraph">以下命令将使用和参数创建LIF并指定IP地址和<block ref="bba17324bbe2e8cea0c60e47268d4b36" prefix=" " category="inline-code"></block>网络掩码值<block ref="38df54fe961fa2bf2a7f82a5854fabad" prefix=" " category="inline-code"></block>：</block>
+  <block id="f13c42e2942028683cdd7cf874120d74" category="paragraph">以下命令将创建一个 LIF ，并从指定子网（名为 client1_sub ）分配 IP 地址和网络掩码值：</block>
+  <block id="3e1b8b018f7b75c483d6bcca99b92cf5" category="paragraph">以下命令将创建NVMe/FC LIF并指定<block ref="13116ea7c2875017f3b13faf27db2530" prefix=" " category="inline-code"></block>数据协议：</block>
+  <block id="a819f8586b7479e19e6badcf0dbbf9fe" category="summary">创建子网以分配或预留特定的 IP 地址块以用于 ONTAP 网络配置</block>
+  <block id="f68dfd250c07b38a2267de86c6853714" category="paragraph">您可以创建子网来分配特定的IPv4或IPv6地址块、以便稍后在为SVM创建LIF时使用。</block>
+  <block id="d22a3359973fc99d4b1e919cf7b35682" category="paragraph">这样，您就可以通过指定子网名称，而不必为每个 LIF 指定 IP 地址和网络掩码值来更轻松地创建 LIF 。</block>
+  <block id="331a370ed47c46150dee6428cbd327d0" category="paragraph">要添加子网的广播域和 IP 空间必须已存在。</block>
+  <block id="394821118526283bc78aba0efc30c8b3" category="list-text">所有子网名称在 IP 空间中必须是唯一的。</block>
+  <block id="ac218d46ce7b5a920599544a4d27e2ca" category="list-text">在将 IP 地址范围添加到子网时，您必须确保网络中没有重叠的 IP 地址，以便不同的子网或主机不会尝试使用相同的 IP 地址。</block>
+  <block id="e055c5d18898815859452fc665e9b3f1" category="list-text">如果在定义子网时指定了网关，则在使用该子网创建 LIF 时，指向该网关的默认路由会自动添加到 SVM 中。如果不使用子网、或者在定义子网时未指定网关、则需要使用<block ref="174fd4ec4d6994b777d4327cd4e8f15a" prefix=" " category="inline-code"></block>命令手动向SVM添加路由。</block>
+  <block id="f0a2b989304d28e556b9962a34329b9d" category="list-text">NetApp建议为数据SVM上的所有LUN创建子网对象。这对于MetroCluster配置尤为重要、因为子网对象使ONTAP能够确定目标集群上的故障转移目标、因为每个子网对象都有一个关联的广播域。</block>
+  <block id="58cbe3a9cb8955d83743c9ef6ceb5afb" category="paragraph">您可以使用ONTAP系统管理器或ONTAP命令行界面创建子网。</block>
+  <block id="905ce8a8994f1eca61380b8b520beff8" category="list-text"><block ref="4ce27d02b48dd13802074a3df84fd406" prefix="" category="inline-code"></block>是要创建的第3层子网的名称。</block>
+  <block id="28ba03ccf8d5e3f1ddbdfce67b0e1f2e" category="paragraph">此名称可以是 "Mgmt " 等文本字符串，也可以是 192.0.2.0/24 等特定子网 IP 值。</block>
+  <block id="16818f92d72a16ca22d844e68b7d2171" category="list-text"><block ref="e0caec61aebb1b31c3b192c9eb2f9483" prefix="" category="inline-code"></block>是子网所在广播域的名称。</block>
+  <block id="26766cea770806863e687a34ae8073db" category="list-text"><block ref="4ae3944df3ee772807922dcf9bb86c13" prefix="" category="inline-code"></block>是广播域所属IP空间的名称。</block>
+  <block id="feed2f690371862aef573255017713b9" category="paragraph">除非为此选项指定值，否则将使用 "Default" IP 空间。</block>
+  <block id="3f4680257d54111be7543f57db717b74" category="list-text"><block ref="d52f62729781815dc9ef1dcfdfe6349b" prefix="" category="inline-code"></block>是子网的IP地址和掩码；例如192.0.2.0/24。</block>
+  <block id="840ab25561ddd4cd4bc8c96750b96bfb" category="list-text"><block ref="efeadb39d096cbd607bf36aac6cf9b70" prefix="" category="inline-code"></block>是子网默认路由的网关；例如192.0.2.1。</block>
+  <block id="a4b51119ead306cd9ba30b3a4d28d031" category="list-text"><block ref="131cf1b220ade17f6a3248d54312f858" prefix="" category="inline-code"></block>是要分配给子网的IP地址的列表或范围。</block>
+  <block id="c0b17d69029b4e4fb6a70f84fb936299" category="paragraph">IP 地址可以是单个地址， IP 地址范围或逗号分隔列表中的组合。</block>
+  <block id="73754d3d89c10930f8797d81ee876f15" category="list-text">可以为此选项设置<block ref="2371ee49460c5795e25eb90f5168d85e" prefix=" " category="inline-code"></block>此值<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>。</block>
+  <block id="89c251ab0c1c8e1a834a2a197934c26e" category="paragraph">如果任何服务处理器或网络接口当前正在使用指定范围内的 IP 地址，则此命令将失败。如果将此值设置为 true ，则会将任何手动寻址的接口与当前子网相关联，并允许命令成功执行。</block>
+  <block id="58b8cc02848a2d78050719bfae31651e" category="paragraph">以下命令将在默认 IP 空间的广播域 Default-1 中创建子网 sub1 。它会添加 IPv4 子网 IP 地址和掩码，网关以及一系列 IP 地址：</block>
+  <block id="77eedf6887f3d77271dc53c9fd38269a" category="paragraph">以下命令将在 "Default" IP 空间的广播域 Default 中创建子网 sub2 。它会添加一系列 IPv6 地址：</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完成后</block>
+  <block id="2796ed324450a74d4e573575b14a73a6" category="paragraph">您可以使用子网中的地址将 SVM 和接口分配给 IP 空间。</block>
+  <block id="f28fce6e01986c8f135346f1efac44a7" category="paragraph">如果需要更改现有子网的名称、请使用<block ref="c1115a716e0f2168a7f66f26d2eefc8b" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="524f2128cdb9047c02d06179ce3c0cef" category="summary">为集群中的每个 SVM 创建 IP 空间</block>
+  <block id="63e9ea12ee077b462ece911ea23131f4" category="paragraph">IP 空间是 Storage Virtual Machine （ SVM ）所在的不同 IP 地址空间。当您需要 SVM 具有自己的安全存储，管理和路由时，您可以创建 IP 空间。您可以使用 IP 空间为集群中的每个 SVM 创建不同的 IP 地址空间。这样，在管理上独立的网络域中的客户端就可以访问集群数据，同时使用来自同一 IP 地址子网范围的重叠 IP 地址。</block>
+  <block id="ca95c8635ad5fd68ac940e00a0da212c" category="paragraph">集群范围内的 IP 空间限制为 512 个。对于包含具有6 GB RAM的节点的集群、集群范围的IP空间限制将减少到256个。请参见 Hardware Universe 以确定您的平台是否具有其他限制。</block>
+  <block id="4c1c93397a0ad82f0b80502a6c7c0799" category="paragraph"><block ref="4c1c93397a0ad82f0b80502a6c7c0799" category="inline-link-rx"></block></block>
+  <block id="11914b786443f21c2c710d44f64c1480" category="admonition">IP 空间名称不能为 "all" ，因为 "all" 是系统保留名称。</block>
+  <block id="e7396fa25a3c5f851dc80cdef84456d0" category="list-text">创建 IP 空间：</block>
+  <block id="061a545e69527401190b860465cf4a79" category="paragraph"><block ref="4ae3944df3ee772807922dcf9bb86c13" prefix="" category="inline-code"></block>是要创建的IP空间的名称。以下命令将在集群上创建 IP 空间 ipspace1 ：</block>
+  <block id="bc7a6ad79915b0b669c03cdc4b13c6c5" category="list-text">显示IP空间：</block>
+  <block id="f4e3ea14a86c053c771cffad27e184f6" category="paragraph"><block ref="a3fa89b248855f9b8841d3f32539f863" prefix="" category="inline-code"></block></block>
+  <block id="1e31c16448255a9e1d55e7b33ac21ee6" category="paragraph">此时将创建 IP 空间以及此 IP 空间的系统 SVM 。系统 SVM 传输管理流量。</block>
+  <block id="42de8300ccf0587951996358a11fccf6" category="paragraph">如果在采用 MetroCluster 配置的集群中创建 IP 空间，则必须手动将 IP 空间对象复制到配对集群。在复制 IP 空间之前创建并分配给此 IP 空间的任何 SVM 都不会复制到配对集群。</block>
+  <block id="f8019cdb211915da8e1a1ae3877a0696" category="paragraph">广播域会自动在 " 默认 "IP 空间中创建，并可使用以下命令在 IP 空间之间移动：</block>
+  <block id="66d79f86985b2f2499dd8add3343d01c" category="paragraph">例如，如果要将广播域从 "Default" 移动到 "ips1" ，请使用以下命令：</block>
+  <block id="d6d258eaae41d54bb6c9c23c42a49cfb" category="summary">创建 SVM 以向客户端提供数据</block>
+  <block id="508d6390b1c65105c1577182bef9b59b" category="paragraph">您必须创建 SVM 以向客户端提供数据。</block>
+  <block id="1704a195a161c4f9823222a8351ee926" category="list-text">您必须知道 SVM 根卷将采用哪种安全模式。</block>
+  <block id="8a3d9f7b85d48c2f56226bde38dea0a1" category="paragraph">如果您计划在此 SVM 上通过 SMB 解决方案实施 Hyper-V 或 SQL Server ，则应对根卷使用 NTFS 安全模式。包含 Hyper-V 文件或 SQL 数据库文件的卷在创建时必须设置为 NTFS 安全性。通过将根卷安全模式设置为 NTFS ，您可以确保不会无意中创建 UNIX 或混合安全模式数据卷。</block>
+  <block id="a1d44fc603a8a7aba7f1314576a139c3" category="paragraph">&lt;stdin&gt;中未解析的指令- include：..//_include/svm-极限.adoc[]</block>
+  <block id="e79dbb0b4d2ca45d8f4713711dd8c47c" category="paragraph">您可以使用System Manager创建Storage VM。</block>
+  <block id="f232ec1da86ae610f97011f01f800031" category="list-text">选择*存储VM*。</block>
+  <block id="425a1bcbacf8dcc29243de992d955eb3" category="list-text">单击 <block ref="43f48618b8b157dea4d31396a9d4b622" category="inline-image-macro-rx" type="image"></block> 以创建Storage VM。</block>
+  <block id="c6db4789357efa25f46351d850a42f00" category="list-text">为Storage VM命名。</block>
+  <block id="a7338288aa4590f3c9d5f7d2485c1c58" category="list-text">选择访问协议：</block>
+  <block id="3bebcf8a5d3487ce07f92bb891563edc" category="list-text">SMB/CIFS、NFS</block>
+  <block id="70d9e3c68d42d6ec42ab792e06c44357" category="list-text">NVMe</block>
+  <block id="22ae78a2ef9f095fe6373bb7295efa3a" category="list-text">如果选择*启用SMB/CIFS*、请完成以下配置：</block>
+  <block id="e68ffd76c817b20de740406064a5984c" category="cell">字段或复选框</block>
+  <block id="34e8ac1104cce23ef5971ddf76627eee" category="paragraph">管理员名称</block>
+  <block id="b471bcc9afb249cff00077aeff376c11" category="paragraph">指定SMB/CIFS Storage VM的管理员用户名。</block>
+  <block id="dc647eb65e6711e155375218212b3964" category="paragraph">密码</block>
+  <block id="703b6c917b59c453905f6777f0563187" category="paragraph">指定SMB/CIFS Storage VM的管理员密码。</block>
+  <block id="637e29e8db23b0832fae80848e4d4733" category="paragraph">服务器名称</block>
+  <block id="cdcfd099349a8285a8e7a1ca74271068" category="paragraph">指定SMB/CIFS Storage VM的服务器名称。</block>
+  <block id="f490d3302e7cd81f3dafead6c8311b60" category="paragraph">Active Directory域</block>
+  <block id="8cf13cd851c58a9306128f0ad0941d79" category="paragraph">指定用于为SMB/CIFS Storage VM提供用户身份验证的Active Directory域。</block>
+  <block id="ff309cf3107765153856990e03224d8c" category="paragraph">组织单位</block>
+  <block id="4425eb7547a089cc817e237749a91443" category="paragraph">指定Active Directory域中与SMB/CIFS服务器关联的组织单位。"cn=compones"是默认值、可以进行修改。</block>
+  <block id="369873f8ef2eab73e01e08c2e3aedecb" category="paragraph">访问Storage VM中的共享时对数据进行加密</block>
+  <block id="0dd0999209a05468327ee3e3281ced03" category="paragraph">选中此复选框可使用SMB 3.0对数据进行加密、以防止未经授权访问SMB/CIFS Storage VM中的共享上的文件。</block>
+  <block id="78cd2c7d5422ffdb6d9545211ca49eeb" category="paragraph">域</block>
+  <block id="44e86c21646cd6565c3fd1ca8c11f0d2" category="paragraph">为SMB/CIFS Storage VM添加、删除或重新排列列出的域。</block>
+  <block id="5983d82c47c0afe291746daa1c40b3ae" category="paragraph">名称服务器</block>
+  <block id="c503bd72fd9f98341f61070a2b337ac6" category="paragraph">添加、删除SMB/CIFS Storage VM的名称服务器或对其重新排序。</block>
+  <block id="951cfb94bce19fdd877e24ccfec144b9" category="paragraph">默认语言</block>
+  <block id="cd0ab8bd4d82650fa6882f32120db4f9" category="paragraph">指定Storage VM及其卷的默认语言编码设置。使用命令行界面更改Storage VM中各个卷的设置。</block>
+  <block id="fbebc6739678d32573bdcc8e7d9712a2" category="paragraph">网络接口</block>
+  <block id="addc2324c2ccf4577b40cd95c2b0adcd" category="paragraph">对于为Storage VM配置的每个网络接口、请选择一个现有子网(如果至少存在一个子网)或指定*不使用子网*并填写* IP地址*和*子网掩码*字段。如果有用、请选中*对以下所有接口使用相同的子网掩码和网关*复选框。您可以允许系统自动选择主端口、也可以从列表中手动选择要使用的端口。</block>
+  <block id="6f3b36f7d8c2187b5159cdb82423b93a" category="paragraph">管理管理员帐户</block>
+  <block id="37fd1df845b96544bc823d9ee0d67cc1" category="paragraph">如果要管理Storage VM管理员帐户、请选中此复选框。选中后、指定用户名、密码、确认密码并指示是否要添加用于Storage VM管理的网络接口。</block>
+  <block id="0d284df1be748e15793b8264348b675e" category="list-text">如果选择*Enable NFS*，请完成以下配置：</block>
+  <block id="3de8b42b3601db654d1550084d657906" category="paragraph">允许NFS客户端访问复选框</block>
+  <block id="3badd390719f5de7be91359220a017d8" category="paragraph">如果在NFS Storage VM上创建的所有卷都应使用根卷路径"/"进行挂载和遍历、请选中此复选框。向导出策略"default"添加规则、以允许无中断挂载遍历。</block>
+  <block id="1f4da964f8eab62e96e8cfe406e44364" category="paragraph">规则</block>
+  <block id="c676e0b6d2fa06f7c150e74b7d7878ac" category="paragraph">单击 <block ref="43f48618b8b157dea4d31396a9d4b622" category="inline-image-macro-rx" type="image"></block> 以创建规则。</block>
+  <block id="e0cc4684693f4e93cf56f3017cfaa481" category="list-text">客户端规范：指定主机名、IP地址、网络组或域。</block>
+  <block id="15e1f930200c5ef680eccbc11fd982ca" category="list-text">访问协议：选择以下选项的组合：</block>
+  <block id="8d3f3d8ac4e0e2e8685821807920a78e" category="list-text">SMB/CIFS</block>
+  <block id="f24ce81f056d5acd59788df7f5ab36a1" category="list-text">FlexCache</block>
+  <block id="1d1a594959ec615f56516f5d0f5e8ddb" category="list-text">NFS</block>
+  <block id="5b12ee0369243579651edca43ff65c85" category="list-text">NFSv3</block>
+  <block id="08e90903fe145a9dcc2fb967259a1755" category="list-text">NFSv4</block>
+  <block id="86e42f76258fecb272d85febc7840cae" category="list-text">访问详细信息：对于每种类型的用户、指定访问级别：只读、读/写或超级用户。用户类型包括：</block>
+  <block id="b1c94ca2fbc3e78fc30069c8d0f01680" category="list-text">全部</block>
+  <block id="3b8189b52f32bb0356f9ae582e04094d" category="list-text">全部(以匿名用户身份)</block>
+  <block id="c5541b475fdab9fce04884adff3b0359" category="list-text">Kerberos 5</block>
+  <block id="f22873ba6efee4accc10bd5a3d3ca9eb" category="list-text">Kerberos 5i</block>
+  <block id="a98fd9001be872cb9763c171625ee881" category="list-text">Kerberos 5p</block>
+  <block id="d11322c1a7a2383491c23f13113c59ea" category="list-text">NTLM</block>
+  <block id="7383d6f7ab3b52644d30a4a0e2ae3df1" category="paragraph">保存规则。</block>
+  <block id="83163eeadc9ddb2ac656cb4f4245b264" category="list-text">如果选择*启用iSCSI*、请完成以下配置：</block>
+  <block id="cb87cc4133d76efd12f5de622190e7c4" category="list-text">如果选择*Enable FC*，请完成以下配置：</block>
+  <block id="8503a722b3fe068428f739c9dbd4d43f" category="paragraph">配置FC端口</block>
+  <block id="8488410a80842f058100899223773ebb" category="paragraph">选择要包含在Storage VM中的节点上的网络接口。建议每个节点使用两个网络接口。</block>
+  <block id="7cfc92cd0570022bd7e56b7c286c6bac" category="list-text">如果选择*启用NVMe/FC*，请完成以下配置：</block>
+  <block id="cdf900c4ac940fb389c02e3a3292fae5" category="list-text">如果选择*启用NVMe/TCP*，请完成以下配置：</block>
+  <block id="345e93a96b6e66cb9274dbad975c0db2" category="list-text">保存所做的更改。</block>
+  <block id="61157a0dbd65c93a06825f5c886c2bdc" category="paragraph">使用ONTAP 命令行界面创建子网。</block>
+  <block id="9e410dfb5a2299a2f9aeae2d14595de2" category="list-text">确定哪些聚合是包含 SVM 根卷的候选聚合。</block>
+  <block id="d5e80ad93326693bccc06be4536713de" category="paragraph"><block ref="ab0abb3da82fd9575686e8f7abdfdcd5" prefix="" category="inline-code"></block></block>
+  <block id="4dfb9b40ea052c23a3a0f77d337cbdee" category="paragraph">您必须选择至少具有 1 GB 可用空间的聚合来容纳根卷。如果要在 SVM 上配置 NAS 审核，则根聚合上必须至少有 3 GB 的额外可用空间，并在启用审核时使用额外空间来创建审核暂存卷。</block>
+  <block id="4e756dafef2428c97af05ef326dff6ed" category="admonition">如果已在现有 SVM 上启用 NAS 审核，则聚合的暂存卷将在成功创建聚合后立即创建。</block>
+  <block id="1d4025ba42560b66fc521994c2d4ab8a" category="list-text">记录要在其中创建 SVM 根卷的聚合的名称。</block>
+  <block id="21c7896623b02b15d2c661cc2e5a5255" category="list-text">如果您计划在创建 SVM 时指定语言，但不知道要使用的值，请确定并记录要指定的语言值：</block>
+  <block id="6f0db2c0e3209546c14d633363b336e8" category="paragraph"><block ref="7e3619f076c911dc84602d00403fd4c8" prefix="" category="inline-code"></block></block>
+  <block id="1d8404eb6271fc502c911b0db577288e" category="list-text">如果您计划在创建SVM时指定快照策略、但不知道该策略的名称、请列出可用策略、并确定和记录要使用的快照策略的名称：</block>
+  <block id="3dae10567943cbfb6af5ecfc66d573a5" category="paragraph"><block ref="35445e40043671f182d2acb44ed589a4" prefix="" category="inline-code"></block></block>
+  <block id="8d20ed56563f9cbada635a4c622b9945" category="list-text">如果您计划在创建 SVM 时指定配额策略，但不知道该策略的名称，请列出可用策略并确定并记录要使用的配额策略的名称：</block>
+  <block id="bc9b110970671d35ec963b22428b4fc6" category="paragraph"><block ref="3bd8dda2d5ae5e5237187c31d2c74164" prefix="" category="inline-code"></block></block>
+  <block id="891942f01dbf46f03681746fb932d692" category="list-text">创建 SVM ：</block>
+  <block id="cb7bf213cd3b9774ed6dc06d7829f27f" category="paragraph"><block ref="27b483e7b9ee9e6551db297d8745aa90" prefix="" category="inline-code"></block></block>
+  <block id="c4c1eb91697ed5e319e37fb61374dd54" category="paragraph"><block ref="abf8f3d2a8f2bf44483e35c5cf5189ed" prefix="" category="inline-code"></block></block>
+  <block id="c75de7d8081e3cf501427ec47ca0cbf9" category="list-text">验证 SVM 配置是否正确。</block>
+  <block id="a08bac7bed1b7eaef93ae8eb19ca62e9" category="paragraph"><block ref="c69629cafced5cf16a105c3fc5369973" prefix="" category="inline-code"></block></block>
+  <block id="5fe6a4ff9e5b4c958267930735a5750b" category="paragraph">在此示例中，命令会在 IP 空间 "ipspace1" 中创建名为 "VS1" 的 SVM 。根卷名为 vs1_root ，并在 aggr3 上使用 NTFS 安全模式创建。</block>
+  <block id="28e9e84d4ea23f4e930e8628e9dd1d79" category="paragraph">&lt;stdin&gt;中未解析的指令- include：..//_include/adadadadadadadso-policy.adoc[]</block>
+  <block id="00168315e4762d2b2b9c5462bdf8c7cc" category="summary">具有不同角色的 LIF 具有不同的特征</block>
+  <block id="0c0b240863b39f03b5d2a93471991c0f" category="doc">LIF角色(ONTAP 9.5及更早版本)</block>
+  <block id="971dbc285b73d7c6f7ac90280984bb27" category="paragraph">具有不同角色的 LIF 具有不同的特征。LIF 角色可确定接口支持的流量类型，适用的故障转移规则，已设置的防火墙限制，每个 LIF 的安全性，负载平衡以及路由行为。LIF 可以具有以下任一角色：集群，集群管理，数据，集群间，节点管理， 和 UNDEF （未定义）。BGP LIF 使用 UNDEF 角色。</block>
+  <block id="948b8964eebece7a2ddba6799f736a2c" category="paragraph">从 ONTAP 9.6 开始， LIF 角色已弃用。您应为 LIF 指定服务策略，而不是为角色指定服务策略。使用服务策略创建 LIF 时，无需指定 LIF 角色。</block>
+  <block id="94e6cee7fe1a1375bf9dc65d4f0dd995" category="section-title">LIF安全性</block>
+  <block id="f86f4a50388930909d983126e43601d2" category="cell">Data LIF</block>
+  <block id="aff7b3c6a1a82a339ee68a62e5bf859e" category="cell">集群LIF</block>
+  <block id="e2578ec54f85b5b6333c94364b756a1c" category="cell">节点管理 LIF</block>
+  <block id="15a4d902a9e2eeb56724bdb94f9d1977" category="cell">集群管理 LIF</block>
+  <block id="54f7d853bcd07992f133218c21a038be" category="cell">集群间 LIF</block>
+  <block id="bbcca6fb4cc39c40c272284afd47fb0d" category="cell">是否需要专用 IP 子网？</block>
+  <block id="bafd7322c6e97d25b6299b5d6fe8920b" category="cell">否</block>
+  <block id="94aa616ded63df1ddfd2db3f000298f5" category="cell">是否需要安全网络？</block>
+  <block id="b484916e97900df1211612f037613d9a" category="cell">默认防火墙策略</block>
+  <block id="9fed7b9fa5681c8f3085940cc39e70e6" category="cell">限制性很强</block>
+  <block id="32f4d3b1db1c5f465cb22e4877370085" category="cell">完全开放</block>
+  <block id="87f8a6ab85c9ced3702b4ea641ad4bb5" category="cell">中</block>
+  <block id="bc7b428ef80f13f9db850081a0baf5f8" category="cell">防火墙是否可自定义？</block>
+  <block id="989edd27b2259c0a99bdf49486b0e282" category="section-title">LIF 故障转移</block>
+  <block id="590f6d9a5885f042982c9a911f76abda" category="cell">默认行为</block>
+  <block id="f22315dd8ccfb0e386d9d87ebc2b1bba" category="cell">仅限同一故障转移组中位于 LIF 主节点和非 SFO 配对节点上的端口</block>
+  <block id="83f96cdb7303472fdea7614250e0c3fd" category="cell">仅限同一故障转移组中位于 LIF 主节点上的端口</block>
+  <block id="d9ccc0630cdaf0a667836ce00d1db024" category="cell">同一故障转移组中的任何端口</block>
+  <block id="498be304757715bc51f2f7d8b0b16b8a" category="cell">是否可自定义？</block>
+  <block id="0562bc2d0812b604322ccdfe52b44d18" category="section-title">LIF 路由</block>
+  <block id="98f8738f80b3c6ab46e13578531a5d7e" category="cell">何时需要默认路由？</block>
+  <block id="c001ad4efcbb1955baa7f6162cab4143" category="cell">客户端或域控制器位于不同的 IP 子网上</block>
+  <block id="6e7b34fa59e1bd229b207892956dc41c" category="cell">从不</block>
+  <block id="9081e9fd698e3464b29b10ce9eee9fd8" category="cell">当任何主要流量类型需要访问其他 IP 子网时</block>
+  <block id="ec5334cfc1ff0a04b70f21168eccd32a" category="cell">管理员从另一个 IP 子网进行连接时</block>
+  <block id="44446842df9e28ad4397fd58ef039cd6" category="cell">其他集群间 LIF 位于不同的 IP 子网上时</block>
+  <block id="56b69eb70b78df6fce9dd2059bf416b2" category="cell">何时需要静态路由到特定 IP 子网？</block>
+  <block id="a2cc588f2ab07ad61b05400f593eeb0a" category="cell">极少</block>
+  <block id="398406706598a44bad4df839c72c9fe0" category="cell">另一个集群的节点的集群间 LIF 位于不同的 IP 子网中</block>
+  <block id="423aabc92a5f3d53d90d88c84358b59b" category="cell">何时需要静态主机路由到特定服务器？</block>
+  <block id="0ec028ac0f80b4414ca0b7d12cde6fb6" category="cell">要使其中一种流量类型列在节点管理 LIF 下，请执行数据 LIF ，而不是节点管理 LIF 。这需要相应地更改防火墙。</block>
+  <block id="e9d15683f03673a2edf8195d24964eb1" category="section-title">LIF 重新平衡</block>
+  <block id="0ec08ba45fa50a6f8cf3c5332d5f7b1a" category="cell">DNS ：是否用作 DNS 服务器？</block>
+  <block id="b6ecb378831203b6df90201c84ac0d36" category="cell">DNS ：是否导出为区域？</block>
+  <block id="05873a13cdcf394cb1781d50396d9033" category="section-title">LIF 主要流量类型</block>
+  <block id="91c997ac411302de89a704da8c90a365" category="cell">主要流量类型</block>
+  <block id="863fafa226fdca241847822df0d9cf40" category="cell">NFS 服务器， CIFS 服务器， NIS 客户端， Active Directory ， LDAP ， WINS ， DNS 客户端和服务器， iSCSI 和 FC 服务器</block>
+  <block id="226a6d91c34879bfbe918926cd1f94c4" category="cell">集群内</block>
+  <block id="1e14e7e2a6e253cfec1589d743aa33f6" category="cell">SSH 服务器， HTTPS 服务器， NTP 客户端， SNMP ， AutoSupport 客户端， DNS 客户端，正在加载软件更新</block>
+  <block id="fad014a43df1d0597a1cda7f1426ea6b" category="cell">SSH 服务器， HTTPS 服务器</block>
+  <block id="3b013b6d96eafcc4e55a6beb603d64c4" category="cell">跨集群复制</block>
+  <block id="459c7b8e7f7af952393c9b24d0cbd35d" category="summary">ONTAP 9.7 及更早版本，从插槽中卸下故障 NIC 或将此 NIC 移至另一插槽以进行维护</block>
+  <block id="c34df23c67ce2c224ace362d5c84f2c1" category="doc">从节点中删除NIC (ONTAP 9.7或更早版本)</block>
+  <block id="1578a0b8542e51d6976133034d10f88b" category="paragraph">本主题为适用场景 ONTAP 9.7 或更早版本。出于维护目的，您可能需要从插槽中删除故障 NIC 或将此 NIC 移至其他插槽。</block>
+  <block id="af573fe3536f49b538a7a5e78478b47e" category="list-text">必须已迁移或删除 NIC 端口上托管的所有 LIF 。</block>
+  <block id="68f5b35cecb146725fd3787d47d97f60" category="list-text">任何 NIC 端口都不能是任何 LIF 的主端口。</block>
+  <block id="60ccccf52bc751406dcc4a9aff1bd74e" category="list-text">要从 NIC 中删除端口，您必须具有高级权限。</block>
+  <block id="38abd375e1250ccb945791ffe0f4fcf2" category="list-text">从 NIC 中删除端口：</block>
+  <block id="1edc30c9cec2665a01f0a9cc7910d9fc" category="paragraph"><block ref="ce40425bd6c0ef0314bdd114d6980b61" prefix="" category="inline-code"></block></block>
+  <block id="d7dd98ce71c2f2739d8dbb0312174af2" category="list-text">验证端口是否已删除：</block>
+  <block id="47cd03a2fa721b9f4f83dca38829afea" category="paragraph"><block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix="" category="inline-code"></block></block>
+  <block id="daa7b5256a5159e27b3a5a2ec8349d9d" category="list-text">如果 network port show 命令的输出仍显示已删除的端口，请重复步骤 1 。</block>
+  <block id="19bf87c82445072fe6568b60767d7b78" category="summary">不需要或建议手动从广播域添加和删除端口</block>
+  <block id="876b163d470ad17f7e57977a1fb3a7a4" category="doc">从广播域添加或删除端口(ONTAP 9.7及更早版本)</block>
+  <block id="d0e4d312be789fa9609491a71720b1a1" category="paragraph">您可以在最初创建广播域时添加网络端口，也可以在已存在的广播域中添加或删除端口。这样，您就可以高效地使用集群中的所有端口。</block>
+  <block id="82d5593d0cdfd31166134520e453fb74" category="paragraph">如果要添加到新广播域的端口已位于另一个广播域中，则必须先从该广播域中删除这些端口，然后再将其分配给新广播域。</block>
+  <block id="807951cd4d6fcb2e150d21fbd9f5b807" category="admonition">此任务与 ONTAP 9.0 - 9.7 相关，而不是与 ONTAP 9.8 相关。</block>
+  <block id="353cd250aa9a6d62eefe59937d353b0f" category="list-text">计划添加到广播域的端口不能属于另一个广播域。</block>
+  <block id="59270bd5af684cbd2f53d6057c1fb383" category="list-text">不能将已属于接口组的端口单独添加到广播域中。</block>
+  <block id="540b443896df21c3dd0b368ca18128af" category="paragraph">添加和删除网络端口时，应遵循以下规则：</block>
+  <block id="8811151dda23edd2a5108a6fa1ff1be8" category="cell">添加端口时 ...</block>
+  <block id="858f1a0e377ca7cbf492f157f80c1789" category="cell">删除端口时 ...</block>
+  <block id="a9ab7ec094ce4b25c1cefebbdcc04d38" category="cell">端口可以是网络端口， VLAN 或接口组（ ifgrp ）。</block>
+  <block id="3bc4fb7c2035117d63df4fa973af67bf" category="cell">这些端口将添加到广播域的系统定义的故障转移组中。</block>
+  <block id="f71ce9afeee0c9083f8cec5ce12e8d6d" category="cell">端口将从广播域中的所有故障转移组中删除。</block>
+  <block id="5ec058e125df964e3212b92a1344e836" category="cell">端口的 MTU 将更新为广播域中设置的 MTU 值。</block>
+  <block id="7bcbfe8bd9d90deb15678f71f0bed919" category="cell">端口的 MTU 不变。</block>
+  <block id="9afc0ffaa6e1d4e4f5ea6cd92cbe12b9" category="cell">端口的 IP 空间将更新为广播域的 IP 空间值。</block>
+  <block id="b64f65c77c392ed7c104c1ff38a89f7b" category="cell">这些端口将移至 " 默认 "IP 空间，而不具有广播域属性。</block>
+  <block id="bc8bcf06defaa0b66aea0e8f6331139f" category="admonition">如果使用命令删除接口组的最后一个成员端口<block ref="d575b091ef70bd2ac59a248dac4d658e" prefix=" " category="inline-code"></block>、则会导致接口组端口从广播域中删除、因为广播域中不允许使用空接口组端口。</block>
+  <block id="40df56690b3f73d28b9c0537efd4c202" category="list-text">使用命令显示当前已分配或未分配给广播域的端口<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block>。</block>
+  <block id="33f8d1377a89c0505bf6bbd687544fe8" category="list-text">在广播域中添加或删除网络端口：</block>
+  <block id="75679f9f9577ec4abce75ef8e0a00e7d" category="paragraph">向广播域添加端口</block>
+  <block id="8f822f2d07295ece2b3ed7d8bc0255ff" category="paragraph"><block ref="c12e4cf1de1c55f93fa3c87cac484b3b" prefix="" category="inline-code"></block></block>
+  <block id="c0551af818f4a1ac54f3175279a051b3" category="paragraph">从广播域中删除端口</block>
+  <block id="ee210a0730802d9c055ca601e95c499c" category="paragraph"><block ref="0a00983c93a43364f8ece0dd4878a2d5" prefix="" category="inline-code"></block></block>
+  <block id="eb595208b2e206995da2f02804845846" category="list-text">验证是否已在广播域中添加或删除端口：</block>
+  <block id="b594ae869da49f856ebb1c5ca8dfb9b4" category="section-title">添加和删除端口的示例</block>
+  <block id="fb8d5ad141799c307eb1fcfcb716b28a" category="paragraph">以下命令会将节点 cluster-1-01 上的端口 e0g 和节点 cluster-1-02 上的端口 e0g 添加到默认 IP 空间中的广播域 bcast1 ：</block>
+  <block id="f23acb14778bd25381425e8327f3775c" category="paragraph"><block ref="e5d2dc24fe6e32d79713c7fbc4e6f490" prefix="" category="inline-code"></block></block>
+  <block id="30671794ffa73ee4b020d67f720d6f68" category="paragraph">以下命令会将两个集群端口添加到集群 IP 空间中的广播域集群：</block>
+  <block id="6a91675c7de00d7744149b3e588cd626" category="paragraph"><block ref="d83e55384a4a0bec023cb45fe68c600d" prefix="" category="inline-code"></block></block>
+  <block id="614c89cdf853f484ebc0b5b55e7a87cd" category="paragraph">以下命令将从默认 IP 空间的广播域 bcast1 中删除节点 cluster1-01 上的端口 e0e ：</block>
+  <block id="05acd91b7cdf216d410b1b3c44593e88" category="paragraph"><block ref="f988032db9ad3aefa801757eb684c9d6" prefix="" category="inline-code"></block></block>
+  <block id="bc2602c5a66493ba7d85e8bd5d0e7f9b" category="list-text"><block ref="bc2602c5a66493ba7d85e8bd5d0e7f9b" category="inline-link-macro-rx"></block></block>
+  <block id="84bdf9349c63fefa4aa4743ee6f7bc1c" category="summary">修改广播域的 MTU 值以更改广播域中所有端口的 MTU 值</block>
+  <block id="b65f35d38e54f653d62f385179f0697a" category="doc">更改广播域中端口的MTU值(ONTAP 9.7及更早版本)</block>
+  <block id="2b8eb4f7080b49d3e6d219e7482285c1" category="paragraph">您可以修改广播域的 MTU 值，以更改该广播域中所有端口的 MTU 值。这样可以支持在网络中进行的拓扑更改。</block>
+  <block id="17169cdd38bd8629d45990b5c46f3b8a" category="paragraph">MTU 值必须与连接到该第 2 层网络的所有设备匹配，但处理管理流量的 e0M 端口除外。</block>
+  <block id="387b8c86faaf37988b48544b6aeee058" category="paragraph">更改 MTU 值会导致受影响端口上的流量短暂中断。系统将显示一条提示，提示您必须使用 y 进行问题解答才能进行 MTU 更改。</block>
+  <block id="c558e6cc70dea26b9ff4a4f10e4fcf81" category="paragraph">更改广播域中所有端口的 MTU 值：</block>
+  <block id="eff7b7f6ff578e4ab608a330289c49a5" category="list-text"><block ref="91597b98c407da31245936f26c8a9887" prefix="" category="inline-code"></block>是广播域的名称。</block>
+  <block id="65437b39a930bfdd02459d96ad335c5f" category="list-text"><block ref="661a504c6c4cd163fe4d67836577b926" prefix="" category="inline-code"></block>是IP数据包的MTU大小；1500和9000是典型值。</block>
+  <block id="3174c9efde96d4881e6291980fe1cb18" category="list-text"><block ref="1e2d1a4a58bdff2d126f8f6ca8608478" prefix="" category="inline-code"></block>是此广播域所在IP空间的名称。除非为此选项指定值，否则将使用 "Default" IP 空间。以下命令会将广播域 bcast1 中所有端口的 MTU 更改为 9000 ：</block>
+  <block id="c8c91b71c9f2c29b3110bfc3348a9f0a" category="summary">广播域对属于同一第 2 层网络的网络端口进行分组</block>
+  <block id="0eac6cba5e9f8b059013158afd4c62e1" category="doc">广播域概述(ONTAP 9.7及更早版本)</block>
+  <block id="d9aacb3b3086394f21ba1ec931f98cfc" category="paragraph">广播域用于对属于同一第 2 层网络的网络端口进行分组。然后， Storage Virtual Machine （ SVM ）可以使用组中的端口来传输数据或管理流量。</block>
+  <block id="ab7522c6814a39bb50b1835cf25f6259" category="paragraph">广播域驻留在 IP 空间中。在集群初始化期间，系统会创建两个默认广播域：</block>
+  <block id="b162e4d019362577aa2f67b09f6f8671" category="list-text">默认广播域包含位于默认 IP 空间中的端口。这些端口主要用于提供数据。集群管理和节点管理端口也位于此广播域中。</block>
+  <block id="e706cfbf7e7027617769f0a64d1aa44b" category="list-text">集群广播域包含位于集群 IP 空间中的端口。这些端口用于集群通信，并包括集群中所有节点的所有集群端口。</block>
+  <block id="d58198b796a8425bceb05d28fbd76655" category="paragraph">如果您创建了唯一的 IP 空间来分隔客户端流量，则需要在其中每个 IP 空间中创建广播域。</block>
+  <block id="6803a7584a25c4fead41b63c82cd6216" category="admonition">创建广播域，以便对集群中属于同一第 2 层网络的网络端口进行分组。然后， SVM 可以使用这些端口。</block>
+  <block id="c7d645e9536a7b441c9ccf5073a87e53" category="section-title">使用广播域的示例</block>
+  <block id="6b1bc3d86b8575e2402bcae1d0dd6788" category="paragraph">广播域是同一 IP 空间中的一组网络端口，也具有第 2 层可相互访问性，通常包括集群中许多节点的端口。</block>
+  <block id="d4f97706d831e1453d51bf1fc26afe5b" category="paragraph">图中显示了分配给四节点集群中三个广播域的端口：</block>
+  <block id="3b33bbfb1f410cbbfcbb9edebb1724b5" category="list-text">集群广播域会在集群初始化期间自动创建，其中包含集群中每个节点的端口 a 和 b 。</block>
+  <block id="45bb6bb21322652b107d80754e12b482" category="list-text">默认广播域也会在集群初始化期间自动创建，其中包含集群中每个节点的端口 c 和 d 。</block>
+  <block id="e1c2adb896f3eb2d80b2bb9acd04a2ab" category="list-text">bcast1 广播域已手动创建，其中包含集群中每个节点的端口 e ， f 和 g 。此广播域由系统管理员专门为新客户端创建，用于通过新 SVM 访问数据。</block>
+  <block id="bc800d449ed8e2782b98036c5f5a2d7f" category="inline-image-macro">广播域映像</block>
+  <block id="8c96bff404841be809ae66a4ad5b6275" category="paragraph"><block ref="8c96bff404841be809ae66a4ad5b6275" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="330c8578ee83c50c4ecc9ee0f494fa09" category="paragraph">系统会自动创建一个与每个广播域名称相同且网络端口相同的故障转移组。此故障转移组由系统自动管理，这意味着在从广播域添加或删除端口时，这些端口会自动添加或从此故障转移组中删除。</block>
+  <block id="25f1938e8a6466ef3646cb1540f85372" category="summary">广播域对集群中属于同一第 2 层网络的网络端口进行分组</block>
+  <block id="7084354993a2057e35e719497f454908" category="doc">创建广播域(ONTAP 9.7及更早版本)</block>
+  <block id="d2af663c9f1ae5451b1a97146f08a126" category="paragraph">在 ONTAP 9.7 及更早版本中，您可以创建一个广播域，以便对集群中属于同一第 2 层网络的网络端口进行分组。然后， SVM 可以使用这些端口。您必须为自定义 IP 空间创建广播域。在 IP 空间中创建的 SVM 使用广播域中的端口。</block>
+  <block id="2e42f15c7120467b5cdcd910659c690e" category="paragraph">从 ONTAP 9.8 开始，在集群创建或加入操作期间会自动创建广播域。如果您运行的是 ONTAP 9.8 或更高版本，则不需要执行这些步骤。</block>
+  <block id="cdfc66112c43ad875d275256bf56a0f7" category="paragraph">在 ONTAP 9.7 及更早版本中，计划添加到广播域的端口不能属于另一个广播域。</block>
+  <block id="00234cb54c6941e3ce2aa2db5d988975" category="paragraph">LIF 故障转移到的端口必须是 LIF 故障转移组的成员。创建广播域时， ONTAP 会自动创建同名的故障转移组。故障转移组包含分配给广播域的所有端口。</block>
+  <block id="2da0403e9693c05aeecf9502d0349c34" category="list-text">所有广播域名在 IP 空间中必须是唯一的。</block>
+  <block id="8bf49bcc8e8b90061bbd45e3db073ec4" category="list-text">添加到广播域的端口可以是物理网络端口， VLAN 或接口组（ ifgrp ）。</block>
+  <block id="608b519dfea74bf54d6726307e2a1766" category="list-text">如果要使用的端口属于另一个广播域、但未使用、则可以使用<block ref="0a00983c93a43364f8ece0dd4878a2d5" prefix=" " category="inline-code"></block>命令从现有广播域中删除这些端口。</block>
+  <block id="f565d0644ece2679545030bed13406b0" category="list-text">添加到广播域的端口的 MTU 将更新为在广播域中设置的 MTU 值。</block>
+  <block id="cfb2c61655c25e94834a1f09fd005d19" category="list-text">MTU 值必须与连接到该第 2 层网络的所有设备匹配，但处理管理流量的 e0M 端口除外。</block>
+  <block id="e5fe57f952d70ed401e5861edaf9ae0c" category="list-text">如果未指定 IP 空间名称，则会在 " 默认 "IP 空间中创建广播域。</block>
+  <block id="1312b6cbbbab7880093895c4569e66da" category="paragraph">为了简化系统配置，系统会自动创建一个同名的故障转移组，该故障转移组包含相同的端口。</block>
+  <block id="ceada676563d9ab4ca18178626c9043a" category="list-text">查看当前未分配给广播域的端口：</block>
+  <block id="f177c774edac8d2a79f45ccdc8769093" category="paragraph">如果显示的端口较大、请使用<block ref="2a3461e3a4a6c88dfd6189ed53d7be86" prefix=" " category="inline-code"></block>命令仅查看未分配的端口。</block>
+  <block id="c0530f1c04744d25a88aeb2f159adc32" category="list-text">创建广播域：</block>
+  <block id="8c75d5d1dad634d47b8f73b373c64a84" category="paragraph"><block ref="a75f2bb2d65350dc3dc21819fddf6ccb" prefix="" category="inline-code"></block></block>
+  <block id="7dbda91791d8061923d0727a2ffcdc7b" category="list-text"><block ref="289edfc4a087f238917c49bef07c1c04" prefix="" category="inline-code"></block>是要创建的广播域的名称。</block>
+  <block id="14409e67f8d582025246a8374acb16f3" category="list-text"><block ref="7454bc6579d8ca579fcee3b334978157" prefix="" category="inline-code"></block>是IP数据包的MTU大小；1500和9000是典型值。</block>
+  <block id="2de58babc2706f5001395f1a14ded934" category="paragraph">此值将应用于添加到此广播域的所有端口。</block>
+  <block id="ce33973ccdcf8db7aecac1107c0732d5" category="list-text"><block ref="c1e9d0002d8674820c304cb9a686131b" prefix="" category="inline-code"></block>是要将此广播域添加到的IP空间的名称。</block>
+  <block id="bf18ab96260035dd0a9ffe0a460ad2fb" category="paragraph">除非为此参数指定值，否则将使用 "Default" IP 空间。</block>
+  <block id="d5fa6d0e4cbcf07ae0a8f6fc75cfe84f" category="list-text"><block ref="81e7b05ddc23856a323f5d93ae3411e9" prefix="" category="inline-code"></block>是要添加到广播域的端口的列表。</block>
+  <block id="7b5feee15c08e42c701b1e7d2baf4cd4" category="paragraph">端口将以格式添加<block ref="c9d6108e720ea1dc6b861e3dc3f9a836" prefix=" " category="inline-code"></block>，例如<block ref="7118632ca0fca9993b6e431b5a8f18ef" prefix=" " category="inline-code"></block>。</block>
+  <block id="ef21becc740e64be66d95dae6102c96b" category="list-text">验证是否已根据需要创建广播域：<block ref="837631748deddf22ad5093eb8e692fc8" prefix=" " category="inline-code"></block></block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="paragraph-title">示例</block>
+  <block id="a1135c8ad88ea4ba1a44733d141d127f" category="paragraph">以下命令会在默认 IP 空间中创建广播域 bcast1 ，将 MTU 设置为 1500 ，并添加四个端口：</block>
+  <block id="3eb4407be0a68041d1a14be0f55138aa" category="paragraph"><block ref="8e73198de3259084af8bf415b1d828da" prefix="" category="inline-code"></block></block>
+  <block id="8ce92432b3a9f0e70f3f2194fd9e5d63" category="inline-link-macro">集群和 SVM 对等</block>
+  <block id="3296d9be819d40b3f88d4db2f4765b60" category="paragraph">您可以通过创建子网来定义广播域中可用的 IP 地址池，也可以此时将 SVM 和接口分配给 IP 空间。有关详细信息，请参见 <block ref="0f49ebc043f34c8eee78a10f20fb2395" category="inline-link-macro-rx"></block>。</block>
+  <block id="b7c51c7c8ce6cfe3ce9622c15ab603c5" category="paragraph">如果需要更改现有广播域的名称、请使用命令。<block ref="de2e0efb0823c8f70bf0a6956aa9f32d" prefix=" " category="inline-code"></block></block>
+  <block id="c4eb738b4fb28de5899d6607eabfc15a" category="summary">删除不必要的广播域；这会将关联端口移至 " 默认 "IP 空间</block>
+  <block id="69d33826982d1d12f324d1a4f62ae3ab" category="doc">删除广播域</block>
+  <block id="dfc877fbb3dd5451e66053dd8808b9b1" category="paragraph">如果您不再需要广播域，可以将其删除。此操作会将与此广播域关联的端口移至 " 默认 "IP 空间。</block>
+  <block id="7238432d2f6c501bf5a873fb2b1aa2d7" category="paragraph">不能存在与要删除的广播域关联的子网，网络接口或 SVM 。</block>
+  <block id="0d6eaca347d77dcdc19b0b5ea1a76a61" category="list-text">无法删除系统创建的 " 集群 " 广播域。</block>
+  <block id="c86cdfa0da2a4d2bbe3d74986b93ee5c" category="list-text">删除此广播域时，系统会删除与此广播域相关的所有故障转移组。</block>
+  <block id="15536381fe2a2faa89fd9b3d765858dc" category="paragraph">您关注的操作步骤 取决于您使用的界面—System Manager或命令行界面：</block>
+  <block id="2a73cf4fc00ade50c334946244d87d3f" category="paragraph">*从ONTAP 9.12.0开始、您可以使用System Manager删除广播域*</block>
+  <block id="25b4cd8d82f19eb90a3e456bb673bf8e" category="paragraph">如果广播域包含端口或与子网关联、则不会显示删除选项。</block>
+  <block id="c8a1e492c48f762ae54e7ebb4ab541d8" category="list-text">选择*网络&gt;概述&gt;广播域*。</block>
+  <block id="11325f67c791914c7c2be6dc6d510a40" category="inline-image-macro">菜单选项图标</block>
+  <block id="18cda7d39c0d23abf04a9c2d34d065a5" category="list-text">选择 <block ref="d47b50c0fc9a1e10d010a1d0b2f31ccd" category="inline-image-macro-rx" type="image"></block> 要删除的广播域旁边的*&gt;删除*。</block>
+  <block id="d27fbf78daa20f580f2506f06c970c17" category="paragraph">*使用命令行界面删除广播域*</block>
+  <block id="4144172f3b3d46962522b41714817b2d" category="paragraph">删除广播域：</block>
+  <block id="5f8a1a5751f8c542306289a85e36091e" category="paragraph"><block ref="3e8c642d9d28230b7ee4b2542ab14d65" prefix="" category="inline-code"></block></block>
+  <block id="a0acbfe543c454b3348d2c133f1b6295" category="paragraph">以下命令将删除 IP 空间 ipspace1 中的广播域 Default-1 ：</block>
+  <block id="b321c736b07e48b1322969a9c95bf535" category="paragraph"><block ref="327ac268b07d31761507d696a711658c" prefix="" category="inline-code"></block></block>
+  <block id="5c95c84543784e9f6a2fe5bf885e2294" category="summary">在配置要添加到新 IP 空间的广播域之前，您必须先确定哪些端口可用于此广播域</block>
+  <block id="0c5196e82570c15f81530537057e1331" category="doc">确定哪些端口可用于广播域(ONTAP 9.7及更早版本)</block>
+  <block id="a55490311f238285cbb94de7290101cc" category="paragraph">在配置要添加到新 IP 空间的广播域之前，您必须先确定哪些端口可用于此广播域。</block>
+  <block id="c22f3cda47d5fdbc6e1f4f8e6014b80b" category="list-text">端口可以是物理端口， VLAN 或接口组（ ifgroups ）。</block>
+  <block id="3c78652b2fd986979d6a5db98dfdfca4" category="list-text">不能将要添加到新广播域的端口分配给现有广播域。</block>
+  <block id="f55ecca1951608d9ee58243faa5b107c" category="list-text">如果要添加到广播域的端口已位于另一个广播域中（例如，默认 IP 空间中的默认广播域），则必须先从该广播域中删除这些端口，然后再将其分配给新的广播域。</block>
+  <block id="6899d13f3ef6ad75270d9a56232747d8" category="list-text">无法从广播域中删除已分配 LIF 的端口。</block>
+  <block id="d467d03c8ba5fa104d666b5e698af708" category="list-text">由于集群管理和节点管理 LIF 已分配给默认 IP 空间中的默认广播域，因此无法从默认广播域中删除分配给这些 LIF 的端口。</block>
+  <block id="9fe84254c2b50f9d152b2529ef6d5896" category="list-text">确定当前端口分配。</block>
+  <block id="87f0cb242dad3911382bed9e6b49a3eb" category="paragraph">在此示例中，命令的输出提供了以下信息：</block>
+  <block id="060fc6a7d0732c3911402b04e0cd7712" category="list-text"><block ref="295208bc8c52d4a2745d40b6c029c8a2" prefix=" " category="inline-code"></block>每个节点上的端口<block ref="96640993dd2592a16c29226daf83b860" prefix=" " category="inline-code"></block>、<block ref="5191792b1ad05675fea3bbf015036b3b" prefix=" " category="inline-code"></block>、、<block ref="40c989cc0bdee457475f49d3f3f8c10a" prefix=" " category="inline-code"></block>和<block ref="cbd803f54be888bcec7290684e827de3" prefix=" " category="inline-code"></block>均分配给默认广播域。</block>
+  <block id="5a5769097d7ff909d9db4994eb94c598" category="list-text">这些端口可能可在要创建的 IP 空间的广播域中使用。</block>
+  <block id="2d7bd16b2b05b3beba9d306ace93fc16" category="list-text">确定默认广播域中的哪些端口已分配给 LIF 接口，因此无法移动到新的广播域。</block>
+  <block id="6485b14c0e329aebda0c4dcd7d09dbd0" category="paragraph"><block ref="16fdd92def5a71313d6535c74ef67b81" prefix="" category="inline-code"></block></block>
+  <block id="206fd17bd4ff22578ce7dfd3eeda1bce" category="paragraph">在以下示例中，命令的输出提供了以下信息：</block>
+  <block id="aea36eb42bb9dbe26fa3ca2ed50f13ef" category="list-text">节点端口将分配给每个节点上的端口<block ref="96640993dd2592a16c29226daf83b860" prefix=" " category="inline-code"></block>，并且集群管理LIF的主节点位于<block ref="96640993dd2592a16c29226daf83b860" prefix=" " category="inline-code"></block>上<block ref="164546f60261c7e4be0c5f5f9aaeec86" prefix=" " category="inline-code"></block>。</block>
+  <block id="e030789a4812857d3fe43582fb0c26e9" category="list-text"><block ref="295208bc8c52d4a2745d40b6c029c8a2" prefix=" " category="inline-code"></block><block ref="40c989cc0bdee457475f49d3f3f8c10a" prefix=" " category="inline-code"></block>每个节点上的端口、、和<block ref="cbd803f54be888bcec7290684e827de3" prefix=" " category="inline-code"></block>不托管此类端口、可以从默认广播域中删除此类端口<block ref="5191792b1ad05675fea3bbf015036b3b" prefix=" " category="inline-code"></block>、然后将其添加到新IP空间的新广播域中。</block>
+  <block id="0c0ebf5d0c386effe0c4ea3bb6a091d0" category="summary">查看集群中每个 IP 空间内的广播域列表</block>
+  <block id="ab1bcf457d346a893b0eafa1a236c09a" category="doc">显示广播域(ONTAP 9.7及更早版本)</block>
+  <block id="cbe1dc3777cd20a0d92187abbff67361" category="paragraph">您可以显示集群中每个 IP 空间内的广播域列表。输出还会显示每个广播域的端口列表和 MTU 值。</block>
+  <block id="4dd0a3dcb24b65dc74edf225eea96e9e" category="paragraph">显示集群中的广播域和关联端口：</block>
+  <block id="16bcfd3dd5caef4624a26861f613de4d" category="paragraph">以下命令显示集群中的所有广播域和关联端口：</block>
+  <block id="02c6f3c7f2a102c8feaf17f1ee49d7d1" category="paragraph">以下命令显示 bcast1 广播域中更新状态为 error 的端口，这表示端口无法正确更新：</block>
+  <block id="f676f8146c874e30db84a1b86b98cdd8" category="paragraph">有关详细信息，请参见<block ref="757904457a186124ea090cb36514c336" category="inline-link-rx"></block>。</block>
+  <block id="f125fb7a17694fde8fc62bf1f5403f63" category="summary">将一个广播域中的端口合并到一个现有广播域中</block>
+  <block id="d6e77738134005faad3f13e9d99832e0" category="doc">合并广播域(ONTAP 9.7及更早版本)</block>
+  <block id="d44312486267d0b67b359622ebec3072" category="paragraph">您可以使用 merge 命令将所有端口从一个广播域移动到现有广播域。</block>
+  <block id="c4d2cf7b708e6f4a9be5ebb749367d51" category="paragraph">如果要从广播域中删除所有端口，然后将这些端口添加到现有广播域，则此操作会减少所需的步骤。</block>
+  <block id="34742edd88e1c1a838801b96a12aa853" category="paragraph">将一个广播域中的端口合并到现有广播域中：</block>
+  <block id="231d7a8a938027c3f431dd44a351d590" category="list-text"><block ref="4ae3944df3ee772807922dcf9bb86c13" prefix="" category="inline-code"></block>是广播域所在IP空间的名称。</block>
+  <block id="b45cf8a38f8a35883dad2febf2eebd8c" category="list-text"><block ref="d62caed4dd1926010ddc86f190b6ba33" prefix="" category="inline-code"></block>是要合并的广播域的名称。</block>
+  <block id="ebbc4cb7d39145643367dba5b44ec3a4" category="list-text"><block ref="8bc45a66ca1d95be402cd8b945966bc0" prefix="" category="inline-code"></block>是将接收其他端口的广播域的名称。</block>
+  <block id="084a5499a3262408f7407d4b5d94a8cd" category="paragraph">以下示例将广播域 bd-data1 合并到广播域 bd-data2 中：</block>
+  <block id="8c0d6cb3daaa4c421de57e8603baba9e" category="paragraph"><block ref="222fb13a2f3f8435ab3341d0a1e6646e" prefix="" category="inline-code"></block></block>
+  <block id="3ba5cac2cdb7a6b105f8f2f54ab809ab" category="summary">拆分广播域，将 ONTAP 9.0 到 9.7 配置与物理网络拓扑同步</block>
+  <block id="de68df247c72eac7598794005c3adb05" category="doc">拆分广播域(ONTAP 9.7或更早版本)</block>
+  <block id="1665dbb387021af02fbd41599af8c1ea" category="paragraph">您可以通过将现有广播域拆分为两个不同的广播域来修改该广播域，每个广播域包含分配给原始广播域的一些原始端口。</block>
+  <block id="9f09e6fc8b14b00ee0893ebaf95d57f5" category="list-text">如果端口位于故障转移组中，则必须拆分故障转移组中的所有端口。</block>
+  <block id="0f3b145a3b547dc0be5f0e9aac22376d" category="list-text">如果端口具有关联的 LIF ，则 LIF 不能属于子网范围。</block>
+  <block id="1436ed75c3dbf565a1b99976386fad9c" category="paragraph">将广播域拆分为两个广播域：</block>
+  <block id="3f555ebbd92becae184f01887af6d1bc" category="list-text"><block ref="4ae3944df3ee772807922dcf9bb86c13" prefix="" category="inline-code"></block>是广播域所在IP空间的名称。</block>
+  <block id="fd0bf1d9d932f6e270977c4b7d345378" category="list-text"><block ref="d62caed4dd1926010ddc86f190b6ba33" prefix="" category="inline-code"></block>是要拆分的广播域的名称。</block>
+  <block id="95bc0aa511018e57fce15a6576a48093" category="list-text"><block ref="0a902740c3a036c7e0d2e7d9629f8b97" prefix="" category="inline-code"></block>是要创建的新广播域的名称。</block>
+  <block id="6a6f9b1e774f2ce8e84c95acac76ae96" category="list-text"><block ref="739b964305f4482d70b429f32839ba08" prefix="" category="inline-code"></block>是要添加到新广播域的节点名称和端口。</block>
+  <block id="23c0ae72a284fcf3f5b10548f5789ff4" category="summary">欢迎使用 ONTAP 9.0 - 9.7 NAS 路径故障转移工作流</block>
+  <block id="34db590c01ede9e82dd63cccecaa913f" category="doc">设置NAS路径故障转移(ONTAP 9.7及更早版本)</block>
+  <block id="6bd13b949c8f90ab75bda1bca4590734" category="paragraph">此工作流将指导您完成为 ONTAP 9.0 - 9.7 设置 NAS 路径故障转移的网络配置步骤。此工作流假定满足以下条件：</block>
+  <block id="504b17be8679b22ce0ff24309326833c" category="list-text">您希望使用 NAS 路径故障转移最佳实践来简化网络配置。</block>
+  <block id="084e87a2feb2d2b3178ae0ce559845d4" category="list-text">您希望使用命令行界面，而不是 System Manager 。</block>
+  <block id="edd065cbe8aace4091a0ae0c74038b57" category="list-text">您正在运行 ONTAP 9.0 到 9.7 的新系统上配置网络连接。</block>
+  <block id="f5bf5336fca238353f35af37209df243" category="paragraph">如果您运行的 ONTAP 版本高于 9.7 ，则应使用适用于 ONTAP 9.8 或更高版本的 NAS 路径故障转移操作步骤：</block>
+  <block id="ec2261a75bde24b45faec00c74cb5402" category="inline-link-macro">ONTAP 9.8 及更高版本的 NAS 路径故障转移工作流</block>
+  <block id="426171489fede6b6c617db26566f2b65" category="list-text"><block ref="426171489fede6b6c617db26566f2b65" category="inline-link-macro-rx"></block></block>
+  <block id="5c701a2881474e7fd80b7c493de7a89b" category="paragraph">如果您需要有关网络组件和管理的详细信息，应使用网络管理参考资料：</block>
+  <block id="33343788000c2e11b2ab3d1f5c0a84f4" category="inline-link-macro">网络管理概述</block>
+  <block id="c018500b1daca5c03a1b256cd2e162b1" category="list-text"><block ref="c018500b1daca5c03a1b256cd2e162b1" category="inline-link-macro-rx"></block></block>
+  <block id="51a7c4cc865e3b2797a7e9bad8a38cd9" category="summary">ONTAP 9.0 - 9.7 的 NAS 路径故障转移配置</block>
+  <block id="06d5a559d704cb358a39441a58ad7bdc" category="doc">NAS路径故障转移工作流(ONTAP 9.7及更早版本)</block>
+  <block id="48a52df7e251ea9f3671d1eddb223a69" category="paragraph">如果您已经熟悉基本网络概念，则可以通过查看 NAS 路径故障转移配置的 " 实践 " 工作流来节省网络设置时间。</block>
+  <block id="db56fc3159913493dd62271cf105ae5e" category="paragraph">在 NAS LIF 的当前端口出现链路故障后，该 LIF 会自动迁移到正常运行的网络端口。如果您的网络正常运行，则可以依靠 ONTAP 默认值来管理路径故障转移。否则，您应按照此工作流中的步骤配置路径故障转移。</block>
+  <block id="e809b033aefc596f34714759e8952cfd" category="inline-image-macro">NAS路径故障转移配置的工作流</block>
+  <block id="7afa3e05706fb2c1d22370a50ddd70db" category="paragraph"><block ref="7afa3e05706fb2c1d22370a50ddd70db" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="673dcd987ffee0d36ad8b601d118bee1" category="admonition">SAN LIF 不会迁移（除非您在链路出现故障后手动移动）。相反，主机上的多路径技术会将流量转移到其他 LIF 。有关详细信息，请参见 <block ref="b35eb150b08c3207edd7d52f8c5b1782" category="inline-link-macro-rx"></block>。</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">一个</block>
+  <block id="85e2e027bff940fa88f819e030434f41" category="inline-link-macro">填写工作表</block>
+  <block id="dd592f9173f2e3aa39503dc6404b62cc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="ba82cab04dc8cd96e7d1d4eb4ddaa74c" category="inline-link-macro-rx"></block></block>
+  <block id="7a21d4711ab8743806dfcc48fe98d49f" category="paragraph">使用工作表规划NAS路径故障转移。</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">两个</block>
+  <block id="3430a606df1bb4e9856b52bf4630cc68" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="855c5f5c266078890e0287e98c817adb" category="inline-link-macro-rx"></block></block>
+  <block id="e5e61e8932467a83b8d90c275a2ef298" category="paragraph">为集群中的每个SVM创建一个不同的IP地址空间。</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">三个</block>
+  <block id="2dead1d9ad7d823c51e1cff8d5128b65" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="35068c46c015a21209889b285af38788" category="inline-link-macro-rx"></block></block>
+  <block id="1910962f156f61912684490f4242065c" category="paragraph">创建广播域。</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">四个</block>
+  <block id="19122663da1f92b70a07dcad6d15f038" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="709fb476c1c74490343cf76fbe3eb527" category="inline-link-macro-rx"></block></block>
+  <block id="3c084c392af3c1ac1cb987e1e9b9361d" category="paragraph">创建子网。</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">五个</block>
+  <block id="62f0d7e61a87ca7750612015fcd9e49e" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="f45004704d4c0d172f2819e8cc869fab" category="inline-link-macro-rx"></block></block>
+  <block id="667155d2bf1a682dd7b481d3b104f8f4" category="paragraph">创建SVM以向客户端提供数据。</block>
+  <block id="e6fbc0b9673f8c86726688d7607fc8f5" category="inline-image-macro">六个</block>
+  <block id="5085681ae6e18662ed0f7dbc3acdd8b6" category="inline-link-macro">创建 LIF</block>
+  <block id="acb8a1e19dae2542880403acd668761e" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="2b2e92d677c5f9738af6172260042ef9" category="inline-link-macro-rx"></block></block>
+  <block id="9ac3a14a3d6d5935af229768daa1a457" category="paragraph">在要用于访问数据的端口上创建SIFs。</block>
+  <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">七个</block>
+  <block id="07944f91170bbdc41891de5118723d5f" category="inline-link-macro">为SVM配置DNS服务</block>
+  <block id="09ea1912035f7c4012c76855c7edd529" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="f3483a1000991c0ad065cd246c2a0d4e" category="inline-link-macro-rx"></block></block>
+  <block id="ba4515c67fa8b30b78068a6068b29366" category="paragraph">在创建NFS或SMB服务器之前、为SVM配置DNS服务。</block>
+  <block id="3f0f1f86cf650b1a2cf4754fc5fec337" category="summary">在为 ONTAP 9.0 - 9.7 配置 NAS 路径故障转移之前，请完成工作表的所有部分</block>
+  <block id="97c96f564cb1a6da828d8dfec057cf12" category="doc">NAS路径故障转移配置工作表(ONTAP 9.7及更早版本)</block>
+  <block id="83b133aa529b564cecd3e7d7a8f96314" category="paragraph">在配置 NAS 路径故障转移之前，您应完成工作表的所有部分。</block>
+  <block id="e5bd0aee2452c5f3d5d5cab77d5dff6e" category="section-title">IPspace 配置</block>
+  <block id="b97bd3c8bcc7f81686a9082b10daf43d" category="paragraph">您可以使用 IP 空间为集群中的每个 SVM 创建不同的 IP 地址空间。这样，在管理上独立的网络域中的客户端就可以访问集群数据，同时使用来自同一 IP 地址子网范围的重叠 IP 地址。</block>
+  <block id="a82be0f551b8708bc08eb33cd9ded0cf" category="cell">信息</block>
+  <block id="6e18e908568ef24580d93bfd3e0f40d7" category="cell">是否必需？</block>
+  <block id="f8d0e53dace25d0c35a6408f7cc4b99f" category="cell">您的价值</block>
+  <block id="2810996596467d952c3bc505ef2ce0c4" category="paragraph">IPspace 名称</block>
+  <block id="3addeb84a4863033cbf00b39f8402b69" category="list-text">IP 空间的名称。</block>
+  <block id="b047342ee7d111aefcccd5670a47b87b" category="list-text">此名称在集群中必须是唯一的。</block>
+  <block id="dc92da9eb694675647cf429795361db5" category="section-title">广播域配置</block>
+  <block id="a05666131ccfeadc81a46ce8db6fcc93" category="paragraph">广播域对属于同一第 2 层网络的端口进行分组，并为广播域端口设置 MTU 。</block>
+  <block id="3d1de194271f0ef6170d5b075b43f5a8" category="paragraph">广播域将分配给 IP 空间。一个 IP 空间可以包含一个或多个广播域。</block>
+  <block id="7a666d858ef4d90f82df092808c08225" category="list-text">将广播域分配到的 IP 空间。</block>
+  <block id="f78fb2ae89f1f25120e1dbc3eefae80c" category="list-text">IP 空间必须存在。</block>
+  <block id="4e66c0b0500d3b3ef6cbaebc0e0adf49" category="paragraph">广播域名</block>
+  <block id="65d3f1b2e060e13d61d3dcc5cb01e345" category="list-text">广播域的名称。</block>
+  <block id="0b4800d671f34459d0f8962d5a0b0d94" category="list-text">此名称在 IP 空间中必须是唯一的。</block>
+  <block id="1a03f6720968dfb968df6cc034114444" category="paragraph">MTU</block>
+  <block id="8c9f46597d2aead3fa844651ee562ed6" category="list-text">广播域的 MTU 。</block>
+  <block id="6a79bb70929dcc80f9375a5ada5a2c2f" category="list-text">通常设置为* 1500 *或* 9000 *。</block>
+  <block id="8904a66adde271eedf2d2612ef724d51" category="list-text">MTU 值将应用于广播域中的所有端口以及稍后添加到广播域的任何端口。</block>
+  <block id="514e1f6ac6d46bd4dd1aff421440b7c6" category="admonition">MTU值应与连接到该网络的所有设备匹配。请注意、e0M端口处理管理和服务处理器流量的MTU应设置为不超过1500字节。</block>
+  <block id="407c4e9fac86b98147da49acd4fa0d01" category="paragraph">端口</block>
+  <block id="a9d545a8be6012214571d812baced1af" category="list-text">要添加到广播域的网络端口。</block>
+  <block id="e1961453874db902176504734ff74994" category="list-text">分配给广播域的端口可以是物理端口， VLAN 或接口组（ ifgroups ）。</block>
+  <block id="1305f0748c773db97c49e7146800263a" category="list-text">如果某个端口位于另一个广播域中，则必须先将其删除，然后才能将其添加到广播域。</block>
+  <block id="79f36819c05f36d7aa6021153cf1cb0f" category="list-text">通过指定节点名称和端口来分配端口：例如 node1 ： e0d 。</block>
+  <block id="d4eb3fd806f1b879ccaf2a16a2c42767" category="section-title">子网配置</block>
+  <block id="9729f55cd82694df764e283507b8ccf9" category="paragraph">子网包含 IP 地址池和一个默认网关，可将其分配给 IP 空间中的 SVM 所使用的 LIF 。</block>
+  <block id="a1c6c5799039a99aad9c439e2cd5db96" category="list-text">在 SVM 上创建 LIF 时，您可以指定子网的名称，而不是提供 IP 地址和子网。</block>
+  <block id="646599ec8773da9a93a68d449302526f" category="list-text">由于子网可以使用默认网关进行配置，因此在创建 SVM 时，不必单独创建默认网关。</block>
+  <block id="d9e502816b831781990d1762c16564b2" category="list-text">广播域可以包含一个或多个子网。您可以通过将多个子网与 IP 空间的广播域关联来配置位于不同子网上的 SVM LIF 。</block>
+  <block id="8c3d27ac961ae71ced271d4febccae0d" category="list-text">每个子网都必须包含不与分配给同一 IP 空间中其他子网的 IP 地址重叠的 IP 地址。</block>
+  <block id="ddcf4e1c1216e96f385a3739e0a17f2c" category="list-text">您可以为 SVM 数据 LIF 分配特定的 IP 地址，并为 SVM 创建默认网关，而不是使用子网。</block>
+  <block id="727b5595061035010757a5289661b260" category="list-text">子网将分配到的 IP 空间。</block>
+  <block id="1ed3530a3787bea53a54c48ac5c62fc4" category="paragraph">Subnet name</block>
+  <block id="3bc5640ce9665d89513a468cc547e6e7" category="list-text">子网的名称。</block>
+  <block id="d76124e4167fe8c750e2d08acfcca2ce" category="list-text">此名称在 IP 空间中必须是唯一的。</block>
+  <block id="a8288c2a3522ce8098992f847589b9c3" category="list-text">子网将分配到的广播域。</block>
+  <block id="bdbf51e493f02bd57cc80cf06d9f7205" category="list-text">广播域必须驻留在指定的 IP 空间中。</block>
+  <block id="e7c7c564e15052903f54b7e8c8aa486d" category="paragraph">子网名称和掩码</block>
+  <block id="503c8e0f8167825792cf774622f4ddcc" category="list-text">IP 地址所在的子网和掩码。</block>
+  <block id="261366d41bd76a93bb2437087853a489" category="list-text">您可以为子网指定默认网关。</block>
+  <block id="5bae9da685d7dace1251b3ffd3ccd898" category="list-text">如果在创建子网时未分配网关，则可以随时为子网分配一个网关。</block>
+  <block id="29c595bcdc7ffa8a27f2583bdf8ca0bd" category="paragraph">IP 地址范围</block>
+  <block id="30c3bb312f3fc3c97ea4e9a9de1cdfde" category="list-text">您可以指定 IP 地址范围或特定 IP 地址。例如、您可以指定如下范围：<block ref="7f8386efdf48158c8938319ab0d7ee26" prefix=" " category="inline-code"></block></block>
+  <block id="3b2576d784d591234dd70d07b0a01e51" category="list-text">如果未指定 IP 地址范围，则指定子网中的整个 IP 地址范围可分配给 LIF 。</block>
+  <block id="19574a7f9b48b89d6be7f52d664c9f69" category="paragraph">强制更新 LIF 关联</block>
+  <block id="e9ab789f936a3a886cc5cce66830eb7c" category="list-text">指定是否强制更新现有 LIF 关联。</block>
+  <block id="5676a4c28d818be40848aeef92ec3a40" category="list-text">默认情况下，如果任何服务处理器接口或网络接口使用提供范围内的 IP 地址，则子网创建将失败。</block>
+  <block id="4c4a2a7343af16e13f3154e9f1c4e1ae" category="list-text">使用此参数可将任何手动寻址的接口与子网相关联，并使命令成功执行。</block>
+  <block id="99897c39b8224cf5a25fe9c6f599b3a7" category="section-title">SVM配置</block>
+  <block id="7acdd762e80048ce0b202007498ab360" category="paragraph">您可以使用 SVM 为客户端和主机提供数据。</block>
+  <block id="3ab25d5f5087226e9601e9405341d073" category="inline-link-macro">安装光纤连接的 MetroCluster</block>
+  <block id="abbd612ee9cbfeb24eeb2620fdbeb3a7" category="inline-link-macro">安装延伸型MetroCluster</block>
+  <block id="08cf8d8ff0eefec04bc3ee3801724ca5" category="paragraph">您记录的值用于创建默认数据 SVM 。如果要创建MetroCluster源SVM，请参见<block ref="5488151483f7e2bfe24758bbbb4d6f40" category="inline-link-macro-rx"></block>或<block ref="0f945cf40056f72194333a50ae2a7c08" category="inline-link-macro-rx"></block>。</block>
+  <block id="909e80dc24d1482269e80eced7d88999" category="list-text">SVM的名称。</block>
+  <block id="f9c215fad59eccfd633cc802142428bf" category="list-text">您应使用完全限定域名（ FQDN ），以确保 SVM 名称在集群联盟中是唯一的。</block>
+  <block id="ef353fe31d5db8109b5d533c24bef6ec" category="paragraph">根卷名称</block>
+  <block id="71fb303e432869b4fecaa82142df78b0" category="list-text">SVM 根卷的名称。</block>
+  <block id="89e2bd1a8abca7dc54e226c642335923" category="list-text">保存 SVM 根卷的聚合的名称。</block>
+  <block id="524fe24b7614583659b4776b84cf9fc0" category="list-text">此聚合必须存在。</block>
+  <block id="06c36c7f86c5fbaf46d802a84b9181ad" category="list-text">SVM 根卷的安全模式。</block>
+  <block id="dd7a83ccba76c6dcb9fb1c70e44b53cf" category="list-text">可能的值包括 * NTFS * ， * UNIX * 和 * 混合 * 。</block>
+  <block id="5afd2082730bfa6121fd03528cb70ac6" category="list-text">SVM 分配到的 IP 空间。</block>
+  <block id="c5920bc5aa330be11d10b27e4a4f267a" category="list-text">此 IP 空间必须存在。</block>
+  <block id="9909525fa5942e85be246dfa744836e4" category="paragraph">SVM 语言设置</block>
+  <block id="534f06bd7d7e91addf533215d348f635" category="list-text">SVM 及其卷使用的默认语言。</block>
+  <block id="6810bd6fb965e510a000caaaf5cede04" category="list-text">如果未指定默认语言，则默认 SVM 语言将设置为 * 。 C.UTF-8 * 。</block>
+  <block id="c9d672e5232d7dd45cf750528352cfbb" category="list-text">SVM 语言设置用于确定用于显示 SVM 中所有 NAS 卷的文件名和数据的字符集。您可以在创建 SVM 后修改此语言。</block>
+  <block id="cb001cd493365720d42ec425b1721062" category="section-title">LIF配置</block>
+  <block id="e20ec2a162d3ed9a051e35844d6967ac" category="paragraph">SVM 通过一个或多个网络逻辑接口（ LIF ）向客户端和主机提供数据。</block>
+  <block id="b69141d39d5f37e0dc4a7afcba6b5d15" category="list-text">LIF 的 SVM 名称。</block>
+  <block id="8e429a606dfb2cd8e6e6d6665eeb5067" category="paragraph">LIF名称</block>
+  <block id="aca5c43eb5724bd30dab74c6c1b4ca51" category="list-text">LIF的名称。</block>
+  <block id="d9875a9b18af94ad593e9cf6f2acd590" category="list-text">您可以为每个节点分配多个数据 LIF ，并且可以为集群中的任何节点分配 LIF ，前提是该节点具有可用的数据端口。</block>
+  <block id="dc21c1d5e0019fbe2ce57daf9055d365" category="list-text">要提供冗余，应为每个数据子网至少创建两个数据 LIF ，并为分配给特定子网的 LIF 分配不同节点上的主端口。* 重要说明： * 如果要将 SMB 服务器配置为通过 SMB 托管 Hyper-V 或 SQL Server 以实现无中断运行解决方案，则 SVM 必须在集群中的每个节点上至少具有一个数据 LIF 。</block>
+  <block id="77e741be92ecc04ee13fcfd53988b199" category="paragraph">LIF角色</block>
+  <block id="3a2cdcdec40516552430edaef938a929" category="list-text">LIF 的角色。</block>
+  <block id="da0fa0d25572794dea4ac4a6be847d1a" category="list-text">数据 LIF 分配有数据角色。</block>
+  <block id="6bcd23cd4d0583cbac3240665b21113a" category="cell">是，已从 ONTAP 9.6 弃用</block>
+  <block id="53cd0c7fe94923d60ebc43f128ac06b9" category="cell">LIF 的服务策略服务策略。服务策略定义了哪些网络服务可以使用 LIF 。内置服务和服务策略可用于管理数据和系统 SVM 上的数据和管理流量。</block>
+  <block id="ca0424782e05c72333cda58235a8e74b" category="cell">是，从 ONTAP 9.6 开始</block>
+  <block id="5c3e82aaab88228809071abe1946de82" category="paragraph">允许的协议</block>
+  <block id="904e941dc3f7d5ad65283bdba75b4c91" category="list-text">可使用 LIF 的协议。</block>
+  <block id="c27a6bb12bf5dc4359cfaafcf80b0083" category="list-text">默认情况下，允许 SMB ， NFS 和 FlexCache 。通过 FlexCache 协议，可以在运行 7- 模式 Data ONTAP 的系统上将卷用作 FlexCache 卷的初始卷。</block>
+  <block id="4e1730669bff2008b0a4dffee3a59d7a" category="admonition">创建 LIF 后，无法修改使用 LIF 的协议。配置 LIF 时，应指定所有协议。</block>
+  <block id="3e59131434f3a574162c6a9f46c4bae5" category="paragraph">Home node</block>
+  <block id="febe10a3047b2475b8983f8db76f7bb9" category="list-text">将 LIF 还原到其主端口时 LIF 返回到的节点。</block>
+  <block id="0fc089cfc9daaf7fd97972795ea8cffb" category="list-text">您应为每个数据 LIF 记录一个主节点。</block>
+  <block id="a3f83c0fa8815df9be554f2f19e2a6b4" category="paragraph">主端口或广播域</block>
+  <block id="8248f505d519f103856ec5553ce0a1ca" category="list-text">将 LIF 还原到其主端口时逻辑接口返回到的端口。</block>
+  <block id="1a3a0e0614b76b32b5b3d2114770bd19" category="list-text">您应为每个数据 LIF 记录一个主端口。</block>
+  <block id="2f6be82345aa8df96d0f1040df7eaf2f" category="list-text">要分配给 SVM 的子网。</block>
+  <block id="e2395fd8c89f496becbd6d29cb6bf2bf" category="list-text">用于创建与应用程序服务器的持续可用 SMB 连接的所有数据 LIF 必须位于同一子网中。</block>
+  <block id="92726c0f24832710bb5154f1048f934b" category="cell">是（如果使用子网）</block>
+  <block id="489f99357e51540f388c06988f7d5a29" category="section-title">DNS 配置</block>
+  <block id="c7c142a0d5d4f9c60dcdf7a3bc09a4ff" category="paragraph">在创建 NFS 或 SMB 服务器之前，必须在 SVM 上配置 DNS 。</block>
+  <block id="44685b08b845cc11ae9c9f8140dc0d6b" category="list-text">要在其中创建 NFS 或 SMB 服务器的 SVM 的名称。</block>
+  <block id="d04714ee29d29f72537dfb160f6d5ad5" category="paragraph">DNS domain name</block>
+  <block id="a379c3b1b459e3dfdfbe21845dc1cf69" category="list-text">执行主机到 IP 名称解析时要附加到主机名的域名列表。</block>
+  <block id="a4472cd10a741a0f8d78c0359728a2d5" category="list-text">首先列出本地域，然后列出最常进行 DNS 查询的域名。</block>
+  <block id="9da99b068b3f65fefc36626478b66566" category="paragraph">DNS服务器的IP地址</block>
+  <block id="19c87adcee53338ce2c53bae0c6be7b5" category="list-text">要为NFS或SMB服务器提供名称解析的DNS服务器的IP地址列表。</block>
+  <block id="7ff51c9d56f426dd2680804fefe19f96" category="list-text">列出的DNS服务器必须包含为SMB服务器将加入的域查找Active Directory LDAP服务器和域控制器所需的服务位置记录(SRV)。SRV 记录用于将服务名称映射到提供该服务的服务器的 DNS 计算机名称。如果 ONTAP 无法通过本地 DNS 查询获取服务位置记录，则 SMB 服务器创建将失败。确保 ONTAP 可以找到 Active Directory SRV 记录的最简单方法是将 Active Directory 集成的 DNS 服务器配置为 SVM DNS 服务器。您可以使用非 Active Directory 集成的 DNS 服务器，前提是 DNS 管理员已手动将 SRV 记录添加到包含 Active Directory 域控制器信息的 DNS 区域。</block>
+  <block id="232df65ca03c67ddb27adbf8e408280c" category="inline-link-macro">Microsoft TechNet 上适用于 Active Directory 的 DNS 支持的工作原理</block>
+  <block id="3cd9abcfa006c1e077bce0c7b96b9c20" category="list-text">有关Active Directory集成的SRV记录的信息，请参阅主题<block ref="d1f6662e4871c2f33d4b20711c690ec4" category="inline-link-macro-rx"></block>。</block>
+  <block id="dd47bd62208837b6e1f60041344e1295" category="section-title">动态 DNS 配置</block>
+  <block id="c45d5ec9671bb526fc03e7539cffa0ed" category="paragraph">在使用动态 DNS 自动向 Active Directory 集成的 DNS 服务器添加 DNS 条目之前，必须在 SVM 上配置动态 DNS （ DDNS ）。</block>
+  <block id="09c16992a902cd1818335845718fd9a7" category="paragraph">系统会为 SVM 上的每个数据 LIF 创建 DNS 记录。通过在 SVM 上创建多个数据 LIF ，您可以对客户端与分配的数据 IP 地址的连接进行负载平衡。DNS 以轮循方式对使用主机名与分配的 IP 地址建立的连接进行负载平衡。</block>
+  <block id="b2342f7f4b047678a52f44c5a1c7d747" category="list-text">要在其中创建 NFS 或 SMB 服务器的 SVM 。</block>
+  <block id="3359de90ad703eb25320fdf6246535c4" category="paragraph">是否使用 DDNS</block>
+  <block id="4509c88bd3315acc21448a213e2e65a7" category="list-text">指定是否使用 DDNS 。</block>
+  <block id="0bbc8715109e7d978d1bd9a97ed54eb5" category="list-text">SVM 上配置的 DNS 服务器必须支持 DDNS 。默认情况下、DDNS处于禁用状态。</block>
+  <block id="fd2ff08f0ed721e158829abea5b2f554" category="paragraph">是否使用安全 DDNS</block>
+  <block id="bbb664556743685b88e062062c435131" category="list-text">只有 Active Directory 集成的 DNS 才支持安全 DDNS 。</block>
+  <block id="05ed41391caf6661a07768eaa3dab5e8" category="list-text">如果 Active Directory 集成的 DNS 仅允许安全 DDNS 更新，则此参数的值必须为 true 。</block>
+  <block id="b364c30be937abefba6a4416aeb852c0" category="list-text">默认情况下，安全 DDNS 处于禁用状态。</block>
+  <block id="3acd119655ed0a9783317f21b6fdbd87" category="list-text">只有在为 SVM 创建 SMB 服务器或 Active Directory 帐户后，才能启用安全 DDNS 。</block>
+  <block id="59bf7732b97416bd383c815b45e84669" category="paragraph">DNS 域的 FQDN</block>
+  <block id="664b37c4a141f9cef183a7f4fc968661" category="list-text">DNS 域的 FQDN 。</block>
+  <block id="6bc11f0c86a787b4d889735982c409da" category="list-text">您必须使用为 SVM 上的 DNS 名称服务配置的相同域名。</block>
+  <block id="3fca185d931e262fa7a276c9bf6f2cee" category="sidebar">ONTAP 9.7及更早版本中提供的System Manager界面称为System Manager经典界面、它提供的用户导航与ONTAP 9.8及更高版本中的System Manager界面不同。对于ONTAP 9.7及更早版本中的System Manager用户、此文档站点提供了使用System Manager经典版以及适用于ONTAP 9.6和9.7的System Manager经典联机帮助的配置工作流。从ONTAP 9.8开始、ONTAP网络基础知识也发生了显著变化、本文档站点提供的网络信息仅适用于ONTAP 9.7及更早版本。</block>
+  <block id="6c0c5be5efc057d5f1d970ee6885e6d7" category="sidebar">广播域管理(ONTAP 9.7或更早版本)</block>
+  <block id="ba13c142bb4736a3dabe15c34364414f" category="sidebar">适用于ONTAP 9.7及更早版本的网络管理</block>
+  <block id="b1ddb251aa66bea48e797b1ba2490583" category="sidebar">常规网络主题(ONTAP 9.7及更早版本)</block>
+  <block id="a29d5547f6b6a3eb59e3d47cdb1c8b3e" category="sidebar">广播域(ONTAP 9.7或更早版本)</block>
+  <block id="d7f29243972dcd66136a878c3167ee3a" category="sidebar">关于NAS路径故障转移(ONTAP 9.7及更早版本)</block>
 </blocks>

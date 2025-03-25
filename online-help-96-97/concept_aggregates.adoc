@@ -5,7 +5,12 @@ keywords: aggregates, system, manager, security, backup, performance, data, shar
 summary: 您可以使用 System Manager 创建聚合，以满足用户不同的安全性，备份，性能和数据共享要求。 
 ---
 = 使用 System Manager - ONTAP 9.7 及更早版本管理聚合
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建聚合，以满足用户不同的安全性，备份，性能和数据共享要求。

@@ -5,7 +5,12 @@ keywords: autosupport, notification, message, monitor, system, health, storage, 
 summary: 您可以使用 System Manager 配置 AutoSupport 通知，以帮助您监控存储系统运行状况。 
 ---
 = 使用 System Manager — ONTAP 9.7 及更早版本管理 AutoSupport 通知
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）配置 AutoSupport 通知，以帮助您监控存储系统运行状况。

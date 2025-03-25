@@ -1,0 +1,10 @@
+---
+section: networking-failover
+title: NAS路径故障转移工作流(ONTAP 9.7及更早版本)
+entries:
+- title: 关于NAS路径故障转移(ONTAP 9.7及更早版本)
+  url: "/networking-failover/set_up_nas_path_failover_9_to_97_cli.html"
+- title: NAS路径故障转移工作流(ONTAP 9.7及更早版本)
+  url: "/networking-failover/workflow__nas_path_failover_overview_manual.html"
+- title: NAS路径故障转移配置工作表(ONTAP 9.7及更早版本)
+  url: "/networking-failover/worksheet_for_nas_path_failover_configuration_manual.html"

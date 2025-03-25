@@ -1,0 +1,10 @@
+---
+section: networking
+title: 常规网络主题(ONTAP 9.7及更早版本)
+entries:
+- title: 从节点中删除NIC (ONTAP 9.7或更早版本)
+  url: "/networking/remove_a_nic_from_the_node_97.html"
+- title: LIF角色(ONTAP 9.5及更早版本)
+  url: "/networking/lif_roles95.html"
+- title: 配置DNS服务(ONTAP 9.7及更早版本)
+  url: "/networking/configure_dns_services_manual.html"
