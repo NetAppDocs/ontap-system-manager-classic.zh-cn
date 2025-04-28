@@ -24,11 +24,9 @@
   <block id="0329d06e24e712fa93416a0dd6c5b7fc" category="summary">准备好集群后，您必须安装控制器并配置节点管理 LIF 。</block>
   <block id="6659a60f476a4bc6bb0fb4f4102757a3" category="doc">安装新节点</block>
   <block id="82b39557b0069bd98188100e91cfae2e" category="paragraph">准备好集群后，您必须安装控制器并配置节点管理 LIF 。如果控制器运行的 ONTAP 版本与现有集群不同，或者经过重新利用且缺少硬件级 HA ，则必须在维护模式下解决这些问题。最后，您可以将节点加入集群。</block>
-  <block id="e9f56eb126455869bdb213c6b8827217" category="summary">版权，商标和机器翻译</block>
   <block id="ca4d696c3c3d4566b032bf5cba740486" category="summary">两个节点加入集群后，您必须通过配置 AutoSupport 并完成 SP 网络来完成新添加节点的配置。</block>
   <block id="e1fc6c6b1bea9d0f3e8bfcf9946ae71f" category="doc">完成扩展</block>
   <block id="ad683faa511f565152842bf2cc28c270" category="paragraph">两个节点加入集群后，您必须通过配置 AutoSupport 并完成 SP 网络来完成新添加节点的配置。然后，验证扩展后的集群并生成 AutoSupport 消息以完成扩展。如果集群使用 SAN ，则应更新 LUN 路径。</block>
-  <block id="b1ff5704b48e42d700d43961dd415064" category="summary">商标</block>
   <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp 、 NetApp 徽标和 NetApp 商标页面上列出的标记是 NetApp 、 Inc. 的商标。其他公司和产品名称可能是其各自所有者的商标。</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-link"></block>
   <block id="f99aa604031e5049799e73b5c3748a98" category="paragraph"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
@@ -219,9 +217,6 @@
   <block id="3f710cadb0123c693533da68aaf5b596" category="section-title">下一步操作</block>
   <block id="6871e5e77d1bbcfaf45a526f739ae1c4" category="list-text">如果集群受到保护，则应在新添加的节点中创建所需数量的集群间 LIF ，以避免部分对等和保护运行不正常。</block>
   <block id="e5e21644bd8ca1cdc7c44d822e6b5d7e" category="list-text">如果集群中启用了 SAN 数据协议，则应创建所需数量的 SAN 数据 LIF 以提供数据。</block>
-  <block id="b4de17ead867a3cf0b9d11e57e562672" category="summary">机器翻译</block>
-  <block id="6b6c87870bfc5260f4e7282bb5b52dd6" category="paragraph">有关本地化内容的重要信息，请参见 netapp.com 。</block>
-  <block id="db9bfd81e26275c9db26e2db3ac172c3" category="paragraph"><block ref="db9bfd81e26275c9db26e2db3ac172c3" category="inline-link-rx"></block></block>
   <block id="3e1d317678e6347a5fa13b4bd9a4b314" category="summary">扩展集群后，您应发送 AutoSupport 消息以指示扩展过程已完成。</block>
   <block id="4c31c3d540d717a12e42d373054f9834" category="doc">生成有关完成扩展的 AutoSupport 消息</block>
   <block id="04bf035c552b790ab05fa106250f7bbd" category="paragraph">扩展集群后，您应发送 AutoSupport 消息以指示扩展过程已完成。此消息会告知内部和外部支持人员扩展已完成，并用作稍后可能需要进行的任何故障排除的时间戳。</block>
@@ -262,13 +257,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="47107fc361977e371fe1b26cb1308b1a" category="list-text">使用查看现有许可证<block ref="684590f66f47755afa88d3f70f9f25ad" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="7ace006c80a00947bf34b0fff7fa0b84" category="list-text">查看输出以确保为所有序列号显示节点锁定许可证，包括现有节点和新节点的序列号。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="summary">版权</block>
-  <block id="e10b5b38785c3a24ec75723ab75b4360" category="paragraph">版权所有 © 2021 NetApp ， Inc. 。保留所有权利。Printed in the U.S.</block>
-  <block id="2275e007ee598cef266c877f9c52ee25" category="paragraph">版权所涵盖的本文档的任何部分不得以任何形式或任何方式复制，包括图像，电子或机械，包括影印，录制， 在未经版权所有者事先书面许可的情况下，在电子检索系统中粘贴或存储。</block>
-  <block id="ce4ad2236c56cc11a838f29c8c261bf7" category="paragraph">Software derived from copyrighted NetApp material is subject to the following license and disclaimer:</block>
-  <block id="b110bc9db113b3149cb9e2ed905d4c6c" category="paragraph">THIS SOFTWARE IS PROVIDED BY NETAPP "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, WHICH ARE HEREBY DISCLAIMED.IN NO EVENT SHALL NETAPP BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</block>
-  <block id="4fc9b260d15698bbd988f76ca839c5b6" category="paragraph">NetApp reserves the right to change any products described herein at any time, and without notice.NetApp assumes no responsibility or liability arising from the use of products described herein, except as expressly agreed to in writing by NetApp.The use or purchase of this product does not convey a license under any patent rights, trademark rights, or any other intellectual property rights of NetApp.</block>
-  <block id="87bfcb691f34a9e3fdda83480f0acf78" category="paragraph">The product described in this manual may be protected by one or more U.S.patents, foreign patents, or pending applications.</block>
-  <block id="464821ce353b86f770de0d09b5f5aabe" category="paragraph">本文所含数据与商用项目（定义见 FAR 2.101 ）相关，属于 NetApp ， Inc. 的专有信息政府拥有非独占，不可转让，不可再许可，全球有限且不可撤销的许可，仅可在与美国相关并为美国提供支持时使用此数据交付数据所依据的政府合同。除非本协议另有规定，否则不得使用，披露，复制，修改，执行， 或在未经 NetApp ， Inc. 事先书面批准的情况下显示。美国国防部的政府许可权利仅限于 DFARS 第 252.227-7015 （ b ）条中确定的权利。</block>
   <block id="edf395b0a461287b50491dbaa383b1b6" category="summary">在扩展集群之前，您应使用高级权限创建备份文件以保存集群配置信息，并可选择保存节点配置。</block>
   <block id="4e96c94f849071959f33f30f4f95bf2b" category="doc">备份集群配置</block>
   <block id="486e131c42bd68bf6f1d4c477a83b1dc" category="list-text">使用将权限级别设置为高级<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block> 命令：</block>
@@ -553,14 +541,12 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="d3d98fa048d258c0324e828c27353505" category="list-text">如果您运行的是 ONTAP 9.3 或更高版本，请执行以下步骤以验证集群对等关系和 SVM 对等关系：</block>
   <block id="b7ea99ac89364f94c13349479a294349" category="list-text">单击 * 配置 * &gt; * 集群对等方 * 。</block>
   <block id="804ed1169721f9a31d45ac25dea9d3b7" category="list-text">验证对等集群是否已通过身份验证且可用。</block>
-  <block id="210fc08adc8ff148771c97038e36e4a2" category="image-alt">集群 pper 930" 灾难 "</block>
   <block id="b00b5a06a64eaf7c4f42870166a2aad2" category="list-text">单击 * 配置 * &gt; * SVM 对等方 * 。</block>
   <block id="2cd2d1c721231aba4b1ddb6e9d895651" category="list-text">验证目标 SVM 是否已与源 SVM 建立对等关系。</block>
   <block id="99836e3678844f90eef5cb688f7465e9" category="list-text">如果您运行的是 ONTAP 9.2 或更早版本，请执行以下步骤以验证集群对等关系和 SVM 对等关系：</block>
   <block id="90db7210ac0f4f1ad1b4dd4cfcfac5da" category="list-text">单击 * 配置 * 选项卡。</block>
   <block id="2a2e870fff30043f3c9dcb4197a26ef5" category="list-text">在 * 集群详细信息 * 窗格中，单击 * 集群对等方 * 。</block>
   <block id="c21fd7a1920921211438047acb8b050d" category="list-text">验证对等集群是否已通过身份验证且可用。</block>
-  <block id="0b15c5403001871b8dc99e6667f1290a" category="image-alt">集群对等运行状况灾难</block>
   <block id="2be054e35e4d5560ca990a7e9e6268aa" category="list-text">单击 * SVM* 选项卡并选择源 SVM 。</block>
   <block id="b6df2d1162d761beba29ffb0a8acc5cd" category="list-text">在 * 对等 Storage Virtual Machine* 区域中，验证目标 SVM 是否已与源 SVM 建立对等关系。</block>
   <block id="e0bdda06757b2ddd302f0b23a4dc96c3" category="paragraph">如果在此区域中未看到任何对等 SVM ，则可以在创建 SnapMirror 关系时创建 SVM 对等关系。</block>
@@ -595,7 +581,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="fb0a81662f28f92400a38a3fc7257c04" category="paragraph">您应该对 SnapMirror 关系中的任何问题进行故障排除。</block>
   <block id="73b78c43309e115e0e384388b5b2344a" category="inline-link">NetApp 技术报告 4015 ：《 ONTAP 9.1 和 9.2 的 SnapMirror 配置和最佳实践》</block>
   <block id="0d3e0428120e2a5f798ccb69e7a1a227" category="paragraph"><block ref="0d3e0428120e2a5f798ccb69e7a1a227" category="inline-link-rx"></block></block>
-  <block id="d5acc2bd87e2b4fbcc92386c8cb98621" category="image-alt">SnapMirror 监控 3 个运行状况滞后</block>
   <block id="505604a7f60ed1132f33db4c6fc8dc9e" category="summary">为了确保操作可靠，您必须验证是否支持整个 FC 配置。</block>
   <block id="b8dca5a9dd8bb2f421089717f16a3b2f" category="doc">验证是否支持 FC 配置</block>
   <block id="db7238e539bbe82343523aa524ac5d58" category="list-text">转至互操作性表以验证您是否具有受支持的以下组件组合：</block>
@@ -883,13 +868,7 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="93b944d05af7d54cba8d7dc1adc744b1" category="list-text">从 NetApp 支持站点下载相应版本的 Windows Unified Host Utilities。</block>
   <block id="1190124555424f6326b153d14c7adeb6" category="list-text">运行可执行文件并按照屏幕上的说明进行操作。</block>
   <block id="257dcf2363da5a069ec4e8bae654f70b" category="list-text">出现提示时重新启动 Windows 主机。</block>
-  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
-  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
-  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
-  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="6de6f1db3c6d9273da9d8e254b666753" category="paragraph">提供有关本产品中使用的第三方版权和许可证的信息。</block>
-  <block id="1e6000d4849ef9f3e08d1d9908e9f163" category="inline-link-macro">ONTAP 9.9.1 注意事项</block>
-  <block id="6f408b9c999245c7aa32bc9cb1a020f6" category="inline-link-macro">ONTAP 9.8 注意事项</block>
   <block id="04b0bd5b1b4d414fdde93f809162d36d" category="inline-link-macro">ONTAP 9.7通知</block>
   <block id="0c1d7dffcba488555d5eb39b8991e822" category="inline-link-macro">ONTAP 9.6的通知</block>
   <block id="a11ac6880e72412c0f54ae19bea3d191" category="inline-link-macro">ONTAP 9.5通知</block>
@@ -897,15 +876,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="bf7dcf6467a8a03b05b2d37d31d6eccd" category="inline-link-macro">ONTAP 9.3通知</block>
   <block id="0328352fdfda84af6968462d1a67d3a6" category="inline-link-macro">ONTAP 9.2通知</block>
   <block id="83904100c7d6fe0102e8b2b5bd8ec4bb" category="inline-link-macro">ONTAP 9.1通知</block>
-  <block id="e34c6bf4588770e60093fd241f4c94cd" category="paragraph"><block ref="5d7354cfb327d65286a65782f8490ba6" category="inline-link-macro-rx"></block>
-<block ref="9c55eb1e0fbbd6c443bf0436871639ef" category="inline-link-macro-rx"></block>
-<block ref="84ee5be262ba420366f62cfd722d0bb9" category="inline-link-macro-rx"></block>
-<block ref="c4fa97eae3fc7b7bfd1757818737f725" category="inline-link-macro-rx"></block>
-<block ref="863fc1cf1c4ef06b9dbeab0269fcbe22" category="inline-link-macro-rx"></block>
-<block ref="bc609cdc163eb15a127f1d8965ceeebf" category="inline-link-macro-rx"></block>
-<block ref="91c2725aac92b0d17a3a041b2764f68c" category="inline-link-macro-rx"></block>
-<block ref="60d4a45fe1b65b8f6ff1a4825a003443" category="inline-link-macro-rx"></block>
-<block ref="0da6a5a2ec0e0b0adc52f0c7d86b1f9c" category="inline-link-macro-rx"></block></block>
   <block id="1efe07eef4e047f77d97d7a9521fe678" category="summary">使用 ONTAP System Manager 经典界面（ ONTAP 9.7 及更早版本），您可以使用 ONTAP 卷为 ESXi 主机快速设置对数据存储库的 NFS 访问。</block>
   <block id="9fbe728d7eb2adabf531ccdcf064bc53" category="doc">使用VSC为ESXi配置NFS概述</block>
   <block id="039d2d1f92ed5762bd1672bf32bb614a" category="paragraph">在以下情况下使用此操作步骤：</block>
@@ -2042,8 +2012,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="291619053227579fae6d00b2bcfab62f" category="paragraph">如果 ESX 主机中的 FC 主机总线适配器（ HBA ）运行的驱动程序，固件和 BIOS 版本不受支持，则必须对其进行更新。</block>
   <block id="710de516c6cbad99668973bb1f4c3c0d" category="paragraph">您必须已通过确定您的配置支持的驱动程序，固件和 BIOS 版本<block ref="ae0acc7a1cf35a69eb7b42685c902841" category="inline-link-rx"></block>。</block>
   <block id="982aef1e07fe09b104ef69dc47d79d37" category="list-text">使用适用于您的 ESXi 版本的 ESXi 主机控制台命令列出已安装的 HBA 驱动程序，固件和 BIOS 版本。</block>
-  <block id="49b4e6a2e5626cd5db40b840d6113bed" category="inline-link">VMware 知识库文章 1002413 ：确定 Qlogic 或 Emulex FC HBA 的固件</block>
-  <block id="a12ed0f6188622691e50debf584fcdcf" category="paragraph"><block ref="a12ed0f6188622691e50debf584fcdcf" category="inline-link-rx"></block></block>
   <block id="2157ff4fa230c3478676d1a9841d6742" category="summary">如果您选择使用现有 Storage Virtual Machine ，则必须使用 ONTAP 系统管理器验证此 SVM 上是否正在运行 FC 服务。此外，还必须验证是否已创建 FC 逻辑接口。</block>
   <block id="27045e1024ed1f1f4ea149b9fcfc4e8f" category="summary">适用于 VMware vSphere 的 Virtual Storage Console 可自动执行将 NetApp FC 存储与 ESXi 主机结合使用所需的许多配置和配置任务。Virtual Storage Console 是 vCenter Server 的一个插件。</block>
   <block id="4593e2432306bcea64d49dcce3ddc04b" category="paragraph">如果任何测试失败，请验证 FC 服务是否正在存储集群上运行，并检查 LUN 的 FC 路径和 FC 交换机分区。</block>
@@ -2128,7 +2096,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="462b95590d7acd7152240693f2733651" category="doc">验证源卷的状态</block>
   <block id="c59a59058714f4c78669e823c620680c" category="list-text">选择源卷，然后验证源卷是否已脱机。</block>
   <block id="fdc1c760c29ca327926071ef4ce12c0d" category="list-text">确定 SnapMirror 关系中的目标卷。</block>
-  <block id="7c99e1c96275e73971c3274eea4bfc6a" category="image-alt">SnapMirror 目标 9e.</block>
   <block id="54b184892f23afa68d9eab493ac216da" category="list-text">ONTAP 9.2 或更早版本：单击卷页面底部的 * 数据保护 * 选项卡，以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。</block>
   <block id="7bba42ab30c3eef639318c4cbe6cb31e" category="image-alt">图中显示了目标卷</block>
   <block id="4b7d4ac6c63d48c124530d952203e03c" category="summary">要激活目标卷，必须暂停并中断 SnapMirror 关系。暂停后，未来的 SnapMirror 数据传输将被禁用。</block>
@@ -2728,10 +2695,8 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="5afc224ecb9fcc7f50684353cdfccb80" category="paragraph">要创建集群，您必须通过控制台登录，并在集群网络中的任何节点上配置节点管理 IP 地址。在节点上配置节点管理 IP 地址后，您可以使用 ONTAP 系统管理器添加其他节点并创建集群。</block>
   <block id="990bb85c5a67a4d1782a863aa6cc1497" category="paragraph">ONTAP 软件的 MetroCluster 配置不支持集群设置操作。</block>
   <block id="4dfcde39ef2f0b93b09f7b13052dd23f" category="paragraph">您可以使用模板文件或在集群设置向导中手动输入值来设置集群。</block>
-  <block id="7d9a08439c0869dea94d925777b7aba3" category="image-alt">集群设置工作流</block>
   <block id="f1dc21dc6179a3fdff96b7b031c7ae81" category="summary">您可以使用 System Manager 或命令行界面（ CLI ）创建集群。要使用 System Manager 创建集群，您必须在集群网络中的任何节点上设置节点管理 IP 地址。如果您已使用命令行界面创建集群，则可以使用 System Manager 配置集群。</block>
   <block id="1c867bc949570263498e870403b0e61a" category="doc">设置集群环境</block>
-  <block id="58369fe03b8cca246bfd9acff3681041" category="image-alt">引导式集群设置</block>
   <block id="7c5c5dd8c983200f4658fbc653960629" category="summary">从 System Manager 9.6 开始，您可以删除不再需要的 FlexCache 卷。</block>
   <block id="2d911a2e75192035a8c705e9139ab46f" category="doc">删除 FlexCache 卷</block>
   <block id="32eb59d1751d73c381a2d8a05a29e10e" category="list-text">必须卸载 FlexCache 卷的接合路径。</block>
@@ -2873,118 +2838,8 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="c43a320001422c6e6555386d6eb7ffa4" category="list-text">单击 * 更多操作 * &gt; * 调整大小 * 。</block>
   <block id="5e7f2bb84ab8fc2c252782cc441d2850" category="list-text">根据向导的提示键入或选择信息。</block>
   <block id="baf8d3396b691e5b2244efc835a2c55b" category="list-text">在 * 卷 * 窗口中验证对卷的可用空间和总空间所做的更改。</block>
-  <block id="f210a25eaf89fa55ced5c9c77e0b242b" category="summary">您可以使用 System Manager 创建，编辑和管理共享。</block>
-  <block id="258afb30ae69ea72441de6bfa02ded92" category="doc">使用 System Manager 管理共享— ONTAP 9.7 及更早版本</block>
-  <block id="47e145cac11e2ed21e19d35136895102" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建，编辑和管理共享。</block>
-  <block id="a218828013e03d9b77f9be08cba59cdd" category="section-title">创建 CIFS 共享</block>
-  <block id="cdcdccf6b4cea67b1649f64dfc42ff76" category="paragraph">您可以使用 System Manager 创建 CIFS 共享，以便指定 CIFS 用户可以访问的文件夹， qtree 或卷。</block>
-  <block id="3e859c820cd401f603bf6eb4bb47e006" category="paragraph">在设置和启动 CIFS 之前，您必须已安装 CIFS 许可证。</block>
-  <block id="36e4c7125d339b895d4735d2ebc3c84b" category="list-text">单击 * 存储 * &gt; * 共享 * 。</block>
-  <block id="3c6b636b52f4ee0b5d619d487135638c" category="list-text">从 * SVM* 字段的下拉菜单中，选择要在其中创建 CIFS 共享的 SVM 。</block>
-  <block id="a5b98ff7955f554a6ab08c3a07b3fb83" category="list-text">在 * 创建共享 * 窗口中，单击 * 浏览 * ，然后选择应共享的文件夹， qtree 或卷。</block>
-  <block id="b4f2a0dfcf3a06588721c3cf46426f55" category="list-text">指定新 CIFS 共享的名称。</block>
-  <block id="ede7f1ea5f8033a3ddc8b303e6c3fe16" category="list-text">*可选：*选中*为Hyper-V和SQL*启用持续可用性复选框、以允许支持SMB 3.0及更高版本的客户端在无中断运行期间持久打开文件。</block>
-  <block id="81c3a43e87c04aa4f2867930228320dd" category="paragraph">使用此选项打开的文件不会受到故障转移，交还和 LIF 迁移等中断事件的影响。</block>
-  <block id="174695729a46aa0db160108074800cc8" category="paragraph">从 System Manager 9.6 开始， FlexGroup 卷支持持续可用性。</block>
-  <block id="44ec628d221f20d3a532dfdc1a49b9cc" category="list-text">选中 * 访问此共享时加密数据 * 复选框以启用 SMB 3.0 加密。</block>
-  <block id="c11f0d9c886f553934dce4b687e69569" category="list-text">为共享提供问题描述或注释，然后单击 * 创建 * 。</block>
-  <block id="546e6304bd126985d219dddabcbf5774" category="paragraph">此时将创建 CIFS 共享，并在组中将访问权限设置为 "`Full Control for Everyone` " 。</block>
-  <block id="4edcc08cf152edc7b42b029db1ecc67b" category="section-title">停止共享访问</block>
-  <block id="a4c1c7b32cb8db1bee81e7e0947286fe" category="paragraph">如果要删除对文件夹， qtree 或卷的共享网络访问权限，可以使用 System Manager 停止共享。</block>
-  <block id="97ab5031ba61fa20c45fa57196e475eb" category="paragraph">您必须已安装 CIFS 许可证。</block>
-  <block id="ca31348e1f2b9f2491ba1ae68c0b31f4" category="list-text">从 * SVM* 字段的下拉菜单中，选择要停止的 CIFS 共享所在的 SVM 。</block>
-  <block id="8e97fc4679f75b5eedb5c8820c4301f1" category="list-text">从共享列表中，选择要停止共享的共享，然后单击 * 停止共享 * 。</block>
-  <block id="cae7974fde4c42dc22986eda0127cd15" category="list-text">选中确认复选框，然后单击 * 停止 * 。</block>
-  <block id="6a780d4d415bbd377aa9fdc38651f67f" category="list-text">确认共享不再列在 * 共享 * 窗口中。</block>
-  <block id="c6d1ab85546f960ef1908682152ddb98" category="section-title">创建主目录共享</block>
-  <block id="2ded840bb0d149049d94d6cc27cd4eb9" category="paragraph">您可以使用 System Manager 创建主目录共享并管理主目录搜索路径。</block>
-  <block id="07b21b3751e97e8be0734694465e1a54" category="paragraph">必须设置并启动 CIFS 。</block>
-  <block id="8833b993932917d5dc821b8ddc12292f" category="list-text">单击 * 创建主目录 * ，然后提供用于确定用户如何映射到目录的模式信息。</block>
-  <block id="05f43ec9f04690f81f77fec126b3f286" category="list-text">验证您创建的主目录是否已列在 * 共享 * 窗口中。</block>
-  <block id="653ecc56780e9ae45a3425b21f179e73" category="section-title">编辑共享设置</block>
-  <block id="8b8233970ae93cddab3fcb0f038a19cf" category="paragraph">您可以使用 System Manager 修改共享的设置，例如符号链接设置，用户或组的共享访问权限以及对共享的访问类型。您还可以启用或禁用通过 Hyper-V 持续提供共享，以及启用或禁用基于访问的枚举（ ABE ）。从 System Manager 9.6 开始， FlexGroup 卷支持持续可用性。</block>
-  <block id="7246a01d2a352fc6450f7f466d58dac5" category="list-text">从共享列表中选择要修改的共享，然后单击 * 编辑 * 。</block>
-  <block id="28d42a3f5ce4234a5cb6b5eda7721b12" category="list-text">在 * 编辑共享设置 * 对话框中，根据需要修改共享设置：</block>
-  <block id="b187cf812109744ed2a6197d64b4c287" category="list-text">在 * 常规 * 选项卡中，通过 Hyper-V 启用共享的持续可用性</block>
-  <block id="24e24350d0c2bbfe6239c8cda68a9fdd" category="paragraph">启用持续可用性可以使 SMB 3.0 和支持 SMB 3.0 的客户端在无中断运行期间持久打开文件。持久打开的文件不会受到故障转移，交还和 LIF 迁移等中断事件的影响。</block>
-  <block id="c422043bdc2f7971f0ae6747690d03c7" category="list-text">在 * 权限 * 选项卡中，添加用户或组，然后分配权限以指定访问类型。</block>
-  <block id="5c0287506e18b638d89ba4098983d76a" category="list-text">在 * 选项 * 选项卡中，选择所需选项。</block>
-  <block id="d5ba1e032c63c476f97b1f0bded5e2ed" category="list-text">在 * 共享 * 窗口中验证您对选定共享所做的更改。</block>
-  <block id="1f06c32e4284c548639b045d1a680c1f" category="section-title">ONTAP 如何启用动态主目录</block>
-  <block id="ddb6804ce83c0756809d4eaa0da80de7" category="paragraph">通过 ONTAP 主目录，您可以配置一个 SMB 共享，该共享根据连接到它的用户和一组变量映射到不同的目录。您可以使用一些主目录参数配置一个共享，以定义入口点（共享）与主目录（ SVM 上的目录）之间的用户关系，而不是为每个用户创建单独的共享。</block>
-  <block id="47d8b0af5d2931cb4e847ec858c73ecf" category="paragraph">以来宾用户身份登录的用户没有主目录，无法访问其他用户的主目录。可通过四个变量确定用户映射到目录的方式：</block>
-  <block id="e61e15ac8c5f8d0b85109886001adfad" category="list-text">* 共享名称 *</block>
-  <block id="bc684c6854b9c8f2cb609b73ffac4b9c" category="paragraph">这是您创建的共享的名称，用户将连接到该共享。您必须为此共享设置主目录属性。</block>
-  <block id="9cec6f3479185182d510faeb5c88e095" category="paragraph">共享名称可以使用以下动态名称：</block>
-  <block id="cf46804cd7f94ff0f06229165a1e08bc" category="list-text"><block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block> (用户的Windows用户名)</block>
-  <block id="c7d7c222f5eb544bb7a6e17489d16fb1" category="list-text"><block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix="" category="inline-code"></block> (用户的Windows域名)</block>
-  <block id="c3e0b780eb59c719da0f62c0418963e2" category="list-text"><block ref="b4e514e05859a94a7c7d3404f63dca8d" prefix="" category="inline-code"></block> (用户的映射UNIX用户名)</block>
-  <block id="053021b69a316a9b62283baaca04bdee" category="paragraph">要使共享名称在所有主目录中都是唯一的、共享名称必须包含<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> 或<block ref="b4e514e05859a94a7c7d3404f63dca8d" prefix=" " category="inline-code"></block> 变量。共享名称可以同时包含<block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix=" " category="inline-code"></block> 和<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> 变量(例如、<block ref="a7bd935a88c629dc11c52e0c16c2a8a0" prefix=" " category="inline-code"></block><block ref="61fdc52186559b1681736cfb53393d7a" prefix="/" category="inline-code"></block>)、或者共享名称可以包含静态部分和可变部分(例如、HOME_<block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block>）。</block>
-  <block id="0521b4a71a02a28d9873367a66e9d83a" category="list-text">* 共享路径 *</block>
-  <block id="7f794a8325e108e30caf0916da9858f8" category="paragraph">此路径是由共享定义的相对路径，因此与某个共享名称关联，并附加到每个搜索路径中，以便从 SVM 的根目录生成用户的整个主目录路径。它可以是静态的(例如、<block ref="106a6c241b8797f52e1e77317b96a201" prefix=" " category="inline-code"></block>)、动态(例如、<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block>)或两者的组合(例如、<block ref="a2b6508e05db4948da997e79c88b26c6" prefix=" " category="inline-code"></block>）。</block>
-  <block id="6fcc718fd1fe6c61104b90deb1cf42a2" category="list-text">* 搜索路径 *</block>
-  <block id="2401c90889b207694e0799fda5109a63" category="paragraph">这是从 SVM 根目录开始的一组绝对路径，您可以指定这些绝对路径来指示 ONTAP 搜索主目录。您可以使用指定一个或多个搜索路径<block ref="5a6a8dfa9830413979e30e9a232a26b9" prefix=" " category="inline-code"></block> 命令：如果指定了多个搜索路径，则 ONTAP 将按指定顺序尝试这些路径，直到找到有效路径为止。</block>
-  <block id="b8247bb8487a381712f3b1e7f9afee38" category="list-text">* 目录 *</block>
-  <block id="94476d0b91f52a04ef07ba6853a8fe57" category="paragraph">这是您为用户创建的用户主目录。目录名称通常是用户的名称。您必须在搜索路径定义的一个目录中创建主目录。</block>
-  <block id="d87a9db633a6535cd29bd2e3ceb1c8dd" category="paragraph">例如，请考虑以下设置：</block>
-  <block id="7180a0452db924e5e8285ae78d6355b2" category="list-text">用户： John Smith</block>
-  <block id="03fdb6c3f4384c6171e95f71401eb5e0" category="list-text">用户域： acme</block>
-  <block id="1a0691e264e3961203ea0cfedc4e5d2b" category="list-text">用户名： jsmith</block>
-  <block id="33e9d5aa58536f2b75b2e74481b6da5f" category="list-text">SVM 名称： vs1</block>
-  <block id="67542d137c252a447549f5aea3bdae37" category="list-text">主目录共享名称1：HOME_<block ref="61fdc52186559b1681736cfb53393d7a" prefix="" category="inline-code"></block> -共享路径：<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block></block>
-  <block id="af46ee21386ad593388ff8e626ff1d79" category="list-text">主目录共享名称2：<block ref="61fdc52186559b1681736cfb53393d7a" prefix=" " category="inline-code"></block> -共享路径：<block ref="4b4be07fc24b62eb35c983adef6588a7" prefix=" " category="inline-code"></block></block>
-  <block id="8bdaad80963ec7997b9171bbde3ccf58" category="list-text">搜索路径1：<block ref="f1fef4e82588d65ba30cd9aa01821bb8" prefix=" " category="inline-code"></block></block>
-  <block id="d5de8e98475d82f92b73735119bbb86e" category="list-text">搜索路径2：<block ref="516141bba2650fcf50f472110df9bbb3" prefix=" " category="inline-code"></block></block>
-  <block id="17a2b091f4b18b78a643898b857c0b7b" category="list-text">搜索路径3：<block ref="32467dc27b5c1dc6fdb3be6be9e0d4bd" prefix=" " category="inline-code"></block></block>
-  <block id="f79a499c73fbab60e0656b54d92e9a15" category="list-text">主目录：<block ref="92fb357e2e22d96fcbb3dc91b7ad3c44" prefix=" " category="inline-code"></block></block>
-  <block id="364487be3ccdb0ddb95024d179f03f3e" category="paragraph">场景1：用户连接到<block ref="4e9da487017687cc0e20849436bbd1ea" prefix=" " category="inline-code"></block>。这与第一个主目录共享名称匹配并生成相对路径<block ref="39ce7e2a8573b41ce73b5ba41617f8f7" prefix=" " category="inline-code"></block>。现在、ONTAP将搜索名为的目录<block ref="39ce7e2a8573b41ce73b5ba41617f8f7" prefix=" " category="inline-code"></block> 按顺序检查每个搜索路径：</block>
-  <block id="da31e9584c464660c8d01fdcce993262" category="list-text"><block ref="99f56e83581477446df1f3c1ced8c2b0" prefix="" category="inline-code"></block> 不存在；继续搜索路径2。</block>
-  <block id="3ea0fe8fc6a7f1b43185c7059aa5790c" category="list-text"><block ref="92fb357e2e22d96fcbb3dc91b7ad3c44" prefix="" category="inline-code"></block> 存在；因此、不会检查搜索路径3；用户现在已连接到其主目录。</block>
-  <block id="a5e47d213ee8b7b800451b243c5340e3" category="paragraph">场景2：用户连接到<block ref="2cb9e3fa2f4a596f846cef78a337560b" prefix=" " category="inline-code"></block>。这与第二个主目录共享名称匹配并生成相对路径<block ref="8e5f8e3dcb23383e32f49e7a055826f4" prefix=" " category="inline-code"></block>。现在、ONTAP将搜索名为的目录<block ref="8e5f8e3dcb23383e32f49e7a055826f4" prefix=" " category="inline-code"></block> 按顺序检查每个搜索路径：</block>
-  <block id="ba77d086e3046fd832fb4fe3435a490d" category="list-text"><block ref="e5eb2f73a2e9980fc90e088246bf2a31" prefix="" category="inline-code"></block> 不存在；继续搜索路径2。</block>
-  <block id="4a0368d08fff02c4b3d2ceeffbb4d136" category="list-text"><block ref="8211f5e2f4fb295058ab715023554df1" prefix="" category="inline-code"></block> 不存在；继续搜索路径3。</block>
-  <block id="47cf52fe22b54398467dba6a9a1e4a7b" category="list-text"><block ref="8a86a2c448e1f60496b94e4c1a846e60" prefix="" category="inline-code"></block> 不存在；主目录不存在；因此连接失败。</block>
-  <block id="4918741feccad41b42cd99aa33e42f28" category="section-title">共享窗口</block>
-  <block id="a7c99ceadac4e4924151c84d763c467f" category="paragraph">您可以使用共享窗口管理共享并查看有关共享的信息。</block>
-  <block id="fda574f52a0c012e098901afa3932b69" category="list-text">* 创建共享 *</block>
-  <block id="d852a51701ee8f10a9ca310896bd4554" category="paragraph">打开创建共享对话框，在此可以创建共享。</block>
-  <block id="78051d4bf07107990835bebcaff82f9c" category="list-text">* 创建主目录 *</block>
-  <block id="73ebeda6b0e6d0bdc61b3514087f98b2" category="paragraph">打开创建主目录共享对话框，在此可以创建新的主目录共享。</block>
-  <block id="165ea29705bdce07533240e5baf023d6" category="paragraph">打开编辑设置对话框，在此可以修改选定共享的属性。</block>
-  <block id="78970f78ae18db72c079df474a70cac5" category="list-text">* 停止共享 *</block>
-  <block id="9e4ba745eb5929a46ac85a66bbde51ec" category="paragraph">停止共享选定对象。</block>
-  <block id="c871110fae62093309dc98c9c0f64df9" category="section-title">共享列表</block>
-  <block id="729863cbd7aed54d8a3908488c22b0a6" category="paragraph">共享列表显示每个共享的名称和路径。</block>
-  <block id="9c29b201d911f46f3d4ec9a15dc66cc6" category="list-text">* 共享名称 *</block>
-  <block id="3aba51888e43a206b38531d1ba5da58f" category="paragraph">显示共享的名称。</block>
   <block id="973c986d28beec057d1064afec603777" category="list-text">* 路径 *</block>
-  <block id="e80af012f9ce34e9ab0beba04371d194" category="paragraph">显示共享的现有文件夹， qtree 或卷的完整路径名。路径分隔符可以是反斜线或正斜线，但 ONTAP 会将所有路径分隔符显示为正斜线。</block>
-  <block id="7b22a3952681ecb4cdbd6fe703765dae" category="list-text">* 主目录 *</block>
-  <block id="cbc95fa902a86727e89b85af3f19d0fb" category="paragraph">显示主目录共享的名称。</block>
   <block id="9bdc480955b350f1fe8089392ad36cbe" category="list-text">* 注释 *</block>
-  <block id="c9b73398fbc4618f61034f91e3a7daec" category="paragraph">显示共享的其他说明（如果有）。</block>
-  <block id="dd8a5de672229fa8ff58411a6a3e41ff" category="list-text">* 持续可用共享 *</block>
-  <block id="2d6ca664e165a57792b1b59ede4c3890" category="paragraph">显示是否为共享启用了持续可用性。从 System Manager 9.6 开始， FlexGroup 卷支持持续可用性。</block>
-  <block id="97469443dfc3695c09f70f7590eeac08" category="paragraph">共享列表下方的区域显示每个共享的共享属性和访问权限。</block>
-  <block id="e6ce8998f0d4cbe5a38c523c958f4162" category="list-text">* 属性 *</block>
-  <block id="217a0172345c647bc3f6a354cd7b6108" category="list-text">机会锁状态</block>
-  <block id="cf6115c8d6bbdd2a732e670a8a63edc1" category="paragraph">指定共享是否使用机会锁（ oplock ）。</block>
-  <block id="3a63af1322a4a738092f2dc891ab6afb" category="list-text">可浏览</block>
-  <block id="14fda0af9c46576b371ec3b6e1fb623d" category="paragraph">指定 Windows 客户端是否可以浏览共享。</block>
-  <block id="18bfc8152a3e795a4008c07d0c432528" category="list-text">显示 Snapshot</block>
-  <block id="d111a1648cc63acf08b9954ea5d1c5fb" category="paragraph">指定客户端是否可以查看 Snapshot 副本。</block>
-  <block id="b8c91392a068a4dbf0999fb089045c52" category="list-text">持续可用的共享</block>
-  <block id="41aef6f60f95609aa7b5ca4777bfe44c" category="paragraph">指定是启用还是禁用共享以实现持续可用性。从 System Manager 9.6 开始， FlexGroup 卷支持持续可用性。</block>
-  <block id="ced58c7b6a62adeb9dff9028fa5cf9db" category="list-text">基于访问的枚举</block>
-  <block id="3af978aaedd422de2f12de5f6b53767e" category="paragraph">指定共享上是启用还是禁用基于访问的枚举（ ABE ）。</block>
-  <block id="601881e1c15a5899164ae1415fa564f9" category="list-text">BranchCache</block>
-  <block id="c042c62a5b971b02ac210ea6cea9f49b" category="paragraph">指定共享上是启用还是禁用 BranchCache 。</block>
-  <block id="5ba189119209879ea0338f2967d8829a" category="list-text">SMB 加密</block>
-  <block id="a8e8461d71a3b3c9c05c1ca0cab3bf26" category="paragraph">指定是在 Storage Virtual Machine （ SVM ）级别还是在共享级别启用使用 SMB 3.0 的数据加密。如果在 SVM 级别启用了 SMB 加密，则 SMB 加密适用于所有共享，并且此值显示为已启用（在 SVM 级别）。</block>
-  <block id="361ba3dce11fe3e84d163ed8a377ee53" category="list-text">先前版本</block>
-  <block id="b9aa6e095ab5ade3b6a47afb5635c76f" category="paragraph">指定是否可以从客户端查看和还原先前的版本。</block>
-  <block id="6330d7da9b567d52cb7f38d3b59cad4c" category="list-text">* 共享访问控制 *</block>
-  <block id="5ecdcfa6df2b43f1cd8b09359c0e9628" category="paragraph">显示共享的域用户，域组，本地用户和本地组的访问权限。</block>
   <block id="b1f7b0489956884280bdba01a96b051b" category="inline-xref-macro">正在设置CIFS</block>
   <block id="e017ec9aae777eea6bb4e0e623c50b13" category="paragraph"><block ref="e017ec9aae777eea6bb4e0e623c50b13" category="inline-xref-macro-rx"></block></block>
   <block id="fc5c41a08a339689427e86a62085d18e" category="summary">使用基本网络配置设置一个可正常工作的 Storage Virtual Machine （ SVM ）或 SVM 后，您可以选择将 SVM 的管理委派给 SVM 管理员。</block>
@@ -3041,7 +2896,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="1bcaa70ba0011203f6ed88fca02c0c7e" category="list-text">如果将 * FabricPool * 保留在 "`not enabled` " 位置，则创建的 FlexGroup 卷仅包含非 FabricPool 聚合，并且分层策略设置为 "`None` " 。</block>
   <block id="280912f92ac8838961caf4bcdd792e10" category="list-text">如果 SVM 中不存在 FabricPool 聚合，则 * FabricPool * 将显示在 " 未启用 " 位置，并且无法更改。</block>
   <block id="2bdfe1e585cb4707ff4ee5a03fe0d58b" category="list-text">如果 SVM 中仅存在 FabricPool 聚合，则 * FabricPool * 按钮将显示在 " 已启用 " 位置，并且无法更改。</block>
-  <block id="03552d367764e7839a614933f825001e" category="list-text">如果要指定特定聚合，请单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> （高级选项）。</block>
   <block id="54cea90da7b4369891eee22f858ad14b" category="paragraph">默认情况下，系统会根据最佳实践选择与要创建的 FlexGroup 卷关联的聚合。它们将显示在 * 聚合 * 标签旁边。</block>
   <block id="b7145e84aa34f2e12721b0af370554c0" category="list-text">在 * 保护 * 部分中，执行以下操作：</block>
   <block id="8d51cd39a18c87bf1f3c125efbb15875" category="list-text">启用 * 卷保护 * 选项。</block>
@@ -3414,14 +3268,11 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="32032cf60e20cb1e13004a35c19895f0" category="list-text">*可选：*在* FlexCache Volume*下的*大小*字段中输入FlexCache 卷的新大小、然后从下拉菜单中选择度量单位。</block>
   <block id="390c84eadfb369c9bba59931c7fc2b02" category="list-text">*可选：*启用或禁用加密。</block>
   <block id="fa8ddae57fb0b13c4eb7a2f3b7deaa99" category="inline-link-macro">为 FlexCache 卷指定高级选项</block>
-  <block id="4db6d5da67865342306912fad857400f" category="list-text">* 可选： * 单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 修改 FlexCache 卷高级设置。请参见 <block ref="01d1f9ee7eafcb47c4d200eceb73ffd6" category="inline-link-macro-rx"></block>。</block>
   <block id="8491b775711be80e6a608ef1ebb96121" category="list-text">单击 * 保存 * 以保存更改。</block>
   <block id="a56e31822510cde8f8a20d6f36849aa7" category="summary">您可以使用 System Manager 管理磁盘。</block>
   <block id="d7a551057ba910463c17513387122618" category="doc">使用 System Manager - ONTAP 9.7 及更早版本管理磁盘</block>
   <block id="4408c783f4f77dad27b39a90a5feb7d2" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理磁盘。</block>
   <block id="edda3972d1bc3950c540b7172745645c" category="paragraph"><block ref="edda3972d1bc3950c540b7172745645c" category="inline-link-rx"></block></block>
-  <block id="70894d5c0a41692947485c0d0a19e60a" category="inline-link">FlexArray 虚拟化安装要求和参考</block>
-  <block id="b42d776faedad51898dbe5bf906051a2" category="paragraph"><block ref="b42d776faedad51898dbe5bf906051a2" category="inline-link-rx"></block></block>
   <block id="9dd326a487d106b896106eeadb347626" category="summary">从 System Manager 9.6 开始，您可以查看有关 FlexCache 卷的信息。您可以通过图形方式查看 FlexCache 卷的已分配空间和性能。</block>
   <block id="af94d293d65ac05aba778e00e3ba5510" category="doc">查看 FlexCache 卷信息</block>
   <block id="d5a19af6bd480993ed2b7a77e9921ee4" category="list-text">从显示的卷列表中，选择要查看其信息的 FlexCache 卷。</block>
@@ -3602,7 +3453,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="11633eb84d1995cfa5bc65cc29e7c23a" category="list-text">单击 * 添加注释 * 为策略添加其他注释。</block>
   <block id="f51d83be71182a7a9735e02d70d57f6e" category="list-text">对于类型为 vault 或 mirror vault 的策略，请指定 SnapMirror 标签和目标保留计数。</block>
   <block id="114168a53a6b42c89026b910fc64289f" category="summary">从 System Manager 9.6 开始，编辑 FlexCache 卷时，您可以指定要与 FlexCache 卷关联的高级选项。</block>
-  <block id="8f51b4e853f8f8190d9ce869e3f71555" category="list-text">*可选：*在*编辑FlexCache 卷*窗口中、单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 以指定高级选项。</block>
   <block id="cc6147bf70776e78f1689c5b5ec50cdf" category="paragraph">此时将显示高级选项窗口。它包含一些部分（左列中的标题），您可以在其中指定各种选项。</block>
   <block id="1f272132f306cd712954818240769549" category="list-text">*可选：*在*常规详细信息*部分中、您可以编辑卷的权限。</block>
   <block id="ffe0fe06e388737190c902ee2d01f847" category="list-text">在 * 聚合 * 部分中，您可以启用 * 选择聚合 * 切换按钮以覆盖最佳实践默认值，并从聚合列表中选择相应项。</block>
@@ -3736,14 +3586,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="cafdb1219cee48c72aefb4a06983873c" category="list-text">更新文本框中的名称，然后单击 * 提交 * 。</block>
   <block id="e801d2be7b11bcc8807e4f9a7c173b7f" category="paragraph">您可以在显示 MetroCluster 站点 A 状态时查看更新后的名称。</block>
   <block id="e9551f243e2860df3b1dfddc05a6cf7f" category="list-text">要在从远程站点(站点B)查看MetroCluster站点A时显示更新后的名称、请在远程站点(站点B)的命令行界面中执行以下命令：<block ref="53866ad7e92443056aec27897d674600" prefix=" " category="inline-code"></block></block>
-  <block id="936df13c62816bb541c8c569a83692db" category="summary">您可以使用 System Manager 创建聚合，以满足用户不同的安全性，备份，性能和数据共享要求。</block>
-  <block id="aab5e3cd425b154cb96d27c6f7249138" category="doc">使用 System Manager - ONTAP 9.7 及更早版本管理聚合</block>
-  <block id="9a37af394d1d31dd77ff0d7043b0269b" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）创建聚合，以满足用户不同的安全性，备份，性能和数据共享要求。</block>
-  <block id="cd6f186b58ad08a0aa15702a06871670" category="paragraph">您可以使用聚合窗口创建，显示和管理有关聚合的信息。</block>
-  <block id="35381a31106f6d9e3114d4b4d6d38f12" category="paragraph">打开创建聚合对话框，在此可以创建聚合。</block>
-  <block id="6f63d1aa5fa8cb0919b9d381b827eefb" category="paragraph">打开编辑聚合对话框，在此可以更改聚合的名称或要为聚合提供的 RAID 保护级别。</block>
-  <block id="6ddf98429421db1c79baf89c8d15ebc2" category="paragraph">删除选定聚合。</block>
-  <block id="f990940885a7262711c74616e1416ff6" category="paragraph">已对根聚合禁用此按钮。</block>
   <block id="b0f857586a11d1835d63ccfd5a7c94b0" category="list-text">* 更多操作 *</block>
   <block id="d9fec617ec0f6c9621190b472ac59feb" category="paragraph">提供了以下选项：</block>
   <block id="60f070e92e3980a1a93a915ce99841fb" category="list-text">* 将状态更改为 *</block>
@@ -3753,58 +3595,25 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="8d9da4bc0e49a50e09ac9f7e56789d39" category="list-text">脱机</block>
   <block id="0974133f9628072341df79d62c53b92a" category="paragraph">不允许进行读写访问。</block>
   <block id="034d70b46e41ec9d0306b0001e04cae7" category="list-text">限制</block>
-  <block id="b3144de0ef9237ecb5a3cb8485c2060a" category="paragraph">允许执行某些操作，例如奇偶校验重建，但不允许数据访问。</block>
   <block id="4d20253a0478c684c2de0a0fb803cc03" category="list-text">* 添加容量 *</block>
   <block id="4edae08fff3ee88387fcd0576d349d16" category="paragraph">用于向现有聚合添加容量（ HDD 或 SSD ）。</block>
   <block id="ac25e29b281c5fe7e5c94b7d0ab40aee" category="list-text">* 添加缓存 *</block>
   <block id="918ca2a2678c961296588bb076c8f0f6" category="paragraph">用于向现有 HDD 聚合或 Flash Pool 聚合添加缓存磁盘（ SSD ）。</block>
-  <block id="3c14e506fc727ed3380560dc7037ad5c" category="paragraph">如果集群中的节点具有全闪存优化特性，则此按钮不可用。</block>
   <block id="5ccaf135104488a13f1ac23cc6143691" category="list-text">* 镜像 *</block>
   <block id="ddc1efb6fc657900eeb3bd6ee540d25c" category="paragraph">用于镜像聚合。</block>
   <block id="07728bee97105d471c3ab19da1966201" category="list-text">* 卷移动 *</block>
   <block id="69e5c422ce83897e32ce0b9ec4d7c9a8" category="paragraph">用于移动 FlexVol 卷。</block>
-  <block id="339a40b6a613ea3ec552b5339bc261a8" category="list-text">* 附加云层 *</block>
-  <block id="87d2c400e633ce33a2a67a308be5bdda" category="paragraph">用于将云层附加到聚合。</block>
-  <block id="c877851beb23e96091e8562c8d1b88a7" category="section-title">聚合列表</block>
-  <block id="5e78bc7f662cab6891c8ff38cb07a068" category="paragraph">显示每个聚合的名称和空间使用情况信息。</block>
   <block id="eb2dc6157e951f6bdf5569b2c253a984" category="list-text">* 状态 *</block>
-  <block id="986e97d621ddbef8a3235d5c6b7d4096" category="paragraph">显示聚合的状态。</block>
   <block id="496ee322ba138fdbc777e5ab2e30145e" category="list-text">* 名称 *</block>
-  <block id="5ce9fff649cdfda9f94e4cc7011234a9" category="paragraph">显示聚合的名称。</block>
   <block id="04eaef0c64f7604067332b0b05e598d3" category="list-text">*节点*</block>
-  <block id="99001178cd0cb6fa6787aef67cb2cba7" category="paragraph">显示将聚合中的磁盘分配到的节点的名称。</block>
   <block id="e8a10e1832156c48d05e40d44124a4f9" category="paragraph">此字段仅在集群级别可用。</block>
-  <block id="28e42dd5833ce63bcac5edc7f48a152d" category="paragraph">显示聚合的类型。</block>
-  <block id="b7d06b5b2888bd0cbb9cb0b77d8925c7" category="paragraph">对于包含具有全闪存优化特性的节点的集群，不会显示此字段。</block>
-  <block id="25444e13e1490cfb73e044b4e98cba6b" category="list-text">* 已用（ % ） *</block>
-  <block id="e48543894493fb7fd6d6320e3e3fe0b6" category="paragraph">显示聚合中已用空间的百分比。</block>
   <block id="17451b8c728d0bc6a4f3dafe44501ab3" category="list-text">* 可用空间 *</block>
-  <block id="b45bc28e9ea320c35412c90a6da0817f" category="paragraph">显示聚合中的可用空间。</block>
   <block id="effd2fa0311563a1e224e6c36de775bb" category="list-text">* 已用空间 *</block>
-  <block id="7750bf7a821da6870eb3fa224f646d87" category="paragraph">显示聚合中的数据所使用的空间量。</block>
   <block id="de68ee7ea3dbee1b91084b9a54b3f334" category="list-text">* 总空间 *</block>
-  <block id="31b39c8fce21f1bdc9a05f612c2d7f92" category="paragraph">显示聚合的总空间。</block>
-  <block id="ad194123577ad25914a0ad436f83d256" category="list-text">* FabricPool *</block>
-  <block id="c26194d8f7d34b5001790e724f7bc44e" category="paragraph">显示选定聚合是否已附加到云层。</block>
-  <block id="0cd040a51684da558c6c12a9a3c4ec13" category="list-text">* 云层 *</block>
-  <block id="6d84d0d086fc6ac4cd08fb009eb3afff" category="paragraph">如果选定聚合已附加到云层，则会显示此云层的名称。</block>
-  <block id="b9d57360a621fd7b1e32b17490f2c32b" category="list-text">* 卷计数 *</block>
-  <block id="f06ad6fa54f2513703034b7dfd6cab6d" category="paragraph">显示与聚合关联的卷数。</block>
-  <block id="300f5ad4dc018c74937eef89a804af57" category="list-text">* 磁盘计数 *</block>
-  <block id="887d1cc61a498f51a05d9edde203d8a0" category="paragraph">显示用于创建聚合的磁盘数。</block>
-  <block id="2dcf6cf8b63d51754222cbe105d055f9" category="list-text">* 闪存池 *</block>
-  <block id="7cf88a2e216a75f251bc3fb4939e9874" category="paragraph">显示 Flash Pool 聚合的总缓存大小。如果值为 NA ，则表示此聚合不是 Flash Pool 聚合。</block>
-  <block id="2377b182d295db38042880797b0706eb" category="list-text">* 镜像 *</block>
-  <block id="3669b26c14adf1b8df923887205025df" category="paragraph">显示聚合是否已镜像。</block>
   <block id="db0ee96118986edbb435bada8a7b6ae4" category="list-text">* SnapLock 类型 *</block>
-  <block id="03239fde94c3a6403d92ebc7e4d47ae3" category="paragraph">显示聚合的 SnapLock 类型。</block>
-  <block id="8e0f7fc5c91a651d41ace5ca9df686d2" category="paragraph">选择一个聚合以查看有关选定聚合的信息。您可以单击显示更多详细信息以查看有关选定聚合的详细信息。</block>
   <block id="9228c96f976b189d00d20754d7057173" category="list-text">* 概述选项卡 *</block>
-  <block id="41baae8263adb4ec516ef9c10284e931" category="paragraph">显示有关选定聚合的详细信息，并以图形方式显示聚合的空间分配，聚合的空间节省以及聚合在 IOPS 和总数据传输方面的性能。</block>
   <block id="53da544587b12f299b5208bfa37c41dd" category="list-text">* 磁盘信息选项卡 *</block>
-  <block id="7684669141bc1d61ff12daea729dbbd5" category="paragraph">显示磁盘布局信息，例如磁盘名称，磁盘类型，物理大小，可用大小，磁盘位置， 磁盘状态，丛名称，丛状态， RAID 组， RAID 类型， 和存储池（如果有）。此外，还会显示与多路径配置中的磁盘主路径关联的磁盘端口以及与磁盘二级路径关联的磁盘名称。</block>
   <block id="3c62a3dcff986acc24aef37165a45e95" category="list-text">* 卷选项卡 *</block>
-  <block id="68f887cbc24995b778d4f33a8db8a5ef" category="paragraph">显示有关聚合上的卷总数，聚合总空间以及提交给聚合的空间的详细信息。</block>
   <block id="e6a419981c51552ec6ad5c8357bab911" category="list-text">* 性能选项卡 *</block>
   <block id="1b485d0caa650bce2a01d08ddaa170f3" category="paragraph">显示用于显示聚合性能指标的图形，包括吞吐量和 IOPS 。显示读取，写入和总传输的吞吐量和 IOPS 性能指标数据，并单独记录 SSD 和 HDD 的数据。</block>
   <block id="e6d518267af76dc4ce9e2fadd8c3f25a" category="paragraph">更改客户端时区或集群时区会影响性能指标图。您应刷新浏览器以查看更新后的图形。</block>
@@ -3961,7 +3770,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="1d226977e25ff0748c81b0ef9156e807" category="summary">创建 FlexGroup 卷时，您可以指定要与 FlexGroup 卷关联的选项。</block>
   <block id="402229f8ce0167d0a78bbd044f5164cf" category="doc">使用 System Manager - ONTAP 9.7 及更早版本为 FlexGroup 卷指定高级选项</block>
   <block id="97da1d3682fa19cce007f55dd00e9257" category="paragraph">创建 FlexGroup 卷时，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）指定要与 FlexGroup 卷关联的选项。</block>
-  <block id="033b2063dda0545cbfd4fa75d02943a7" category="list-text">*可选：*在*创建FlexGroup *窗口中、单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 以指定高级选项。</block>
   <block id="771c51fdfe14e209bbf3372e85216fc9" category="list-text">在 * 常规详细信息 * 部分中，选择空间预留和安全模式，然后为卷设置 UNIX 权限。</block>
   <block id="e722561c54240493896eff618531d51d" category="paragraph">您应注意以下限制：</block>
   <block id="6a02b35da34c235f387235cad63d8572" category="list-text">空间预留选项不适用于 FabricPool 聚合。</block>
@@ -4431,7 +4239,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="53b4513f2c85f3042617d06afa7e6787" category="list-text">* 池 *</block>
   <block id="a239d33c7781f7db89a7f5b78175b890" category="paragraph">显示将选定阵列 LUN 分配到的池的名称。</block>
   <block id="208cfd8d72838668e354af8a85fd9dcf" category="paragraph">阵列 LUN 列表下方的区域显示有关选定阵列 LUN 的详细信息。</block>
-  <block id="cefd59017a4a065f49d52af021a7df7a" category="paragraph"><block ref="cefd59017a4a065f49d52af021a7df7a" category="inline-link-rx"></block></block>
   <block id="ff0f224e8e84ff31060820637ead03d3" category="summary">您可以使用 System Manager 管理硬件缓存模块。</block>
   <block id="fc127a3a51a884e1e04b66f7100eb154" category="doc">使用 System Manager - ONTAP 9.7 及更早版本管理硬件缓存</block>
   <block id="7b9cdbb20d7b7f588086eab7aa5c2913" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）管理硬件缓存模块。</block>
@@ -4482,7 +4289,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="1302257e569da026aa67b8e89db540a7" category="summary">您可以使用 System Manager 更新 MetroCluster 配置中的集群。您必须在两个集群上执行每个操作，但更新集群除外。</block>
   <block id="a36ead175efb45759fee5f11ce0d539b" category="doc">使用 System Manager - ONTAP 9.7 及更早版本更新 MetroCluster 配置中的集群</block>
   <block id="5b53589c41b3f02720bf43be353e0006" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新 MetroCluster 配置中的集群。您必须在两个集群上执行每个操作，但更新集群除外。</block>
-  <block id="e21d029f0ed2c65ab82ac9c0fa962f8d" category="image-alt">正在更新集群 MCC 配置</block>
   <block id="06ad2274f297ab67ff2225385dc0f3e8" category="paragraph"><block ref="06ad2274f297ab67ff2225385dc0f3e8" category="inline-link-rx"></block></block>
   <block id="dbe63deae24a1ac56f258042500b3305" category="summary">您可以使用 System Manager 在 Storage Virtual Machine （ SVM\ ）上配置 iSCSI 协议，以提供块级数据访问。您可以创建 iSCSI LIF 和端口集，然后将 LIF 添加到端口集。LIF 在最合适的适配器上创建，并分配给端口集，以确保数据路径冗余。</block>
   <block id="f5db4f9448aaa78931200f9e088d969e" category="doc">使用 System Manager - ONTAP 9.7 及更早版本在 SVM 上配置 iSCSI 协议</block>
@@ -5330,7 +5136,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="13c1b8619e5d72fc421632cfdcc39164" category="summary">您可以使用 System Manager 更新集群或高可用性（ HA ）对中的各个节点。要执行更新，您应选择一个 ONTAP 映像，验证集群或 HA 对中的各个节点是否已做好更新准备，然后执行更新。</block>
   <block id="41900314c94464c2e9abd692d4c2e94a" category="doc">使用 System Manager - ONTAP 9.7 及更早版本更新非 MetroCluster 配置中的集群</block>
   <block id="7c32eebc5c66a11a9625082f47b48aae" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新集群或高可用性（ HA ）对中的各个节点。要执行更新，您应选择一个 ONTAP 映像，验证集群或 HA 对中的各个节点是否已做好更新准备，然后执行更新。</block>
-  <block id="a641131755584229b6a82aeeabc83cdb" category="image-alt">正在更新集群</block>
   <block id="d27a348a8a5fed8494cd123b1de658a7" category="summary">您可以使用 System Manager 添加，编辑和删除 LDAP 客户端配置。</block>
   <block id="6bdc6e23cb590c92f04dbf87942b2526" category="doc">使用 System Manager - ONTAP 9.7 及更早版本配置 LDAP 客户端服务</block>
   <block id="1cc58ec3ba2b0eaeaf517b9ada71d80a" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）添加，编辑和删除 LDAP 客户端配置。</block>
@@ -5342,7 +5147,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="d59c6b980e5f10012e7a6a8f810e2b53" category="list-text">SVM 级别：单击 * SVM* &gt; * SVM 设置 * &gt; * LDAP 客户端 * 。</block>
   <block id="8edf4fdc0a99903668ac5dc754e21f43" category="list-text">键入 LDAP 客户端的名称。</block>
   <block id="0c5163f0f9f5192027f456fddded55c8" category="list-text">添加 Active Directory 域或 LDAP 服务器。</block>
-  <block id="7c8b08ce095003f9a8b15aef9ca913bf" category="list-text">单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> （高级选项），选择 * 架构 * ，然后单击 * 应用 * 。</block>
   <block id="819aa7db437f104cac55b21e1b98c91f" category="list-text">指定 * 基本 DN* 和 * TCP 端口 * 。</block>
   <block id="fa19e45f0c7971c2a0a4dfe83b8694ac" category="list-text">单击 * 绑定 * ，然后指定身份验证详细信息。</block>
   <block id="c076e7171f87bf601582215d048e77ea" category="list-text">验证是否显示您添加的 LDAP 客户端。</block>
@@ -5572,7 +5376,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="503e6a1d24532cf16b90068dcf9d0814" category="list-text">在 * 调整 FlexCache 卷大小 * 窗口中，指定要将 FlexCache 卷调整到的大小。</block>
   <block id="2c228870bc26117c2bcc38d47fed7cbb" category="paragraph">默认情况下，现有聚合用于调整 FlexCache 卷的大小。从 System Manager 9.6 开始，卷允许的最大大小显示在大小字段旁边。</block>
   <block id="ee06c3a75d2f90d528d0bdad6ee8b794" category="inline-link-macro">为 FlexCache 卷指定高级选项</block>
-  <block id="0141b877fcf49f33b47400dd7edb78c1" category="paragraph">如果要通过添加新资源来扩展 FlexCache 卷，请单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> （高级选项）。请参见 <block ref="4f3fc931d92f22f55a489e2373f71d6c" category="inline-link-macro-rx"></block>。</block>
   <block id="689dc6ae2f8d54723af8baa6aff39f7d" category="list-text">单击 * 保存 * 以调整 FlexCache 卷的大小。</block>
   <block id="921b80fe6e8cca2c6db98a54b19efc65" category="summary">您可以使用 System Manager 为自动创建卷的 Snapshot 副本设置计划。您可以指定创建副本的时间和频率。您还可以指定保存的 Snapshot 副本数。</block>
   <block id="836f907e1a3a35e35703941bae06b845" category="doc">使用 System Manager （ ONTAP 9.7 及更早版本）计划自动创建 Snapshot 副本</block>
@@ -5896,7 +5699,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="da167c465aa599598b528deacafa47eb" category="list-text">选择要调整大小的 FlexGroup 卷，然后单击 * 更多操作 * &gt; * 调整大小 * 。</block>
   <block id="fb7e107fc632fc3b47e98f65a2b1026f" category="list-text">在 * 调整 FlexGroup 卷大小 * 窗口中，指定要将 FlexGroup 卷调整到的大小。</block>
   <block id="42812d45e8b6d5528bed4f0e674b503f" category="paragraph">默认情况下，现有聚合用于调整 FlexGroup 卷的大小。从 System Manager 9.6 开始，卷允许的最小大小显示在大小字段旁边。</block>
-  <block id="8fc29799fa5d7d61b9fce4781993418c" category="paragraph">如果要通过添加新资源来扩展 FlexGroup 卷，请单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> （高级选项）。</block>
   <block id="dae0d20dbc1649cc1e11aab7858b03f2" category="list-text">指定 Snapshot 副本预留的百分比。</block>
   <block id="30743dc8da0a0156886a97e9699f314a" category="list-text">单击 * 调整大小 * 以调整 FlexGroup 卷的大小。</block>
   <block id="e6ade167bc69389f90ba21383b403cee" category="summary">对于 ONTAP 9.4 及更高版本，您可以将 ONTAP 软件映像从 NetApp 支持站点复制到本地文件夹。对于从 ONTAP 9.3 或更早版本升级的系统，您必须将 ONTAP 软件映像复制到网络上的 HTTP 服务器或 FTP 服务器。</block>
@@ -5984,7 +5786,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="77cce86a4e36ee7f8b1df43dfe7261f3" category="list-text">在执行切回操作之前，必须完成所有先前的配置更改。这样可以防止这些更改与协商切换或切回操作相冲突。</block>
   <block id="e05feb27d4f334232dd375e6020c3b53" category="section-title">MetroCluster 切换和切回工作流流程图</block>
   <block id="8e33bcb19b3ebee0d06e874b21519678" category="paragraph">以下流程图展示了启动切换和切回操作时发生的阶段和过程。</block>
-  <block id="d2433a156dea88c5bc9b3fe8dbe2183e" category="image-alt">切换切回工作流</block>
   <block id="5a80ad07474cac4dee95efc76e8c6388" category="summary">您可以根据存储建议创建聚合，也可以根据需要手动创建聚合。您可以使用 System Manager 创建 Flash Pool 聚合， SnapLock 聚合和启用了 FabricPool 的聚合，以便为一个或多个卷提供存储。</block>
   <block id="d08159a440a303f7b3b7c94dc1935c5a" category="doc">使用 System Manager - ONTAP 9.7 及更早版本通过聚合配置存储</block>
   <block id="f87363de91a44888ba803f5cb7e20111" category="paragraph">您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中提供）根据存储建议创建聚合，也可以根据需要手动创建聚合。您可以使用 System Manager 创建 Flash Pool 聚合， SnapLock 聚合和启用了 FabricPool 的聚合，以便为一个或多个卷提供存储。</block>
@@ -6215,7 +6016,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="9e007cde0294836d49fce82a0770d6fa" category="summary">设置对等涉及到在每个节点上创建集群间逻辑接口（ LIF ），创建集群对等以及创建 SVM 对等。</block>
   <block id="829111bc2f9e8438581c99c65c273ac5" category="doc">使用 System Manager - ONTAP 9.7 及更早版本设置对等关系</block>
   <block id="7e1817ade72aa48bb92d7c2ab07e88a1" category="paragraph">您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)设置对等关系。设置对等涉及到在每个节点上创建集群间逻辑接口（ LIF ），创建集群对等以及创建 SVM 对等。</block>
-  <block id="6af8acc69bcdc16b7f8e5adeec4d8b16" category="image-alt">对等工作流</block>
   <block id="48f1b7cd8c5e771ef4ce929e95a1d530" category="section-title">【前提条件-对等、集群对等的前提条件】集群对等的前提条件</block>
   <block id="6b6ad8c82295777d87897d52b0fa88f0" category="paragraph">在设置集群对等之前，您应确认连接，端口， IP 地址，子网，防火墙， 并满足集群命名要求。</block>
   <block id="a8416e889da6102accaf0c0db08552a7" category="list-text">子网必须属于包含用于集群间通信的端口的广播域。</block>
@@ -6528,7 +6328,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="7d613ace3ff4e6c511496c52961bf228" category="paragraph">您可以使用 ONTAP System Manger classic （适用于 ONTAP 9.7 及更早版本）配置和管理云层。将数据存储在层中可以提高存储系统的效率。您可以使用启用了 FabricPool 的聚合来管理存储层。云层会根据数据是否经常访问将数据存储在层中。</block>
   <block id="ef3e2551fede2086c67b6a8bf70db3c4" category="list-text">您必须运行 ONTAP 9.2 或更高版本。</block>
   <block id="d93c7ae1d0a683437e8cdf90782faccd" category="list-text">您必须具有全闪存（全 SSD ）聚合</block>
-  <block id="1d4f7d5b7c436f0c489b78bb854907f9" category="image-alt">FabricPool 工作流</block>
   <block id="3ea40fea2e95ba7ab2a868e8a7d9fb54" category="section-title">添加云层</block>
   <block id="6b7613736554701bbd26dc07c42dfa16" category="paragraph">您可以使用 System Manager 向 SSD 聚合或虚拟机磁盘（ VMDK ）聚合添加云层。云层可为不常用的数据提供存储。</block>
   <block id="98ee5417a1c5fcb1c3bee4ce46f259b8" category="list-text">要连接到对象存储，您必须具有访问密钥 ID 和机密密钥。</block>
@@ -6547,7 +6346,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="da5a736d7934ea0fda310527ffdb4d23" category="paragraph">根据您的选择， * 服务名称（ FQDN ） * 字段会自动填充服务器端点。</block>
   <block id="a1e9aeb6148784e4a0c8a4f989ead80b" category="list-text">指定云层的访问密钥 ID ，云层的机密密钥以及容器名称。</block>
   <block id="bd14d3410b286c3b639ecc238d233ca2" category="paragraph">如果您选择 AWS Commercial Cloud Service （ C2S ）作为类型，则必须指定 CAP URL ，服务器 CA 证书和客户端证书。</block>
-  <block id="71bffb6a33e98f88fab832116ed7dced" category="list-text">如果要修改以下任何设置，请单击高级选项图标 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 要显示 * 高级选项 * 对话框窗口以进行更改，请执行以下操作：</block>
   <block id="466c4f4287d2b270a412473911428058" category="list-text">用于访问云层的端口号</block>
   <block id="f2a1cbf8ea8f7901f12aa799b104a80d" category="list-text">启用或禁用 * ssl* 选项，以便将数据安全传输到云层</block>
   <block id="ff0167481b8bdc3a1e0af03f1a713dfa" category="list-text">*可选：*如果要为StorageGRID 添加云层或将IBM云对象存储环境(例如Cleversafe)与FabricPool 结合使用、则应指定CA证书。通过移动 * 对象存储证书 * 切换按钮并复制证书内容来指定 CA 证书。然后将证书内容粘贴到签名证书中。</block>
@@ -6694,7 +6492,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="e074b06c6bcffc41130111700ce589f4" category="summary">您可以设置安全断言标记语言（ SAML ）身份验证，以便远程用户在登录到 System Manager 之前通过安全身份提供程序（ IdP ）进行身份验证。</block>
   <block id="a30fa0b5cb2afd6f435aa35fc7ca5745" category="doc">使用 System Manager — ONTAP 9.7 及更早版本设置 SAML 身份验证</block>
   <block id="782f1156076101990b814a229110b078" category="paragraph">您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)设置安全断言标记语言(SAML)身份验证。远程用户在登录到 System Manager 之前，会通过安全身份提供程序（ IdP ）进行身份验证。</block>
-  <block id="a1c17e9e89d922e43d5aa0884477d0b3" category="image-alt">MFA 工作流</block>
   <block id="bec16219366d2631eb9ed04aecabc005" category="section-title">启用 SAML 身份验证</block>
   <block id="a1e6388446604ac005b86b7f11abf1b0" category="paragraph">您可以使用 System Manager 配置安全断言标记语言（ Security Assertion Markup Language ， SAML ）身份验证，以便远程用户可以使用安全身份提供程序（ IdP ）登录。</block>
   <block id="a1036b59d73505365ef378243a1e483a" category="list-text">必须配置计划用于远程身份验证的 IdP 。</block>
@@ -6944,7 +6741,6 @@ System Manager 将搜索新添加的节点。如果显示任何警告，则必�
   <block id="2fd31c025fae94406db26f660b0bcce6" category="list-text">单击 * 继续 * 开始文件跟踪过程。</block>
   <block id="10e8bbfe3840d1904e9ee75029024bb1" category="list-text">选择用于访问选定 SVM 上的文件或共享的协议。</block>
   <block id="0fddf3ba5354d0302fcdd3f1a444e4ab" category="list-text">在 * 用户名 * 字段中，输入尝试访问文件或共享的用户的名称。</block>
-  <block id="243f1fd197bf7fa79315a076feaf79fa" category="list-text">* 可选： * 单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 指定更多详细信息以缩小跟踪范围。</block>
   <block id="a1d52fca6609f6ceae1e7b0dc368c1a2" category="paragraph">通过高级选项对话框窗口，您可以指定以下详细信息：</block>
   <block id="9430c8c9455d0a71e88758d5f0cb5f9c" category="list-text">* 客户端 IP 地址 * ：指定客户端的 IP 地址。</block>
   <block id="0a2be69058c2dadb60ef8bd4f7128b12" category="list-text">* 文件 * ：指定要跟踪的文件名或文件路径。</block>
@@ -7779,7 +7575,6 @@ ONTAP 系统管理器的浏览器访问仅支持 HTTPS 。</block>
   <block id="96ef680007b9b6a4ed27f07ba3a181df" category="paragraph">您可以使用ONTAP System Manager classic (适用于ONTAP 9.7及更早版本)为SVM设置NVMe协议。在 SVM 上启用 NVMe 协议后，您可以配置一个或多个命名空间并将其分配给主机和子系统。</block>
   <block id="e23275ea7297d3239b7dd72d554793b1" category="paragraph">从 ONTAP 9.5 开始，必须为使用 NVMe 协议的 HA 对中的每个节点至少配置一个 NVMe LIF 。您还可以为每个节点最多定义两个 NVMe LIF 。您可以在使用 System Manager 创建或编辑 SVM 设置时配置 NVMe LIF 。</block>
   <block id="1a169b0c93fde678e7545eea664d622c" category="paragraph">下图显示了设置 NVMe 的工作流：</block>
-  <block id="f986c0d1608453a3100a148119f1f6d3" category="image-alt">NVMe 设置工作流</block>
   <block id="c8e9033e5faaaadf3419887a2963fcd3" category="summary">您可以使用 System Manager 启用和配置 CIFS 服务器，以允许 CIFS 客户端访问集群上的文件。</block>
   <block id="76a6394ebba69d649eac839a06da71d9" category="doc">使用System Manager配置CIFS协议—ONTAP 9.7及更早版本</block>
   <block id="8ddabe3ae143d491ee852f8d59f2a3dd" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）启用和配置 CIFS 服务器，以允许 CIFS 客户端访问集群上的文件。</block>
@@ -7921,10 +7716,8 @@ ONTAP 系统管理器的浏览器访问仅支持 HTTPS 。</block>
   <block id="7afec9c2554738ce7a7de58297d6c030" category="paragraph">从 System Manager 9.6 开始，您还可以重命名 FlexGroup DP 卷。</block>
   <block id="a3bd68f70522585bc51163fa9590fa4e" category="list-text">*可选：*启用*加密*选项可为卷启用加密。</block>
   <block id="82420e9f127f5641742dbb7e880fabbe" category="inline-link-macro">为 FlexGroup 卷指定高级选项</block>
-  <block id="9ee319675caed914c3f8a3702fba2502" category="list-text">* 可选： * 单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> 修改 FlexGroup 卷设置。请参见 <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>。</block>
   <block id="4e5dab7015140f89b3c6813a37296dca" category="list-text">指定要将 FlexGroup 卷调整到的大小。</block>
   <block id="dc9d37a202e296240d704411fe802886" category="paragraph">默认情况下，现有聚合用于调整 FlexGroup 卷的大小。卷允许的最小大小显示在大小字段旁边。</block>
-  <block id="6992875b19c0688c37cf36118301e391" category="paragraph">如果要通过添加新资源来扩展 FlexGroup 卷，请单击 <block ref="03cbf9b997ad0db8d0ffb988950200e2" category="inline-image-macro-rx" type="image"></block> （高级选项）。请参见 <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>。</block>
   <block id="36336ab4893fca29807b6c8d48e5d614" category="summary">您可以使用 System Manager 指定名称映射条目以映射不同平台的用户。</block>
   <block id="94b62c27be996324d0173ca83ba2629b" category="doc">使用 System Manager 进行名称映射— ONTAP 9.7 及更早版本</block>
   <block id="cee4c228dbc1bd4065b40bb31f18464c" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）指定名称映射条目以映射不同平台的用户。</block>
@@ -8367,68 +8160,6 @@ ONTAP 系统管理器的浏览器访问仅支持 HTTPS 。</block>
   <block id="6554454b0b446406d68531c90f523542" category="paragraph">如果为 RAID 组启用了 RAID 混合选项，例如磁盘类型混合和磁盘 RPM 混合， 聚合中现有磁盘的磁盘类型和磁盘 RPM 与备用磁盘的有效磁盘类型和有效磁盘 RPM 匹配，以获取兼容的备用磁盘。</block>
   <block id="3c7ac17931d7b7b66cf7c263fc1c828c" category="inline-xref-macro">添加容量磁盘</block>
   <block id="b43496159a45e73d14c7489b1036d050" category="paragraph"><block ref="b43496159a45e73d14c7489b1036d050" category="inline-xref-macro-rx"></block></block>
-  <block id="17b6d0d254f588212107e44b9311cacd" category="summary">您可以使用 System Manager 配置 AutoSupport 通知，以帮助您监控存储系统运行状况。</block>
-  <block id="a75e8acf7cda75c2cae76c182cea9cc1" category="doc">使用 System Manager — ONTAP 9.7 及更早版本管理 AutoSupport 通知</block>
-  <block id="65cb7b95d3e9511248e4d454f7a1000b" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）配置 AutoSupport 通知，以帮助您监控存储系统运行状况。</block>
-  <block id="f53ffe37b23382fbc1ab9e0ff74a9ca1" category="section-title">设置 AutoSupport 通知</block>
-  <block id="899866a691c80f26e2daef7ca4226aa1" category="paragraph">您可以使用 System Manager 中的编辑 AutoSupport 设置对话框通过指定发送电子邮件通知的电子邮件地址并添加多个电子邮件主机名来设置 AutoSupport 通知。</block>
-  <block id="5201d100a8e314b3fbeeacae19e521d3" category="list-text">选择节点，然后单击 * 编辑 * 。</block>
-  <block id="687a771b0731f71db5005ea461393c80" category="list-text">在 * 电子邮件收件人 * 选项卡中，键入发送电子邮件通知的电子邮件地址，指定电子邮件收件人和每个电子邮件收件人的邮件内容，并添加邮件主机。</block>
-  <block id="b3993d767356f296d9ae01951029b2e8" category="paragraph">最多可以为主机名添加五个电子邮件地址。</block>
-  <block id="256162f8692cabf4b90ce635f28d203d" category="list-text">在 * 其他 * 选项卡中，从下拉列表中选择用于传送电子邮件的传输协议，并指定 HTTP 或 HTTPS 代理服务器详细信息。</block>
-  <block id="f8095d0bd0b763a9801c727b7b9c9e2c" category="list-text">验证为 AutoSupport 通知设置的配置是否已在 * AutoSupport * 窗口中正确设置。</block>
-  <block id="7cfccaa9582383c3fb3502dee8cd8fa0" category="section-title">启用或禁用 AutoSupport 设置</block>
-  <block id="4a25ae18d6356c3e2e94389495282dca" category="paragraph">您可以使用 System Manager 在存储系统上启用或禁用 AutoSupport 设置。您可以通过 AutoSupport 消息监控存储系统运行状况或向技术支持和内部支持组织发送通知。</block>
-  <block id="0403edc618662f219efdb5cec6ce921d" category="paragraph">默认情况下， AutoSupport 选项处于启用状态。</block>
-  <block id="a178fec1a73600346ab5639de318ab04" category="list-text">选择节点，然后单击 * 启用 * 或 * 禁用 * 。</block>
-  <block id="8a9933d1b53dd6f17d6ec97c4891fc28" category="list-text">验证 AutoSupport 状态是否正确显示您所做的更改。</block>
-  <block id="05e7844ebc444b6fad146ea35ed30693" category="section-title">添加 AutoSupport 电子邮件收件人</block>
-  <block id="d16928f0be7c6d00043db7f8f698713f" category="paragraph">您可以使用 System Manager 中编辑 AutoSupport 设置对话框的 * 电子邮件收件人 * 选项卡添加 AutoSupport 通知收件人的电子邮件地址。</block>
-  <block id="2fb66b8ac10e5a7bcdd7a6b1230f7634" category="list-text">在 * 电子邮件收件人 * 选项卡中，键入电子邮件收件人的地址，指定收件人是接收完整消息还是短消息，然后单击 * 添加 * 。</block>
-  <block id="12ddeca8b6e6bc6719229aed2ca28f10" category="list-text">验证指定的详细信息是否显示在 * AutoSupport * 窗口中。</block>
-  <block id="59141343290d3909b8aaa7db97777945" category="section-title">测试 AutoSupport 设置</block>
-  <block id="32568cbbe429ec99cc04958091170933" category="paragraph">您可以使用 System Manager 中的 AutoSupport 测试对话框测试是否已正确配置 AutoSupport 设置。</block>
-  <block id="ecdef053776ef467659a2f7843d75970" category="list-text">选择节点，然后单击 * 测试 * 。</block>
-  <block id="e8fd5a221ba9aaf9f296550b6f84c874" category="list-text">在 * AutoSupport Test* 对话框中，输入 AutoSupport 主题文本 "`Test AutoSupport` " 或任何通知收件人您正在测试 AutoSupport 设置的文本。</block>
-  <block id="e5e2f833538b1021bce60cd294a0b820" category="list-text">单击 * 测试 * 。</block>
-  <block id="b4df96ee5421c196535d968ddf8dcdbf" category="paragraph">主题为 "`Test AutoSupport` " 的电子邮件或您在 * AutoSupport Subjection* 字段中键入的文本将发送给指定的收件人。</block>
-  <block id="f8ac418fe34a9d032d82e1a5fe1cc538" category="section-title">生成 AutoSupport 数据</block>
-  <block id="d7c288e747ce8081bd029cb8110b915a" category="paragraph">您可以使用 System Manager 为单个或多个节点生成 AutoSupport 数据，以监控其运行状况并向技术支持发送通知。</block>
-  <block id="560b99032ab2ade2fd44293f30542881" category="list-text">选择节点，然后单击 * AutoSupport request* &gt; * 生成 AutoSupport * 。</block>
-  <block id="b4c58686dbd257d5a4c2cfc900c2fffe" category="paragraph">默认情况下，系统会为所有节点生成 AutoSupport 数据。</block>
-  <block id="66901fe22b1302d615fd6a33ce3ed2a1" category="list-text">在 * 生成 AutoSupport * 对话框中，执行以下步骤：</block>
-  <block id="907fe6e970abae806b1c310cc8ebfe5b" category="list-text">如果要为特定节点生成 AutoSupport 数据，请清除 * 为所有节点生成 AutoSupport 数据 * 复选框，然后选择该节点。</block>
-  <block id="fe9737666daea356168fe09824dd7c16" category="list-text">键入案例编号。</block>
-  <block id="cf4ac7ce33a0d726953e3d5617ce159f" category="list-text">在 * 确认 * 对话框中，单击 * 确定 * 。</block>
-  <block id="44922bc3fbbb78111c1b1d7f3f6a16d5" category="section-title">查看 AutoSupport 摘要</block>
-  <block id="180585c2bf107777563ef87199b3a128" category="paragraph">您可以使用 System Manager 查看所有先前 AutoSupport 数据的状态和详细信息，以便查看已发送给技术支持的数据。您还可以查看这些信息，了解存储系统的运行状况和性能。</block>
-  <block id="40e9b033a605f4b9e70b7533dbe4cc68" category="list-text">选择节点，然后单击 * AutoSupport request* &gt; * 查看先前摘要 * 。</block>
-  <block id="ec319ea6d5029219f5360564e39bce20" category="paragraph">此时将显示所有节点的 AutoSupport 数据。</block>
-  <block id="7cd2400c36efced648da662ee35c50db" category="section-title">AutoSupport 严重性类型</block>
-  <block id="481b198660a6150c43056f34d7e2cf2e" category="paragraph">AutoSupport 消息的严重性类型可帮助您了解每条消息的用途，例如，用于立即引起对紧急问题的注意，或者仅用于提供信息。</block>
-  <block id="696cbc725f30685e5fa8ce370d6f6954" category="paragraph">消息具有以下严重性之一：</block>
-  <block id="581092a5673e91e014d76b69ceebdf33" category="list-text">* 警报 * ：警报消息表示，如果不采取某些操作，可能会发生更高级别的事件。</block>
-  <block id="e2187f9725fb45cce9f73beddfb887f4" category="paragraph">您必须在 24 小时内对警报消息采取措施。</block>
-  <block id="742c1bb29d3105108b3c147111efab2e" category="list-text">* 紧急 * ：发生中断时会显示紧急消息。</block>
-  <block id="deadcded381dc54c5b4315a60e438efb" category="paragraph">您必须立即对紧急消息采取措施。</block>
-  <block id="0f8ace2d00677452acebed4ac5f08f28" category="list-text">* 错误 * ：错误条件表示忽略后可能发生的情况。</block>
-  <block id="bda1600937310f07d4e989c02fc850f5" category="list-text">* 注意事项 * ：正常但重要的情况。</block>
-  <block id="915f01d0c8edc0c91010fd08de60d06e" category="list-text">* 信息 * ：信息性消息提供了有关问题描述的详细信息，您可以忽略这些信息。</block>
-  <block id="5c1133334cd09acd3c04f0c1c5901533" category="list-text">* 调试 * ：调试级别的消息提供了应执行的说明。</block>
-  <block id="da1e3514a2d926808d163915057fbecc" category="paragraph">如果您的内部支持组织通过电子邮件接收 AutoSupport 消息，则严重性将显示在电子邮件消息的主题行中。</block>
-  <block id="6bcf33de034389db3d5853162953d505" category="section-title">AutoSupport 窗口</block>
-  <block id="1a7d77c8e798bc441a5334c9355a45d5" category="paragraph">通过 AutoSupport 窗口，您可以查看系统的当前 AutoSupport 设置。您还可以更改系统的 AutoSupport 设置。</block>
-  <block id="359380a3c78af945b2ae90f815244396" category="paragraph">启用 AutoSupport 通知。默认值为 * 启用 * 。</block>
-  <block id="da870272b32f4cbfade1d5a90b8e3f29" category="paragraph">禁用 AutoSupport 通知</block>
-  <block id="2e7e65a7e342af7e8e9f4a5bd5546e80" category="list-text">* 测试 *</block>
-  <block id="e5ff12d5fe310fb00a01d79c857e3012" category="paragraph">打开 AutoSupport 测试对话框，在此可以生成 AutoSupport 测试消息。</block>
-  <block id="c17beda1e1f2784da4409798c0b828aa" category="list-text">* AutoSupport 请求 *</block>
-  <block id="9efb97efa656bf8b294b9560fa48f2e3" category="paragraph">提供以下 AutoSupport 请求：</block>
-  <block id="f7b81a92807ea0daac699e3be8d2f1a8" category="list-text">* 生成 AutoSupport *</block>
-  <block id="5f6eee0f282fb718d0b02e1081963d06" category="paragraph">为选定节点或所有节点生成 AutoSupport 数据。</block>
-  <block id="4db536d8e0d23affd53ff50f18315229" category="list-text">* 查看先前摘要 *</block>
-  <block id="49edbf7f86eb853da37612c4c1c8c81b" category="paragraph">显示所有先前 AutoSupport 数据的状态和详细信息。</block>
-  <block id="85d7a739c6bad7aa6a52aeb9d15d8dc7" category="paragraph">详细信息区域显示 AutoSupport 设置信息，例如节点名称， AutoSupport 状态，使用的传输协议以及代理服务器的名称。</block>
   <block id="cf18771d2723aa8f45b649802cca21bb" category="summary">您可以使用 System Manager 通过在一个聚合中实时镜像数据来保护数据并提高故障恢复能力。镜像聚合可避免在连接到磁盘和阵列 LUN 时出现单点故障。</block>
   <block id="082fcd43395a78c9af7e1c1aede841c9" category="doc">使用 System Manager 镜像聚合— ONTAP 9.7 及更早版本</block>
   <block id="7320e70f830697cfb3f68adab3cec989" category="paragraph">您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）在一个聚合中实时镜像数据，以保护数据并提高故障恢复能力。镜像聚合可避免在连接到磁盘和阵列 LUN 时出现单点故障。</block>
@@ -9021,7 +8752,6 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="56f7090374da6c285faf44a2d3d36387" category="paragraph">对于大多数数据传输故障、将显示字段<block ref="bafd7322c6e97d25b6299b5d6fe8920b" prefix=" " category="inline-code"></block>。但是、在某些故障情况下、此字段仍会显示<block ref="93cba07454f06a4a960172bbd6e2a435" prefix=" " category="inline-code"></block>。您必须在详细信息部分中检查传输错误，以确保未发生数据传输故障。</block>
   <block id="d984d9c45d9cc749d08f539d70415f1c" category="list-text">滞后时间不得超过传输计划间隔。</block>
   <block id="84ab02685a1be3ebfb0d9fdcdebd3620" category="paragraph">例如，如果传输计划为每日，则滞后时间不得超过一天。</block>
-  <block id="1eeba1edb754efde0f9cecd9c594e61f" category="image-alt">监控 SV</block>
   <block id="f54fe60c5cda1542fbcb4223ed181b1a" category="summary">您必须在一个集群上的源卷与对等集群上的目标卷之间创建 SnapVault 关系，才能创建 SnapVault 备份。</block>
   <block id="681b555578c6300aa44915faa6e62624" category="doc">创建 SnapVault 关系（从 ONTAP 9.3 开始）</block>
   <block id="111d55d127c8b160f91a1ed2a3d66659" category="list-text">选择要备份的卷，然后单击 * 操作 * &gt; * 保护 * 。</block>
@@ -9035,17 +8765,13 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="0e4bdb912795a75f20bb4cf92e12ede0" category="list-text">选择 * 保护计划 * 。</block>
   <block id="8a29542fd88167bed5c273f4dfaf8a32" category="paragraph">默认情况下、<block ref="bea79186fd7af2da67e59b4b15df5a26" prefix=" " category="inline-code"></block> 已选择计划。</block>
   <block id="a2c37d2ba543d4b2fa6945958d1b06a6" category="paragraph">默认情况下，所有数据保护关系都会初始化。</block>
-  <block id="cdce3cfd69d3c04640402322214fbd7b" category="image-alt">SnapVault 高级选项</block>
   <block id="ad4cee41b42d5d1487fc368bacee9035" category="list-text">在 * 卷：保护卷 * 页面中，单击 * 验证 * 以验证卷是否具有匹配的 SnapMirror 标签。</block>
   <block id="15b9d1ba7d09ca92877eccf7c8dc834c" category="list-text">单击 * 保存 * 以创建 SnapVault 关系。</block>
   <block id="8692227f3e95b2f8bebdf8e94baa86d2" category="list-text">验证SnapVault关系的状态是否在中<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> 状态。</block>
   <block id="9c53011af7d95ac75de04cec46ecb8d2" category="list-text">导航到 * 卷 * 窗口，然后选择已备份的卷。</block>
   <block id="94b31a2df9b136cec0223f40179bf9fa" category="list-text">展开卷并单击 * 保护 * 以查看卷的数据保护状态。</block>
-  <block id="0acbaa58e2a15a8cfdca743b66a7589f" category="image-alt">SnapVault 9 3.</block>
   <block id="7b1a6834c9e6f565e0e67a08da561eb0" category="summary">在使用 SnapVault 技术为卷设置数据保护之前，您必须验证源集群和目标集群是否已建立对等关系并通过对等关系彼此通信。您还必须验证源 SVM 和目标 SVM 是否已建立对等关系，并且正在通过对等关系彼此通信。</block>
   <block id="1d2c5f3cf91a6ac4437d06b0d35f22aa" category="doc">验证集群对等关系和 SVM 对等关系</block>
-  <block id="9aaabaf6b02ac9896ad51eeefe73cf8f" category="image-alt">集群 pper 930s 备份</block>
-  <block id="c78e5ac9d023c52ba5fef3f2b6285cf3" category="image-alt">集群对等运行状况备份</block>
   <block id="d9754d70c58cd9e08660aa07fe333726" category="paragraph">如果在此区域中未看到任何对等 SVM ，则可以在创建 SnapVault 关系时创建 SVM 对等关系。</block>
   <block id="71d1ddff7dfe7c5d5d498435abd07d64" category="inline-xref-macro">创建 SnapVault 关系（ ONTAP 9.2 或更早版本）</block>
   <block id="7aba3f692e5d868662f8bb21f2d6b326" category="paragraph"><block ref="7aba3f692e5d868662f8bb21f2d6b326" category="inline-xref-macro-rx"></block></block>
@@ -9053,17 +8779,13 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="7b54a4baecee8025c7a584063b284860" category="list-text">选择要备份的卷，然后单击 * 保护 * 。</block>
   <block id="46a75c55e1d18259e0d99ca1a2d6e6dc" category="list-text">使用默认卷名称或输入新卷名称。</block>
   <block id="290b5b3199ef348f9cbd79b99c5bb958" category="list-text">确保已选中 * 启用重复数据删除 * 复选框。</block>
-  <block id="31cb8a9c222dc79d8a607e91c2ec5087" category="image-alt">目标卷 SnapVault</block>
   <block id="853eaceca4495bec215242975ab75a5c" category="list-text">在*Configuration Details*部分中，选择<block ref="a56c1780b810accc7f0bc23193dc16aa" prefix=" " category="inline-code"></block> 作为保护策略。</block>
   <block id="aff39a5b1ae1c8209559a8d4f0ddc867" category="list-text">确保选中 * 初始化关系 * 复选框以传输基本 Snapshot 副本，然后单击 * 创建 *</block>
-  <block id="0d1bc641bee3f79300dd2bd71a01cd61" category="image-alt">配置详细信息 SnapVault</block>
   <block id="02a06f3e8dce89d13793f3516c1397b5" category="paragraph">向导将使用指定的存储策略和计划创建关系。通过启动从源卷到目标卷的基线数据传输来初始化此关系。</block>
   <block id="9ed2c9c51f61eff07d1309d3b0a092ab" category="paragraph">状态部分显示每个作业的状态。</block>
-  <block id="571a6fbf06fcab2eacce2bf9f22f7d14" category="image-alt">成功创建 SnapVault</block>
   <block id="12e1c92f78e02c7c7176879151b9f047" category="list-text">验证SnapVault关系的关系状态是否在中<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> 状态。</block>
   <block id="0a1f8ccbf1c3a92e6cf0a2fab027e9d7" category="list-text">从卷列表中选择卷，然后单击 * 数据保护 * 。</block>
   <block id="ede5499c007334976c473361dd3cae93" category="list-text">在*数据保护*底部选项卡中，验证您创建的SnapMirror关系是否已列出，关系状态是否为<block ref="d34e79870b17da17e894ddc837954dcc" prefix=" " category="inline-code"></block> 类型为<block ref="5b70a213f150f01f0776fa9481ef2ddf" prefix=" " category="inline-code"></block>。</block>
-  <block id="88a39d6a7af7f65fcb4ad6f3ff576d67" category="image-alt">数据保护窗口 SV</block>
   <block id="0dda7a83024c1a48482d48cb5cc0197e" category="summary">配置 SnapVault 备份关系包括验证集群对等关系，在源卷和目标卷之间创建 SnapVault 关系以及监控 SnapVault 关系。</block>
   <block id="2f17efffc575aac669d2b6d5b6e3ce0c" category="doc">SnapVault 备份配置工作流</block>
   <block id="33d698c5405b59cf282a091b0fab54f4" category="image-alt">此图是 SnapVault 备份配置工作流的流程图。工作流中的步骤与主题匹配。</block>
@@ -9097,7 +8819,6 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="6a1430dbf84d6dc23f417c150bfc22be" category="sidebar">System Manager 经典文档</block>
   <block id="8cd255c7908d433af7a81a9f59fbc06b" category="sidebar">使用 System Manager 9.6 和 9.7 进行集群管理</block>
   <block id="c8db31d0d38042ea4fd10dd6bdfd347e" category="sidebar">ONTAP 文档</block>
-  <block id="d648f2a68a54fd1b3329efc3cf24d29c" category="sidebar">法律声明</block>
   <block id="0fe674cba26a6125717793de11bb3096" category="sidebar">集群扩展管理</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">概述</block>
   <block id="28ed8622e2b3c95e29e6f443b5b6cd84" category="sidebar">初始化并格式化 LUN</block>
@@ -9946,4 +9667,39 @@ LDAP 是此 SVM 上名称服务和名称映射的主要用户信息来源。</bl
   <block id="b1ddb251aa66bea48e797b1ba2490583" category="sidebar">常规网络主题(ONTAP 9.7及更早版本)</block>
   <block id="a29d5547f6b6a3eb59e3d47cdb1c8b3e" category="sidebar">广播域(ONTAP 9.7或更早版本)</block>
   <block id="d7f29243972dcd66136a878c3167ee3a" category="sidebar">关于NAS路径故障转移(ONTAP 9.7及更早版本)</block>
+  <block id="31a492c1ac21a132d45144f6d5949a5a" category="paragraph"><block ref="2cd65b4a044075cfd9ad4a91f42fdff4" category="inline-link-macro-rx"></block> <block ref="5e764cc3fdcc19ff667796e414159bdc" category="inline-link-macro-rx"></block> <block ref="561451f09c7bca700ea0d7833cd9e92e" category="inline-link-macro-rx"></block> <block ref="d23d341a344216fbf99a91152429d49c" category="inline-link-macro-rx"></block> <block ref="b35e8fbd7b0369b23734510994911ec4" category="inline-link-macro-rx"></block> <block ref="41d4305cf7a6acb595086f123121a781" category="inline-link-macro-rx"></block> <block ref="ea685649fabe77da53e843fec56f72b8" category="inline-link-macro-rx"></block></block>
+  <block id="021e58ded68582927279871a5a249d56" category="inline-image-macro">高级选项图标</block>
+  <block id="e942e17609bdfacf699e4326db9a5c6c" category="list-text">单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>(高级选项)，选择*Schema *，然后单击*Apply*。</block>
+  <block id="71d3f2fbd3f099e5e4004ce407520fc5" category="image-alt">MetroCluster切换和切回工作流流程图</block>
+  <block id="0a8898c3a5c1c7dfcdf9a1ea89ba1371" category="image-alt">用于设置NVMe的工作流</block>
+  <block id="c92735279096095430f4ba8938a4625a" category="image-alt">用于设置集群环境的工作流</block>
+  <block id="0932f3e300e26042e0464118925831e7" category="image-alt">使用System Manager更新MetroCluster配置中的集群</block>
+  <block id="2138adc51055649c980ae237aae09678" category="image-alt">使用System Manager更新非MetroCluster配置中的集群</block>
+  <block id="58eb14d339cce9656dd664894d1bed13" category="image-alt">使用System Manager配置和管理云层的工作流</block>
+  <block id="0f996dc5a102ad4590e9c4a6a1b2bea6" category="list-text">如果要修改以下任一设置，请单击高级选项图标以显示*高级选项<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>*对话框窗口，您可以在其中进行更改：</block>
+  <block id="b9749ab015e0a86ac53cf1e8355b0463" category="list-text">如果要指定特定聚合、请单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>(高级选项)。</block>
+  <block id="6b4f7970ed14ffcd2cd01a5bcad00df4" category="list-text">*可选:*单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>以修改FlexCache卷的高级设置。请参阅 <block ref="01d1f9ee7eafcb47c4d200eceb73ffd6" category="inline-link-macro-rx"></block>。</block>
+  <block id="66a8e1c221410e093d9f8952f96aa718" category="list-text">*可选：*单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>以修改FlexGroup卷设置。请参阅 <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>。</block>
+  <block id="12f0ba62a35184ad78e46495aed599c3" category="paragraph">如果要通过添加新资源来扩展FlexGroup卷、请单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>(高级选项)。请参阅 <block ref="07a83aa5aab69a8b3aaebefbf523161a" category="inline-link-macro-rx"></block>。</block>
+  <block id="bd2994eecdfc948859d61e5e8af39d76" category="paragraph">如果要通过添加新资源来扩展FlexCache卷、请单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>(高级选项)。请参阅 <block ref="4f3fc931d92f22f55a489e2373f71d6c" category="inline-link-macro-rx"></block>。</block>
+  <block id="1c2bb56fbb6f256a844ce48503a61592" category="paragraph">如果要通过添加新资源来扩展FlexGroup卷、请单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>(高级选项)。</block>
+  <block id="4f0cd92236bc3ee5c59393dcb1cd46c4" category="image-alt">使用ONTAP System Manager设置集群的工作流</block>
+  <block id="34db6f0144d3faddcec6503e7b19a934" category="image-alt">用于设置对等的工作流</block>
+  <block id="10fb5742f027d94f2d9a2be7a521980a" category="image-alt">使用System Manager设置SAML身份验证的工作流</block>
+  <block id="ac406f7b3ac832289490a9928155e573" category="list-text">*可选：*在“*编辑FlexCache卷*”窗口中，单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>以指定高级选项。</block>
+  <block id="22c88cbfb69451eb5b1700c79078a2e8" category="list-text">*可选：*在“*创建FlexGroup”窗口中，单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>以指定高级选项。</block>
+  <block id="a4f2dcacb59f6247563b33c78abb9af7" category="list-text">*可选:*单击<block ref="6c20450af8e0cd46e0829c03c729b979" category="inline-image-macro-rx" type="image"></block>以指定更多详细信息以缩小跟踪范围。</block>
+  <block id="98ff9d400ff71b78fe9bd8396d181d0c" category="image-alt">配置目标卷选项卡并选中启用重复数据删除复选框</block>
+  <block id="c8c7c1580ea9ee0164932b98ebbba6e9" category="image-alt">带有初始化关系复选框的配置详细信息选项卡</block>
+  <block id="a39ef4a00faaede12888a132ba359f72" category="image-alt">创建保护关系选项卡、其中状态部分显示每个作业的状态</block>
+  <block id="0ff83997287948cdae3d09fc1f872456" category="image-alt">底部的数据保护选项卡</block>
+  <block id="39c95ce3156249f19819bd55058330d0" category="image-alt">SnapVault高级选项选项卡</block>
+  <block id="7574361a6adbb68646e2913372161dd6" category="image-alt">显示卷的数据保护状态的卷窗口</block>
+  <block id="d0ab8e4cbb595e3b42eea0ebaa196387" category="image-alt">SnapVault关系状态</block>
+  <block id="b49af746329694d471b02754b346b2e1" category="image-alt">验证对等集群</block>
+  <block id="f1708c3087f0b9656f84ffb11ef5f176" category="image-alt">显示集群对等部分的集群详细信息窗格、用于验证对等集群是否已通过身份验证且可用</block>
+  <block id="f143a26d3aa1a2ec09915e966ba2e79d" category="image-alt">SnapMirror数据传输状态</block>
+  <block id="2cb784360ea1f63614d3f5bcaa598a3f" category="image-alt">验证对等集群是否已通过身份验证且可用</block>
+  <block id="da91c7a4b0770d58391de5b02e703da7" category="image-alt">集群对等方部分、显示对等集群已通过身份验证且可用</block>
+  <block id="9a1ae1f025bf3468de6eafb8382a5104" category="image-alt">显示SnapMirror关系中的目标卷的保护选项卡图像</block>
 </blocks>

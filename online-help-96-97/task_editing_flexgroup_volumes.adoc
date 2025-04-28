@@ -37,7 +37,7 @@ FlexGroup 卷必须处于联机状态。
 只有在已启用卷加密许可证且相应平台支持加密的情况下，此选项才可用。
 
 . 指定 Snapshot 副本预留的百分比。
-. * 可选： * 单击 image:../media/advanced_options.gif[""] 修改 FlexGroup 卷设置。请参见 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
+. *可选：*单击image:../media/advanced_options.gif["高级选项图标"]以修改FlexGroup卷设置。请参阅 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
 . 指定要将 FlexGroup 卷调整到的大小。
 +
 默认情况下，现有聚合用于调整 FlexGroup 卷的大小。卷允许的最小大小显示在大小字段旁边。
@@ -45,7 +45,7 @@ FlexGroup 卷必须处于联机状态。
 +
 [NOTE]
 ====
-如果要通过添加新资源来扩展 FlexGroup 卷，请单击 image:../media/advanced_options.gif[""] （高级选项）。请参见 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
+如果要通过添加新资源来扩展FlexGroup卷、请单击image:../media/advanced_options.gif["高级选项图标"](高级选项)。请参阅 link:task_specifying_advanced_options_for_flexgroup_volume.html["为 FlexGroup 卷指定高级选项"]。
 
 ====
 . 单击 * 保存 * 以保存更改。

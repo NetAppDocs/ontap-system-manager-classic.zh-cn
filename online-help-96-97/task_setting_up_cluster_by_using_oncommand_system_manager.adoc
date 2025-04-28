@@ -31,4 +31,4 @@ ONTAP 软件的 MetroCluster 配置不支持集群设置操作。
 
 您可以使用模板文件或在集群设置向导中手动输入值来设置集群。
 
-image::../media/cluster_setup_workflow.gif[集群设置工作流]
+image::../media/cluster_setup_workflow.gif[使用ONTAP System Manager设置集群的工作流]

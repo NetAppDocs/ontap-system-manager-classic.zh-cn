@@ -23,7 +23,7 @@ summary: 如果源卷不可用，您必须验证源卷是否已脱机，然后�
 +
 ** 从 ONTAP 9.3 开始：双击源卷以查看详细信息，然后单击 * 保护 * 以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
 +
-image::../media/snapmirror_destination_93.gif[SnapMirror 目标 9e.]
+image::../media/snapmirror_destination_93.gif[显示SnapMirror关系中的目标卷的保护选项卡图像]
 
 ** ONTAP 9.2 或更早版本：单击卷页面底部的 * 数据保护 * 选项卡，以确定 SnapMirror 关系中的目标卷以及包含该卷的 SVM 的名称。
 +

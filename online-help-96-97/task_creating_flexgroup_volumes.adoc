@@ -70,7 +70,7 @@ summary: FlexGroup 卷可以包含许多卷，这些卷可以作为一个组进�
 ** 如果 SVM 中仅存在 FabricPool 聚合，则 * FabricPool * 按钮将显示在 " 已启用 " 位置，并且无法更改。
 
 
-. 如果要指定特定聚合，请单击 image:../media/advanced_options.gif[""] （高级选项）。
+. 如果要指定特定聚合、请单击image:../media/advanced_options.gif["高级选项图标"](高级选项)。
 +
 默认情况下，系统会根据最佳实践选择与要创建的 FlexGroup 卷关联的聚合。它们将显示在 * 聚合 * 标签旁边。
 

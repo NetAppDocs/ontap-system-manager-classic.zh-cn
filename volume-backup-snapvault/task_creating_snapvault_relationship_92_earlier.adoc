@@ -59,13 +59,13 @@ peered
 
 
 +
-image::../media/dest_vol_snapvault.gif[目标卷 SnapVault]
+image::../media/dest_vol_snapvault.gif[配置目标卷选项卡并选中启用重复数据删除复选框]
 
 . 在*Configuration Details*部分中，选择 `XDPDefault` 作为保护策略。
 . 从计划列表中选择一个保护计划。
 . 确保选中 * 初始化关系 * 复选框以传输基本 Snapshot 副本，然后单击 * 创建 *
 +
-image::../media/config_details_snapvault.gif[配置详细信息 SnapVault]
+image::../media/config_details_snapvault.gif[带有初始化关系复选框的配置详细信息选项卡]
 
 +
 向导将使用指定的存储策略和计划创建关系。通过启动从源卷到目标卷的基线数据传输来初始化此关系。
@@ -74,14 +74,14 @@ image::../media/config_details_snapvault.gif[配置详细信息 SnapVault]
 状态部分显示每个作业的状态。
 
 +
-image::../media/create_snapvault_success.gif[成功创建 SnapVault]
+image::../media/create_snapvault_success.gif[创建保护关系选项卡、其中状态部分显示每个作业的状态]
 
 . 验证SnapVault关系的关系状态是否在中 `Snapmirrored` 状态。
 +
 .. 从卷列表中选择卷，然后单击 * 数据保护 * 。
 .. 在*数据保护*底部选项卡中，验证您创建的SnapMirror关系是否已列出，关系状态是否为 `Snapmirrored` 类型为 `Vault`。
 +
-image::../media/data_protection_window_sv.gif[数据保护窗口 SV]
+image::../media/data_protection_window_sv.gif[底部的数据保护选项卡]
 
 
 

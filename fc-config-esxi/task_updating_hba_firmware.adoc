@@ -26,7 +26,3 @@ summary: 如果 ESX 主机中的 FC 主机总线适配器运行的驱动程序�
 安装说明以及所需的任何安装实用程序均可随下载获得。
 
 
-
-* 相关信息 *
-
-http://kb.vmware.com/kb/1002413["VMware 知识库文章 1002413 ：确定 Qlogic 或 Emulex FC HBA 的固件"]

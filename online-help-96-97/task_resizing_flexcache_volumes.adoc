@@ -29,7 +29,7 @@ summary: 从 System Manager 9.6 开始，您可以通过调整现有资源的大
 +
 [NOTE]
 ====
-如果要通过添加新资源来扩展 FlexCache 卷，请单击 image:../media/advanced_options.gif[""] （高级选项）。请参见 link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html["为 FlexCache 卷指定高级选项"]。
+如果要通过添加新资源来扩展FlexCache卷、请单击image:../media/advanced_options.gif["高级选项图标"](高级选项)。请参阅 link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_specifying_advanced_options_for_flexcache_volume.html["为 FlexCache 卷指定高级选项"]。
 
 ====
 . 单击 * 保存 * 以调整 FlexCache 卷的大小。

@@ -26,7 +26,7 @@ summary: 从 System Manager 9.6 开始，您可以诊断 Storage Virtual Machine
 . 单击 * 继续 * 开始文件跟踪过程。
 . 选择用于访问选定 SVM 上的文件或共享的协议。
 . 在 * 用户名 * 字段中，输入尝试访问文件或共享的用户的名称。
-. * 可选： * 单击 image:../media/advanced_options.gif[""] 指定更多详细信息以缩小跟踪范围。
+. *可选:*单击image:../media/advanced_options.gif["高级选项图标"]以指定更多详细信息以缩小跟踪范围。
 +
 通过高级选项对话框窗口，您可以指定以下详细信息：
 

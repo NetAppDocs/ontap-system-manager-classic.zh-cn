@@ -15,7 +15,7 @@ summary: 将数据存储在层中可以提高存储系统的效率。您可以�
 * 您必须具有全闪存（全 SSD ）聚合
 
 
-image::../media/fabricpool_workflow.gif[FabricPool 工作流]
+image::../media/fabricpool_workflow.gif[使用System Manager配置和管理云层的工作流]
 
 
 
@@ -69,7 +69,7 @@ image::../media/fabricpool_workflow.gif[FabricPool 工作流]
 +
 如果您选择 AWS Commercial Cloud Service （ C2S ）作为类型，则必须指定 CAP URL ，服务器 CA 证书和客户端证书。
 
-. 如果要修改以下任何设置，请单击高级选项图标 image:../media/advanced_options.gif[""] 要显示 * 高级选项 * 对话框窗口以进行更改，请执行以下操作：
+. 如果要修改以下任一设置，请单击高级选项图标以显示*高级选项image:../media/advanced_options.gif["高级选项图标"]*对话框窗口，您可以在其中进行更改：
 +
 ** 用于访问云层的端口号
 ** 启用或禁用 * ssl* 选项，以便将数据安全传输到云层

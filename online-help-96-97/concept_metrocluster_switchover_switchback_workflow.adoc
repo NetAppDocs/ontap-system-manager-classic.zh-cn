@@ -56,4 +56,4 @@ System Manager 支持两种切换操作，具体取决于远程集群站点的�
 
 以下流程图展示了启动切换和切回操作时发生的阶段和过程。
 
-image::../media/switchover_switchback_workflow.jpg[切换切回工作流]
+image::../media/switchover_switchback_workflow.jpg[MetroCluster切换和切回工作流流程图]

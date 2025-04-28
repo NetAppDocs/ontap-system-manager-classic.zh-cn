@@ -14,7 +14,7 @@ summary: 从 System Manager 9.6 开始，编辑 FlexCache 卷时，您可以指�
 从 System Manager 9.6 开始，编辑 FlexCache 卷时，您可以指定要与 FlexCache 卷关联的高级选项。
 
 .步骤
-. *可选：*在*编辑FlexCache 卷*窗口中、单击 image:../media/advanced_options.gif[""] 以指定高级选项。
+. *可选：*在“*编辑FlexCache卷*”窗口中，单击image:../media/advanced_options.gif["高级选项图标"]以指定高级选项。
 +
 此时将显示高级选项窗口。它包含一些部分（左列中的标题），您可以在其中指定各种选项。
 

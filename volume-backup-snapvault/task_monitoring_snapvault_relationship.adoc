@@ -44,7 +44,7 @@ summary: 您应定期监控 SnapVault 关系的状态，以确保按照指定计
 http://www.netapp.com/us/media/tr-4015.pdf["NetApp 技术报告 4015 ：《 ONTAP 9.1 和 9.2 的 SnapMirror 配置和最佳实践》"^]
 
 +
-image::../media/monitor_sv.gif[监控 SV]
+image::../media/monitor_sv.gif[SnapVault关系状态]
 
 
 

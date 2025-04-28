@@ -17,6 +17,4 @@ summary: 您可以使用 System Manager 管理磁盘。
 
 https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["磁盘和聚合管理"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"^]
-
 https://docs.netapp.com/us-en/ontap/concepts/index.html["ONTAP 概念"^]

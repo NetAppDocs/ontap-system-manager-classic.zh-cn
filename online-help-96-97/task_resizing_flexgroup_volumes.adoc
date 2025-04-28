@@ -29,7 +29,7 @@ summary: 您可以使用 System Manager 通过调整现有资源的大小或添�
 +
 [NOTE]
 ====
-如果要通过添加新资源来扩展 FlexGroup 卷，请单击 image:../media/advanced_options.gif[""] （高级选项）。
+如果要通过添加新资源来扩展FlexGroup卷、请单击image:../media/advanced_options.gif["高级选项图标"](高级选项)。
 
 ====
 . 指定 Snapshot 副本预留的百分比。

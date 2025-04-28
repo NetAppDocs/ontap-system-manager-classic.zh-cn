@@ -17,4 +17,4 @@ summary: 您可以使用 System Manager 为 SVM 设置 NVMe 协议。在 SVM 上
 
 下图显示了设置 NVMe 的工作流：
 
-image::../media/nvme_setup_workflow.gif[NVMe 设置工作流]
+image::../media/nvme_setup_workflow.gif[用于设置NVMe的工作流]

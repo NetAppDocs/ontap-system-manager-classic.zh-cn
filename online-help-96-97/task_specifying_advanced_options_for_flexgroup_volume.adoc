@@ -14,7 +14,7 @@ summary: 创建 FlexGroup 卷时，您可以指定要与 FlexGroup 卷关联的�
 创建 FlexGroup 卷时，您可以使用 ONTAP System Manager classic （在 ONTAP 9.7 及更早版本中可用）指定要与 FlexGroup 卷关联的选项。
 
 .步骤
-. *可选：*在*创建FlexGroup *窗口中、单击 image:../media/advanced_options.gif[""] 以指定高级选项。
+. *可选：*在“*创建FlexGroup”窗口中，单击image:../media/advanced_options.gif["高级选项图标"]以指定高级选项。
 +
 此时将显示高级选项窗口。它包含一些部分（左列中的标题），您可以在其中指定各种选项。
 

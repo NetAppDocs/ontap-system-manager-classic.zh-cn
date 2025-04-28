@@ -13,7 +13,7 @@ summary: 您可以使用 System Manager 更新 MetroCluster 配置中的集群�
 [role="lead"]
 您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新 MetroCluster 配置中的集群。您必须在两个集群上执行每个操作，但更新集群除外。
 
-image::../media/updating_cluster_mcc_configuration.gif[正在更新集群 MCC 配置]
+image::../media/updating_cluster_mcc_configuration.gif[使用System Manager更新MetroCluster配置中的集群]
 
 * 相关信息 *
 

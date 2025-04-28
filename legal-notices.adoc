@@ -46,3 +46,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 == 开放源代码
 
 通知文件提供有关 NetApp 软件中使用的第三方版权和许可证的信息。
+
+提供有关本产品中使用的第三方版权和许可证的信息。
+
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2860921["ONTAP 9.7通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2855145["ONTAP 9.6的通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2850702["ONTAP 9.5通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2844310["ONTAP 9.4通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2839209["ONTAP 9.3通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2702054["ONTAP 9.2通知"^] link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2516795["ONTAP 9.1通知"^]

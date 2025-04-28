@@ -13,7 +13,7 @@ summary: 您可以使用 System Manager 更新集群或高可用性（ HA ）对
 [role="lead"]
 您可以使用 ONTAP System Manager classic （适用于 ONTAP 9.7 及更早版本）更新集群或高可用性（ HA ）对中的各个节点。要执行更新，您应选择一个 ONTAP 映像，验证集群或 HA 对中的各个节点是否已做好更新准备，然后执行更新。
 
-image::../media/updating_cluster.gif[正在更新集群]
+image::../media/updating_cluster.gif[使用System Manager更新非MetroCluster配置中的集群]
 
 * 相关信息 *
 

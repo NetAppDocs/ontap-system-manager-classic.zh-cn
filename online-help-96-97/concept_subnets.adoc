@@ -17,7 +17,6 @@ summary: 您可以使用 System Manager 管理子网。
 
 == 编辑子网设置
 
-[role="lead"]
 您可以使用 System Manager 修改子网属性，例如子网的名称，子网地址， IP 地址范围和网关地址。
 
 .关于此任务

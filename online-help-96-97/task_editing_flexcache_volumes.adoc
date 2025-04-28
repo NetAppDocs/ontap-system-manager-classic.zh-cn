@@ -20,7 +20,7 @@ summary: 从 System Manager 9.6 开始，您可以编辑现有 FlexCache 卷的�
 . *可选：*在* FlexCache Volume*下的*卷*字段中输入FlexCache 卷的新名称。
 . *可选：*在* FlexCache Volume*下的*大小*字段中输入FlexCache 卷的新大小、然后从下拉菜单中选择度量单位。
 . *可选：*启用或禁用加密。
-. * 可选： * 单击 image:../media/advanced_options.gif[""] 修改 FlexCache 卷高级设置。请参见 link:task_specifying_advanced_options_for_flexcache_volume.html["为 FlexCache 卷指定高级选项"]。
+. *可选:*单击image:../media/advanced_options.gif["高级选项图标"]以修改FlexCache卷的高级设置。请参阅 link:task_specifying_advanced_options_for_flexcache_volume.html["为 FlexCache 卷指定高级选项"]。
 . 单击 * 保存 * 以保存更改。
 
 

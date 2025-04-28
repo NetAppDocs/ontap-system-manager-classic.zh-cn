@@ -100,7 +100,6 @@ interval
 
 == 删除计划
 
-[role="lead"]
 您可以使用 System Manager 删除运行特定存储管理任务的计划。
 
 .步骤

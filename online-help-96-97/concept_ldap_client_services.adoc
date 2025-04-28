@@ -32,7 +32,7 @@ summary: 您可以使用 System Manager 添加，编辑和删除 LDAP 客户端�
 . 单击 * 添加 * 。
 . 键入 LDAP 客户端的名称。
 . 添加 Active Directory 域或 LDAP 服务器。
-. 单击 image:../media/advanced_options.gif[""] （高级选项），选择 * 架构 * ，然后单击 * 应用 * 。
+. 单击image:../media/advanced_options.gif["高级选项图标"](高级选项)，选择*Schema *，然后单击*Apply*。
 . 指定 * 基本 DN* 和 * TCP 端口 * 。
 . 单击 * 绑定 * ，然后指定身份验证详细信息。
 . 单击 * 保存并关闭 * 。
